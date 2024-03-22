@@ -1,0 +1,617 @@
+CRITICAL - 2024-03-22 00:34:51 --> ErrorException: Undefined variable $totalHarvestQuantity
+in APPPATH\Views\dashboard\main-dashboard.php on line 12.
+ 1 APPPATH\Views\dashboard\main-dashboard.php(12): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $totalHarvestQuantity', 'C:\\laragon\\www\\agrismart_final\\app\\Views\\dashboard\\main-dashboard.php', 12)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\agrismart_final\\app\\Views\\dashboard\\main-dashboard.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(469): CodeIgniter\View\View->render('/dashboard/main-dashboard', null, true)
+ 5 APPPATH\Views\userfolder\dashboard.php(5): CodeIgniter\View\View->include('/dashboard/main-dashboard')
+ 6 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\agrismart_final\\app\\Views\\userfolder\\dashboard.php')
+ 7 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('userfolder/dashboard', [], true)
+ 9 APPPATH\Controllers\DashboardController.php(57): view('userfolder/dashboard')
+10 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->dashboards()
+11 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+12 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\agrismart_final\\public\\index.php')
+ERROR - 2024-03-22 01:24:35 --> mysqli_sql_exception: Table 'final_agrismart.fieldmapping' doesn't exist in C:\laragon\www\agrismart_final\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\agrismart_final\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\laragon\www\agrismart_final\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\laragon\www\agrismart_final\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\laragon\www\agrismart_final\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\laragon\www\agrismart_final\system\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\agrismart_final\system\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\laragon\www\agrismart_final\app\Controllers\DashboardController.php(67): CodeIgniter\BaseModel->findAll()
+#7 C:\laragon\www\agrismart_final\system\CodeIgniter.php(941): App\Controllers\DashboardController->viewfields()
+#8 C:\laragon\www\agrismart_final\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+#9 C:\laragon\www\agrismart_final\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\laragon\www\agrismart_final\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 C:\laragon\www\agrismart_final\system\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\...')
+#12 {main}
+CRITICAL - 2024-03-22 01:24:35 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'final_agrismart.fieldmapping' doesn't exist
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `fieldmapping`
+WHERE `user_id` = :user_id:', [...], false)
+ 2 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\DashboardController.php(67): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->viewfields()
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\agrismart_final\\public\\index.php')
+CRITICAL - 2024-03-22 01:24:35 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'final_agrismart.fieldmapping' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `fieldmapping`
+WHERE `user_id` = \'2\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `fieldmapping`
+WHERE `user_id` = \'2\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `fieldmapping`
+WHERE `user_id` = :user_id:', [...], false)
+ 4 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Controllers\DashboardController.php(67): CodeIgniter\BaseModel->findAll()
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->viewfields()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\agrismart_final\\public\\index.php')
+CRITICAL - 2024-03-22 01:24:35 --> [Caused by] mysqli_sql_exception: Table 'final_agrismart.fieldmapping' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *
+FROM `fieldmapping`
+WHERE `user_id` = \'2\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `fieldmapping`
+WHERE `user_id` = \'2\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `fieldmapping`
+WHERE `user_id` = \'2\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `fieldmapping`
+WHERE `user_id` = :user_id:', [...], false)
+ 5 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\DashboardController.php(67): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->viewfields()
+ 9 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\agrismart_final\\public\\index.php')
+ERROR - 2024-03-22 13:36:14 --> mysqli_sql_exception: Table 'final_agrismart.fieldmapping' doesn't exist in C:\laragon\www\agrismart_final\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\agrismart_final\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\laragon\www\agrismart_final\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\laragon\www\agrismart_final\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\laragon\www\agrismart_final\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\laragon\www\agrismart_final\system\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\agrismart_final\system\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\laragon\www\agrismart_final\app\Controllers\DashboardController.php(67): CodeIgniter\BaseModel->findAll()
+#7 C:\laragon\www\agrismart_final\system\CodeIgniter.php(941): App\Controllers\DashboardController->viewfields()
+#8 C:\laragon\www\agrismart_final\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+#9 C:\laragon\www\agrismart_final\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\laragon\www\agrismart_final\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 C:\laragon\www\agrismart_final\system\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\...')
+#12 {main}
+CRITICAL - 2024-03-22 13:36:14 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'final_agrismart.fieldmapping' doesn't exist
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `fieldmapping`
+WHERE `user_id` = :user_id:', [...], false)
+ 2 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\DashboardController.php(67): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->viewfields()
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\agrismart_final\\public\\index.php')
+CRITICAL - 2024-03-22 13:36:14 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'final_agrismart.fieldmapping' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `fieldmapping`
+WHERE `user_id` = \'2\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `fieldmapping`
+WHERE `user_id` = \'2\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `fieldmapping`
+WHERE `user_id` = :user_id:', [...], false)
+ 4 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Controllers\DashboardController.php(67): CodeIgniter\BaseModel->findAll()
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->viewfields()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\agrismart_final\\public\\index.php')
+CRITICAL - 2024-03-22 13:36:14 --> [Caused by] mysqli_sql_exception: Table 'final_agrismart.fieldmapping' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *
+FROM `fieldmapping`
+WHERE `user_id` = \'2\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `fieldmapping`
+WHERE `user_id` = \'2\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `fieldmapping`
+WHERE `user_id` = \'2\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `fieldmapping`
+WHERE `user_id` = :user_id:', [...], false)
+ 5 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\DashboardController.php(67): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->viewfields()
+ 9 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\agrismart_final\\public\\index.php')
+ERROR - 2024-03-22 15:58:31 --> mysqli_sql_exception: Table 'final_agrismart.fieldmapping' doesn't exist in C:\laragon\www\agrismart_final\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\agrismart_final\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\laragon\www\agrismart_final\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\laragon\www\agrismart_final\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\laragon\www\agrismart_final\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\laragon\www\agrismart_final\system\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\agrismart_final\system\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\laragon\www\agrismart_final\app\Controllers\DashboardController.php(67): CodeIgniter\BaseModel->findAll()
+#7 C:\laragon\www\agrismart_final\system\CodeIgniter.php(941): App\Controllers\DashboardController->viewfields()
+#8 C:\laragon\www\agrismart_final\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+#9 C:\laragon\www\agrismart_final\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\laragon\www\agrismart_final\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 C:\laragon\www\agrismart_final\system\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\...')
+#12 {main}
+CRITICAL - 2024-03-22 15:58:31 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'final_agrismart.fieldmapping' doesn't exist
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `fieldmapping`
+WHERE `user_id` = :user_id:', [...], false)
+ 2 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\DashboardController.php(67): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->viewfields()
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\agrismart_final\\public\\index.php')
+CRITICAL - 2024-03-22 15:58:31 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'final_agrismart.fieldmapping' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `fieldmapping`
+WHERE `user_id` = \'3\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `fieldmapping`
+WHERE `user_id` = \'3\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `fieldmapping`
+WHERE `user_id` = :user_id:', [...], false)
+ 4 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Controllers\DashboardController.php(67): CodeIgniter\BaseModel->findAll()
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->viewfields()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\agrismart_final\\public\\index.php')
+CRITICAL - 2024-03-22 15:58:31 --> [Caused by] mysqli_sql_exception: Table 'final_agrismart.fieldmapping' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *
+FROM `fieldmapping`
+WHERE `user_id` = \'3\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `fieldmapping`
+WHERE `user_id` = \'3\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `fieldmapping`
+WHERE `user_id` = \'3\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `fieldmapping`
+WHERE `user_id` = :user_id:', [...], false)
+ 5 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\DashboardController.php(67): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->viewfields()
+ 9 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\agrismart_final\\public\\index.php')
+CRITICAL - 2024-03-22 16:13:59 --> ErrorException: Undefined variable $field
+in APPPATH\Views\dashboard\main-viewfields.php on line 38.
+ 1 APPPATH\Views\dashboard\main-viewfields.php(38): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $field', 'C:\\laragon\\www\\agrismart_final\\app\\Views\\dashboard\\main-viewfields.php', 38)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\agrismart_final\\app\\Views\\dashboard\\main-viewfields.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(469): CodeIgniter\View\View->render('/dashboard/main-viewfields', null, true)
+ 5 APPPATH\Views\userfolder\viewfields.php(6): CodeIgniter\View\View->include('/dashboard/main-viewfields')
+ 6 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\agrismart_final\\app\\Views\\userfolder\\viewfields.php')
+ 7 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('userfolder/viewfields', [], true)
+ 9 APPPATH\Controllers\DashboardController.php(84): view('userfolder/viewfields', [...])
+10 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->addnewfield()
+11 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+12 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\agrismart_final\\public\\index.php')
+CRITICAL - 2024-03-22 16:15:02 --> ErrorException: Undefined variable $field
+in APPPATH\Views\dashboard\main-viewfields.php on line 38.
+ 1 APPPATH\Views\dashboard\main-viewfields.php(38): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $field', 'C:\\laragon\\www\\agrismart_final\\app\\Views\\dashboard\\main-viewfields.php', 38)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\agrismart_final\\app\\Views\\dashboard\\main-viewfields.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(469): CodeIgniter\View\View->render('/dashboard/main-viewfields', null, true)
+ 5 APPPATH\Views\userfolder\viewfields.php(6): CodeIgniter\View\View->include('/dashboard/main-viewfields')
+ 6 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\agrismart_final\\app\\Views\\userfolder\\viewfields.php')
+ 7 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('userfolder/viewfields', [], true)
+ 9 APPPATH\Controllers\DashboardController.php(84): view('userfolder/viewfields', [...])
+10 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->addnewfield()
+11 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+12 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\agrismart_final\\public\\index.php')
+CRITICAL - 2024-03-22 16:15:41 --> ErrorException: Undefined variable $field
+in APPPATH\Views\dashboard\main-viewfields.php on line 38.
+ 1 APPPATH\Views\dashboard\main-viewfields.php(38): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $field', 'C:\\laragon\\www\\agrismart_final\\app\\Views\\dashboard\\main-viewfields.php', 38)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\agrismart_final\\app\\Views\\dashboard\\main-viewfields.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(469): CodeIgniter\View\View->render('/dashboard/main-viewfields', null, true)
+ 5 APPPATH\Views\userfolder\viewfields.php(6): CodeIgniter\View\View->include('/dashboard/main-viewfields')
+ 6 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\agrismart_final\\app\\Views\\userfolder\\viewfields.php')
+ 7 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('userfolder/viewfields', [], true)
+ 9 APPPATH\Controllers\DashboardController.php(84): view('userfolder/viewfields', [...])
+10 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->addnewfield()
+11 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+12 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\agrismart_final\\public\\index.php')
+CRITICAL - 2024-03-22 16:15:46 --> ErrorException: Undefined variable $field
+in APPPATH\Views\dashboard\main-viewfields.php on line 38.
+ 1 APPPATH\Views\dashboard\main-viewfields.php(38): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $field', 'C:\\laragon\\www\\agrismart_final\\app\\Views\\dashboard\\main-viewfields.php', 38)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\agrismart_final\\app\\Views\\dashboard\\main-viewfields.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(469): CodeIgniter\View\View->render('/dashboard/main-viewfields', null, true)
+ 5 APPPATH\Views\userfolder\viewfields.php(6): CodeIgniter\View\View->include('/dashboard/main-viewfields')
+ 6 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\agrismart_final\\app\\Views\\userfolder\\viewfields.php')
+ 7 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('userfolder/viewfields', [], true)
+ 9 APPPATH\Controllers\DashboardController.php(84): view('userfolder/viewfields', [...])
+10 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->addnewfield()
+11 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+12 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\agrismart_final\\public\\index.php')
+CRITICAL - 2024-03-22 16:16:37 --> ErrorException: Undefined variable $field
+in APPPATH\Views\dashboard\main-viewfields.php on line 38.
+ 1 APPPATH\Views\dashboard\main-viewfields.php(38): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $field', 'C:\\laragon\\www\\agrismart_final\\app\\Views\\dashboard\\main-viewfields.php', 38)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\agrismart_final\\app\\Views\\dashboard\\main-viewfields.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(469): CodeIgniter\View\View->render('/dashboard/main-viewfields', null, true)
+ 5 APPPATH\Views\userfolder\viewfields.php(6): CodeIgniter\View\View->include('/dashboard/main-viewfields')
+ 6 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\agrismart_final\\app\\Views\\userfolder\\viewfields.php')
+ 7 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('userfolder/viewfields', [], true)
+ 9 APPPATH\Controllers\DashboardController.php(84): view('userfolder/viewfields', [...])
+10 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->addnewfield()
+11 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+12 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\agrismart_final\\public\\index.php')
+CRITICAL - 2024-03-22 16:17:17 --> ErrorException: Undefined variable $field
+in APPPATH\Views\dashboard\main-viewfields.php on line 38.
+ 1 APPPATH\Views\dashboard\main-viewfields.php(38): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $field', 'C:\\laragon\\www\\agrismart_final\\app\\Views\\dashboard\\main-viewfields.php', 38)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\agrismart_final\\app\\Views\\dashboard\\main-viewfields.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(469): CodeIgniter\View\View->render('/dashboard/main-viewfields', null, true)
+ 5 APPPATH\Views\userfolder\viewfields.php(6): CodeIgniter\View\View->include('/dashboard/main-viewfields')
+ 6 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\agrismart_final\\app\\Views\\userfolder\\viewfields.php')
+ 7 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('userfolder/viewfields', [], true)
+ 9 APPPATH\Controllers\DashboardController.php(84): view('userfolder/viewfields', [...])
+10 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->addnewfield()
+11 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+12 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\agrismart_final\\public\\index.php')
+CRITICAL - 2024-03-22 16:18:36 --> ErrorException: Undefined variable $field
+in APPPATH\Views\dashboard\main-viewfields.php on line 38.
+ 1 APPPATH\Views\dashboard\main-viewfields.php(38): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $field', 'C:\\laragon\\www\\agrismart_final\\app\\Views\\dashboard\\main-viewfields.php', 38)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\agrismart_final\\app\\Views\\dashboard\\main-viewfields.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(469): CodeIgniter\View\View->render('/dashboard/main-viewfields', null, true)
+ 5 APPPATH\Views\userfolder\viewfields.php(6): CodeIgniter\View\View->include('/dashboard/main-viewfields')
+ 6 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\agrismart_final\\app\\Views\\userfolder\\viewfields.php')
+ 7 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('userfolder/viewfields', [], true)
+ 9 APPPATH\Controllers\DashboardController.php(84): view('userfolder/viewfields', [...])
+10 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->addnewfield()
+11 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+12 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\agrismart_final\\public\\index.php')
+CRITICAL - 2024-03-22 16:18:49 --> ErrorException: Undefined variable $field
+in APPPATH\Views\dashboard\main-viewfields.php on line 38.
+ 1 APPPATH\Views\dashboard\main-viewfields.php(38): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $field', 'C:\\laragon\\www\\agrismart_final\\app\\Views\\dashboard\\main-viewfields.php', 38)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\agrismart_final\\app\\Views\\dashboard\\main-viewfields.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(469): CodeIgniter\View\View->render('/dashboard/main-viewfields', null, true)
+ 5 APPPATH\Views\userfolder\viewfields.php(6): CodeIgniter\View\View->include('/dashboard/main-viewfields')
+ 6 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\agrismart_final\\app\\Views\\userfolder\\viewfields.php')
+ 7 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('userfolder/viewfields', [], true)
+ 9 APPPATH\Controllers\DashboardController.php(84): view('userfolder/viewfields', [...])
+10 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->addnewfield()
+11 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+12 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\agrismart_final\\public\\index.php')
+ERROR - 2024-03-22 16:42:08 --> mysqli_sql_exception: Table 'final_agrismart.cropplanting' doesn't exist in C:\laragon\www\agrismart_final\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\agrismart_final\system\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `cr...', 0)
+#1 C:\laragon\www\agrismart_final\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `cr...')
+#2 C:\laragon\www\agrismart_final\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `cr...')
+#3 C:\laragon\www\agrismart_final\system\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `cr...', Array, false)
+#4 C:\laragon\www\agrismart_final\system\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\laragon\www\agrismart_final\system\BaseModel.php(802): CodeIgniter\Model->doInsert(Array)
+#6 C:\laragon\www\agrismart_final\system\Model.php(744): CodeIgniter\BaseModel->insert(Array, false)
+#7 C:\laragon\www\agrismart_final\system\BaseModel.php(713): CodeIgniter\Model->insert(Array, false)
+#8 C:\laragon\www\agrismart_final\app\Controllers\DashboardController.php(175): CodeIgniter\BaseModel->save(Array)
+#9 C:\laragon\www\agrismart_final\system\CodeIgniter.php(941): App\Controllers\DashboardController->addnewplanting()
+#10 C:\laragon\www\agrismart_final\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+#11 C:\laragon\www\agrismart_final\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\laragon\www\agrismart_final\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#13 C:\laragon\www\agrismart_final\system\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\...')
+#14 {main}
+CRITICAL - 2024-03-22 16:42:08 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'final_agrismart.cropplanting' doesn't exist
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `cropplanting` (`field_id`, `field_name`, `crop_variety`, `planting_date`, `season`, `start_date`, `end_date`, `notes`, `user_id`, `farmer_name`) VALUES (:field_id:, :field_name:, :crop_variety:, :planting_date:, :season:, :start_date:, :end_date:, :notes:, :user_id:, :farmer_name:)', [...], false)
+ 2 SYSTEMPATH\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(802): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(744): CodeIgniter\BaseModel->insert([...], false)
+ 5 SYSTEMPATH\BaseModel.php(713): CodeIgniter\Model->insert([...], false)
+ 6 APPPATH\Controllers\DashboardController.php(175): CodeIgniter\BaseModel->save([...])
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->addnewplanting()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\agrismart_final\\public\\index.php')
+CRITICAL - 2024-03-22 16:42:08 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'final_agrismart.cropplanting' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `cropplanting` (`field_id`, `field_name`, `crop_variety`, `planting_date`, `season`, `start_date`, `end_date`, `notes`, `user_id`, `farmer_name`) VALUES (\'2\', \'Silangan\', \'SL-18\', \'2024-03-07\', \'Wet Season\', \'2024-03-22\', \'2024-03-19\', \'sdasdas\', NULL, NULL)')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `cropplanting` (`field_id`, `field_name`, `crop_variety`, `planting_date`, `season`, `start_date`, `end_date`, `notes`, `user_id`, `farmer_name`) VALUES (\'2\', \'Silangan\', \'SL-18\', \'2024-03-07\', \'Wet Season\', \'2024-03-22\', \'2024-03-19\', \'sdasdas\', NULL, NULL)')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `cropplanting` (`field_id`, `field_name`, `crop_variety`, `planting_date`, `season`, `start_date`, `end_date`, `notes`, `user_id`, `farmer_name`) VALUES (:field_id:, :field_name:, :crop_variety:, :planting_date:, :season:, :start_date:, :end_date:, :notes:, :user_id:, :farmer_name:)', [...], false)
+ 4 SYSTEMPATH\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(802): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(744): CodeIgniter\BaseModel->insert([...], false)
+ 7 SYSTEMPATH\BaseModel.php(713): CodeIgniter\Model->insert([...], false)
+ 8 APPPATH\Controllers\DashboardController.php(175): CodeIgniter\BaseModel->save([...])
+ 9 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->addnewplanting()
+10 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+11 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\agrismart_final\\public\\index.php')
+CRITICAL - 2024-03-22 16:42:08 --> [Caused by] mysqli_sql_exception: Table 'final_agrismart.cropplanting' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `cropplanting` (`field_id`, `field_name`, `crop_variety`, `planting_date`, `season`, `start_date`, `end_date`, `notes`, `user_id`, `farmer_name`) VALUES (\'2\', \'Silangan\', \'SL-18\', \'2024-03-07\', \'Wet Season\', \'2024-03-22\', \'2024-03-19\', \'sdasdas\', NULL, NULL)', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `cropplanting` (`field_id`, `field_name`, `crop_variety`, `planting_date`, `season`, `start_date`, `end_date`, `notes`, `user_id`, `farmer_name`) VALUES (\'2\', \'Silangan\', \'SL-18\', \'2024-03-07\', \'Wet Season\', \'2024-03-22\', \'2024-03-19\', \'sdasdas\', NULL, NULL)')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `cropplanting` (`field_id`, `field_name`, `crop_variety`, `planting_date`, `season`, `start_date`, `end_date`, `notes`, `user_id`, `farmer_name`) VALUES (\'2\', \'Silangan\', \'SL-18\', \'2024-03-07\', \'Wet Season\', \'2024-03-22\', \'2024-03-19\', \'sdasdas\', NULL, NULL)')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `cropplanting` (`field_id`, `field_name`, `crop_variety`, `planting_date`, `season`, `start_date`, `end_date`, `notes`, `user_id`, `farmer_name`) VALUES (:field_id:, :field_name:, :crop_variety:, :planting_date:, :season:, :start_date:, :end_date:, :notes:, :user_id:, :farmer_name:)', [...], false)
+ 5 SYSTEMPATH\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(802): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(744): CodeIgniter\BaseModel->insert([...], false)
+ 8 SYSTEMPATH\BaseModel.php(713): CodeIgniter\Model->insert([...], false)
+ 9 APPPATH\Controllers\DashboardController.php(175): CodeIgniter\BaseModel->save([...])
+10 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->addnewplanting()
+11 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+12 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\agrismart_final\\public\\index.php')
+ERROR - 2024-03-22 16:43:33 --> mysqli_sql_exception: Column 'user_id' cannot be null in C:\laragon\www\agrismart_final\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\agrismart_final\system\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `cr...', 0)
+#1 C:\laragon\www\agrismart_final\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `cr...')
+#2 C:\laragon\www\agrismart_final\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `cr...')
+#3 C:\laragon\www\agrismart_final\system\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `cr...', Array, false)
+#4 C:\laragon\www\agrismart_final\system\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\laragon\www\agrismart_final\system\BaseModel.php(802): CodeIgniter\Model->doInsert(Array)
+#6 C:\laragon\www\agrismart_final\system\Model.php(744): CodeIgniter\BaseModel->insert(Array, false)
+#7 C:\laragon\www\agrismart_final\system\BaseModel.php(713): CodeIgniter\Model->insert(Array, false)
+#8 C:\laragon\www\agrismart_final\app\Controllers\DashboardController.php(175): CodeIgniter\BaseModel->save(Array)
+#9 C:\laragon\www\agrismart_final\system\CodeIgniter.php(941): App\Controllers\DashboardController->addnewplanting()
+#10 C:\laragon\www\agrismart_final\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+#11 C:\laragon\www\agrismart_final\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\laragon\www\agrismart_final\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#13 C:\laragon\www\agrismart_final\system\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\...')
+#14 {main}
+CRITICAL - 2024-03-22 16:43:33 --> CodeIgniter\Database\Exceptions\DatabaseException: Column 'user_id' cannot be null
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `cropplanting` (`field_id`, `field_name`, `crop_variety`, `planting_date`, `season`, `start_date`, `end_date`, `notes`, `user_id`, `farmer_name`) VALUES (:field_id:, :field_name:, :crop_variety:, :planting_date:, :season:, :start_date:, :end_date:, :notes:, :user_id:, :farmer_name:)', [...], false)
+ 2 SYSTEMPATH\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(802): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(744): CodeIgniter\BaseModel->insert([...], false)
+ 5 SYSTEMPATH\BaseModel.php(713): CodeIgniter\Model->insert([...], false)
+ 6 APPPATH\Controllers\DashboardController.php(175): CodeIgniter\BaseModel->save([...])
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->addnewplanting()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\agrismart_final\\public\\index.php')
+CRITICAL - 2024-03-22 16:43:33 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Column 'user_id' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `cropplanting` (`field_id`, `field_name`, `crop_variety`, `planting_date`, `season`, `start_date`, `end_date`, `notes`, `user_id`, `farmer_name`) VALUES (\'2\', \'Silangan\', \'SL-18\', \'2024-03-07\', \'Wet Season\', \'2024-03-22\', \'2024-03-19\', \'sdasdas\', NULL, NULL)')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `cropplanting` (`field_id`, `field_name`, `crop_variety`, `planting_date`, `season`, `start_date`, `end_date`, `notes`, `user_id`, `farmer_name`) VALUES (\'2\', \'Silangan\', \'SL-18\', \'2024-03-07\', \'Wet Season\', \'2024-03-22\', \'2024-03-19\', \'sdasdas\', NULL, NULL)')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `cropplanting` (`field_id`, `field_name`, `crop_variety`, `planting_date`, `season`, `start_date`, `end_date`, `notes`, `user_id`, `farmer_name`) VALUES (:field_id:, :field_name:, :crop_variety:, :planting_date:, :season:, :start_date:, :end_date:, :notes:, :user_id:, :farmer_name:)', [...], false)
+ 4 SYSTEMPATH\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(802): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(744): CodeIgniter\BaseModel->insert([...], false)
+ 7 SYSTEMPATH\BaseModel.php(713): CodeIgniter\Model->insert([...], false)
+ 8 APPPATH\Controllers\DashboardController.php(175): CodeIgniter\BaseModel->save([...])
+ 9 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->addnewplanting()
+10 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+11 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\agrismart_final\\public\\index.php')
+CRITICAL - 2024-03-22 16:43:33 --> [Caused by] mysqli_sql_exception: Column 'user_id' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `cropplanting` (`field_id`, `field_name`, `crop_variety`, `planting_date`, `season`, `start_date`, `end_date`, `notes`, `user_id`, `farmer_name`) VALUES (\'2\', \'Silangan\', \'SL-18\', \'2024-03-07\', \'Wet Season\', \'2024-03-22\', \'2024-03-19\', \'sdasdas\', NULL, NULL)', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `cropplanting` (`field_id`, `field_name`, `crop_variety`, `planting_date`, `season`, `start_date`, `end_date`, `notes`, `user_id`, `farmer_name`) VALUES (\'2\', \'Silangan\', \'SL-18\', \'2024-03-07\', \'Wet Season\', \'2024-03-22\', \'2024-03-19\', \'sdasdas\', NULL, NULL)')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `cropplanting` (`field_id`, `field_name`, `crop_variety`, `planting_date`, `season`, `start_date`, `end_date`, `notes`, `user_id`, `farmer_name`) VALUES (\'2\', \'Silangan\', \'SL-18\', \'2024-03-07\', \'Wet Season\', \'2024-03-22\', \'2024-03-19\', \'sdasdas\', NULL, NULL)')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `cropplanting` (`field_id`, `field_name`, `crop_variety`, `planting_date`, `season`, `start_date`, `end_date`, `notes`, `user_id`, `farmer_name`) VALUES (:field_id:, :field_name:, :crop_variety:, :planting_date:, :season:, :start_date:, :end_date:, :notes:, :user_id:, :farmer_name:)', [...], false)
+ 5 SYSTEMPATH\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(802): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(744): CodeIgniter\BaseModel->insert([...], false)
+ 8 SYSTEMPATH\BaseModel.php(713): CodeIgniter\Model->insert([...], false)
+ 9 APPPATH\Controllers\DashboardController.php(175): CodeIgniter\BaseModel->save([...])
+10 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->addnewplanting()
+11 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+12 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\agrismart_final\\public\\index.php')
+ERROR - 2024-03-22 16:44:23 --> mysqli_sql_exception: Column 'farmer_name' cannot be null in C:\laragon\www\agrismart_final\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\agrismart_final\system\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `cr...', 0)
+#1 C:\laragon\www\agrismart_final\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `cr...')
+#2 C:\laragon\www\agrismart_final\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `cr...')
+#3 C:\laragon\www\agrismart_final\system\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `cr...', Array, false)
+#4 C:\laragon\www\agrismart_final\system\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\laragon\www\agrismart_final\system\BaseModel.php(802): CodeIgniter\Model->doInsert(Array)
+#6 C:\laragon\www\agrismart_final\system\Model.php(744): CodeIgniter\BaseModel->insert(Array, false)
+#7 C:\laragon\www\agrismart_final\system\BaseModel.php(713): CodeIgniter\Model->insert(Array, false)
+#8 C:\laragon\www\agrismart_final\app\Controllers\DashboardController.php(175): CodeIgniter\BaseModel->save(Array)
+#9 C:\laragon\www\agrismart_final\system\CodeIgniter.php(941): App\Controllers\DashboardController->addnewplanting()
+#10 C:\laragon\www\agrismart_final\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+#11 C:\laragon\www\agrismart_final\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\laragon\www\agrismart_final\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#13 C:\laragon\www\agrismart_final\system\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\...')
+#14 {main}
+CRITICAL - 2024-03-22 16:44:23 --> CodeIgniter\Database\Exceptions\DatabaseException: Column 'farmer_name' cannot be null
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `cropplanting` (`field_id`, `field_name`, `crop_variety`, `planting_date`, `season`, `start_date`, `end_date`, `notes`, `user_id`, `farmer_name`) VALUES (:field_id:, :field_name:, :crop_variety:, :planting_date:, :season:, :start_date:, :end_date:, :notes:, :user_id:, :farmer_name:)', [...], false)
+ 2 SYSTEMPATH\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(802): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(744): CodeIgniter\BaseModel->insert([...], false)
+ 5 SYSTEMPATH\BaseModel.php(713): CodeIgniter\Model->insert([...], false)
+ 6 APPPATH\Controllers\DashboardController.php(175): CodeIgniter\BaseModel->save([...])
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->addnewplanting()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\agrismart_final\\public\\index.php')
+CRITICAL - 2024-03-22 16:44:23 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Column 'farmer_name' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `cropplanting` (`field_id`, `field_name`, `crop_variety`, `planting_date`, `season`, `start_date`, `end_date`, `notes`, `user_id`, `farmer_name`) VALUES (\'2\', \'Silangan\', \'SL-18\', \'2024-02-29\', \'Dry Season\', \'2024-02-29\', \'\', \'\', \'3\', NULL)')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `cropplanting` (`field_id`, `field_name`, `crop_variety`, `planting_date`, `season`, `start_date`, `end_date`, `notes`, `user_id`, `farmer_name`) VALUES (\'2\', \'Silangan\', \'SL-18\', \'2024-02-29\', \'Dry Season\', \'2024-02-29\', \'\', \'\', \'3\', NULL)')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `cropplanting` (`field_id`, `field_name`, `crop_variety`, `planting_date`, `season`, `start_date`, `end_date`, `notes`, `user_id`, `farmer_name`) VALUES (:field_id:, :field_name:, :crop_variety:, :planting_date:, :season:, :start_date:, :end_date:, :notes:, :user_id:, :farmer_name:)', [...], false)
+ 4 SYSTEMPATH\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(802): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(744): CodeIgniter\BaseModel->insert([...], false)
+ 7 SYSTEMPATH\BaseModel.php(713): CodeIgniter\Model->insert([...], false)
+ 8 APPPATH\Controllers\DashboardController.php(175): CodeIgniter\BaseModel->save([...])
+ 9 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->addnewplanting()
+10 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+11 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\agrismart_final\\public\\index.php')
+CRITICAL - 2024-03-22 16:44:23 --> [Caused by] mysqli_sql_exception: Column 'farmer_name' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `cropplanting` (`field_id`, `field_name`, `crop_variety`, `planting_date`, `season`, `start_date`, `end_date`, `notes`, `user_id`, `farmer_name`) VALUES (\'2\', \'Silangan\', \'SL-18\', \'2024-02-29\', \'Dry Season\', \'2024-02-29\', \'\', \'\', \'3\', NULL)', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `cropplanting` (`field_id`, `field_name`, `crop_variety`, `planting_date`, `season`, `start_date`, `end_date`, `notes`, `user_id`, `farmer_name`) VALUES (\'2\', \'Silangan\', \'SL-18\', \'2024-02-29\', \'Dry Season\', \'2024-02-29\', \'\', \'\', \'3\', NULL)')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `cropplanting` (`field_id`, `field_name`, `crop_variety`, `planting_date`, `season`, `start_date`, `end_date`, `notes`, `user_id`, `farmer_name`) VALUES (\'2\', \'Silangan\', \'SL-18\', \'2024-02-29\', \'Dry Season\', \'2024-02-29\', \'\', \'\', \'3\', NULL)')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `cropplanting` (`field_id`, `field_name`, `crop_variety`, `planting_date`, `season`, `start_date`, `end_date`, `notes`, `user_id`, `farmer_name`) VALUES (:field_id:, :field_name:, :crop_variety:, :planting_date:, :season:, :start_date:, :end_date:, :notes:, :user_id:, :farmer_name:)', [...], false)
+ 5 SYSTEMPATH\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(802): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(744): CodeIgniter\BaseModel->insert([...], false)
+ 8 SYSTEMPATH\BaseModel.php(713): CodeIgniter\Model->insert([...], false)
+ 9 APPPATH\Controllers\DashboardController.php(175): CodeIgniter\BaseModel->save([...])
+10 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->addnewplanting()
+11 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+12 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\agrismart_final\\public\\index.php')
+ERROR - 2024-03-22 17:15:23 --> mysqli_sql_exception: Table 'final_agrismart.jobs' doesn't exist in C:\laragon\www\agrismart_final\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\agrismart_final\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\laragon\www\agrismart_final\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\laragon\www\agrismart_final\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\laragon\www\agrismart_final\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\laragon\www\agrismart_final\system\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\agrismart_final\system\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\laragon\www\agrismart_final\app\Controllers\DashboardController.php(227): CodeIgniter\BaseModel->findAll()
+#7 C:\laragon\www\agrismart_final\system\CodeIgniter.php(941): App\Controllers\DashboardController->expenses()
+#8 C:\laragon\www\agrismart_final\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+#9 C:\laragon\www\agrismart_final\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\laragon\www\agrismart_final\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 C:\laragon\www\agrismart_final\system\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\...')
+#12 {main}
+CRITICAL - 2024-03-22 17:15:23 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'final_agrismart.jobs' doesn't exist
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `jobs`
+WHERE `user_id` IS NULL', [], false)
+ 2 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\DashboardController.php(227): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->expenses()
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\agrismart_final\\public\\index.php')
+CRITICAL - 2024-03-22 17:15:23 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'final_agrismart.jobs' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `jobs`
+WHERE `user_id` IS NULL')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `jobs`
+WHERE `user_id` IS NULL')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `jobs`
+WHERE `user_id` IS NULL', [], false)
+ 4 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Controllers\DashboardController.php(227): CodeIgniter\BaseModel->findAll()
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->expenses()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\agrismart_final\\public\\index.php')
+CRITICAL - 2024-03-22 17:15:23 --> [Caused by] mysqli_sql_exception: Table 'final_agrismart.jobs' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *
+FROM `jobs`
+WHERE `user_id` IS NULL', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `jobs`
+WHERE `user_id` IS NULL')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `jobs`
+WHERE `user_id` IS NULL')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `jobs`
+WHERE `user_id` IS NULL', [], false)
+ 5 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\DashboardController.php(227): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->expenses()
+ 9 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\agrismart_final\\public\\index.php')
+CRITICAL - 2024-03-22 17:38:03 --> Error: Call to a member function where() on null
+in APPPATH\Controllers\DashboardController.php on line 228.
+ 1 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->expenses()
+ 2 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\agrismart_final\\public\\index.php')
+CRITICAL - 2024-03-22 18:09:34 --> Error: Class "App\Models\JobsModel" not found
+in APPPATH\Controllers\LoginController.php on line 23.
+ 1 SYSTEMPATH\CodeIgniter.php(913): App\Controllers\LoginController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(493): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')

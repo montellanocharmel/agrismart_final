@@ -1,0 +1,84 @@
+ERROR - 2024-03-21 14:34:51 --> Error connecting to the database: mysqli_sql_exception: Unknown database 'final_agrisamrt' in C:\laragon\www\agrismart_final\system\Database\MySQLi\Connection.php:185
+Stack trace:
+#0 C:\laragon\www\agrismart_final\system\Database\MySQLi\Connection.php(185): mysqli->real_connect('localhost', 'root', '', 'final_agrisamrt', 3306, '', 0)
+#1 C:\laragon\www\agrismart_final\system\Database\BaseConnection.php(392): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\laragon\www\agrismart_final\system\Database\BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\laragon\www\agrismart_final\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT 1\nFROM `...', Array, false)
+#4 C:\laragon\www\agrismart_final\system\Validation\StrictRules\Rules.php(227): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\agrismart_final\system\Validation\Validation.php(328): CodeIgniter\Validation\StrictRules\Rules->is_unique('1234567890qwert...', 'idnumber', Array, NULL, 'idnumber')
+#6 C:\laragon\www\agrismart_final\system\Validation\Validation.php(200): CodeIgniter\Validation\Validation->processRules('idnumber', 'idnumber', '1234567890qwert...', Array, Array)
+#7 C:\laragon\www\agrismart_final\system\Controller.php(152): CodeIgniter\Validation\Validation->run()
+#8 C:\laragon\www\agrismart_final\app\Controllers\LoginController.php(51): CodeIgniter\Controller->validate(Array)
+#9 C:\laragon\www\agrismart_final\system\CodeIgniter.php(941): App\Controllers\LoginController->register()
+#10 C:\laragon\www\agrismart_final\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LoginController))
+#11 C:\laragon\www\agrismart_final\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\laragon\www\agrismart_final\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#13 C:\laragon\www\agrismart_final\system\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\...')
+#14 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Unknown database 'final_agrisamrt' in C:\laragon\www\agrismart_final\system\Database\MySQLi\Connection.php:229
+Stack trace:
+#0 C:\laragon\www\agrismart_final\system\Database\BaseConnection.php(392): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\laragon\www\agrismart_final\system\Database\BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\laragon\www\agrismart_final\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT 1\nFROM `...', Array, false)
+#3 C:\laragon\www\agrismart_final\system\Validation\StrictRules\Rules.php(227): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\laragon\www\agrismart_final\system\Validation\Validation.php(328): CodeIgniter\Validation\StrictRules\Rules->is_unique('1234567890qwert...', 'idnumber', Array, NULL, 'idnumber')
+#5 C:\laragon\www\agrismart_final\system\Validation\Validation.php(200): CodeIgniter\Validation\Validation->processRules('idnumber', 'idnumber', '1234567890qwert...', Array, Array)
+#6 C:\laragon\www\agrismart_final\system\Controller.php(152): CodeIgniter\Validation\Validation->run()
+#7 C:\laragon\www\agrismart_final\app\Controllers\LoginController.php(51): CodeIgniter\Controller->validate(Array)
+#8 C:\laragon\www\agrismart_final\system\CodeIgniter.php(941): App\Controllers\LoginController->register()
+#9 C:\laragon\www\agrismart_final\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LoginController))
+#10 C:\laragon\www\agrismart_final\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\laragon\www\agrismart_final\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#12 C:\laragon\www\agrismart_final\system\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\...')
+#13 {main}
+CRITICAL - 2024-03-21 14:34:51 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Unknown database 'final_agrisamrt'
+in SYSTEMPATH\Database\BaseConnection.php on line 428.
+ 1 SYSTEMPATH\Database\BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT 1
+FROM `users`
+WHERE `idnumber` = :idnumber:
+ LIMIT 1', [...], false)
+ 3 SYSTEMPATH\Validation\StrictRules\Rules.php(227): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\Validation\Validation.php(328): CodeIgniter\Validation\StrictRules\Rules->is_unique('1234567890qwerty', 'idnumber', [...], null, 'idnumber')
+ 5 SYSTEMPATH\Validation\Validation.php(200): CodeIgniter\Validation\Validation->processRules('idnumber', 'idnumber', '1234567890qwerty', [...], [...])
+ 6 SYSTEMPATH\Controller.php(152): CodeIgniter\Validation\Validation->run()
+ 7 APPPATH\Controllers\LoginController.php(51): CodeIgniter\Controller->validate([...])
+ 8 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\LoginController->register()
+ 9 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LoginController))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\agrismart_final\\public\\index.php')
+CRITICAL - 2024-03-21 15:07:23 --> ErrorException: Undefined variable $field
+in APPPATH\Views\admin_dashboard\main-accounts.php on line 36.
+ 1 APPPATH\Views\admin_dashboard\main-accounts.php(36): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $field', 'C:\\laragon\\www\\agrismart_final\\app\\Views\\admin_dashboard\\main-accounts.php', 36)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\agrismart_final\\app\\Views\\admin_dashboard\\main-accounts.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(469): CodeIgniter\View\View->render('/admin_dashboard/main-accounts', null, true)
+ 5 APPPATH\Views\adminfolder\manageaccounts.php(6): CodeIgniter\View\View->include('/admin_dashboard/main-accounts')
+ 6 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\agrismart_final\\app\\Views\\adminfolder\\manageaccounts.php')
+ 7 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('adminfolder/manageaccounts', [], true)
+ 9 APPPATH\Controllers\DashboardController.php(50): view('adminfolder/manageaccounts', [...])
+10 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->manageaccounts()
+11 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+12 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\agrismart_final\\public\\index.php')
+CRITICAL - 2024-03-21 15:07:37 --> ErrorException: Undefined array key "leafer_name"
+in APPPATH\Views\admin_dashboard\main-accounts.php on line 38.
+ 1 APPPATH\Views\admin_dashboard\main-accounts.php(38): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "leafer_name"', 'C:\\laragon\\www\\agrismart_final\\app\\Views\\admin_dashboard\\main-accounts.php', 38)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\agrismart_final\\app\\Views\\admin_dashboard\\main-accounts.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(469): CodeIgniter\View\View->render('/admin_dashboard/main-accounts', null, true)
+ 5 APPPATH\Views\adminfolder\manageaccounts.php(6): CodeIgniter\View\View->include('/admin_dashboard/main-accounts')
+ 6 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\agrismart_final\\app\\Views\\adminfolder\\manageaccounts.php')
+ 7 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('adminfolder/manageaccounts', [], true)
+ 9 APPPATH\Controllers\DashboardController.php(50): view('adminfolder/manageaccounts', [...])
+10 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->manageaccounts()
+11 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+12 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\agrismart_final\\public\\index.php')
