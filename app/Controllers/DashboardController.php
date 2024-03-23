@@ -3,16 +3,10 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
-use App\Models\CropRotationModel;
-use App\Models\VIewFieldsModel;
-use App\Models\JobsModel;
-use App\Models\HarvestModel;
-use App\Models\FertilizersModel;
 
 class DashboardController extends BaseController
 {
     private $field;
-    private $jobs;
     private $harvest;
     private $planting;
     private $worker;
@@ -99,14 +93,14 @@ class DashboardController extends BaseController
     }
     public function edit($field_id)
     {
-        $model = new VIewFieldsModel();
-        $field = $model->find($field_id);
+
+        $field = $this->field->find($field_id);
 
         return view('field', ['field' => $field]);
     }
     public function update()
     {
-        $model = new VIewFieldsModel();
+
 
         $field_id = $this->request->getPost('field_id');
 
@@ -118,7 +112,7 @@ class DashboardController extends BaseController
             'field_total_area' => $this->request->getPost('field_total_area'),
         ];
 
-        $model->update($field_id, $dataToUpdate);
+        $this->field->update($field_id, $dataToUpdate);
 
         return redirect()->to('/viewfields')->with('success', 'Field updated successfully');
     }
@@ -226,21 +220,21 @@ class DashboardController extends BaseController
             return redirect()->to('/sign_ins');
         } else {
             $data = [
-                'jobs' => $this->jobs->where('user_id', $userId)->findAll()
+                'expense' => $this->expense->where('user_id', $userId)->findAll()
             ];
             return view('userfolder/jobs', $data);
         }
     }
     public function addnewjob()
     {
-        $userId = session()->get('farmer_id');
-        $username = session()->get('farmer_name');
+
+        $userId = session()->get('leader_id');
+        $fieldId = $this->request->getPost('field_id');
+        $field = $this->field->find($fieldId);
 
         $validation = $this->validate([
-            'job_name' => 'required',
-            'field_name' => 'required',
+            'expense_name' => 'required',
             'finished_date' => 'required',
-            'worker_name' => 'required',
             'total_money_spent' => 'required',
             'notes' => 'required',
         ]);
@@ -249,20 +243,19 @@ class DashboardController extends BaseController
             return view('userfolder/jobs', ['validation' => $this->validator]);
         }
 
-        $this->jobs->save([
-            'job_name' => $this->request->getPost('job_name'),
+        $this->expense->save([
             'field_id' => $this->request->getPost('field_id'),
             'field_name' => $this->request->getPost('field_name'),
+            'expense_name' => $this->request->getPost('expense_name'),
             'finished_date' => $this->request->getPost('finished_date'),
-            'worker_name' => $this->request->getPost('worker_name'),
             'total_money_spent' => $this->request->getPost('total_money_spent'),
             'notes' => $this->request->getPost('notes'),
             'user_id' => $userId,
-            'farmer_name' => $username,
+            'farmer_name' => $field['farmer_name'],
 
         ]);
 
-        return redirect()->to('/jobs')->with('success', 'Job added successfully');
+        return redirect()->to('/expenses')->with('success', 'Job added successfully');
     }
 
 
@@ -302,6 +295,92 @@ class DashboardController extends BaseController
             return redirect()->to('/jobs')->with('success', 'jobs deleted successfully');
         } else {
             return redirect()->to('/jobs')->with('error', 'jobs not found');
+        }
+    }
+
+    //harvest
+
+    public function harvest()
+    {
+        $userId = session()->get('farmer_id');
+        if (!session()->get('isLoggedIn')) {
+            return redirect()->to('/sign_ins');
+        }
+        $data = [
+            'harvest' => $this->harvest->where('user_id', $userId)->findAll()
+        ];
+        return view('userfolder/harvest', $data);
+    }
+    public function addnewharvest()
+    {
+        $userId = session()->get('farmer_id');
+
+        $validation = $this->validate([
+            'field_name' => 'required',
+            'variety_name' => 'required',
+            'harvest_quantity' => 'required',
+            'total_revenue' => 'required',
+            'harvest_date' => 'required',
+            'notes' => 'required',
+
+        ]);
+
+        if (!$validation) {
+            return view('userfolder/harvest', ['validation' => $this->validator]);
+        }
+
+        $this->harvest->save([
+            'field_id' => $this->request->getPost('field_id'),
+            'field_name' => $this->request->getPost('field_name'),
+            'variety_name' => $this->request->getPost('variety_name'),
+            'harvest_quantity' => $this->request->getPost('harvest_quantity'),
+            'total_revenue' => $this->request->getPost('total_revenue'),
+            'harvest_date' => $this->request->getPost('harvest_date'),
+            'notes' => $this->request->getPost('notes'),
+            'user_id' => $userId,
+
+        ]);
+
+        return redirect()->to('/harvest')->with('success', 'Harvest added successfully');
+    }
+
+
+    public function editharvest($harvest_id)
+    {
+        $harvest = $this->harvest->find($harvest_id);
+
+        return view('harvest', ['harvest' => $harvest]);
+    }
+    public function updateharvest()
+    {
+
+        $harvest_id = $this->request->getPost('harvest_id');
+
+        $dataToUpdate = [
+            'field_name' => $this->request->getPost('field_name'),
+            'variety_name' => $this->request->getPost('variety_name'),
+            'harvest_quantity' => $this->request->getPost('harvest_quantity'),
+            'total_revenue' => $this->request->getPost('total_revenue'),
+            'harvest_date' => $this->request->getPost('harvest_date'),
+            'notes' => $this->request->getPost('notes'),
+        ];
+
+        $this->harvest->update($harvest_id, $dataToUpdate);
+
+        return redirect()->to('/harvest')->with('success', 'Harvest updated successfully');
+    }
+    public function deleteHarvest($harvest_id)
+    {
+
+
+        $jobs = $this->harvest->find($harvest_id);
+
+        if ($jobs) {
+            $this->harvest->delete($harvest_id);
+
+            return redirect()->to('/harvest')->with('success', 'Harvest deleted successfully');
+        } else {
+            return redirect()->to('/harvest')->with('error', 'harvest not found');
         }
     }
     /*public function editaccount($field_id)

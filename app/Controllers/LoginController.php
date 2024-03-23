@@ -20,7 +20,6 @@ class LoginController extends BaseController
     public function __construct()
     {
         $this->field = new \App\Models\VIewFieldsModel();
-        $this->jobs = new \App\Models\JobsModel();
         $this->harvest = new \App\Models\HarvestModel();
         $this->user = new \App\Models\RegisterModel();
         $this->planting = new \App\Models\PlantingModel();

@@ -4,7 +4,7 @@
             <div class="col-12">
                 <div class="QA_section">
                     <div class="white_box_tittle list_header" style="margin-top: 4vh;">
-                        <h4 style="color:#88c431; ">Mga Trabaho sa Bukid</h4>
+                        <h4 style="color:#88c431; ">Mga Gastos sa Bukid</h4>
                         <div class=" box_right d-flex lms_block">
                             <div class="serach_field_2">
                                 <div class="search_inner">
@@ -23,24 +23,22 @@
                             <table class="table lms_table_active">
                                 <thead>
                                     <tr>
-                                        <th scope="col">Trabaho</th>
+                                        <th scope="col">Gastos</th>
                                         <th scope="col">Pangalan ng Bukid</th>
                                         <th scope="col">Araw</th>
-                                        <th scope="col">Pangalan ng Magtatrabaho</th>
                                         <th scope="col">Total na Nagastos</th>
                                         <th scope="col">Notes</th>
                                         <th scope="col">Aksyon</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php foreach ($jobs as $job) : ?>
+                                    <?php foreach ($expense as $exp) : ?>
                                         <tr>
-                                            <td><?= $job['job_name'] ?></td>
-                                            <td><?= $job['field_name'] ?></td>
-                                            <td><?= $job['finished_date'] ?></td>
-                                            <td><?= $job['worker_name'] ?></td>
-                                            <td><?= $job['total_money_spent'] ?></td>
-                                            <td><?= $job['notes'] ?></td>
+                                            <td><?= $exp['expense_name'] ?></td>
+                                            <td><?= $exp['field_name'] ?></td>
+                                            <td><?= $exp['finished_date'] ?></td>
+                                            <td><?= $exp['total_money_spent'] ?></td>
+                                            <td><?= $exp['notes'] ?></td>
 
                                             <td>
                                                 <div class="btn-group">
@@ -48,17 +46,16 @@
                                                         Actions
                                                     </button>
                                                     <div class="dropdown-menu">
-                                                        <button type="button" class="dropdown-item" onclick="openEditJobModal(
-                                                            <?= $job['job_id']; ?>,
-                                                            '<?= $job['job_name']; ?>',
-                                                            '<?= $job['field_name']; ?>',
-                                                            '<?= $job['finished_date']; ?>',
-                                                            '<?= $job['worker_name']; ?>', 
-                                                            '<?= $job['total_money_spent']; ?>',
-                                                            '<?= $job['notes']; ?>',
+                                                        <button type="button" class="dropdown-item" onclick="openEditexpModal(
+                                                            <?= $exp['expense_id']; ?>,
+                                                            '<?= $exp['expense_name']; ?>',
+                                                            '<?= $exp['field_name']; ?>',
+                                                            '<?= $exp['finished_date']; ?>', 
+                                                            '<?= $exp['total_money_spent']; ?>',
+                                                            '<?= $exp['notes']; ?>',
 
                                                             )">Edit</button>
-                                                        <button type="button" class="dropdown-item" onclick="deleteJob(<?= $job['job_id']; ?>)">Delete</button>
+                                                        <button type="button" class="dropdown-item" onclick="deleteJob(<?= $exp['expense_id']; ?>)">Delete</button>
                                                     </div>
                                                 </div>
                                             </td>
@@ -87,15 +84,9 @@
             <div class="modal-body">
                 <form action="/addjob" method="post">
                     <div class="mb-3">
-                        <label for="job_name" class="form-label">Trabaho</label>
-                        <select name="job_name" id="job_name" class="form-select">
-                            <option value="Gamas">Gamas</option>
-                            <option value="Lipat Tanim">Lipat Tanim</option>
-                            <option value="Spray">Spray</option>
-                            <option value="Fertilize">Fertilize</option>
-                        </select>
+                        <label for="expense_name" class="form-label">Pangalan ng Bukid</label>
+                        <input type="text" name="expense_name" id="expense_name" placeholder="Para saan ang gastos" class="form-control">
                     </div>
-
 
                     <div class="mb-3">
                         <label for="field_name" class="form-label">Pangalan ng Bukid</label>
@@ -139,7 +130,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="/jobs/update" method="post">
+                <form action="/expense/update" method="post">
                     <input type="hidden" name="job_id" id="editjob_id">
                     <div class="mb-3">
                         <label for="editjob_name" class="form-label">Trabaho</label>

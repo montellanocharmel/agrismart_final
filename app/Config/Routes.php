@@ -36,19 +36,19 @@ $routes->post('cropplanting/delete/(:num)', 'DashboardController::deleteplanting
 
 //expenses
 $routes->get('/expenses', 'DashboardController::expenses', ['filter' => 'authGuard']);
-$routes->post('/addexpenses', 'DashboardController::addnewexpenses');
-$routes->post('/expensess/edit/(:num)', 'DashboardController::editexpenses/$1');
-$routes->post('/expensess/update', 'DashboardController::updateexpenses');
+$routes->post('/addexpenses', 'DashboardController::addnewjob');
+$routes->post('/expenses/edit/(:num)', 'DashboardController::editexpenses/$1');
+$routes->post('/expenses/update', 'DashboardController::updateexpenses');
 $routes->post('expensess/delete/(:num)', 'DashboardController::deleteexpenses/$1');
 
-/*
+
 //harvest
 $routes->get('/harvest', 'DashboardController::harvest', ['filter' => 'authGuard']);
 $routes->post('/addharvest', 'DashboardController::addnewharvest');
 $routes->post('/harvest/edit/(:num)', 'DashboardController::editharvest/$1');
 $routes->post('/harvest/update', 'DashboardController::updateharvest');
 $routes->post('harvest/delete/(:num)', 'DashboardController::deleteHarvest/$1');
-
+/*
 // worker
 $routes->get('/workers', 'DashboardController::worker', ['filter' => 'authGuard']);
 $routes->post('/addworker', 'DashboardController::addnewworker');

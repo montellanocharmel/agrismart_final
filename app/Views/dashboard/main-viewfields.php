@@ -254,27 +254,18 @@
 </div>
 
 
-<!-- Add Job Modal -->
+<!-- Add Expenses Modal -->
 <div class="modal fade" id="addjobmodal" role="dialog" aria-labelledby="addjobmodalLabel" aria-hidden="true">
     <br>
     <div class="modal-dialog modal-dialog-centered" style="z-index: 10000;">
 
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="addjobmodalLabel">Add New Job</h5>
+                <h5 class="modal-title" id="addjobmodalLabel">Add Expenses</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="/addjob" method="post">
-                    <div class="mb-3">
-                        <label for="job_name" class="form-label">Trabaho</label>
-                        <select name="job_name" id="job_name" class="form-select">
-                            <option value="Gamas">Gamas</option>
-                            <option value="Lipat Tanim">Lipat Tanim</option>
-                            <option value="Spray">Spray</option>
-                            <option value="Fertilize">Fertilize</option>
-                        </select>
-                    </div>
+                <form action="/addexpenses" method="post">
                     <div class="mb-3">
                         <label for="field_id" class="form-label">ID ng Bukid</label>
                         <input type="text" name="field_id" id="field_id_add" class="form-control" readonly>
@@ -283,14 +274,13 @@
                         <label for="field_name" class="form-label">Pangalan ng Bukid</label>
                         <input type="text" name="field_name" id="field_nameadd" class="form-control" readonly>
                     </div>
-
+                    <div class="mb-3">
+                        <label for="expense_name" class="form-label">Saan Ginastos</label>
+                        <input type="text" name="expense_name" id="expense_name" placeholder="Saan Ginastos" class="form-control">
+                    </div>
                     <div class="mb-3">
                         <label for="finished_date" class="form-label">Araw</label>
                         <input type="date" name="finished_date" id="finished_date" class=" form-control">
-                    </div>
-                    <div class="mb-3">
-                        <label for="worker_name" class="form-label">Pangalang ng Magtatrabaho</label>
-                        <input type="text" name="worker_name" id="worker_name" placeholder="Pangalan ng Magtatrabaho" class="form-control">
                     </div>
                     <div class="mb-3">
                         <label for="total_money_spent" class="form-label">Total na Nagastos</label>
@@ -364,7 +354,7 @@
 </div>
 
 
-<!-- edit_product_modal.php -->
+<!-- edit field modal.php -->
 
 <div class="modal fade" id="editfieldmodal" tabindex="-1" aria-labelledby="editfieldmodalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">

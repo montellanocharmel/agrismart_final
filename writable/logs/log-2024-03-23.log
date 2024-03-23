@@ -1,0 +1,271 @@
+CRITICAL - 2024-03-23 10:37:50 --> Error: Class "App\Models\JobsModel" not found
+in APPPATH\Controllers\LoginController.php on line 23.
+ 1 SYSTEMPATH\CodeIgniter.php(913): App\Controllers\LoginController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(493): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-03-23 10:41:53 --> Error: Class "App\Models\JobsModel" not found
+in APPPATH\Controllers\LoginController.php on line 23.
+ 1 SYSTEMPATH\CodeIgniter.php(913): App\Controllers\LoginController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(493): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-03-23 10:41:54 --> Error: Class "App\Models\JobsModel" not found
+in APPPATH\Controllers\LoginController.php on line 23.
+ 1 SYSTEMPATH\CodeIgniter.php(913): App\Controllers\LoginController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(493): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-03-23 10:41:55 --> Error: Class "App\Models\JobsModel" not found
+in APPPATH\Controllers\LoginController.php on line 23.
+ 1 SYSTEMPATH\CodeIgniter.php(913): App\Controllers\LoginController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(493): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-03-23 10:41:55 --> Error: Class "App\Models\JobsModel" not found
+in APPPATH\Controllers\LoginController.php on line 23.
+ 1 SYSTEMPATH\CodeIgniter.php(913): App\Controllers\LoginController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(493): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-03-23 10:41:56 --> Error: Class "App\Models\JobsModel" not found
+in APPPATH\Controllers\LoginController.php on line 23.
+ 1 SYSTEMPATH\CodeIgniter.php(913): App\Controllers\LoginController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(493): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-03-23 11:00:03 --> ErrorException: Undefined variable $jobs
+in APPPATH\Views\dashboard\main-jobs.php on line 36.
+ 1 APPPATH\Views\dashboard\main-jobs.php(36): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $jobs', 'C:\\laragon\\www\\final_agrismart\\app\\Views\\dashboard\\main-jobs.php', 36)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\final_agrismart\\app\\Views\\dashboard\\main-jobs.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(469): CodeIgniter\View\View->render('/dashboard/main-jobs', null, true)
+ 5 APPPATH\Views\userfolder\jobs.php(5): CodeIgniter\View\View->include('/dashboard/main-jobs')
+ 6 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\final_agrismart\\app\\Views\\userfolder\\jobs.php')
+ 7 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('userfolder/jobs', [], true)
+ 9 APPPATH\Controllers\DashboardController.php(225): view('userfolder/jobs', [...])
+10 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->expenses()
+11 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+12 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-03-23 12:06:59 --> ErrorException: Undefined variable $jobs
+in APPPATH\Views\dashboard\main-jobs.php on line 36.
+ 1 APPPATH\Views\dashboard\main-jobs.php(36): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $jobs', 'C:\\laragon\\www\\final_agrismart\\app\\Views\\dashboard\\main-jobs.php', 36)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\final_agrismart\\app\\Views\\dashboard\\main-jobs.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(469): CodeIgniter\View\View->render('/dashboard/main-jobs', null, true)
+ 5 APPPATH\Views\userfolder\jobs.php(5): CodeIgniter\View\View->include('/dashboard/main-jobs')
+ 6 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\final_agrismart\\app\\Views\\userfolder\\jobs.php')
+ 7 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('userfolder/jobs', [], true)
+ 9 APPPATH\Controllers\DashboardController.php(225): view('userfolder/jobs', [...])
+10 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->expenses()
+11 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+12 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-03-23 13:07:30 --> ErrorException: Undefined variable $jobs
+in APPPATH\Views\dashboard\main-jobs.php on line 36.
+ 1 APPPATH\Views\dashboard\main-jobs.php(36): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $jobs', 'C:\\laragon\\www\\final_agrismart\\app\\Views\\dashboard\\main-jobs.php', 36)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\final_agrismart\\app\\Views\\dashboard\\main-jobs.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(469): CodeIgniter\View\View->render('/dashboard/main-jobs', null, true)
+ 5 APPPATH\Views\userfolder\jobs.php(5): CodeIgniter\View\View->include('/dashboard/main-jobs')
+ 6 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\final_agrismart\\app\\Views\\userfolder\\jobs.php')
+ 7 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('userfolder/jobs', [], true)
+ 9 APPPATH\Controllers\DashboardController.php(225): view('userfolder/jobs', [...])
+10 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->expenses()
+11 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+12 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-03-23 13:32:40 --> ErrorException: Undefined variable $jobs
+in APPPATH\Views\dashboard\main-jobs.php on line 36.
+ 1 APPPATH\Views\dashboard\main-jobs.php(36): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $jobs', 'C:\\laragon\\www\\final_agrismart\\app\\Views\\dashboard\\main-jobs.php', 36)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\final_agrismart\\app\\Views\\dashboard\\main-jobs.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(469): CodeIgniter\View\View->render('/dashboard/main-jobs', null, true)
+ 5 APPPATH\Views\userfolder\jobs.php(5): CodeIgniter\View\View->include('/dashboard/main-jobs')
+ 6 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\final_agrismart\\app\\Views\\userfolder\\jobs.php')
+ 7 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('userfolder/jobs', [], true)
+ 9 APPPATH\Controllers\DashboardController.php(225): view('userfolder/jobs', [...])
+10 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->expenses()
+11 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+12 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-03-23 13:36:41 --> ErrorException: Undefined variable $expense
+in APPPATH\Views\dashboard\main-jobs.php on line 36.
+ 1 APPPATH\Views\dashboard\main-jobs.php(36): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $expense', 'C:\\laragon\\www\\final_agrismart\\app\\Views\\dashboard\\main-jobs.php', 36)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\final_agrismart\\app\\Views\\dashboard\\main-jobs.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(469): CodeIgniter\View\View->render('/dashboard/main-jobs', null, true)
+ 5 APPPATH\Views\userfolder\jobs.php(5): CodeIgniter\View\View->include('/dashboard/main-jobs')
+ 6 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\final_agrismart\\app\\Views\\userfolder\\jobs.php')
+ 7 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('userfolder/jobs', [], true)
+ 9 APPPATH\Controllers\DashboardController.php(243): view('userfolder/jobs', [...])
+10 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->addnewjob()
+11 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+12 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-03-23 13:38:11 --> ErrorException: Undefined variable $expense
+in APPPATH\Views\dashboard\main-jobs.php on line 36.
+ 1 APPPATH\Views\dashboard\main-jobs.php(36): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $expense', 'C:\\laragon\\www\\final_agrismart\\app\\Views\\dashboard\\main-jobs.php', 36)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\final_agrismart\\app\\Views\\dashboard\\main-jobs.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(469): CodeIgniter\View\View->render('/dashboard/main-jobs', null, true)
+ 5 APPPATH\Views\userfolder\jobs.php(5): CodeIgniter\View\View->include('/dashboard/main-jobs')
+ 6 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\final_agrismart\\app\\Views\\userfolder\\jobs.php')
+ 7 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('userfolder/jobs', [], true)
+ 9 APPPATH\Controllers\DashboardController.php(243): view('userfolder/jobs', [...])
+10 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->addnewjob()
+11 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+12 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-03-23 13:44:27 --> ErrorException: Undefined variable $expense
+in APPPATH\Views\dashboard\main-jobs.php on line 35.
+ 1 APPPATH\Views\dashboard\main-jobs.php(35): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $expense', 'C:\\laragon\\www\\final_agrismart\\app\\Views\\dashboard\\main-jobs.php', 35)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\final_agrismart\\app\\Views\\dashboard\\main-jobs.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(469): CodeIgniter\View\View->render('/dashboard/main-jobs', null, true)
+ 5 APPPATH\Views\userfolder\jobs.php(5): CodeIgniter\View\View->include('/dashboard/main-jobs')
+ 6 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\final_agrismart\\app\\Views\\userfolder\\jobs.php')
+ 7 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('userfolder/jobs', [], true)
+ 9 APPPATH\Controllers\DashboardController.php(243): view('userfolder/jobs', [...])
+10 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->addnewjob()
+11 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+12 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-03-23 13:44:44 --> ErrorException: Undefined variable $expense
+in APPPATH\Views\dashboard\main-jobs.php on line 35.
+ 1 APPPATH\Views\dashboard\main-jobs.php(35): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $expense', 'C:\\laragon\\www\\final_agrismart\\app\\Views\\dashboard\\main-jobs.php', 35)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\final_agrismart\\app\\Views\\dashboard\\main-jobs.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(469): CodeIgniter\View\View->render('/dashboard/main-jobs', null, true)
+ 5 APPPATH\Views\userfolder\jobs.php(5): CodeIgniter\View\View->include('/dashboard/main-jobs')
+ 6 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\final_agrismart\\app\\Views\\userfolder\\jobs.php')
+ 7 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('userfolder/jobs', [], true)
+ 9 APPPATH\Controllers\DashboardController.php(243): view('userfolder/jobs', [...])
+10 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->addnewjob()
+11 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+12 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-03-23 13:45:44 --> ErrorException: Undefined variable $expense
+in APPPATH\Views\dashboard\main-jobs.php on line 35.
+ 1 APPPATH\Views\dashboard\main-jobs.php(35): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $expense', 'C:\\laragon\\www\\final_agrismart\\app\\Views\\dashboard\\main-jobs.php', 35)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\final_agrismart\\app\\Views\\dashboard\\main-jobs.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(469): CodeIgniter\View\View->render('/dashboard/main-jobs', null, true)
+ 5 APPPATH\Views\userfolder\jobs.php(5): CodeIgniter\View\View->include('/dashboard/main-jobs')
+ 6 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\final_agrismart\\app\\Views\\userfolder\\jobs.php')
+ 7 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('userfolder/jobs', [], true)
+ 9 APPPATH\Controllers\DashboardController.php(243): view('userfolder/jobs', [...])
+10 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->addnewjob()
+11 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+12 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-03-23 13:47:33 --> ErrorException: Undefined variable $expense
+in APPPATH\Views\dashboard\main-jobs.php on line 35.
+ 1 APPPATH\Views\dashboard\main-jobs.php(35): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $expense', 'C:\\laragon\\www\\final_agrismart\\app\\Views\\dashboard\\main-jobs.php', 35)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\final_agrismart\\app\\Views\\dashboard\\main-jobs.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(469): CodeIgniter\View\View->render('/dashboard/main-jobs', null, true)
+ 5 APPPATH\Views\userfolder\jobs.php(5): CodeIgniter\View\View->include('/dashboard/main-jobs')
+ 6 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\final_agrismart\\app\\Views\\userfolder\\jobs.php')
+ 7 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('userfolder/jobs', [], true)
+ 9 APPPATH\Controllers\DashboardController.php(245): view('userfolder/jobs', [...])
+10 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->addnewjob()
+11 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+12 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+ERROR - 2024-03-23 13:49:58 --> mysqli_sql_exception: Table 'final_agrismart.harvest' doesn't exist in C:\laragon\www\final_agrismart\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\final_agrismart\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\laragon\www\final_agrismart\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\laragon\www\final_agrismart\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\laragon\www\final_agrismart\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\laragon\www\final_agrismart\system\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\final_agrismart\system\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\laragon\www\final_agrismart\app\Controllers\DashboardController.php(310): CodeIgniter\BaseModel->findAll()
+#7 C:\laragon\www\final_agrismart\system\CodeIgniter.php(941): App\Controllers\DashboardController->harvest()
+#8 C:\laragon\www\final_agrismart\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+#9 C:\laragon\www\final_agrismart\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\laragon\www\final_agrismart\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 C:\laragon\www\final_agrismart\system\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\...')
+#12 {main}
+CRITICAL - 2024-03-23 13:49:58 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'final_agrismart.harvest' doesn't exist
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `harvest`
+WHERE `user_id` IS NULL', [], false)
+ 2 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\DashboardController.php(310): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->harvest()
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-03-23 13:49:58 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'final_agrismart.harvest' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `harvest`
+WHERE `user_id` IS NULL')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `harvest`
+WHERE `user_id` IS NULL')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `harvest`
+WHERE `user_id` IS NULL', [], false)
+ 4 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Controllers\DashboardController.php(310): CodeIgniter\BaseModel->findAll()
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->harvest()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-03-23 13:49:58 --> [Caused by] mysqli_sql_exception: Table 'final_agrismart.harvest' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *
+FROM `harvest`
+WHERE `user_id` IS NULL', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `harvest`
+WHERE `user_id` IS NULL')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `harvest`
+WHERE `user_id` IS NULL')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `harvest`
+WHERE `user_id` IS NULL', [], false)
+ 5 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\DashboardController.php(310): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->harvest()
+ 9 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
