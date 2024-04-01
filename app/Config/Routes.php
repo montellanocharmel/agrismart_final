@@ -48,6 +48,12 @@ $routes->post('/addharvest', 'DashboardController::addnewharvest');
 $routes->post('/harvest/edit/(:num)', 'DashboardController::editharvest/$1');
 $routes->post('/harvest/update', 'DashboardController::updateharvest');
 $routes->post('harvest/delete/(:num)', 'DashboardController::deleteHarvest/$1');
+
+
+// profile
+$routes->get('/addprofile', 'DashboardController::addprofile');
+$routes->post('/addfarmerprofile', 'DashboardController::addfarmerprofile');
+
 /*
 // worker
 $routes->get('/workers', 'DashboardController::worker', ['filter' => 'authGuard']);
