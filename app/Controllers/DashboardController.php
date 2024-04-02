@@ -60,9 +60,12 @@ class DashboardController extends BaseController
             return redirect()->to('/sign_ins');
         }
         $userId = session()->get('leader_id');
+        $profile = $this->profiles->where('user_id', $userId)->findAll();
+        $fie = $this->field->where('user_id', $userId)->findAll();
 
         $data = [
-            'field' => $this->field->where('user_id', $userId)->findAll()
+            'profiles' => $profile,
+            'field' => $fie,
         ];
         return view('userfolder/viewfields', $data);
     }
@@ -389,64 +392,93 @@ class DashboardController extends BaseController
             return redirect()->to('/harvest')->with('error', 'harvest not found');
         }
     }
-    public function addprofile()
+    // farmer profiles
+
+    public function farmerprofiles()
+    {
+        if (!session()->get('isLoggedIn')) {
+            return redirect()->to('/signinadmin');
+        }
+        $userId = session()->get('leader_id');
+        $profile = $this->profiles->where('user_id', $userId)->findAll();
+
+        $data = [
+            'profiles' => $profile,
+        ];
+        return view('userfolder/farmerprofile', $data);
+    }
+    public function addfarmerprofile()
+    {
+        $userId = session()->get('leader_id');
+
+        $validation = $this->validate([
+            'fims_code' => 'required',
+            'fullname' => 'required',
+            'address' => 'required',
+        ]);
+
+        if (!$validation) {
+            return view('userfolder/farmerprofile', ['validation' => $this->validator]);
+        }
+
+
+        $this->profiles->save([
+            'fims_code' => $this->request->getPost('fims_code'),
+            'fullname' => $this->request->getPost('fullname'),
+            'address' => $this->request->getPost('address'),
+            'user_id' => $userId,
+        ]);
+
+
+        return redirect()->to('/farmerprofiles')->with('success', 'Profile added successfully');
+    }
+    public function editfarmer($id)
+    {
+        $profile = $this->profiles->find($id);
+
+        return view('farmerprofiles', ['profiles' => $profile]);
+    }
+    public function updatefarmer()
+    {
+        $id = $this->request->getPost('id');
+
+        $dataToUpdate = [
+            'fims_code' => $this->request->getPost('fims_code'),
+            'fullname' => $this->request->getPost('fullname'),
+            'address' => $this->request->getPost('address'),
+        ];
+
+        $this->profiles->update($id, $dataToUpdate);
+
+        return redirect()->to('/farmerprofiles')->with('success', 'Profile updated successfully');
+    }
+    public function deletefarmer($id)
+    {
+        $profile = $this->profiles->find($id);
+
+        if ($profile) {
+            $this->profiles->delete($id);
+
+            return redirect()->to('/farmerprofiles')->with('success', 'Harvest deleted successfully');
+        } else {
+            return redirect()->to('/farmerprofiles')->with('error', 'harvest not found');
+        }
+    }
+    public function myprofile()
     {
         if (!session()->get('isLoggedIn')) {
             return redirect()->to('/signinadmin');
         }
         $userId = session()->get('farmer_id');
         $prof = $this->prof->where('user_id', $userId)->findAll();
-        $currentYear = date('Y');
-
-
-        // total na naani
-        $resultQuantity = $this->harvest
-            ->selectSum('harvest_quantity', 'totalHarvestQuantity')
-            ->where('user_id', $userId)
-            ->get();
-        $totalHarvestQuantity = $resultQuantity->getRow()->totalHarvestQuantity;
-
-
-        // kita ngayong taon
-        $resultRevenue = $this->harvest
-            ->selectSum('total_revenue', 'totalRevenueThisYear')
-            ->where('user_id', $userId)
-            ->where('YEAR(harvest_date)', $currentYear)
-            ->get();
-        $totalRevenueThisYear = $resultRevenue->getRow()->totalRevenueThisYear;
-
-        // Count of binhi
-        $totalVarieties = $this->variety
-            ->selectSum('quantity', 'totalVarieties')
-            ->where('user_id', $userId)
-            ->get();
-        $totalBinhiCount = $totalVarieties->getRow()->totalVarieties;
-
-        // Total money spent from jobs table
-        $resultMoneySpent = $this->expense
-            ->selectSum('total_money_spent', 'totalMoneySpent')
-            ->where('user_id', $userId)
-            ->get();
-        $totalMoneySpent = $resultMoneySpent->getRow()->totalMoneySpent;
-
-        $harvestData = $this->harvest->where('user_id', $userId)->findAll();
-        $revenueData = $this->harvest->where('user_id', $userId)->findAll();
-        $workerData = $this->worker->where('user_id', $userId)->findAll();
 
 
         $data = [
-            'prof' => $prof,
-            'totalHarvestQuantity' => $totalHarvestQuantity,
-            'totalRevenueThisYear' => $totalRevenueThisYear,
-            'harvest' => $harvestData,
-            'totalBinhiCount' => $totalBinhiCount,
-            'totalMoneySpent' => $totalMoneySpent,
-            'worker' => $workerData,
-            'field' => $this->field->where('user_id', $userId)->findAll()
+            'prof' => $prof
         ];
-        return view('userfolder/addprofile', $data);
+        return view('userfolder/myprofile', $data);
     }
-    public function addfarmerprofile()
+    public function addleaderprofile()
     {
         $userId = session()->get('farmer_id');
 

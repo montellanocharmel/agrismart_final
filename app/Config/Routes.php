@@ -51,8 +51,14 @@ $routes->post('harvest/delete/(:num)', 'DashboardController::deleteHarvest/$1');
 
 
 // profile
-$routes->get('/addprofile', 'DashboardController::addprofile');
+$routes->get('/farmerprofiles', 'DashboardController::farmerprofiles');
 $routes->post('/addfarmerprofile', 'DashboardController::addfarmerprofile');
+$routes->post('/farmer/edit/(:num)', 'DashboardController::editfarmer/$1');
+$routes->post('/farmer/update', 'DashboardController::updatefarmer');
+$routes->post('farmer/delete/(:num)', 'DashboardController::deletefarmer/$1');
+
+$routes->get('/myprofile', 'DashboardController::myprofile');
+
 
 /*
 // worker

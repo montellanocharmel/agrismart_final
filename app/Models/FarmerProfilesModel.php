@@ -12,7 +12,7 @@ class FarmerProfilesModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['fims_code', 'firstname', 'middlename', 'lastname', 'address', 'user_id'];
+    protected $allowedFields    = ['fims_code', 'fullname', 'address', 'user_id'];
 
     protected bool $allowEmptyInserts = false;
 

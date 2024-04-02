@@ -59,8 +59,8 @@
                 <span>Profile</span>
             </a>
             <ul>
-                <li><a href="/addprofile">My Profile</a></li>
-                <li><a href="/">Farmer Profiles</a></li>
+                <li><a href="/myprofile">My Profile</a></li>
+                <li><a href="/farmerprofiles">Farmer Profiles</a></li>
             </ul>
         </li>
         <li class>

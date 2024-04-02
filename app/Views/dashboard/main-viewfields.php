@@ -88,7 +88,12 @@
                 <form action="/addfield" method="post">
                     <div class="mb-3">
                         <label for="farmer_name" class="form-label">Pangalan ng Magsasaka</label>
-                        <input type="text" name="farmer_name" id="farmer_name" placeholder="Pangalan ng Magsasaka" class="form-control">
+                        <select name="farmer_name" id="farmer_name" class="form-control">
+                            <option value="" selected disabled>Select Full Name</option>
+                            <?php foreach ($profiles as $profile) : ?>
+                                <option value="<?= $profile['fullname'] ?>"><?= $profile['fullname'] ?></option>
+                            <?php endforeach; ?>
+                        </select>
                     </div>
                     <div class="mb-3">
                         <label for="field_name" class="form-label">Pangalan ng Bukid</label>

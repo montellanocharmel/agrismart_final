@@ -82,7 +82,6 @@
     }
 
     function openEditJobModal(job_id, job_name, field_name, finished_date, worker_name, equipment_use, quantity_use, total_money_spent, notes) {
-        // Set the product ID and name in the modal
         document.getElementById('editjob_id').value = job_id;
         document.getElementById('editjob_name').value = job_name;
         document.getElementById('editfield_name').value = field_name;
@@ -136,7 +135,6 @@
     }
 
     function openEditHarvestModal(harvest_id, field_name, variety_name, harvest_quantity, total_revenue, harvest_date, notes) {
-        // Set the product ID and name in the modal
         document.getElementById('editharvest_id').value = harvest_id;
         document.getElementById('editfield_name').value = field_name;
         document.getElementById('editvariety_name').value = variety_name;
@@ -144,26 +142,20 @@
         document.getElementById('edittotal_revenue').value = total_revenue;
         document.getElementById('editharvest_date').value = harvest_date;
         document.getElementById('editnotes').value = notes;
-        // Open the modal
         $('#editharvestmodal').modal('show');
     }
 
 
-    // Function to delete a product
     function deleteHarvest(harvest_id) {
-        // Confirm with the user before proceeding
         if (confirm("Are you sure you want to delete this product?")) {
-            // Send an AJAX request to delete the product
             $.ajax({
                 type: 'POST',
-                url: '/harvest/delete/' + harvest_id, // Update the URL as needed
+                url: '/harvest/delete/' + harvest_id,
                 success: function(response) {
-                    // Reload the page or update the table as needed
-                    window.location.reload(); // Reload the page for simplicity
+                    window.location.reload();
                 },
                 error: function(error) {
                     console.error('Error:', error);
-                    // Handle errors if needed
                 }
             });
         }
@@ -184,11 +176,9 @@
 
     // worker
     function openEditWorkerModal(worker_id, worker_name, salaryperday) {
-        // Set the product ID and name in the modal
         document.getElementById('editworker_id').value = worker_id;
         document.getElementById('editworker_name').value = worker_name;
         document.getElementById('editsalaryperday').value = salaryperday;
-        // Open the modal
         $('#editworkermodal').modal('show');
     }
 
@@ -207,15 +197,36 @@
             });
         }
     }
+
+    function openEditFarmerModal(id, fims_code, fullname, address, user_id) {
+        document.getElementById('editid').value = id;
+        document.getElementById('editfims_code').value = fims_code;
+        document.getElementById('editfullname').value = fullname;
+        document.getElementById('editaddress').value = address;
+
+        $('#editfarmermodal').modal('show');
+    }
+
+    function deletefarmer(id) {
+        if (confirm("Are you sure you want to delete this farmer?")) {
+            $.ajax({
+                type: 'POST',
+                url: '/farmer/delete/' + id,
+                success: function(response) {
+                    window.location.reload();
+                },
+                error: function(error) {
+                    console.error('Error:', error);
+                }
+            });
+        }
+    }
 </script>
 
-<!-- jQuery -->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 
-<!-- Popper.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 
-<!-- Bootstrap JS -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script src="<?= base_url() ?>dashboard/js/jquery1-3.4.1.min.js"></script>
 

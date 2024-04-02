@@ -2,7 +2,7 @@
     <div class="container-fluid p-1">
         <div class="col-lg-12">
             <div class="row">
-                <div class="col-lg-4">
+                <div class="col-lg-12">
                     <div class="white_box mb_30">
                         <div class="col-lg-12 mt-2 text-center mb-2">
                             <div class="avatar avatar-xxl">
@@ -14,7 +14,7 @@
                         <div class="row align-items-center">
                             <div class="col-lg-12">
                                 <?php foreach ($prof as $pro) : ?>
-                                    <div class="text-center"> <!-- Add text-center class to center the content -->
+                                    <div class="text-center">
                                         <h2 class="mb-1 mt-2" style="color: #88c431;"><?= $pro['fullname'] ?></h2>
                                         <button type="button" class="btn mt-2 mb-2 btn-primary" style="border-radius: 25px;" data-toggle="modal" data-target="#varyModal" data-whatever="@mdo">Add Profile</button>
                                         <button type="button" class="btn mt-2 mb-2 ml-2 btn-primary" style="border-radius: 25px;" data-toggle="modal" data-target="#varyModal" data-whatever="@mdo">Edit Profile</button>
@@ -29,83 +29,6 @@
                     </div>
                 </div>
 
-                <div class="col-lg-8">
-                    <div class="single_element">
-                        <div class="quick_activity">
-                            <div class="quick_activity_wrap quick_activity_wrap">
-                                <div class="single_quick_activity  d-flex">
-                                    <div class="count_content count_content2">
-                                        <h3><span class="counter blue_color"><?= $totalHarvestQuantity ?></span> </h3>
-                                        <p>Total na Naani</p>
-                                    </div>
-                                </div>
-                                <div class="single_quick_activity d-flex">
-                                    <div class="count_content count_content2">
-                                        <h3><span class="counter red_color"><?= $totalRevenueThisYear ?></span> </h3>
-                                        <p>Kita Ngayong Taon</p>
-                                    </div>
-                                </div>
-                                <div class="single_quick_activity  d-flex">
-                                    <div class="count_content count_content2">
-                                        <h3><span class="counter yellow_color"><?= $totalBinhiCount ?></span> </h3>
-                                        <p>Binhi</p>
-                                    </div>
-                                </div>
-                                <div class="single_quick_activity  d-flex">
-                                    <div class="count_content count_content2">
-                                        <h3><span class="counter green_color"><?= $totalMoneySpent ?></span> </h3>
-                                        <p>Nagastos</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="QA_section">
-                        <div class="QA_table mb_30">
-                            <table class="table lms_table_active">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Pangalan ng Bukid</th>
-                                        <th scope="col">May-ari ng Lupa</th>
-                                        <th scope="col">Address ng Bukid</th>
-                                        <th scope="col">Kabuuang Sukat</th>
-                                        <th scope="col">Aksyon</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php foreach ($field as $fie) : ?>
-                                        <tr>
-                                            <td><?= $fie['field_name'] ?></td>
-                                            <td><?= $fie['field_owner'] ?></td>
-                                            <td><?= $fie['field_address'] ?></td>
-                                            <td><?= $fie['field_total_area'] ?></td>
-                                            <td>
-                                                <div class="btn-group">
-                                                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: #88c431; border: none;">
-                                                        Actions
-                                                    </button>
-                                                    <div class="dropdown-menu">
-                                                        <button type="button" class="dropdown-item" onclick="openEditFieldModal(
-                                                        <?= $fie['field_id']; ?>,
-                                                        '<?= $fie['field_name']; ?>',
-                                                        '<?= $fie['field_owner']; ?>',
-                                                        '<?= $fie['field_address']; ?>',
-                                                        '<?= $fie['field_total_area']; ?>',
-                                                        )">Edit</button>
-                                                        <button type="button" class="dropdown-item" onclick="deleteProduct(<?= $fie['field_id']; ?>)">Delete</button>
-                                                        <button type="button" class="dropdown-item" onclick="openAddPlantingModal('<?= $fie['field_id']; ?>', '<?= $fie['field_name']; ?>')">Add New Planting Details</button>
-                                                        <button type="button" class="dropdown-item" onclick="openAddJobModal('<?= $fie['field_id']; ?>', '<?= $fie['field_name']; ?>')">Add New Job</button>
-                                                        <button type="button" class="dropdown-item" onclick="openAddHarvestModal('<?= $fie['field_id']; ?>', '<?= $fie['field_name']; ?>')">Add New Harvest</button>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    <?php endforeach; ?>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
