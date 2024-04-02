@@ -56,9 +56,17 @@ $routes->post('/addfarmerprofile', 'DashboardController::addfarmerprofile');
 $routes->post('/farmer/edit/(:num)', 'DashboardController::editfarmer/$1');
 $routes->post('/farmer/update', 'DashboardController::updatefarmer');
 $routes->post('farmer/delete/(:num)', 'DashboardController::deletefarmer/$1');
-
+$routes->post('/searchProfiles', 'DashboardController::searchProfiles');
 $routes->get('/myprofile', 'DashboardController::myprofile');
 
+
+// maps
+
+
+$routes->get('/map', 'DashboardController::map');
+$routes->get('/eq', 'DashboardController::eq');
+$routes->get('/maps', 'DashboardController::farmermap');
+$routes->get('/eq', 'DashboardController::eq');
 
 /*
 // worker

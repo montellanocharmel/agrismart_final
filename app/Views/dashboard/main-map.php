@@ -392,7 +392,7 @@
             var varietiesArray = [];
 
             varietyData[data.barangay_name].forEach(function(variety) {
-                varietiesArray.push(variety.variety_name);
+                varietiesArray.push(variety.crop_variety);
             });
 
             popupContent += 'Variety: ' + varietiesArray.join(', ') + '<br>';

@@ -172,6 +172,7 @@ class DashboardController extends BaseController
             'notes' => $this->request->getPost('notes'),
             'user_id' => $userId,
             'farmer_name' => $field['farmer_name'],
+            'field_address' => $field['field_address'],
         ]);
 
         return redirect()->to('/cropplanting')->with('success', 'Field added successfully');
@@ -516,6 +517,56 @@ class DashboardController extends BaseController
         $session->set('prof', $prof);
 
         return redirect()->to('/addprofile')->with('success', 'Profile added successfully');
+    }
+
+    public function searchProfiles()
+    {
+        $searchTerm = $this->request->getPost('search');
+
+        $profiles = $this->profiles->like('fullname', $searchTerm)->findAll();
+
+        $responseData = [];
+        foreach ($profiles as $profile) {
+            $responseData[] = $profile['fullname'];
+        }
+
+        return $this->response->setJSON($responseData);
+    }
+
+    public function map()
+    {
+        if (!session()->get('isLoggedIn')) {
+            return redirect()->to('/signinadmin');
+        }
+
+        $barangays = ['Santiago', 'Kalinisan',  'Mabini', 'Adrialuna', 'Antipolo', 'Apitong', 'Arangin', 'Aurora', 'Bacungan', 'Bagong Buhay', 'Bancuro', 'Barcenaga', 'Bayani', 'Buhangin', 'Concepcion', 'Dao', 'Del Pilar', 'Estrella', 'Evangelista', 'Gamao', 'General Esco', 'Herrera', 'Inarawan', 'Laguna', 'Mabini', 'Andres Ilagan', 'Mahabang Parang', 'Malaya', 'Malinao', 'Malvar', 'Masagana', 'Masaguing', 'Melgar A', 'Melgar B', 'Metolza', 'Montelago', 'Montemayor', 'Motoderazo', 'Mulawin', 'Nag-Iba I', 'Nag-Iba II', 'Pagkakaisa', 'Paniquian', 'Pinagsabangan I', 'Pinagsabangan II', 'Pinahan', 'Poblacion I (Barangay I)', 'Poblacion II (Barangay II)', 'Poblacion III (Barangay III)', 'Sampaguita', 'San Agustin I', 'San Agustin II', 'San Andres', 'San Antonio', 'San Carlos', 'San Isidro', 'San Jose', 'San Luis', 'San Nicolas', 'San Pedro', 'Santa Isabel', 'Santa Maria', 'Santiago', 'Santo Nino', 'Tagumpay', 'Tigkan', 'Melgar B', 'Santa Cruz', 'Balite', 'Banuton', 'Caburo', 'Magtibay', 'Paitan'];
+        $varietyData = [];
+
+        foreach ($barangays as $barangay) {
+            $varietyData[$barangay] = $this->planting
+                ->select('crop_variety')
+                ->where('field_address', $barangay)
+                ->findAll();
+        }
+
+        return view('adminfolder/map', ['varietyData' => $varietyData]);
+    }
+    public function farmermap()
+    {
+        if (!session()->get('isLoggedIn')) {
+            return redirect()->to('/sign_ins');
+        }
+
+        $barangays = ['Santiago', 'Kalinisan',  'Mabini', 'Adrialuna', 'Antipolo', 'Apitong', 'Arangin', 'Aurora', 'Bacungan', 'Bagong Buhay', 'Bancuro', 'Barcenaga', 'Bayani', 'Buhangin', 'Concepcion', 'Dao', 'Del Pilar', 'Estrella', 'Evangelista', 'Gamao', 'General Esco', 'Herrera', 'Inarawan', 'Laguna', 'Mabini', 'Andres Ilagan', 'Mahabang Parang', 'Malaya', 'Malinao', 'Malvar', 'Masagana', 'Masaguing', 'Melgar A', 'Melgar B', 'Metolza', 'Montelago', 'Montemayor', 'Motoderazo', 'Mulawin', 'Nag-Iba I', 'Nag-Iba II', 'Pagkakaisa', 'Paniquian', 'Pinagsabangan I', 'Pinagsabangan II', 'Pinahan', 'Poblacion I (Barangay I)', 'Poblacion II (Barangay II)', 'Poblacion III (Barangay III)', 'Sampaguita', 'San Agustin I', 'San Agustin II', 'San Andres', 'San Antonio', 'San Carlos', 'San Isidro', 'San Jose', 'San Luis', 'San Nicolas', 'San Pedro', 'Santa Isabel', 'Santa Maria', 'Santiago', 'Santo Nino', 'Tagumpay', 'Tigkan', 'Melgar B', 'Santa Cruz', 'Balite', 'Banuton', 'Caburo', 'Magtibay', 'Paitan'];
+        $varietyData = [];
+
+        foreach ($barangays as $barangay) {
+            $varietyData[$barangay] = $this->planting
+                ->select('crop_variety')
+                ->where('field_address', $barangay)
+                ->findAll();
+        }
+        return view('userfolder/map', ['varietyData' => $varietyData]);
     }
     /*public function editaccount($field_id)
     {

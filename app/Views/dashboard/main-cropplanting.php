@@ -23,7 +23,8 @@
                         <table class="table lms_table_active">
                             <thead>
                                 <tr>
-                                    <th scope="col">Pangalan ng Magsasaka</th>
+                                    <th scope="col">Pangalan ng Bukid</th>
+                                    <th scope="col">Barangay</th>
                                     <th scope="col">Pangalan ng Bukid</th>
                                     <th scope="col">Pangalan ng Variety</th>
                                     <th scope="col">Araw ng Pagtatanim</th>
@@ -38,6 +39,7 @@
                                 <?php foreach ($planting as $pla) : ?>
                                     <tr>
                                         <td><?= $pla['farmer_name'] ?></td>
+                                        <td><?= $pla['field_address'] ?></td>
                                         <td><?= $pla['field_name'] ?></td>
                                         <td><?= $pla['crop_variety'] ?></td>
                                         <td><?= $pla['planting_date'] ?></td>
@@ -53,7 +55,7 @@
                                                 <div class="dropdown-menu">
                                                     <button class="dropdown-item" onclick="openEditPlantingModal(
                                                         <?= $pla['planting_id']; ?>,
-                                                        '<?= $pla['farmer_name']; ?>',
+                                                        '<?= $pla['farmer_name']; ?>', 
                                                         '<?= $pla['field_name']; ?>',
                                                         '<?= $pla['crop_variety']; ?>',
                                                         '<?= $pla['planting_date']; ?>',

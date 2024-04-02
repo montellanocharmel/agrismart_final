@@ -87,13 +87,15 @@
             <div class="modal-body">
                 <form action="/addfield" method="post">
                     <div class="mb-3">
-                        <label for="farmer_name" class="form-label">Pangalan ng Magsasaka</label>
-                        <select name="farmer_name" id="farmer_name" class="form-control">
-                            <option value="" selected disabled>Select Full Name</option>
-                            <?php foreach ($profiles as $profile) : ?>
-                                <option value="<?= $profile['fullname'] ?>"><?= $profile['fullname'] ?></option>
-                            <?php endforeach; ?>
-                        </select>
+                        <label for="autocomplete_farmer_name" class="form-label">Pangalan ng Magsasaka</label>
+                        <div class="input-group">
+                            <select id="autocomplete_farmer_name" class="form-control" name="farmer_name">
+                                <?php foreach ($profiles as $profile) : ?>
+                                    <option value="<?= $profile['fullname'] ?>"><?= $profile['fullname'] ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                            <button class="btn btn-outline-secondary" type="button" id="clear_farmer_name">Clear</button>
+                        </div>
                     </div>
                     <div class="mb-3">
                         <label for="field_name" class="form-label">Pangalan ng Bukid</label>
@@ -472,3 +474,31 @@
         </div>
     </div>
 </div>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+<script>
+    $(document).ready(function() {
+        $('#autocomplete_farmer_name').select2({
+            placeholder: 'Search Full Name',
+            minimumInputLength: 5, // Minimum characters required before triggering autocomplete
+            ajax: {
+                url: '/searchProfiles',
+                dataType: 'json',
+                delay: 250, // Delay in milliseconds before the request is sent
+                processResults: function(data) {
+                    return {
+                        results: data // Format the data as expected by Select2
+                    };
+                },
+                cache: true // Enable caching to improve performance
+            }
+        });
+    });
+</script>
+<script>
+    $(document).ready(function() {
+        // Clear button click event
+        $("#clear_farmer_name").click(function() {
+            $("#autocomplete_farmer_name").val(""); // Clear the selected value
+        });
+    });
+</script>
