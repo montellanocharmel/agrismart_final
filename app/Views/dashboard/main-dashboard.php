@@ -9,26 +9,26 @@
                                 <div class="quick_activity_wrap quick_activity_wrap">
                                     <div class="single_quick_activity  d-flex">
                                         <div class="count_content count_content2">
-                                            <h3><span class="counter blue_color"><!-- $totalHarvestQuantity ?>--></span> </h3>
-                                            <p>Total na Naani</p>
+                                            <h3><span class="counter blue_color"><?= $totalHarvestQuantity ?></span> </h3>
+                                            <p>Harvest Quantity</p>
                                         </div>
                                     </div>
                                     <div class="single_quick_activity d-flex">
                                         <div class="count_content count_content2">
-                                            <h3><span class="counter red_color"><!--  $totalRevenueThisYear ?>--></span> </h3>
-                                            <p>Kita Ngayong Taon</p>
+                                            <h3><span class="counter red_color"><?= $totalRevenueThisYear ?> </span> </h3>
+                                            <p>Revenue</p>
                                         </div>
                                     </div>
                                     <div class="single_quick_activity  d-flex">
                                         <div class="count_content count_content2">
-                                            <h3><span class="counter yellow_color"><!--$totalBinhiCount ?>--></span> </h3>
-                                            <p>Binhi</p>
+                                            <h3><span class="counter yellow_color"><?= $totalLandArea ?></span> </h3>
+                                            <p>Total Land Area</p>
                                         </div>
                                     </div>
                                     <div class="single_quick_activity  d-flex">
                                         <div class="count_content count_content2">
-                                            <h3><span class="counter green_color"><!--$totalMoneySpent ?>--></span> </h3>
-                                            <p>Nagastos</p>
+                                            <h3><span class="counter green_color"><?= $totalNoofFarmers ?> </span> </h3>
+                                            <p>No. of Farmers</p>
                                         </div>
                                     </div>
                                 </div>
@@ -46,7 +46,8 @@
                         </div>
                     </div>
                     <div class="my-4">
-                        <canvas id="monthlyRevenueChart" width="400" height="100"></canvas>
+                        <canvas id="harvestChart" width="400" height="100"></canvas>
+
                     </div>
 
 
@@ -55,6 +56,31 @@
         </div>
     </div>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    var ctx = document.getElementById('harvestChart').getContext('2d');
+    var chart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: <?= json_encode($monthlyLabels) ?>,
+            datasets: [{
+                label: 'Harvest Quantity',
+                data: <?= json_encode($monthlyHarvestData) ?>,
+                fill: false,
+                borderColor: 'rgb(75, 192, 192)',
+                tension: 0.1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>
+
 <!--
 <script>
     document.addEventListener('DOMContentLoaded', function() {

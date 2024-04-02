@@ -50,10 +50,78 @@ class DashboardController extends BaseController
     public function dashboards()
     {
         if (!session()->get('isLoggedIn')) {
-            return redirect()->to('/logins');
+            return redirect()->to('/login');
         }
-        return view('userfolder/dashboard');
+
+        $userId = session()->get('leader_id');
+
+        // Fetch total harvest quantity
+        $resultQuantity = $this->harvest
+            ->selectSum('harvest_quantity', 'totalHarvestQuantity')
+            ->where('user_id', $userId)
+            ->get();
+        $totalHarvestQuantity = $resultQuantity->getRow()->totalHarvestQuantity;
+
+        // Fetch total revenue for the current year
+        $currentYear = date('Y');
+        $resultRevenue = $this->harvest
+            ->selectSum('total_revenue', 'totalRevenueThisYear')
+            ->where('user_id', $userId)
+            ->where('YEAR(harvest_date)', $currentYear)
+            ->get();
+        $totalRevenueThisYear = $resultRevenue->getRow()->totalRevenueThisYear;
+
+        // Fetch total money spent from jobs table
+        $resultMoneySpent = $this->expense
+            ->selectSum('total_money_spent', 'totalMoneySpent')
+            ->where('user_id', $userId)
+            ->get();
+        $totalMoneySpent = $resultMoneySpent->getRow()->totalMoneySpent;
+
+        /// Fetch monthly harvest quantity data
+        $monthlyHarvest = $this->harvest
+            ->select('YEAR(harvest_date) as year, MONTH(harvest_date) as month, SUM(harvest_quantity) as totalHarvestQuantity')
+            ->where('user_id', $userId)
+            ->groupBy('YEAR(harvest_date), MONTH(harvest_date)')
+            ->findAll();
+
+        // Extracting labels and data for the chart
+        $monthlyLabels = array_map(function ($item) {
+            return date('F Y', strtotime($item['year'] . '-' . $item['month'] . '-01'));
+        }, $monthlyHarvest);
+
+        $monthlyHarvestData = array_column($monthlyHarvest, 'totalHarvestQuantity');
+
+
+        // Fetch total land area of the barangay
+        $totalLandArea = $this->field
+            ->selectSum('field_total_area', 'totalLandArea')
+            ->get()
+            ->getRow()
+            ->totalLandArea;
+
+        // Fetch total number of farmers
+        $totalNoofFarmers = $this->profiles
+            ->where('user_id', $userId)
+            ->countAllResults();
+
+        $harvestData = $this->harvest->where('user_id', $userId)->findAll();
+        $revenueData = $this->harvest->where('user_id', $userId)->findAll();
+
+        $data = [
+            'totalHarvestQuantity' => $totalHarvestQuantity,
+            'totalRevenueThisYear' => $totalRevenueThisYear,
+            'harvest' => $harvestData,
+            'monthlyLabels' => $monthlyLabels,
+            'monthlyHarvestData' => $monthlyHarvestData,
+            'totalLandArea' => $totalLandArea,
+            'totalNoofFarmers' => $totalNoofFarmers,
+        ];
+
+        return view('userfolder/dashboard', $data);
     }
+
+
     public function viewfields()
     {
         if (!session()->get('isLoggedIn')) {
