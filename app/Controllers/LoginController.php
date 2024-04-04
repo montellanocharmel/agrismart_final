@@ -229,7 +229,45 @@ class LoginController extends BaseController
             $adminmodel->save($data);
 
             $subject = 'Please confirm your registration';
-            $message = 'Hi, ' . $this->request->getVar('fullname') . '! Welcome to our website! To continue with your registration, please confirm your account by clicking this <a href="' . base_url('verify/' . $token) . '">link</a>';
+            $message = '
+                        <html>
+                        <head>
+                            <style>
+                                .card {
+                                    background-color: #eff1f7;
+                                    border-radius: 10px;
+                                    padding: 10px;
+                                    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5);
+                                    max-width: 800px;
+                                    margin: auto;
+                                    text-align: center;
+                                }
+                                .button {
+                                    background: black;
+                                    border: none;
+                                    color: white;
+                                    padding: 10px 20px;
+                                    text-align: center;
+                                    text-decoration: none;
+                                    display: inline-block;
+                                    font-size: 14px;
+                                    margin-top: 10px;
+                                    cursor: pointer;
+                                    border-radius: 5px;
+                                }
+                                .button:hover {
+                                    background-color: #f28123;
+                                }
+                            </style>
+                        </head>
+                        <body>
+                            
+                            <div class="card">
+                                <p>Hi, ' . $this->request->getVar('fullname') . '! Welcome to our website!</p>
+                                <p>To continue with your registration, please confirm your account by clicking this <br><a href="' . base_url('verify/' . $token) . '" class="button">link</a>.</p>
+                            </div>
+                        </body>
+                        </html>';
             $this->sendMail($to, $subject, $message);
 
             return redirect()->to('signinadmin');

@@ -11,7 +11,7 @@ body {
     font-family: poppins, sans-serif;
     padding: 0;
     margin: 0;
-    font-size: 14px;
+    font-size: 10px;
     background: #eff1f7
 }
 
@@ -149,19 +149,19 @@ h6 {
 }
 
 h2 {
-    font-size: 30px
+    font-size: 28px
 }
 
 h3 {
-    font-size: 26px
+    font-size: 24px
 }
 
 h4 {
-    font-size: 20px
+    font-size: 14px
 }
 
 h5 {
-    font-size: 16px;
+    font-size: 12px;
     font-weight: 500;
     line-height: 1.8
 }
@@ -178,7 +178,7 @@ ol {
 
 p {
     line-height: 24px;
-    font-size: 10px;
+    font-size: 8px;
     margin-bottom: 0;
     color: #828bb2;
     font-family: poppins, sans-serif;

@@ -2,7 +2,7 @@
     <div class="logo d-flex justify-content-between">
         <a href=""><img src="<?= base_url() ?>assets_landingpage/img/agrismart-logo.png" alt></a>
         <div class="sidebar_close_icon d-lg-none">
-            <i class="ti-close"></i>
+
         </div>
     </div>
     <ul id="sidebar_menu">

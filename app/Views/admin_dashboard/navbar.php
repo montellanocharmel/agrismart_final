@@ -2,7 +2,7 @@
     <div class="logo d-flex justify-content-between">
         <a href=""><img src="<?= base_url() ?>assets_landingpage/img/agrismart-logo.png" alt></a>
         <div class="sidebar_close_icon d-lg-none">
-            <i class="ti-close"></i>
+
         </div>
     </div>
     <ul id="sidebar_menu">
@@ -11,13 +11,8 @@
             <span>Dashboard</span>
         </li>
         <li>
-            <a class="has-arrow" href="#" aria-expanded="false">
-                <img src="img/menu-icon/1.svg" alt>
-                <span>Dashboard</span>
-            </a>
-            <ul>
-                <li><a href="/admindashboard">View Data Center</a></li>
-            </ul>
+        <li><a href="/admindashboard" style="margin-left: 40px;">Dashboard</a></li>
+
         </li>
         <li class="side_menu_title">
             <span>Fields</span>
@@ -29,15 +24,17 @@
             </a>
             <ul>
                 <li><a href="/adminfields">View Fields</a></li>
-                <li><a href="/map">View Maps</a></li>
+                <li><a href="/map">View Map</a></li>
             </ul>
         </li>
         <li class="side_menu_title">
             <span>About Fields</span>
         </li>
+        <li class>
         <li><a href="/admincropplanting" style="margin-left: 40px;">Planting</a></li>
+        <li><a href="/admincropplanting" style="margin-left: 40px;">Expenses</a></li>
         <li><a href="/adminharvest" style="margin-left: 40px;">Harvest</a></li>
-
+        </li>
         <li class="side_menu_title">
             <span>Data Analytics</span>
         </li>
@@ -54,9 +51,29 @@
             </ul>
         </li>
         <li class="side_menu_title">
-            <span>Profile</span>
+            <span>Barangay Inventory</span>
         </li>
-        <li><a href="/adminprofile" style="margin-left: 40px;">Profile</a></li>
-
+        <li class>
+            <a class="has-arrow" href="#" aria-expanded="false">
+                <img src="img/menu-icon/4.svg" alt>
+                <span>Profile</span>
+            </a>
+            <ul>
+                <li><a href="/adminprofile">My Profile</a></li>
+                <li><a href="/manageaccounts">Farmer Profiles</a></li>
+            </ul>
+        </li>
+        <li class>
+            <a class="has-arrow" href="#" aria-expanded="false">
+                <img src="img/menu-icon/4.svg" alt>
+                <span>Inventory</span>
+            </a>
+            <ul>
+                <li><a href="/workers">Workers</a></li>
+                <li><a href="/cropvariety">Crop Variety</a></li>
+                <li><a href="/fertilizers">Fertilizers</a></li>
+                <li><a href="/otherexpenses">Other Expenses</a></li>
+            </ul>
+        </li>
     </ul>
 </nav>

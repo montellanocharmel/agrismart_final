@@ -13,10 +13,6 @@ $routes->get('/sign_ins', 'LoginController::login');
 $routes->post('/loginauth', 'LoginController::loginauth');
 $routes->match(['post', 'get'], '/dashboards', 'LoginController::dashboards', ['filter' => 'authGuard']);
 
-//admin
-
-$routes->get('/manageaccounts', 'DashboardController::manageaccounts');
-
 //fields
 
 $routes->get('/viewfields', 'DashboardController::viewfields');
@@ -67,7 +63,31 @@ $routes->get('/map', 'DashboardController::map');
 $routes->get('/eq', 'DashboardController::eq');
 $routes->get('/maps', 'DashboardController::farmermap');
 $routes->get('/eq', 'DashboardController::eq');
+//admin
 
+$routes->get('/manageaccounts', 'DashboardController::manageaccounts');
+
+// admin register and email verification
+$routes->post('/adminloginauth', 'LoginController::adminloginauth');
+$routes->get('/registeradmin', 'LoginController::registeradmin');
+$routes->match(['get', 'post'], '/signups', 'LoginController::signups');
+$routes->match(['get', 'post'], 'verify/(:any)', 'LoginController::verify/$1');
+$routes->get('/signinadmin', 'LoginController::loginadmin');
+$routes->match(['post', 'get'], '/admindashboard', 'LoginController::admindashboard');
+
+
+
+// admin dashboard
+$routes->get('/adminfields', 'DashboardController::adminfields');
+$routes->get('/admincropplanting', 'DashboardController::admincropplanting');
+$routes->get('/adminharvest', 'DashboardController::adminharvest');
+
+$routes->get('/map', 'DashboardController::map');
+$routes->get('/eq', 'DashboardController::eq');
+
+
+$routes->get('/maps', 'DashboardController::farmermap');
+$routes->get('/eq', 'DashboardController::eq');
 /*
 // worker
 $routes->get('/workers', 'DashboardController::worker', ['filter' => 'authGuard']);
