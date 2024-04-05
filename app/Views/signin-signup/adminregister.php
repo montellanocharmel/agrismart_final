@@ -58,10 +58,6 @@
                             <span><i class="fa fa-lock"></i></span>
                             <input type="password" name="repeat_password" placeholder="Ulitin ang Password" required>
                         </div>
-                        <div class="form-input">
-                            <span><i class="fa fa-user"></i></span>
-                            <input type="text" name="usertype" value="<?= set_value('usertype') ?>" placeholder="Uri ng Account: Type Admin" tabindex="10" required>
-                        </div>
                         <div class="mb-3">
                             <button type="submit" name="signup" id="signup" class="btn btn-block form-submit">Register</button>
                         </div>

@@ -9,26 +9,26 @@
                                 <div class="quick_activity_wrap quick_activity_wrap">
                                     <div class="single_quick_activity  d-flex">
                                         <div class="count_content count_content2">
-                                            <h3><span class="counter blue_color">520</span> </h3>
-                                            <p>dashboard to</p>
+                                            <h3><span class="counter blue_color"><?= $totalHarvestQuantity ?></span> </h3>
+                                            <p>Harvest Quantity</p>
                                         </div>
                                     </div>
                                     <div class="single_quick_activity d-flex">
                                         <div class="count_content count_content2">
-                                            <h3><span class="counter red_color">50000</span> </h3>
-                                            <p>Kita ngayong Quarter</p>
+                                            <h3><span class="counter red_color"><?= $totalRevenueThisYear ?> </span> </h3>
+                                            <p>Revenue</p>
                                         </div>
                                     </div>
                                     <div class="single_quick_activity  d-flex">
                                         <div class="count_content count_content2">
-                                            <h3><span class="counter yellow_color">50</span> </h3>
-                                            <p>Binhi</p>
+                                            <h3><span class="counter yellow_color"><?= $totalLandArea ?></span> </h3>
+                                            <p>Total Land Area</p>
                                         </div>
                                     </div>
                                     <div class="single_quick_activity  d-flex">
                                         <div class="count_content count_content2">
-                                            <h3><span class="counter green_color">21100</span> </h3>
-                                            <p>Nagastos</p>
+                                            <h3><span class="counter green_color"><?= $totalNoofFarmers ?> </span> </h3>
+                                            <p>No. of Farmers</p>
                                         </div>
                                     </div>
                                 </div>

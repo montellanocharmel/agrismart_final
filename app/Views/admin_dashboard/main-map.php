@@ -411,6 +411,7 @@
 
         ];
 
+
         markersData.forEach(function(data) {
             var marker = L.circleMarker([data.lat, data.lng], {
                 radius: 10,
@@ -420,11 +421,14 @@
 
             var varietyData = <?= json_encode($varietyData) ?>;
             var popupContent = 'Barangay: ' + data.barangay_name + '<br>';
+            var varietiesArray = [];
 
             varietyData[data.barangay_name].forEach(function(variety) {
-                popupContent += 'Variety: ' + variety.variety_name + '<br>';
-                popupContent += 'Equipment: ' + variety.equipment + '<br>';
+                varietiesArray.push(variety.crop_variety);
             });
+
+            popupContent += 'Variety: ' + varietiesArray.join(', ') + '<br>';
+
 
             //popup
             marker.on('mouseover', function(e) {

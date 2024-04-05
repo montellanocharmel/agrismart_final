@@ -1,0 +1,24 @@
+CRITICAL - 2024-04-05 17:13:11 --> ErrorException: Undefined array key "usertype"
+in APPPATH\Controllers\LoginController.php on line 151.
+ 1 APPPATH\Controllers\LoginController.php(151): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "usertype"', 'C:\\laragon\\www\\final_agrismart\\app\\Controllers\\LoginController.php', 151)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\LoginController->adminloginauth()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LoginController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-04-05 17:38:08 --> ErrorException: Undefined variable $totalRevenueThisYear
+in APPPATH\Views\admin_dashboard\main-dashboard.php on line 18.
+ 1 APPPATH\Views\admin_dashboard\main-dashboard.php(18): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $totalRevenueThisYear', 'C:\\laragon\\www\\final_agrismart\\app\\Views\\admin_dashboard\\main-dashboard.php', 18)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\final_agrismart\\app\\Views\\admin_dashboard\\main-dashboard.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(469): CodeIgniter\View\View->render('/admin_dashboard/main-dashboard', null, true)
+ 5 APPPATH\Views\adminfolder\dashboard.php(5): CodeIgniter\View\View->include('/admin_dashboard/main-dashboard')
+ 6 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\final_agrismart\\app\\Views\\adminfolder\\dashboard.php')
+ 7 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('adminfolder/dashboard', [], true)
+ 9 APPPATH\Controllers\LoginController.php(134): view('adminfolder/dashboard', [...])
+10 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\LoginController->admindashboard()
+11 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LoginController))
+12 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')

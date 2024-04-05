@@ -15,6 +15,7 @@ class LoginController extends BaseController
     private $user;
     private $planting;
     private $worker;
+    private $profiles;
     private $variety;
 
     public function __construct()
@@ -25,6 +26,7 @@ class LoginController extends BaseController
         $this->planting = new \App\Models\PlantingModel();
         $this->worker = new \App\Models\WorkerModel();
         $this->variety = new \App\Models\VarietyModel();
+        $this->profiles = new \App\Models\FarmerProfilesModel();
     }
 
     public function index()
@@ -122,8 +124,55 @@ class LoginController extends BaseController
         if (!session()->get('isLoggedIn')) {
             return redirect()->to('/signinadmin');
         } else {
+            // Fetch total harvest quantity
+            $resultQuantity = $this->harvest
+                ->selectSum('harvest_quantity', 'totalHarvestQuantity')
+                ->get();
+            $totalHarvestQuantity = $resultQuantity->getRow()->totalHarvestQuantity;
 
-            return view('adminfolder/dashboard');
+            // Fetch total revenue for the current year
+            $currentYear = date('Y');
+            $resultRevenue = $this->harvest
+                ->selectSum('total_revenue', 'totalRevenueThisYear')
+                ->where('YEAR(harvest_date)', $currentYear)
+                ->get();
+            $totalRevenueThisYear = $resultRevenue->getRow()->totalRevenueThisYear;
+
+            /// Fetch monthly harvest quantity data
+            $monthlyHarvest = $this->harvest
+                ->select('YEAR(harvest_date) as year, MONTH(harvest_date) as month, SUM(harvest_quantity) as totalHarvestQuantity')
+                ->groupBy('YEAR(harvest_date), MONTH(harvest_date)')
+                ->findAll();
+
+            // Extracting labels and data for the chart
+            $monthlyLabels = array_map(function ($item) {
+                return date('F Y', strtotime($item['year'] . '-' . $item['month'] . '-01'));
+            }, $monthlyHarvest);
+
+            $monthlyHarvestData = array_column($monthlyHarvest, 'totalHarvestQuantity');
+
+
+            // Fetch total land area of the barangay
+            $totalLandArea = $this->field
+                ->selectSum('field_total_area', 'totalLandArea')
+                ->get()
+                ->getRow()
+                ->totalLandArea;
+
+            // Fetch total number of farmers
+            $totalNoofFarmers = $this->profiles
+                ->countAllResults();
+
+            $data = [
+                'totalHarvestQuantity' => $totalHarvestQuantity,
+                'totalRevenueThisYear' => $totalRevenueThisYear,
+                'monthlyLabels' => $monthlyLabels,
+                'monthlyHarvestData' => $monthlyHarvestData,
+                'totalLandArea' => $totalLandArea,
+                'totalNoofFarmers' => $totalNoofFarmers,
+            ];
+
+            return view('adminfolder/dashboard', $data);
         }
     }
 
@@ -148,17 +197,12 @@ class LoginController extends BaseController
                     'id' => $data['id'],
                     'fullname' => $data['fullname'],
                     'isLoggedIn' => true,
-                    'usertype' => $data['usertype'],
                 ];
 
                 $session->set($ses_data);
                 log_message('info', 'User logged in successfully: ' . $fullname);
 
-                if ($data['usertype'] === 'Admin') {
-                    return redirect()->to('/admindashboard');
-                } else if ($data['usertype'] === 'Farmer') {
-                    return redirect()->to('/dashboards');
-                }
+                return redirect()->to('/admindashboard');
             } else {
                 $session->setFlashdata('msg', 'Password is incorrect.');
                 log_message('error', 'Failed login attempt for user: ' . $fullname);
