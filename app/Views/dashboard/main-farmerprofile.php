@@ -76,7 +76,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="fullname" class="form-label">Full Name</label>
-                        <input type="text" name="fullname" id="fullname" placeholder="Last Name, First Name Middle Name" class="form-control">
+                        <input type="text" name="fullname" id="fullname" placeholder="Last Name, First Name" class="form-control">
                     </div>
                     <div class="mb-3">
                         <label for="address" class="form-label">Address</label>

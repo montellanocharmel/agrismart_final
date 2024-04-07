@@ -88,6 +88,11 @@ $routes->get('/eq', 'DashboardController::eq');
 
 $routes->get('/maps', 'DashboardController::farmermap');
 $routes->get('/eq', 'DashboardController::eq');
+
+//farmer stats
+$routes->get('/farmerstats', 'LoginController::farmerstats');
+$routes->post('/searchFarmerProfiles', 'LoginController::searchFarmerProfiles');
+
 /*
 // worker
 $routes->get('/workers', 'DashboardController::worker', ['filter' => 'authGuard']);

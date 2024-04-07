@@ -38,9 +38,9 @@ class DashboardController extends BaseController
 
     public function manageaccounts()
     {
-        /* if (!session()->get('isLoggedIn')) {
+        if (!session()->get('isLoggedIn')) {
             return redirect()->to('/signinadmin');
-        }*/
+        }
 
         $data = [
             'users' => $this->users->findAll()
@@ -121,6 +121,25 @@ class DashboardController extends BaseController
         return view('userfolder/dashboard', $data);
     }
 
+    public function searchProfiles()
+    {
+        $searchTerm = $this->request->getPost('search');
+
+        $profiles = $this->profiles->select('fullname, fims_code')
+            ->like('fullname', $searchTerm)
+            ->findAll();
+
+        $responseData = [];
+        foreach ($profiles as $profile) {
+            // Store both fullname and fims_code in responseData array
+            $responseData[] = [
+                'fullname' => $profile['fullname'],
+                'fims_code' => $profile['fims_code']
+            ];
+        }
+
+        return $this->response->setJSON($responseData);
+    }
 
     public function viewfields()
     {
@@ -141,6 +160,7 @@ class DashboardController extends BaseController
     {
         $userId = session()->get('leader_id');
 
+        // Validate form inputs
         $validation = $this->validate([
             'farmer_name' => 'required',
             'field_name' => 'required',
@@ -149,21 +169,29 @@ class DashboardController extends BaseController
         ]);
 
         if (!$validation) {
+            // If validation fails, return to the view with validation errors
             return view('userfolder/viewfields', ['validation' => $this->validator]);
         }
 
+        // Fetch the fims_code corresponding to the selected farmer_name
+        $selectedFarmerName = $this->request->getPost('farmer_name');
+        $fimsCode = $this->profiles->where('fullname', $selectedFarmerName)->first()['fims_code'];
+
+        // Save the new field along with fims_code
         $this->field->save([
-            'farmer_name' => $this->request->getPost('farmer_name'),
+            'farmer_name' => $selectedFarmerName,
+            'fims_code' => $fimsCode,
             'field_name' => $this->request->getPost('field_name'),
             'field_owner' => $this->request->getPost('field_owner'),
             'field_address' => $this->request->getPost('field_address'),
             'field_total_area' => $this->request->getPost('field_total_area'),
             'user_id' => $userId,
-
         ]);
 
+        // Redirect to the viewfields page with a success message
         return redirect()->to('/viewfields')->with('success', 'Field added successfully');
     }
+
     public function edit($field_id)
     {
 
@@ -236,10 +264,10 @@ class DashboardController extends BaseController
             'planting_date' => $this->request->getPost('planting_date'),
             'season' => $this->request->getPost('season'),
             'start_date' => $this->request->getPost('start_date'),
-            'end_date' => $this->request->getPost('end_date'),
             'notes' => $this->request->getPost('notes'),
             'user_id' => $userId,
             'farmer_name' => $field['farmer_name'],
+            'fims_code' => $field['fims_code'],
             'field_address' => $field['field_address'],
         ]);
 
@@ -264,7 +292,6 @@ class DashboardController extends BaseController
             'planting_date' => $this->request->getPost('planting_date'),
             'season' => $this->request->getPost('season'),
             'start_date' => $this->request->getPost('start_date'),
-            'end_date' => $this->request->getPost('end_date'),
             'notes' => $this->request->getPost('notes'),
         ];
 
@@ -326,6 +353,7 @@ class DashboardController extends BaseController
             'notes' => $this->request->getPost('notes'),
             'user_id' => $userId,
             'farmer_name' => $field['farmer_name'],
+            'fims_code' => $field['fims_code'],
 
         ]);
 
@@ -397,7 +425,6 @@ class DashboardController extends BaseController
             'harvest_quantity' => 'required',
             'total_revenue' => 'required',
             'harvest_date' => 'required',
-            'notes' => 'required',
 
 
         ]);
@@ -416,6 +443,7 @@ class DashboardController extends BaseController
             'notes' => $this->request->getPost('notes'),
             'user_id' => $userId,
             'farmer_name' => $field['farmer_name'],
+            'fims_code' => $field['fims_code'],
 
         ]);
 
@@ -587,19 +615,7 @@ class DashboardController extends BaseController
         return redirect()->to('/addprofile')->with('success', 'Profile added successfully');
     }
 
-    public function searchProfiles()
-    {
-        $searchTerm = $this->request->getPost('search');
 
-        $profiles = $this->profiles->like('fullname', $searchTerm)->findAll();
-
-        $responseData = [];
-        foreach ($profiles as $profile) {
-            $responseData[] = $profile['fullname'];
-        }
-
-        return $this->response->setJSON($responseData);
-    }
 
     public function map()
     {

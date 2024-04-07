@@ -344,4 +344,81 @@ class LoginController extends BaseController
         helper(['form']);
         return view('signin-signup/adminlogin');
     }
+
+    // see your stats
+    public function farmerstats()
+    {
+
+        $profiles = [];
+        $fields = [];
+        $planting = [];
+        $harvestData = [];
+        $monthlyLabels = [];
+        $monthlyHarvestData = [];
+
+        $data = [
+            'profiles' => $profiles,
+            'field' => $fields,
+            'planting' => $planting,
+            'harvest' => $harvestData,
+            'monthlyLabels' => $monthlyLabels,
+            'monthlyHarvestData' => $monthlyHarvestData,
+        ];
+
+        return view('landing_page_inc/farmerstats', $data);
+    }
+
+    public function searchFarmerProfiles()
+    {
+        $searchTerm = $this->request->getPost('search_term');
+
+        $profiles = $this->profiles->where('fims_code', $searchTerm)->findAll();
+        $fields = [];
+        $planting = [];
+        $harvestData = [];
+        $monthlyLabels = [];
+        $monthlyHarvestData = [];
+        if (empty($profiles)) {
+            $data = [
+                'profiles' => $profiles,
+                'field' => $fields,
+                'planting' => $planting,
+                'harvest' => $harvestData,
+                'monthlyLabels' => $monthlyLabels,
+                'monthlyHarvestData' => $monthlyHarvestData,
+                'error' => 'No farmer profiles found with the provided FIMS Code.'
+            ];
+            return view('landing_page_inc/farmerstats', $data);
+        }
+        $fields = $this->field->where('fims_code', $searchTerm)->findAll();
+        $planting = $this->planting->where('fims_code', $searchTerm)->findAll();
+
+        // Fetch harvest data based on the FIMS code
+        $harvestData = $this->harvest->where('fims_code', $searchTerm)->findAll();
+
+        // Extract monthly labels and harvest quantities from harvest data
+        $monthlyLabels = [];
+        $monthlyHarvestData = [];
+
+        foreach ($harvestData as $data) {
+            // Assuming there's a field named 'harvest_date' containing the date of harvest
+            $month = date('M', strtotime($data['harvest_date']));
+            $monthlyLabels[] = $month;
+
+            // Assuming there's a field named 'harvest_quantity' containing the quantity of harvest
+            $monthlyHarvestData[] = $data['harvest_quantity'];
+        }
+
+        // Pass all necessary data to the view
+        $data = [
+            'profiles' => $profiles,
+            'field' => $fields,
+            'planting' => $planting,
+            'harvest' => $harvestData,
+            'monthlyLabels' => $monthlyLabels, // Pass monthly labels data to the view
+            'monthlyHarvestData' => $monthlyHarvestData, // Pass monthly harvest data to the view
+        ];
+
+        return view('landing_page_inc/farmerstats', $data);
+    }
 }

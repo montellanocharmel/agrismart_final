@@ -91,12 +91,17 @@
                         <div class="input-group">
                             <select id="autocomplete_farmer_name" class="form-control" name="farmer_name">
                                 <?php foreach ($profiles as $profile) : ?>
-                                    <option value="<?= $profile['fullname'] ?>"><?= $profile['fullname'] ?></option>
+                                    <option value="<?= $profile['fullname'] ?>" data-fims-code="<?= $profile['fims_code'] ?>"><?= $profile['fullname'] ?></option>
                                 <?php endforeach; ?>
                             </select>
                             <button class="btn btn-outline-secondary" type="button" id="clear_farmer_name">Clear</button>
                         </div>
                     </div>
+                    <div class="mb-3">
+                        <label for="fims_code" class="form-label">FIMS Code</label>
+                        <input type="text" name="fims_code" id="fims_code" placeholder="FIMS Code" class="form-control" readonly>
+                    </div>
+
                     <div class="mb-3">
                         <label for="field_name" class="form-label">Pangalan ng Bukid</label>
                         <input type="text" name="field_name" id="field_name" placeholder="Pangalan ng Bukid" class="form-control">
@@ -240,10 +245,6 @@
                     <div class="mb-3">
                         <label for="start_date" class="form-label">Simula ng Pagtatanim</label>
                         <input type="date" name="start_date" id="start_date" class=" form-control">
-                    </div>
-                    <div class="mb-3">
-                        <label for="end_date" class="form-label">Araw ng Ani</label>
-                        <input type="date" name="end_date" id="end_date" class=" form-control">
                     </div>
                     <div class="mb-3">
                         <label for="notes" class="form-label">Notes</label>

@@ -12,7 +12,7 @@ class ExpensesModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['expense_name', 'field_id', 'field_name', 'finished_date', 'total_money_spent', 'notes', 'user_id', 'farmer_name'];
+    protected $allowedFields    = ['expense_name', 'field_id', 'field_name', 'finished_date', 'total_money_spent', 'notes', 'user_id', 'farmer_name', 'fims_code'];
 
     protected bool $allowEmptyInserts = false;
 

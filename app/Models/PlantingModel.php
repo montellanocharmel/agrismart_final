@@ -12,7 +12,7 @@ class PlantingModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['field_id', 'field_address', 'field_name', 'crop_variety', 'planting_date', 'season', 'start_date', 'end_date', 'notes', 'user_id', 'farmer_name'];
+    protected $allowedFields    = ['field_id', 'field_address', 'field_name', 'crop_variety', 'planting_date', 'season', 'start_date',  'notes', 'user_id', 'farmer_name', 'fims_code'];
 
     // Dates
     protected $useTimestamps = false;

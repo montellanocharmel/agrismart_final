@@ -12,7 +12,7 @@ class VIewFieldsModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['farmer_name', 'field_name', 'field_owner', 'field_address', 'field_total_area', 'user_id'];
+    protected $allowedFields    = ['farmer_name', 'field_name', 'field_owner', 'field_address', 'field_total_area', 'fims_code', 'user_id'];
 
     // Dates
     protected $useTimestamps = false;

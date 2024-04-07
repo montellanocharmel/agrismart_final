@@ -1,0 +1,28 @@
+CRITICAL - 2024-04-06 19:35:12 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "/top.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(216): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('/top.php')
+ 2 SYSTEMPATH\View\View.php(469): CodeIgniter\View\View->render('/top', null, true)
+ 3 APPPATH\Views\landing_page_inc\farmerstats.php(1): CodeIgniter\View\View->include('/top')
+ 4 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\final_agrismart\\app\\Views\\landing_page_inc\\farmerstats.php')
+ 5 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('landing_page_inc/farmerstats', [], true)
+ 7 APPPATH\Controllers\LoginController.php(351): view('landing_page_inc/farmerstats')
+ 8 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\LoginController->farmerstats()
+ 9 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LoginController))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-04-06 19:35:33 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "top.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(216): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('top.php')
+ 2 SYSTEMPATH\View\View.php(469): CodeIgniter\View\View->render('top', null, true)
+ 3 APPPATH\Views\landing_page_inc\farmerstats.php(1): CodeIgniter\View\View->include('top')
+ 4 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\final_agrismart\\app\\Views\\landing_page_inc\\farmerstats.php')
+ 5 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('landing_page_inc/farmerstats', [], true)
+ 7 APPPATH\Controllers\LoginController.php(351): view('landing_page_inc/farmerstats')
+ 8 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\LoginController->farmerstats()
+ 9 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LoginController))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')

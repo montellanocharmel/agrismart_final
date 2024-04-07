@@ -1,5 +1,3 @@
-	
-	
 	<div class="top-header-area" id="sticker">
 		<div class="container">
 			<div class="row">
@@ -17,18 +15,17 @@
 						<nav class="main-menu">
 							<ul>
 								<li class="current-list-item"><a href="/">Home</a>
-									
+
 								</li>
 								<li><a href="#about">About</a>
-									
+
 								</li>
 								<li><a href="#contact">Contact</a>
-									
+
 								</li>
 								<li><a href="/sign_ins">Login</a></li>
-								<li><a href="/registerview">Register</a>
-									
-								</li>
+								<li><a href="/registerview">Register</a></li>
+								<li><a href="/farmerstats">See Your Stats</a>
 								<li>
 								</li>
 							</ul>
@@ -42,7 +39,7 @@
 		</div>
 	</div>
 	<!-- end header -->
-	
+
 	<!-- search area -->
 	<div class="search-area">
 		<div class="container">
