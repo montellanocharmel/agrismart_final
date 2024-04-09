@@ -34,19 +34,6 @@ class DashboardController extends BaseController
         $this->profiles = new \App\Models\FarmerProfilesModel();
     }
 
-    // admin
-
-    public function manageaccounts()
-    {
-        if (!session()->get('isLoggedIn')) {
-            return redirect()->to('/signinadmin');
-        }
-
-        $data = [
-            'users' => $this->users->findAll()
-        ];
-        return view('adminfolder/manageaccounts', $data);
-    }
     public function dashboards()
     {
         if (!session()->get('isLoggedIn')) {
@@ -286,7 +273,7 @@ class DashboardController extends BaseController
         $planting_id = $this->request->getPost('planting_id');
 
         $dataToUpdate = [
-            'farmer_name' => $this->request->getPost('field_name'),
+            'farmer_name' => $this->request->getPost('farmer_name'),
             'field_name' => $this->request->getPost('field_name'),
             'crop_variety' => $this->request->getPost('crop_variety'),
             'planting_date' => $this->request->getPost('planting_date'),

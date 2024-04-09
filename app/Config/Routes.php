@@ -63,9 +63,6 @@ $routes->get('/map', 'DashboardController::map');
 $routes->get('/eq', 'DashboardController::eq');
 $routes->get('/maps', 'DashboardController::farmermap');
 $routes->get('/eq', 'DashboardController::eq');
-//admin
-
-$routes->get('/manageaccounts', 'DashboardController::manageaccounts');
 
 // admin register and email verification
 $routes->post('/adminloginauth', 'LoginController::adminloginauth');
@@ -92,6 +89,16 @@ $routes->get('/eq', 'DashboardController::eq');
 //farmer stats
 $routes->get('/farmerstats', 'LoginController::farmerstats');
 $routes->post('/searchFarmerProfiles', 'LoginController::searchFarmerProfiles');
+
+//admin
+
+$routes->get('/manageaccounts', 'LoginController::manageaccounts');
+$routes->post('/updatepassword/edit/(:num)', 'LoginController::editpassword/$1');
+$routes->post('/updatepassword/update', 'LoginController::updatepassword');
+
+// In your routes file
+$routes->get('/restrict-account/(:num)', 'LoginController::restrictAccount/$1');
+$routes->get('/unrestrict-account/(:num)', 'LoginController::unrestrictAccount/$1');
 
 /*
 // worker

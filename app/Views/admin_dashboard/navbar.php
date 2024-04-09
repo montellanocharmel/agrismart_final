@@ -60,7 +60,7 @@
             </a>
             <ul>
                 <li><a href="/adminprofile">My Profile</a></li>
-                <li><a href="/manageaccounts">Farmer Profiles</a></li>
+                <li><a href="/manageaccounts">Manage Accounts</a></li>
             </ul>
         </li>
         <li class>

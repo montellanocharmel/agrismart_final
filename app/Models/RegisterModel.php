@@ -12,7 +12,7 @@ class RegisterModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['leader_name', 'idnumber', 'barangay', 'position', 'password', 'repeat_password', 'created_at', 'usertype'];
+    protected $allowedFields    = ['leader_name', 'idnumber', 'barangay', 'position', 'password', 'accountstatus', 'created_at', 'usertype'];
 
     // Dates
     protected $useTimestamps = false;

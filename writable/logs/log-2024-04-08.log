@@ -1,0 +1,33 @@
+ERROR - 2024-04-08 02:06:37 --> Failed login attempt for non-existent user: Marlon Matira
+CRITICAL - 2024-04-08 02:07:04 --> ErrorException: Undefined array key "end_date"
+in APPPATH\Views\admin_dashboard\main-croprotation.php on line 44.
+ 1 APPPATH\Views\admin_dashboard\main-croprotation.php(44): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "end_date"', 'C:\\laragon\\www\\final_agrismart\\app\\Views\\admin_dashboard\\main-croprotation.php', 44)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\final_agrismart\\app\\Views\\admin_dashboard\\main-croprotation.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(469): CodeIgniter\View\View->render('/admin_dashboard/main-croprotation', null, true)
+ 5 APPPATH\Views\adminfolder\croprotation.php(6): CodeIgniter\View\View->include('/admin_dashboard/main-croprotation')
+ 6 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\final_agrismart\\app\\Views\\adminfolder\\croprotation.php')
+ 7 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('adminfolder/croprotation', [], true)
+ 9 APPPATH\Controllers\DashboardController.php(677): view('adminfolder/croprotation', [...])
+10 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->admincropplanting()
+11 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+12 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-04-08 02:07:09 --> ErrorException: Undefined array key "end_date"
+in APPPATH\Views\admin_dashboard\main-croprotation.php on line 44.
+ 1 APPPATH\Views\admin_dashboard\main-croprotation.php(44): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "end_date"', 'C:\\laragon\\www\\final_agrismart\\app\\Views\\admin_dashboard\\main-croprotation.php', 44)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\final_agrismart\\app\\Views\\admin_dashboard\\main-croprotation.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(469): CodeIgniter\View\View->render('/admin_dashboard/main-croprotation', null, true)
+ 5 APPPATH\Views\adminfolder\croprotation.php(6): CodeIgniter\View\View->include('/admin_dashboard/main-croprotation')
+ 6 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\final_agrismart\\app\\Views\\adminfolder\\croprotation.php')
+ 7 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('adminfolder/croprotation', [], true)
+ 9 APPPATH\Controllers\DashboardController.php(677): view('adminfolder/croprotation', [...])
+10 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->admincropplanting()
+11 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+12 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')

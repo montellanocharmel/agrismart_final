@@ -30,7 +30,6 @@
                                     <th scope="col">Araw ng Pagtatanim</th>
                                     <th scope="col">Season</th>
                                     <th scope="col">Simula ng Pagsasaka</th>
-                                    <th scope="col">Ani</th>
                                     <th scope="col">Notes</th>
                                     <th scope="col">Aksyon</th>
                                 </tr>
@@ -45,7 +44,6 @@
                                         <td><?= $pla['planting_date'] ?></td>
                                         <td><?= $pla['season'] ?></td>
                                         <td><?= $pla['start_date'] ?></td>
-                                        <td><?= $pla['end_date'] ?></td>
                                         <td><?= $pla['notes'] ?></td>
                                         <td>
                                             <div class="btn-group">
@@ -61,7 +59,6 @@
                                                         '<?= $pla['planting_date']; ?>',
                                                         '<?= $pla['season']; ?>',
                                                         '<?= $pla['start_date']; ?>',
-                                                        '<?= $pla['end_date']; ?>',
                                                         '<?= $pla['notes']; ?>',
                                                         )">Edit</button>
                                                     <button class="dropdown-item" onclick="deleteplanting(<?= $pla['planting_id']; ?>)">Delete</button>

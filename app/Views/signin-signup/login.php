@@ -21,14 +21,17 @@
 			<div class="col-lg-6 col-md-6 d-none d-md-block infinity-image-container"></div>
 			<div class="col-lg-6 col-md-6 infinity-form-container">
 				<div class="col-lg-9 col-md-12 col-sm-9 col-xs-12 infinity-form">
-					<!-- Company Logo -->
+
 					<div class="text-center mb-3 mt-5">
 						<a href="/"><img src="<?= base_url() ?>signin/agrismart-logo1.png" width="150px"></a>
 					</div>
 					<div class="text-center mb-4">
-						<h4>Mag-log in sa iyong account</h4>
+						<h4>Login</h4>
+						<?php if (session()->has('msg')) : ?>
+							<div class="alert alert-danger"><?= session('msg') ?></div>
+						<?php endif; ?>
+
 					</div>
-					<!-- Form -->
 					<form action="/loginauth" method="post" class="px-3">
 						<!-- Input Box -->
 						<div class="form-input">

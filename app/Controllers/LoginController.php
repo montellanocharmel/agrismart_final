@@ -16,6 +16,7 @@ class LoginController extends BaseController
     private $planting;
     private $worker;
     private $profiles;
+    private $users;
     private $variety;
 
     public function __construct()
@@ -26,6 +27,7 @@ class LoginController extends BaseController
         $this->planting = new \App\Models\PlantingModel();
         $this->worker = new \App\Models\WorkerModel();
         $this->variety = new \App\Models\VarietyModel();
+        $this->users = new \App\Models\RegisterModel();
         $this->profiles = new \App\Models\FarmerProfilesModel();
     }
 
@@ -58,7 +60,6 @@ class LoginController extends BaseController
                 'barangay' => $this->request->getVar('barangay'),
                 'position' => $this->request->getVar('position'),
                 'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
-                'repeat_password' => password_hash($this->request->getVar('repeat_password'), PASSWORD_DEFAULT),
             ];
 
             dd($registermodel);
@@ -81,6 +82,12 @@ class LoginController extends BaseController
         $data = $registermodel->where('leader_name', $leader_name)->first();
 
         if ($data) {
+            // Check if the account is restricted
+            if ($data['accountstatus'] === 'restricted') {
+                $session->setFlashdata('msg', 'This account is restricted.');
+                return redirect()->to('/sign_ins');
+            }
+
             $pass = $data['password'];
             $authenticatePassword = password_verify($password, $pass);
 
@@ -90,7 +97,6 @@ class LoginController extends BaseController
                     'leader_name' => $data['leader_name'],
                     'isLoggedIn' => TRUE,
                     'usertype' => $data['usertype'],
-
                 ];
 
                 $session->set($ses_data);
@@ -102,11 +108,14 @@ class LoginController extends BaseController
                 }
             } else {
                 $session->setFlashdata('msg', 'Name or Password is incorrect.');
-
                 return redirect()->to('/sign_ins');
             }
+        } else {
+            $session->setFlashdata('msg', 'Name or Password is incorrect.');
+            return redirect()->to('/sign_ins');
         }
     }
+
     public function login()
     {
         session()->remove(['leader_id', 'leadername', 'idnumber', 'isLoggedIn', 'usertype']);
@@ -393,32 +402,80 @@ class LoginController extends BaseController
         $fields = $this->field->where('fims_code', $searchTerm)->findAll();
         $planting = $this->planting->where('fims_code', $searchTerm)->findAll();
 
-        // Fetch harvest data based on the FIMS code
         $harvestData = $this->harvest->where('fims_code', $searchTerm)->findAll();
 
-        // Extract monthly labels and harvest quantities from harvest data
         $monthlyLabels = [];
         $monthlyHarvestData = [];
 
         foreach ($harvestData as $data) {
-            // Assuming there's a field named 'harvest_date' containing the date of harvest
             $month = date('M', strtotime($data['harvest_date']));
             $monthlyLabels[] = $month;
 
-            // Assuming there's a field named 'harvest_quantity' containing the quantity of harvest
             $monthlyHarvestData[] = $data['harvest_quantity'];
         }
 
-        // Pass all necessary data to the view
         $data = [
             'profiles' => $profiles,
             'field' => $fields,
             'planting' => $planting,
             'harvest' => $harvestData,
-            'monthlyLabels' => $monthlyLabels, // Pass monthly labels data to the view
-            'monthlyHarvestData' => $monthlyHarvestData, // Pass monthly harvest data to the view
+            'monthlyLabels' => $monthlyLabels,
+            'monthlyHarvestData' => $monthlyHarvestData,
         ];
 
         return view('landing_page_inc/farmerstats', $data);
+    }
+
+    // admin
+
+    public function manageaccounts()
+    {
+        if (!session()->get('isLoggedIn')) {
+            return redirect()->to('/signinadmin');
+        }
+
+        $data = [
+            'users' => $this->users->findAll()
+        ];
+        return view('adminfolder/manageaccounts', $data);
+    }
+
+    // manage accounts
+    public function editpassword($leader_id)
+    {
+        $users = $this->users->find($leader_id);
+
+        return view('users', ['users' => $users]);
+    }
+    public function updatepassword()
+    {
+        $leader_id = $this->request->getPost('leader_id');
+        $password = $this->request->getPost('password');
+
+        if (is_array($password)) {
+            $password = reset($password);
+        }
+
+        // Hash the password
+        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
+        $dataToUpdate = [
+            'password' => $hashedPassword,
+        ];
+
+        $this->users->update($leader_id, $dataToUpdate);
+
+        return redirect()->to('/manageaccounts')->with('success', 'Password updated successfully');
+    }
+    public function restrictAccount($leader_id)
+    {
+        $this->users->update($leader_id, ['accountstatus' => 'restricted']);
+        return redirect()->to('/manageaccounts')->with('success', 'Account restricted successfully');
+    }
+
+    public function unrestrictAccount($leader_id)
+    {
+        $this->users->update($leader_id, ['accountstatus' => 'unrestricted']);
+        return redirect()->to('/manageaccounts')->with('success', 'Account unrestricted successfully');
     }
 }

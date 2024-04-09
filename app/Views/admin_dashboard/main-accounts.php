@@ -27,7 +27,8 @@
                                     <th scope="col">ID Number</th>
                                     <th scope="col">Barangay</th>
                                     <th scope="col">Position</th>
-                                    <th scope="col">Kelan Ginawa ang Account</th>
+                                    <th scope="col">Account Status</th>
+                                    <th scope="col">Date Created</th>
                                     <th scope="col">Aksyon</th>
                                 </tr>
                             </thead>
@@ -38,9 +39,21 @@
                                         <td><?= $us['idnumber'] ?></td>
                                         <td><?= $us['barangay'] ?></td>
                                         <td><?= $us['position'] ?></td>
+                                        <td><?= $us['accountstatus'] ?></td>
                                         <td><?= $us['created_at'] ?></td>
                                         <td>
-                                            <button type="button" class="btn btn-primary" style="background-color: #88c431; border: none;">View</button>
+                                            <button type="button" class="btn btn-primary" onclick="openEditPasswordModal(
+                                                        <?= $us['leader_id']; ?>,
+                                                        '<?= $us['password']; ?>'
+                                                        )">Update Password</button>
+
+                                            <?php if ($us['accountstatus'] === 'unrestricted') : ?>
+                                                <a href="/restrict-account/<?= $us['leader_id']; ?>" class="btn btn-danger" style="color: white;">Restrict</a>
+                                            <?php else : ?>
+                                                <a href="/unrestrict-account/<?= $us['leader_id']; ?>" class="btn btn-success" style="color: white;">Unrestrict</a>
+                                            <?php endif; ?>
+
+
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>
@@ -48,6 +61,29 @@
                         </table>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- edit password modal.php -->
+
+<div class="modal fade" id="editpasswordmodal" tabindex="-1" aria-labelledby="editpasswordmodalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editpasswordmodalLabel">Update Password</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="/updatepassword/update" method="post">
+                    <input type="hidden" name="leader_id" id="editleader_id">
+                    <div class="mb-3">
+                        <label for="editpassword" class="form-label">Change Password</label>
+                        <input type="password" name="password" id="editpassword" class="form-control">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                </form>
             </div>
         </div>
     </div>

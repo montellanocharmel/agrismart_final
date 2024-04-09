@@ -28,7 +28,6 @@
                                     <th scope="col">Araw ng Pagtatanim</th>
                                     <th scope="col">Season</th>
                                     <th scope="col">Simula ng Pagsasaka</th>
-                                    <th scope="col">Ani</th>
                                     <th scope="col">Notes</th>
                                     <th scope="col">Aksyon</th>
                                 </tr>
@@ -41,7 +40,6 @@
                                         <td><?= $pla['planting_date'] ?></td>
                                         <td><?= $pla['season'] ?></td>
                                         <td><?= $pla['start_date'] ?></td>
-                                        <td><?= $pla['end_date'] ?></td>
                                         <td><?= $pla['notes'] ?></td>
                                         <td>
                                             <button type="button" class="btn btn-primary" style="background-color: #88c431; border: none;">View</button>

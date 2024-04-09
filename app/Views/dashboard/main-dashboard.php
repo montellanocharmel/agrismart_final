@@ -80,36 +80,3 @@
         }
     });
 </script>
-
-<!--
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Monthly revenue chart
-        var monthlyLabels =  json_encode($monthlyLabels) ?>;
-        var monthlyData =  json_encode($monthlyData) ?>;
-
-        // Create a line chart for monthly revenue
-        var monthlyCtx = document.getElementById('monthlyRevenueChart').getContext('2d');
-        var monthlyLineChart = new Chart(monthlyCtx, {
-            type: 'line',
-            data: {
-                labels: monthlyLabels,
-                datasets: [{
-                    label: 'Monthly Revenue',
-                    data: monthlyData,
-                    borderColor: 'rgba(75, 192, 192, 1)',
-                    borderWidth: 2,
-                    pointBackgroundColor: 'rgba(75, 192, 192, 1)',
-
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
-    });
-</script>-->
