@@ -8,13 +8,16 @@
                         <div class=" box_right d-flex lms_block">
                             <div class="serach_field_2">
                                 <div class="search_inner">
-                                    <form Active="#">
+                                    <form method="post" action="/searchexpense">
                                         <div class="search_field">
-                                            <input type="text" placeholder="Search content here...">
+                                            <input type="text" name="search_term" placeholder="Search Expenses...">
                                         </div>
                                         <button type="submit"> <i class="ti-search"></i> </button>
                                     </form>
                                 </div>
+                            </div>
+                            <div class="add_button ms-2">
+                                <a href="/expenses" class="btn btn-primary">Refresh</a>
                             </div>
                         </div>
                     </div>

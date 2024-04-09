@@ -90,64 +90,18 @@ $routes->get('/eq', 'DashboardController::eq');
 $routes->get('/farmerstats', 'LoginController::farmerstats');
 $routes->post('/searchFarmerProfiles', 'LoginController::searchFarmerProfiles');
 
-//admin
+//manage accounts
 
 $routes->get('/manageaccounts', 'LoginController::manageaccounts');
 $routes->post('/updatepassword/edit/(:num)', 'LoginController::editpassword/$1');
 $routes->post('/updatepassword/update', 'LoginController::updatepassword');
-
-// In your routes file
 $routes->get('/restrict-account/(:num)', 'LoginController::restrictAccount/$1');
 $routes->get('/unrestrict-account/(:num)', 'LoginController::unrestrictAccount/$1');
 
-/*
-// worker
-$routes->get('/workers', 'DashboardController::worker', ['filter' => 'authGuard']);
-$routes->post('/addworker', 'DashboardController::addnewworker');
-$routes->post('/workers/edit/(:num)', 'DashboardController::editworker/$1');
-$routes->post('/workers/update', 'DashboardController::updateworker');
-$routes->post('workers/delete/(:num)', 'DashboardController::deleteworker/$1');
 
-// crop variety 
-$routes->get('/cropvariety', 'DashboardController::cropvariety', ['filter' => 'authGuard']);
-$routes->post('/addvariety', 'DashboardController::addnewvariety');
+// search functions
 
-// fertilizers
-$routes->get('/fertilizers', 'DashboardController::fertilizers', ['filter' => 'authGuard']);
-$routes->post('/addfertilizers', 'DashboardController::addnewfertilizers');
-
-// equipment
-$routes->get('/equipment', 'DashboardController::equipment', ['filter' => 'authGuard']);
-$routes->post('/addequipment', 'DashboardController::addnewequipment');
-
-// chart
-$routes->get('/getChartData', 'LoginController::getChartData');
-
-// profile
-$routes->get('/addprofile', 'DashboardController::addprofile');
-$routes->post('/addfarmerprofile', 'DashboardController::addfarmerprofile');
-
-
-
-// admin register and email verification
-$routes->post('/adminloginauth', 'LoginController::adminloginauth');
-$routes->get('/registeradmin', 'LoginController::registeradmin');
-$routes->match(['get', 'post'], '/signups', 'LoginController::signups');
-$routes->match(['get', 'post'], 'verify/(:any)', 'LoginController::verify/$1');
-$routes->get('/signinadmin', 'LoginController::loginadmin');
-$routes->match(['post', 'get'], '/admindashboard', 'LoginController::admindashboard');
-
-
-
-// admin dashboard
-$routes->get('/adminfields', 'DashboardController::adminfields');
-$routes->get('/admincropplanting', 'DashboardController::admincropplanting');
-$routes->get('/adminharvest', 'DashboardController::adminharvest');
-
-$routes->get('/map', 'DashboardController::map');
-$routes->get('/eq', 'DashboardController::eq');
-
-
-$routes->get('/maps', 'DashboardController::farmermap');
-$routes->get('/eq', 'DashboardController::eq');
-*/
+$routes->post('/searchfields', 'DashboardController::searchFields');
+$routes->post('/searchcropplanting', 'DashboardController::searchCropplanting');
+$routes->post('/searchexpense', 'DashboardController::searchExpense');
+$routes->post('/searchharvest', 'DashboardController::searchHarvest');

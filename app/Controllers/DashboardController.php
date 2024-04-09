@@ -118,7 +118,6 @@ class DashboardController extends BaseController
 
         $responseData = [];
         foreach ($profiles as $profile) {
-            // Store both fullname and fims_code in responseData array
             $responseData[] = [
                 'fullname' => $profile['fullname'],
                 'fims_code' => $profile['fims_code']
@@ -147,7 +146,6 @@ class DashboardController extends BaseController
     {
         $userId = session()->get('leader_id');
 
-        // Validate form inputs
         $validation = $this->validate([
             'farmer_name' => 'required',
             'field_name' => 'required',
@@ -156,15 +154,12 @@ class DashboardController extends BaseController
         ]);
 
         if (!$validation) {
-            // If validation fails, return to the view with validation errors
             return view('userfolder/viewfields', ['validation' => $this->validator]);
         }
 
-        // Fetch the fims_code corresponding to the selected farmer_name
         $selectedFarmerName = $this->request->getPost('farmer_name');
         $fimsCode = $this->profiles->where('fullname', $selectedFarmerName)->first()['fims_code'];
 
-        // Save the new field along with fims_code
         $this->field->save([
             'farmer_name' => $selectedFarmerName,
             'fims_code' => $fimsCode,
@@ -175,7 +170,6 @@ class DashboardController extends BaseController
             'user_id' => $userId,
         ]);
 
-        // Redirect to the viewfields page with a success message
         return redirect()->to('/viewfields')->with('success', 'Field added successfully');
     }
 
@@ -674,158 +668,89 @@ class DashboardController extends BaseController
         ];
         return view('adminfolder/harvest', $data);
     }
-    /*public function editaccount($field_id)
-    {
-        $users = $this->users->find($field_id);
 
-        return view('users', ['users' => $users]);
-    }
-    public function updateaccount()
-    {
-        $model = new VIewFieldsModel();
-
-        $field_id = $this->request->getPost('field_id');
-
-        $dataToUpdate = [
-            'field_name' => $this->request->getPost('field_name'),
-            'field_owner' => $this->request->getPost('field_owner'),
-            'field_address' => $this->request->getPost('field_address'),
-            'field_total_area' => $this->request->getPost('field_total_area'),
-        ];
-
-        $model->update($field_id, $dataToUpdate);
-
-        return redirect()->to('/viewfields')->with('success', 'Field updated successfully');
-    }
-     
-      
-
-    public function addprofile()
-    {
-        if (!session()->get('isLoggedIn')) {
-            return redirect()->to('/signinadmin');
-        }
-        $userId = session()->get('farmer_id');
-        $prof = $this->prof->where('user_id', $userId)->findAll();
-        $currentYear = date('Y');
-
-
-        // total na naani
-        $resultQuantity = $this->harvest
-            ->selectSum('harvest_quantity', 'totalHarvestQuantity')
-            ->where('user_id', $userId)
-            ->get();
-        $totalHarvestQuantity = $resultQuantity->getRow()->totalHarvestQuantity;
-
-
-        // kita ngayong taon
-        $resultRevenue = $this->harvest
-            ->selectSum('total_revenue', 'totalRevenueThisYear')
-            ->where('user_id', $userId)
-            ->where('YEAR(harvest_date)', $currentYear)
-            ->get();
-        $totalRevenueThisYear = $resultRevenue->getRow()->totalRevenueThisYear;
-
-        // Count of binhi
-        $totalVarieties = $this->variety
-            ->selectSum('quantity', 'totalVarieties')
-            ->where('user_id', $userId)
-            ->get();
-        $totalBinhiCount = $totalVarieties->getRow()->totalVarieties;
-
-        // Total money spent from jobs table
-        $resultMoneySpent = $this->jobs
-            ->selectSum('total_money_spent', 'totalMoneySpent')
-            ->where('user_id', $userId)
-            ->get();
-        $totalMoneySpent = $resultMoneySpent->getRow()->totalMoneySpent;
-
-        $harvestData = $this->harvest->where('user_id', $userId)->findAll();
-        $revenueData = $this->harvest->where('user_id', $userId)->findAll();
-        $workerData = $this->worker->where('user_id', $userId)->findAll();
-
-
-        $data = [
-            'prof' => $prof,
-            'totalHarvestQuantity' => $totalHarvestQuantity,
-            'totalRevenueThisYear' => $totalRevenueThisYear,
-            'harvest' => $harvestData,
-            'totalBinhiCount' => $totalBinhiCount,
-            'totalMoneySpent' => $totalMoneySpent,
-            'worker' => $workerData,
-            'field' => $this->field->where('user_id', $userId)->findAll()
-        ];
-        return view('userfolder/addprofile', $data);
-    }
-     
-    public function adminfields()
-    {
-        if (!session()->get('isLoggedIn')) {
-            return redirect()->to('/signinadmin');
-        }
-
-        $data = [
-            'field' => $this->field->findAll()
-        ];
-        return view('adminfolder/fields', $data);
-    }
-    public function admincropplanting()
-    {
-        if (!session()->get('isLoggedIn')) {
-            return redirect()->to('/signinadmin');
-        }
-
-        $data = [
-            'planting' => $this->planting->findAll()
-        ];
-        return view('adminfolder/croprotation', $data);
-    }
-    public function adminharvest()
-    {
-        if (!session()->get('isLoggedIn')) {
-            return redirect()->to('/signinadmin');
-        }
-
-        $data = [
-            'harvest' => $this->harvest->findAll()
-        ];
-        return view('adminfolder/harvest', $data);
-    }
-    public function map()
-    {
-        if (!session()->get('isLoggedIn')) {
-            return redirect()->to('/signinadmin');
-        }
-
-        $barangays = ['Santiago', 'Kalinisan',  'Mabini', 'Adrialuna', 'Antipolo', 'Apitong', 'Arangin', 'Aurora', 'Bacungan', 'Bagong Buhay', 'Bancuro', 'Barcenaga', 'Bayani', 'Buhangin', 'Concepcion', 'Dao', 'Del Pilar', 'Estrella', 'Evangelista', 'Gamao', 'General Esco', 'Herrera', 'Inarawan', 'Laguna', 'Mabini', 'Andres Ilagan', 'Mahabang Parang', 'Malaya', 'Malinao', 'Malvar', 'Masagana', 'Masaguing', 'Melgar A', 'Melgar B', 'Metolza', 'Montelago', 'Montemayor', 'Motoderazo', 'Mulawin', 'Nag-Iba I', 'Nag-Iba II', 'Pagkakaisa', 'Paniquian', 'Pinagsabangan I', 'Pinagsabangan II', 'Pinahan', 'Poblacion I (Barangay I)', 'Poblacion II (Barangay II)', 'Poblacion III (Barangay III)', 'Sampaguita', 'San Agustin I', 'San Agustin II', 'San Andres', 'San Antonio', 'San Carlos', 'San Isidro', 'San Jose', 'San Luis', 'San Nicolas', 'San Pedro', 'Santa Isabel', 'Santa Maria', 'Santiago', 'Santo Nino', 'Tagumpay', 'Tigkan', 'Melgar B', 'Santa Cruz', 'Balite', 'Banuton', 'Caburo', 'Magtibay', 'Paitan'];
-        $varietyData = [];
-
-        foreach ($barangays as $barangay) {
-            $varietyData[$barangay] = $this->variety
-                ->select('variety_name')
-                ->where('barangay', $barangay)
-                ->findAll();
-        }
-
-        return view('adminfolder/map', ['varietyData' => $varietyData]);
-    }
-    public function farmermap()
+    public function searchFields()
     {
         if (!session()->get('isLoggedIn')) {
             return redirect()->to('/sign_ins');
         }
 
-        $barangays = ['Santiago', 'Kalinisan',  'Mabini', 'Adrialuna', 'Antipolo', 'Apitong', 'Arangin', 'Aurora', 'Bacungan', 'Bagong Buhay', 'Bancuro', 'Barcenaga', 'Bayani', 'Buhangin', 'Concepcion', 'Dao', 'Del Pilar', 'Estrella', 'Evangelista', 'Gamao', 'General Esco', 'Herrera', 'Inarawan', 'Laguna', 'Mabini', 'Andres Ilagan', 'Mahabang Parang', 'Malaya', 'Malinao', 'Malvar', 'Masagana', 'Masaguing', 'Melgar A', 'Melgar B', 'Metolza', 'Montelago', 'Montemayor', 'Motoderazo', 'Mulawin', 'Nag-Iba I', 'Nag-Iba II', 'Pagkakaisa', 'Paniquian', 'Pinagsabangan I', 'Pinagsabangan II', 'Pinahan', 'Poblacion I (Barangay I)', 'Poblacion II (Barangay II)', 'Poblacion III (Barangay III)', 'Sampaguita', 'San Agustin I', 'San Agustin II', 'San Andres', 'San Antonio', 'San Carlos', 'San Isidro', 'San Jose', 'San Luis', 'San Nicolas', 'San Pedro', 'Santa Isabel', 'Santa Maria', 'Santiago', 'Santo Nino', 'Tagumpay', 'Tigkan', 'Melgar B', 'Santa Cruz', 'Balite', 'Banuton', 'Caburo', 'Magtibay', 'Paitan'];
-        $varietyData = [];
+        $userId = session()->get('leader_id');
+        $searchTerm = $this->request->getPost('search_term');
 
-        foreach ($barangays as $barangay) {
-            $varietyData[$barangay] = $this->variety
-                ->select('variety_name')
-                ->where('barangay', $barangay)
-                ->findAll();
+        $fields = $this->field->like('farmer_name', $searchTerm)
+            ->where('user_id', $userId)
+            ->findAll();
+        $profiles = [];
+        foreach ($fields as $field) {
+            $profile = $this->profiles->where('fims_code', $field['fims_code'])->first();
+            if ($profile) {
+                $profiles[] = $profile;
+            }
         }
 
-        return view('userfolder/map', ['varietyData' => $varietyData]);
+        $data = [
+            'field' => $fields,
+            'profiles' => $profiles,
+        ];
+
+        return view('userfolder/viewfields', $data);
     }
-    */
+    public function searchCropplanting()
+    {
+        if (!session()->get('isLoggedIn')) {
+            return redirect()->to('/sign_ins');
+        }
+
+        $userId = session()->get('leader_id');
+        $searchTerm = $this->request->getPost('search_term');
+
+        $plant = $this->planting->like('farmer_name', $searchTerm)
+            ->where('user_id', $userId)
+            ->findAll();
+
+        $data = [
+            'planting' => $plant,
+        ];
+
+        return view('userfolder/cropplanting', $data);
+    }
+    public function searchExpense()
+    {
+        if (!session()->get('isLoggedIn')) {
+            return redirect()->to('/sign_ins');
+        }
+
+        $userId = session()->get('leader_id');
+        $searchTerm = $this->request->getPost('search_term');
+
+        $exp = $this->expense->like('expense_name', $searchTerm)
+            ->where('user_id', $userId)
+            ->findAll();
+
+        $data = [
+            'expense' => $exp,
+        ];
+
+        return view('userfolder/jobs', $data);
+    }
+    public function searchHarvest()
+    {
+        if (!session()->get('isLoggedIn')) {
+            return redirect()->to('/sign_ins');
+        }
+
+        $userId = session()->get('leader_id');
+        $searchTerm = $this->request->getPost('search_term');
+
+        $har = $this->harvest->like('farmer_name', $searchTerm)
+            ->where('user_id', $userId)
+            ->findAll();
+
+        $data = [
+            'harvest' => $har,
+        ];
+
+        return view('userfolder/harvest', $data);
+    }
 }

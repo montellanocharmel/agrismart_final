@@ -325,6 +325,8 @@
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="<?= base_url() ?>dashboard/vendors/chartjs/chartjs_init.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.10.1/main.min.js"></script>
+
 </body>
 
 </html>

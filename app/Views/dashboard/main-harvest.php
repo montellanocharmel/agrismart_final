@@ -4,17 +4,20 @@
             <div class="col-12">
                 <div class="QA_section">
                     <div class="white_box_tittle list_header" style="margin-top: 4vh;">
-                        <h4 style="color:#88c431; ">Mga Ani</h4>
+                        <h3 style="color:#88c431; ">Mga Ani</h3>
                         <div class=" box_right d-flex lms_block">
                             <div class="serach_field_2">
                                 <div class="search_inner">
-                                    <form Active="#">
+                                    <form method="post" action="/searchharvest">
                                         <div class="search_field">
-                                            <input type="text" placeholder="Search content here...">
+                                            <input type="text" name="search_term" placeholder="Search Farmer Name...">
                                         </div>
                                         <button type="submit"> <i class="ti-search"></i> </button>
                                     </form>
                                 </div>
+                            </div>
+                            <div class="add_button ms-2">
+                                <a href="/harvest" class="btn btn-primary">Refresh</a>
                             </div>
                         </div>
                     </div>
@@ -23,6 +26,7 @@
                             <table class="table lms_table_active">
                                 <thead>
                                     <tr>
+                                        <th scope="col">Pangalan ng Magsasaka</th>
                                         <th scope="col">Pangalan ng Bukid</th>
                                         <th scope="col">Pangalan ng Variety</th>
                                         <th scope="col">Dami ng Naani</th>
@@ -35,6 +39,7 @@
                                 <tbody>
                                     <?php foreach ($harvest as $har) : ?>
                                         <tr>
+                                            <td><?= $har['farmer_name'] ?></td>
                                             <td><?= $har['field_name'] ?></td>
                                             <td><?= $har['variety_name'] ?></td>
                                             <td><?= $har['harvest_quantity'] ?></td>

@@ -4,21 +4,23 @@
             <div class="col-12">
                 <div class="QA_section">
                     <div class="white_box_tittle list_header">
-                        <h4 style="color:#88c431">Crop Planting</h4>
+                        <h3 style="color:#88c431">Crop Planting</h3>
                         <div class=" box_right d-flex lms_block">
                             <div class="serach_field_2">
                                 <div class="search_inner">
-                                    <form Active="#">
+                                    <form method="post" action="/searchcropplanting">
                                         <div class="search_field">
-                                            <input type="text" placeholder="Search content here...">
+                                            <input type="text" name="search_term" placeholder="Search Farmer Name...">
                                         </div>
                                         <button type="submit"> <i class="ti-search"></i> </button>
                                     </form>
                                 </div>
                             </div>
+                            <div class="add_button ms-2">
+                                <a href="/cropplanting" class="btn btn-primary">Refresh</a>
+                            </div>
                         </div>
                     </div>
-
                     <div class="QA_table mb_30">
                         <table class="table lms_table_active">
                             <thead>

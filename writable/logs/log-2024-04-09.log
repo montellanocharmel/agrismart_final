@@ -40,3 +40,338 @@ in SYSTEMPATH\BaseModel.php on line 970.
  6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
  8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-04-09 08:14:40 --> ErrorException: Undefined variable $profiles
+in APPPATH\Views\dashboard\main-viewfields.php on line 95.
+ 1 APPPATH\Views\dashboard\main-viewfields.php(95): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $profiles', 'C:\\laragon\\www\\final_agrismart\\app\\Views\\dashboard\\main-viewfields.php', 95)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\final_agrismart\\app\\Views\\dashboard\\main-viewfields.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(469): CodeIgniter\View\View->render('/dashboard/main-viewfields', null, true)
+ 5 APPPATH\Views\userfolder\viewfields.php(6): CodeIgniter\View\View->include('/dashboard/main-viewfields')
+ 6 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\final_agrismart\\app\\Views\\userfolder\\viewfields.php')
+ 7 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('userfolder/viewfields', [], true)
+ 9 APPPATH\Controllers\DashboardController.php(695): view('userfolder/viewfields', [...])
+10 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->searchFields()
+11 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+12 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-04-09 08:14:54 --> ErrorException: Undefined variable $field
+in APPPATH\Views\dashboard\main-viewfields.php on line 38.
+ 1 APPPATH\Views\dashboard\main-viewfields.php(38): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $field', 'C:\\laragon\\www\\final_agrismart\\app\\Views\\dashboard\\main-viewfields.php', 38)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\final_agrismart\\app\\Views\\dashboard\\main-viewfields.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(469): CodeIgniter\View\View->render('/dashboard/main-viewfields', null, true)
+ 5 APPPATH\Views\userfolder\viewfields.php(6): CodeIgniter\View\View->include('/dashboard/main-viewfields')
+ 6 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\final_agrismart\\app\\Views\\userfolder\\viewfields.php')
+ 7 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('userfolder/viewfields', [], true)
+ 9 APPPATH\Controllers\DashboardController.php(695): view('userfolder/viewfields', [...])
+10 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->searchFields()
+11 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+12 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-04-09 08:15:07 --> ErrorException: Undefined variable $field
+in APPPATH\Views\dashboard\main-viewfields.php on line 38.
+ 1 APPPATH\Views\dashboard\main-viewfields.php(38): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $field', 'C:\\laragon\\www\\final_agrismart\\app\\Views\\dashboard\\main-viewfields.php', 38)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\final_agrismart\\app\\Views\\dashboard\\main-viewfields.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(469): CodeIgniter\View\View->render('/dashboard/main-viewfields', null, true)
+ 5 APPPATH\Views\userfolder\viewfields.php(6): CodeIgniter\View\View->include('/dashboard/main-viewfields')
+ 6 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\final_agrismart\\app\\Views\\userfolder\\viewfields.php')
+ 7 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('userfolder/viewfields', [], true)
+ 9 APPPATH\Controllers\DashboardController.php(695): view('userfolder/viewfields', [...])
+10 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->searchFields()
+11 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+12 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-04-09 08:16:14 --> ErrorException: Undefined variable $profiles
+in APPPATH\Views\dashboard\main-viewfields.php on line 93.
+ 1 APPPATH\Views\dashboard\main-viewfields.php(93): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $profiles', 'C:\\laragon\\www\\final_agrismart\\app\\Views\\dashboard\\main-viewfields.php', 93)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\final_agrismart\\app\\Views\\dashboard\\main-viewfields.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(469): CodeIgniter\View\View->render('/dashboard/main-viewfields', null, true)
+ 5 APPPATH\Views\userfolder\viewfields.php(6): CodeIgniter\View\View->include('/dashboard/main-viewfields')
+ 6 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\final_agrismart\\app\\Views\\userfolder\\viewfields.php')
+ 7 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('userfolder/viewfields', [], true)
+ 9 APPPATH\Controllers\DashboardController.php(694): view('userfolder/viewfields', [...])
+10 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->searchFields()
+11 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+12 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-04-09 08:17:37 --> ErrorException: Undefined variable $field
+in APPPATH\Views\dashboard\main-viewfields.php on line 38.
+ 1 APPPATH\Views\dashboard\main-viewfields.php(38): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $field', 'C:\\laragon\\www\\final_agrismart\\app\\Views\\dashboard\\main-viewfields.php', 38)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\final_agrismart\\app\\Views\\dashboard\\main-viewfields.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(469): CodeIgniter\View\View->render('/dashboard/main-viewfields', null, true)
+ 5 APPPATH\Views\userfolder\viewfields.php(6): CodeIgniter\View\View->include('/dashboard/main-viewfields')
+ 6 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\final_agrismart\\app\\Views\\userfolder\\viewfields.php')
+ 7 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('userfolder/viewfields', [], true)
+ 9 APPPATH\Controllers\DashboardController.php(705): view('userfolder/viewfields', [...])
+10 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->searchFields()
+11 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+12 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+ERROR - 2024-04-09 08:30:18 --> mysqli_sql_exception: Unknown column 'leader_id' in 'where clause' in C:\laragon\www\final_agrismart\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\final_agrismart\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\laragon\www\final_agrismart\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\laragon\www\final_agrismart\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\laragon\www\final_agrismart\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\laragon\www\final_agrismart\system\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\final_agrismart\system\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\laragon\www\final_agrismart\app\Controllers\DashboardController.php(692): CodeIgniter\BaseModel->findAll()
+#7 C:\laragon\www\final_agrismart\system\CodeIgniter.php(941): App\Controllers\DashboardController->searchFields()
+#8 C:\laragon\www\final_agrismart\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+#9 C:\laragon\www\final_agrismart\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\laragon\www\final_agrismart\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 C:\laragon\www\final_agrismart\system\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\...')
+#12 {main}
+CRITICAL - 2024-04-09 08:30:18 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'leader_id' in 'where clause'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `fields`
+WHERE `field_name` LIKE :field_name: ESCAPE \'!\'
+OR `field_address` = :field_address:
+OR `farmer_name` = :farmer_name:
+OR `field_owner` = :field_owner:
+OR `field_total_area` = :field_total_area:
+AND `leader_id` = :leader_id:', [...], false)
+ 2 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\DashboardController.php(692): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->searchFields()
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-04-09 08:30:18 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'leader_id' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `fields`
+WHERE `field_name` LIKE \'%Abella%\' ESCAPE \'!\'
+OR `field_address` = \'Abella\'
+OR `farmer_name` = \'Abella\'
+OR `field_owner` = \'Abella\'
+OR `field_total_area` = \'Abella\'
+AND `leader_id` = \'3\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `fields`
+WHERE `field_name` LIKE \'%Abella%\' ESCAPE \'!\'
+OR `field_address` = \'Abella\'
+OR `farmer_name` = \'Abella\'
+OR `field_owner` = \'Abella\'
+OR `field_total_area` = \'Abella\'
+AND `leader_id` = \'3\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `fields`
+WHERE `field_name` LIKE :field_name: ESCAPE \'!\'
+OR `field_address` = :field_address:
+OR `farmer_name` = :farmer_name:
+OR `field_owner` = :field_owner:
+OR `field_total_area` = :field_total_area:
+AND `leader_id` = :leader_id:', [...], false)
+ 4 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Controllers\DashboardController.php(692): CodeIgniter\BaseModel->findAll()
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->searchFields()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-04-09 08:30:18 --> [Caused by] mysqli_sql_exception: Unknown column 'leader_id' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *
+FROM `fields`
+WHERE `field_name` LIKE \'%Abella%\' ESCAPE \'!\'
+OR `field_address` = \'Abella\'
+OR `farmer_name` = \'Abella\'
+OR `field_owner` = \'Abella\'
+OR `field_total_area` = \'Abella\'
+AND `leader_id` = \'3\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `fields`
+WHERE `field_name` LIKE \'%Abella%\' ESCAPE \'!\'
+OR `field_address` = \'Abella\'
+OR `farmer_name` = \'Abella\'
+OR `field_owner` = \'Abella\'
+OR `field_total_area` = \'Abella\'
+AND `leader_id` = \'3\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `fields`
+WHERE `field_name` LIKE \'%Abella%\' ESCAPE \'!\'
+OR `field_address` = \'Abella\'
+OR `farmer_name` = \'Abella\'
+OR `field_owner` = \'Abella\'
+OR `field_total_area` = \'Abella\'
+AND `leader_id` = \'3\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `fields`
+WHERE `field_name` LIKE :field_name: ESCAPE \'!\'
+OR `field_address` = :field_address:
+OR `farmer_name` = :farmer_name:
+OR `field_owner` = :field_owner:
+OR `field_total_area` = :field_total_area:
+AND `leader_id` = :leader_id:', [...], false)
+ 5 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\DashboardController.php(692): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->searchFields()
+ 9 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-04-09 08:34:56 --> BadMethodCallException: Call to undefined method App\Models\VIewFieldsModel::or
+in SYSTEMPATH\Model.php on line 874.
+ 1 APPPATH\Controllers\DashboardController.php(687): CodeIgniter\Model->__call('or', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->searchFields()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-04-09 08:37:04 --> ErrorException: Undefined variable $field
+in APPPATH\Views\dashboard\main-viewfields.php on line 38.
+ 1 APPPATH\Views\dashboard\main-viewfields.php(38): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $field', 'C:\\laragon\\www\\final_agrismart\\app\\Views\\dashboard\\main-viewfields.php', 38)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\final_agrismart\\app\\Views\\dashboard\\main-viewfields.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(469): CodeIgniter\View\View->render('/dashboard/main-viewfields', null, true)
+ 5 APPPATH\Views\userfolder\viewfields.php(6): CodeIgniter\View\View->include('/dashboard/main-viewfields')
+ 6 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\final_agrismart\\app\\Views\\userfolder\\viewfields.php')
+ 7 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('userfolder/viewfields', [], true)
+ 9 APPPATH\Controllers\DashboardController.php(710): view('userfolder/viewfields', [...])
+10 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->searchFields()
+11 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+12 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-04-09 08:37:09 --> ErrorException: Undefined variable $field
+in APPPATH\Views\dashboard\main-viewfields.php on line 38.
+ 1 APPPATH\Views\dashboard\main-viewfields.php(38): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $field', 'C:\\laragon\\www\\final_agrismart\\app\\Views\\dashboard\\main-viewfields.php', 38)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\final_agrismart\\app\\Views\\dashboard\\main-viewfields.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(469): CodeIgniter\View\View->render('/dashboard/main-viewfields', null, true)
+ 5 APPPATH\Views\userfolder\viewfields.php(6): CodeIgniter\View\View->include('/dashboard/main-viewfields')
+ 6 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\final_agrismart\\app\\Views\\userfolder\\viewfields.php')
+ 7 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('userfolder/viewfields', [], true)
+ 9 APPPATH\Controllers\DashboardController.php(710): view('userfolder/viewfields', [...])
+10 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->searchFields()
+11 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+12 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-04-09 08:38:36 --> ErrorException: Undefined variable $field
+in APPPATH\Views\dashboard\main-viewfields.php on line 38.
+ 1 APPPATH\Views\dashboard\main-viewfields.php(38): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $field', 'C:\\laragon\\www\\final_agrismart\\app\\Views\\dashboard\\main-viewfields.php', 38)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\final_agrismart\\app\\Views\\dashboard\\main-viewfields.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(469): CodeIgniter\View\View->render('/dashboard/main-viewfields', null, true)
+ 5 APPPATH\Views\userfolder\viewfields.php(6): CodeIgniter\View\View->include('/dashboard/main-viewfields')
+ 6 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\final_agrismart\\app\\Views\\userfolder\\viewfields.php')
+ 7 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('userfolder/viewfields', [], true)
+ 9 APPPATH\Controllers\DashboardController.php(701): view('userfolder/viewfields', [...])
+10 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->searchFields()
+11 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+12 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-04-09 14:42:58 --> ErrorException: Undefined variable $field
+in APPPATH\Views\dashboard\main-viewfields.php on line 40.
+ 1 APPPATH\Views\dashboard\main-viewfields.php(40): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $field', 'C:\\laragon\\www\\final_agrismart\\app\\Views\\dashboard\\main-viewfields.php', 40)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\final_agrismart\\app\\Views\\dashboard\\main-viewfields.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(469): CodeIgniter\View\View->render('/dashboard/main-viewfields', null, true)
+ 5 APPPATH\Views\userfolder\viewfields.php(6): CodeIgniter\View\View->include('/dashboard/main-viewfields')
+ 6 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\final_agrismart\\app\\Views\\userfolder\\viewfields.php')
+ 7 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('userfolder/viewfields', [], true)
+ 9 APPPATH\Controllers\DashboardController.php(716): view('userfolder/viewfields', [...])
+10 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->searchCropplanting()
+11 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+12 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-04-09 14:50:09 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "userfolder/expense.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(216): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('userfolder/expense.php')
+ 2 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('userfolder/expense', [], true)
+ 3 APPPATH\Controllers\DashboardController.php(735): view('userfolder/expense', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->searchExpense()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-04-09 16:36:51 --> ErrorException: Undefined variable $plantings
+in APPPATH\Views\dashboard\main-viewfields.php on line 516.
+ 1 APPPATH\Views\dashboard\main-viewfields.php(516): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $plantings', 'C:\\laragon\\www\\final_agrismart\\app\\Views\\dashboard\\main-viewfields.php', 516)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\final_agrismart\\app\\Views\\dashboard\\main-viewfields.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(469): CodeIgniter\View\View->render('/dashboard/main-viewfields', null, true)
+ 5 APPPATH\Views\userfolder\viewfields.php(6): CodeIgniter\View\View->include('/dashboard/main-viewfields')
+ 6 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\final_agrismart\\app\\Views\\userfolder\\viewfields.php')
+ 7 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('userfolder/viewfields', [], true)
+ 9 APPPATH\Controllers\DashboardController.php(143): view('userfolder/viewfields', [...])
+10 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->viewfields()
+11 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+12 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-04-09 16:37:34 --> ErrorException: Undefined variable $plantings
+in APPPATH\Views\dashboard\main-cropplanting.php on line 194.
+ 1 APPPATH\Views\dashboard\main-cropplanting.php(194): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $plantings', 'C:\\laragon\\www\\final_agrismart\\app\\Views\\dashboard\\main-cropplanting.php', 194)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\final_agrismart\\app\\Views\\dashboard\\main-cropplanting.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(469): CodeIgniter\View\View->render('/dashboard/main-cropplanting', null, true)
+ 5 APPPATH\Views\userfolder\cropplanting.php(6): CodeIgniter\View\View->include('/dashboard/main-cropplanting')
+ 6 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\final_agrismart\\app\\Views\\userfolder\\cropplanting.php')
+ 7 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('userfolder/cropplanting', [], true)
+ 9 APPPATH\Controllers\DashboardController.php(224): view('userfolder/cropplanting', [...])
+10 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->cropplanting()
+11 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+12 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-04-09 16:39:20 --> ErrorException: Undefined array key "crop_variety"
+in APPPATH\Views\dashboard\main-cropplanting.php on line 195.
+ 1 APPPATH\Views\dashboard\main-cropplanting.php(195): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "crop_variety"', 'C:\\laragon\\www\\final_agrismart\\app\\Views\\dashboard\\main-cropplanting.php', 195)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\final_agrismart\\app\\Views\\dashboard\\main-cropplanting.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(469): CodeIgniter\View\View->render('/dashboard/main-cropplanting', null, true)
+ 5 APPPATH\Views\userfolder\cropplanting.php(6): CodeIgniter\View\View->include('/dashboard/main-cropplanting')
+ 6 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\final_agrismart\\app\\Views\\userfolder\\cropplanting.php')
+ 7 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('userfolder/cropplanting', [], true)
+ 9 APPPATH\Controllers\DashboardController.php(224): view('userfolder/cropplanting', [...])
+10 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->cropplanting()
+11 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+12 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-04-09 16:47:44 --> ErrorException: Undefined array key "crop_variety"
+in APPPATH\Views\dashboard\main-cropplanting.php on line 196.
+ 1 APPPATH\Views\dashboard\main-cropplanting.php(196): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "crop_variety"', 'C:\\laragon\\www\\final_agrismart\\app\\Views\\dashboard\\main-cropplanting.php', 196)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\final_agrismart\\app\\Views\\dashboard\\main-cropplanting.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(469): CodeIgniter\View\View->render('/dashboard/main-cropplanting', null, true)
+ 5 APPPATH\Views\userfolder\cropplanting.php(6): CodeIgniter\View\View->include('/dashboard/main-cropplanting')
+ 6 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\final_agrismart\\app\\Views\\userfolder\\cropplanting.php')
+ 7 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('userfolder/cropplanting', [], true)
+ 9 APPPATH\Controllers\DashboardController.php(224): view('userfolder/cropplanting', [...])
+10 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->cropplanting()
+11 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+12 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')

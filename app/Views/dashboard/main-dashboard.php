@@ -67,7 +67,7 @@
                 label: 'Harvest Quantity',
                 data: <?= json_encode($monthlyHarvestData) ?>,
                 fill: false,
-                borderColor: 'rgb(75, 192, 192)',
+                borderColor: 'rgb(250, 208, 92)',
                 tension: 0.1
             }]
         },
