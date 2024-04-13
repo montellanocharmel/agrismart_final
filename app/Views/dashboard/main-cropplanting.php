@@ -17,7 +17,8 @@
                                 </div>
                             </div>
                             <div class="add_button ms-2">
-                                <a href="/cropplanting" class="btn btn-primary">Refresh</a>
+                                <a href="/cropplanting" class="btn btn-primary"><i class="fa-solid fa-arrows-rotate"></i></a>
+                                <a href="/exportToExcelplanting" class="btn btn-primary"><i class="fa-regular fa-file-excel"></i></i></a>
                             </div>
                         </div>
                     </div>
@@ -25,7 +26,7 @@
                         <table class="table lms_table_active">
                             <thead>
                                 <tr>
-                                    <th scope="col">Pangalan ng Bukid</th>
+                                    <th scope="col">Pangalan ng Magbubukid</th>
                                     <th scope="col">Barangay</th>
                                     <th scope="col">Pangalan ng Bukid</th>
                                     <th scope="col">Pangalan ng Variety</th>
@@ -64,6 +65,7 @@
                                                         '<?= $pla['notes']; ?>',
                                                         )">Edit</button>
                                                     <button class="dropdown-item" onclick="deleteplanting(<?= $pla['planting_id']; ?>)">Delete</button>
+                                                    <button type="button" class="dropdown-item" onclick="openAddDamageModal('<?= $pla['planting_id']; ?>', '<?= $pla['field_name']; ?>', '<?= $pla['field_address']; ?>', '<?= $pla['farmer_name']; ?>', '<?= $pla['fims_code']; ?>', '<?= $pla['crop_variety']; ?>')">Add Damage</button>
                                                 </div>
                                             </div>
                                         </td>
@@ -94,7 +96,6 @@
                         <label for="field_name" class="form-label">Pangalan ng Bukid</label>
                         <input type="text" name="field_name" id="field_name" placeholder="Pangalan ng Bukid" class="form-control">
                     </div>
-
                     <div class="mb-3">
                         <label for="crop_variety" class="form-label">Pangalang ng Variety</label>
                         <input type="text" name="crop_variety" id="crop_variety" placeholder="Pangalan ng Variety" class="form-control">
@@ -182,3 +183,134 @@
         </div>
     </div>
 </div>
+
+<!-- Add Damage Modal -->
+<div class="modal fade" id="adddamagemodal" role="dialog" aria-labelledby="adddamagemodalLabel" aria-hidden="true">
+    <br>
+    <div class="modal-dialog modal-dialog-centered" style="z-index: 10000;">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="adddamagemodalLabel">Add Damage</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="/adddamage" method="post">
+                    <div class="mb-3" hidden>
+                        <label for="planting_id" class="form-label">ID</label>
+                        <input type="text" name="planting_id" id="planting_id" class="form-control" readonly>
+                    </div>
+                    <div class="mb-3">
+                        <label for="field_name" class="form-label">Pangalan ng Bukid</label>
+                        <input type="text" name="field_name" id="field_name_add" class="form-control" readonly>
+                    </div>
+                    <div class="mb-3" hidden>
+                        <label for="field_address" class="form-label">Field Address</label>
+                        <input type="text" name="field_address" id="field_address_add" class="form-control" readonly>
+                    </div>
+                    <div class="mb-3" hidden>
+                        <label for="farmer_name" class="form-label">Pangalan ng Bukid</label>
+                        <input type="text" name="farmer_name" id="farmer_name_add" class="form-control" readonly>
+                    </div>
+                    <div class="mb-3" hidden>
+                        <label for="fims_code" class="form-label">Pangalan ng Bukid</label>
+                        <input type="text" name="fims_code" id="fims_code_add" class="form-control" readonly>
+                    </div>
+                    <div class="mb-3" hidden>
+                        <label for="crop_variety" class="form-label">Pangalan ng Bukid</label>
+                        <input type="text" name="crop_variety" id="crop_variety_add" class="form-control" readonly>
+                    </div>
+                    <div class="mb-3">
+                        <label for="damage_type" class="form-label">Damage Type:</label><br>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="damage_type" id="pest_disease" value="pest_disease">
+                            <label class="form-check-label" for="pest_disease">Damage Caused by Pest/Disease</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="damage_type" id="weather_related" value="weather_related">
+                            <label class="form-check-label" for="weather_related">Damage Caused by Weather</label>
+                        </div>
+                    </div>
+                    <div id="pest_disease_fields" style="display: none;">
+                        <div class="mb-3">
+                            <label for="pest_type" class="form-label">Type of pest or disease observed:</label>
+                            <input type="text" name="pest_type" id="pest_type" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="severity" class="form-label">Severity:</label>
+                            <select name="severity" id="severity" class="form-control">
+                                <option value="low">Low</option>
+                                <option value="medium">Medium</option>
+                                <option value="high">High</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="symptoms" class="form-label">Description of symptoms observed:</label>
+                            <textarea name="symptoms" id="symptoms" class="form-control"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="actions" class="form-label">Actions taken or recommended treatment:</label>
+                            <textarea name="actions" id="actions" class="form-control"></textarea>
+                        </div>
+                    </div>
+                    <div id="weather_related_fields" style="display: none;">
+                        <div class="mb-3">
+                            <label for="weather_events" class="form-label">Type of weather event:</label>
+                            <select name="weather_events" id="weather_events" class="form-control">
+                                <option value="typhoon">Bagyo</option>
+                                <option value="flooding">Baha</option>
+                                <option value="drought">Tagtuyot</option>
+                                <option value="hightemperature">Sobrang Init ng Panahon</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="damage_description" class="form-label">Description of damage observed:</label>
+                            <textarea name="damage_description" id="damage_description" class="form-control"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="damage_severity" class="form-label">Severity of damage:</label>
+                            <select name="damage_severity" id="damage_severity" class="form-control">
+                                <option value="low">Low</option>
+                                <option value="medium">Medium</option>
+                                <option value="high">High</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="mitigation_measures" class="form-label">Actions taken or recommended mitigation measures:</label>
+                            <textarea name="mitigation_measures" id="mitigation_measures" class="form-control"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var pestDiseaseRadio = document.getElementById("pest_disease");
+        var weatherRelatedRadio = document.getElementById("weather_related");
+        var pestDiseaseFields = document.getElementById("pest_disease_fields");
+        var weatherRelatedFields = document.getElementById("weather_related_fields");
+
+        pestDiseaseRadio.addEventListener("change", function() {
+            if (this.checked) {
+                pestDiseaseFields.style.display = "block";
+                weatherRelatedFields.style.display = "none";
+            }
+        });
+
+        weatherRelatedRadio.addEventListener("change", function() {
+            if (this.checked) {
+                pestDiseaseFields.style.display = "none";
+                weatherRelatedFields.style.display = "block";
+            }
+        });
+    });
+</script>

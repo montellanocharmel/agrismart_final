@@ -56,6 +56,13 @@ $routes->post('/searchProfiles', 'DashboardController::searchProfiles');
 $routes->get('/myprofile', 'DashboardController::myprofile');
 
 
+//damages
+$routes->get('/damages', 'DashboardController::damages', ['filter' => 'authGuard']);
+$routes->post('/adddamage', 'DashboardController::addnewdamage');
+$routes->post('/damage/edit/(:num)', 'DashboardController::editdamage/$1');
+$routes->post('/damage/update', 'DashboardController::updatedamage');
+$routes->post('damage/delete/(:num)', 'DashboardController::deletedamage/$1');
+
 // maps
 
 
@@ -105,3 +112,15 @@ $routes->post('/searchfields', 'DashboardController::searchFields');
 $routes->post('/searchcropplanting', 'DashboardController::searchCropplanting');
 $routes->post('/searchexpense', 'DashboardController::searchExpense');
 $routes->post('/searchharvest', 'DashboardController::searchHarvest');
+$routes->post('/searchdamage', 'DashboardController::searchDamage');
+
+// export
+$routes->get('/exportToExcel', 'DashboardController::exportToExcel');
+$routes->post('/upload-excel', 'DashboardController::importExcel');
+$routes->get('/exportToExceldamage', 'DashboardController::exportToExceldamage');
+$routes->get('/exportToExcelplanting', 'DashboardController::exportToExcelplanting');
+$routes->get('/exportToExcelharvest', 'DashboardController::exportToExcelharvest');
+$routes->get('/exportToExcelexpense', 'DashboardController::exportToExcelexpense');
+
+// charts
+$routes->get('/viewcharts', 'DashboardController::charts');

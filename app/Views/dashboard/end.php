@@ -221,6 +221,61 @@
             });
         }
     }
+    // damage
+
+    function openAddDamageModal(planting_id, field_name, field_address, farmer_name, fims_code, crop_variety) {
+        document.getElementById('planting_id').value = planting_id;
+        document.getElementById('field_name_add').value = field_name;
+        document.getElementById('field_address_add').value = field_address;
+        document.getElementById('farmer_name_add').value = farmer_name;
+        document.getElementById('fims_code_add').value = fims_code;
+        document.getElementById('crop_variety_add').value = crop_variety;
+        $('#adddamagemodal').modal('show');
+    }
+
+    function openEditDamageModal(damage_id, pest_type, severity, symptoms, actions, weather_events, damage_descriptions, damage_severity, mitigation_measures) {
+        document.getElementById('editdamage_id').value = damage_id;
+        document.getElementById('editpest_type').value = pest_type;
+        document.getElementById('editseverity').value = severity;
+        document.getElementById('editsymptoms').value = symptoms;
+        document.getElementById('editactions').value = actions;
+        document.getElementById('editweather_events').value = weather_events;
+        document.getElementById('editdamage_descriptions').value = damage_descriptions;
+        document.getElementById('editdamage_severity').value = damage_severity;
+        document.getElementById('editmitigation_measures').value = mitigation_measures;
+        $('#editdamagemodal').modal('show');
+    }
+
+
+    function deleteDamage(damage_id) {
+        if (confirm("Are you sure you want to delete this product?")) {
+            $.ajax({
+                type: 'POST',
+                url: '/damage/delete/' + damage_id,
+                success: function(response) {
+                    window.location.reload();
+                },
+                error: function(error) {
+                    console.error('Error:', error);
+                }
+            });
+        }
+    }
+    $(document).ready(function() {
+        $('#adddamagemodal').on('show.bs.modal', function() {
+
+            $('#damage_type').val('');
+            $('#pest_type').val('');
+            $('#severity').val('');
+            $('#symptoms').val('');
+            $('#actions').val('');
+            $('#weather_events').val('');
+            $('#damage_descriptions').val('');
+            $('#damage_severity').val('');
+            $('#mitigation_measures').val('');
+
+        });
+    });
 </script>
 <script>
     $(document).ready(function() {

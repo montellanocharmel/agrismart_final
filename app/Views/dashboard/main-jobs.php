@@ -17,7 +17,8 @@
                                 </div>
                             </div>
                             <div class="add_button ms-2">
-                                <a href="/expenses" class="btn btn-primary">Refresh</a>
+                                <a href="/expenses" class="btn btn-primary"><i class="fa-solid fa-arrows-rotate"></i></a>
+                                <a href="/exportToExcelexpense" class="btn btn-primary"><i class="fa-regular fa-file-excel"></i></i></a>
                             </div>
                         </div>
                     </div>

@@ -17,8 +17,10 @@
                                 </div>
                             </div>
                             <div class="add_button ms-2">
-                                <a href="#" data-bs-toggle="modal" data-bs-target="#addfieldmodal" style="background-color: #337ab7" class="btn btn-primary">Add New</a>
-                                <a href="/viewfields" class="btn btn-primary">Refresh</a>
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#addfieldmodal" class="btn btn-primary"><i class="fa-solid fa-plus"></i></a>
+                                <a href="/viewfields" class="btn btn-primary"><i class="fa-solid fa-arrows-rotate"></i></a>
+                                <a href="/exportToExcel" class="btn btn-primary"><i class="fa-regular fa-file-excel"></i></i></a>
+
                             </div>
                         </div>
                     </div>
@@ -477,31 +479,32 @@
         </div>
     </div>
 </div>
+
+
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
 <script>
     $(document).ready(function() {
         $('#autocomplete_farmer_name').select2({
             placeholder: 'Search Full Name',
-            minimumInputLength: 5, // Minimum characters required before triggering autocomplete
+            minimumInputLength: 5,
             ajax: {
                 url: '/searchProfiles',
                 dataType: 'json',
-                delay: 250, // Delay in milliseconds before the request is sent
+                delay: 250,
                 processResults: function(data) {
                     return {
-                        results: data // Format the data as expected by Select2
+                        results: data
                     };
                 },
-                cache: true // Enable caching to improve performance
+                cache: true
             }
         });
     });
 </script>
 <script>
     $(document).ready(function() {
-        // Clear button click event
         $("#clear_farmer_name").click(function() {
-            $("#autocomplete_farmer_name").val(""); // Clear the selected value
+            $("#autocomplete_farmer_name").val("");
         });
     });
 </script>

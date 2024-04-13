@@ -17,7 +17,8 @@
                                 </div>
                             </div>
                             <div class="add_button ms-2">
-                                <a href="/harvest" class="btn btn-primary">Refresh</a>
+                                <a href="/harvest" class="btn btn-primary"><i class="fa-solid fa-arrows-rotate"></i></a>
+                                <a href="/exportToExcelharvest" class="btn btn-primary"><i class="fa-regular fa-file-excel"></i></i></a>
                             </div>
                         </div>
                     </div>

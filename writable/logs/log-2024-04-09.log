@@ -375,3 +375,346 @@ in APPPATH\Views\dashboard\main-cropplanting.php on line 196.
 12 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
 13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
 14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-04-09 17:20:10 --> ErrorException: require(vendor/autoload.php): Failed to open stream: No such file or directory
+in APPPATH\Controllers\DashboardController.php on line 9.
+ 1 APPPATH\Controllers\DashboardController.php(9): CodeIgniter\Debug\Exceptions->errorHandler(2, 'require(vendor/autoload.php): Failed to open stream: No such file or directory', 'C:\\laragon\\www\\final_agrismart\\app\\Controllers\\DashboardController.php', 9)
+ 2 APPPATH\Controllers\DashboardController.php(9): require()
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(311): include_once('C:\\laragon\\www\\final_agrismart\\app\\Controllers\\DashboardController.php')
+ 4 SYSTEMPATH\Autoloader\Autoloader.php(290): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\laragon\\www\\final_agrismart\\app\\Controllers\\DashboardController.php')
+ 5 SYSTEMPATH\Autoloader\Autoloader.php(266): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\DashboardController')
+ 6 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\DashboardController')
+ 7 SYSTEMPATH\CodeIgniter.php(899): class_exists('\\App\\Controllers\\DashboardController', true)
+ 8 SYSTEMPATH\CodeIgniter.php(489): CodeIgniter\CodeIgniter->startController()
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-04-09 17:22:59 --> ErrorException: move_uploaded_file(C:\laragon\www\final_agrismart\app\Controllers/uploads/field_data.xlsx): Failed to open stream: No such file or directory
+in APPPATH\Controllers\DashboardController.php on line 816.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'move_uploaded_file(C:\\laragon\\www\\final_agrismart\\app\\Controllers/uploads/field_data.xlsx): Failed to open stream: No such file or directory', 'C:\\laragon\\www\\final_agrismart\\app\\Controllers\\DashboardController.php', 816)
+ 2 APPPATH\Controllers\DashboardController.php(816): move_uploaded_file('C:\\Users\\tolen\\AppData\\Local\\Temp\\phpE4BA.tmp', 'C:\\laragon\\www\\final_agrismart\\app\\Controllers/uploads/field_data.xlsx')
+ 3 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->importExcel()
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-04-09 17:24:35 --> PDOException: SQLSTATE[HY000] [1049] Unknown database 'final_agrisamrt'
+in APPPATH\Controllers\DashboardController.php on line 834.
+ 1 APPPATH\Controllers\DashboardController.php(834): PDO->__construct('mysql:host=localhost;dbname=final_agrisamrt', 'root', '')
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->importExcel()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-04-09 17:24:50 --> PhpOffice\PhpSpreadsheet\Exception: Invalid cell coordinate 1
+in VENDORPATH\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Cell\Coordinate.php on line 43.
+ 1 VENDORPATH\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Cell\Coordinate.php(55): PhpOffice\PhpSpreadsheet\Cell\Coordinate::coordinateFromString('1')
+ 2 VENDORPATH\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Worksheet\Worksheet.php(1262): PhpOffice\PhpSpreadsheet\Cell\Coordinate::indexesFromString('1')
+ 3 VENDORPATH\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Worksheet\Worksheet.php(1175): PhpOffice\PhpSpreadsheet\Worksheet\Worksheet->createNewCell('1')
+ 4 APPPATH\Controllers\DashboardController.php(844): PhpOffice\PhpSpreadsheet\Worksheet\Worksheet->getCell('1', 2)
+ 5 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->importExcel()
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-04-09 17:25:39 --> PhpOffice\PhpSpreadsheet\Exception: Invalid cell coordinate 1
+in VENDORPATH\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Cell\Coordinate.php on line 43.
+ 1 VENDORPATH\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Cell\Coordinate.php(55): PhpOffice\PhpSpreadsheet\Cell\Coordinate::coordinateFromString('1')
+ 2 VENDORPATH\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Worksheet\Worksheet.php(1262): PhpOffice\PhpSpreadsheet\Cell\Coordinate::indexesFromString('1')
+ 3 VENDORPATH\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Worksheet\Worksheet.php(1175): PhpOffice\PhpSpreadsheet\Worksheet\Worksheet->createNewCell('1')
+ 4 APPPATH\Controllers\DashboardController.php(844): PhpOffice\PhpSpreadsheet\Worksheet\Worksheet->getCell('1', 2)
+ 5 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->importExcel()
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-04-09 17:26:35 --> PDOException: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
+in APPPATH\Controllers\DashboardController.php on line 859.
+ 1 APPPATH\Controllers\DashboardController.php(859): PDOStatement->execute([...])
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->importExcel()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-04-09 17:26:38 --> PDOException: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
+in APPPATH\Controllers\DashboardController.php on line 859.
+ 1 APPPATH\Controllers\DashboardController.php(859): PDOStatement->execute([...])
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->importExcel()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-04-09 17:27:33 --> PDOException: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
+in APPPATH\Controllers\DashboardController.php on line 859.
+ 1 APPPATH\Controllers\DashboardController.php(859): PDOStatement->execute([...])
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->importExcel()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-04-09 17:27:35 --> PDOException: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
+in APPPATH\Controllers\DashboardController.php on line 859.
+ 1 APPPATH\Controllers\DashboardController.php(859): PDOStatement->execute([...])
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->importExcel()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-04-09 17:29:13 --> PDOException: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'field_total_area' cannot be null
+in APPPATH\Controllers\DashboardController.php on line 859.
+ 1 APPPATH\Controllers\DashboardController.php(859): PDOStatement->execute([...])
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->importExcel()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-04-09 17:29:48 --> PDOException: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'field_owner' cannot be null
+in APPPATH\Controllers\DashboardController.php on line 859.
+ 1 APPPATH\Controllers\DashboardController.php(859): PDOStatement->execute([...])
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->importExcel()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-04-09 17:29:52 --> PDOException: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'field_owner' cannot be null
+in APPPATH\Controllers\DashboardController.php on line 859.
+ 1 APPPATH\Controllers\DashboardController.php(859): PDOStatement->execute([...])
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->importExcel()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-04-09 17:30:25 --> PDOException: SQLSTATE[HY000]: General error: 1364 Field 'user_id' doesn't have a default value
+in APPPATH\Controllers\DashboardController.php on line 859.
+ 1 APPPATH\Controllers\DashboardController.php(859): PDOStatement->execute([...])
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->importExcel()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-04-09 17:31:46 --> PDOException: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
+in APPPATH\Controllers\DashboardController.php on line 865.
+ 1 APPPATH\Controllers\DashboardController.php(865): PDOStatement->execute([...])
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->importExcel()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-04-09 17:32:20 --> PDOException: SQLSTATE[21S01]: Insert value list does not match column list: 1136 Column count doesn't match value count at row 1
+in APPPATH\Controllers\DashboardController.php on line 865.
+ 1 APPPATH\Controllers\DashboardController.php(865): PDOStatement->execute([...])
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->importExcel()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-04-09 17:32:22 --> PDOException: SQLSTATE[21S01]: Insert value list does not match column list: 1136 Column count doesn't match value count at row 1
+in APPPATH\Controllers\DashboardController.php on line 865.
+ 1 APPPATH\Controllers\DashboardController.php(865): PDOStatement->execute([...])
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->importExcel()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-04-09 17:32:29 --> PDOException: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
+in APPPATH\Controllers\DashboardController.php on line 865.
+ 1 APPPATH\Controllers\DashboardController.php(865): PDOStatement->execute([...])
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->importExcel()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-04-09 17:32:37 --> PDOException: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
+in APPPATH\Controllers\DashboardController.php on line 865.
+ 1 APPPATH\Controllers\DashboardController.php(865): PDOStatement->execute([...])
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->importExcel()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-04-09 17:33:18 --> PDOException: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
+in APPPATH\Controllers\DashboardController.php on line 865.
+ 1 APPPATH\Controllers\DashboardController.php(865): PDOStatement->execute([...])
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->importExcel()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-04-09 17:33:20 --> PDOException: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
+in APPPATH\Controllers\DashboardController.php on line 865.
+ 1 APPPATH\Controllers\DashboardController.php(865): PDOStatement->execute([...])
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->importExcel()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-04-09 17:33:58 --> PhpOffice\PhpSpreadsheet\Exception: Invalid cell coordinate 1
+in VENDORPATH\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Cell\Coordinate.php on line 43.
+ 1 VENDORPATH\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Cell\Coordinate.php(55): PhpOffice\PhpSpreadsheet\Cell\Coordinate::coordinateFromString('1')
+ 2 VENDORPATH\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Worksheet\Worksheet.php(1262): PhpOffice\PhpSpreadsheet\Cell\Coordinate::indexesFromString('1')
+ 3 VENDORPATH\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Worksheet\Worksheet.php(1175): PhpOffice\PhpSpreadsheet\Worksheet\Worksheet->createNewCell('1')
+ 4 APPPATH\Controllers\DashboardController.php(858): PhpOffice\PhpSpreadsheet\Worksheet\Worksheet->getCell('1', 2)
+ 5 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->importExcel()
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-04-09 17:36:25 --> PDOException: SQLSTATE[HY000]: General error: 1364 Field 'fims_code' doesn't have a default value
+in APPPATH\Controllers\DashboardController.php on line 860.
+ 1 APPPATH\Controllers\DashboardController.php(860): PDOStatement->execute([...])
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->importExcel()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-04-09 17:38:01 --> ErrorException: Trying to access array offset on value of type null
+in APPPATH\Controllers\DashboardController.php on line 858.
+ 1 APPPATH\Controllers\DashboardController.php(858): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\laragon\\www\\final_agrismart\\app\\Controllers\\DashboardController.php', 858)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->importExcel()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-04-09 17:38:05 --> ErrorException: Trying to access array offset on value of type null
+in APPPATH\Controllers\DashboardController.php on line 858.
+ 1 APPPATH\Controllers\DashboardController.php(858): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\laragon\\www\\final_agrismart\\app\\Controllers\\DashboardController.php', 858)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->importExcel()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-04-09 17:39:01 --> PDOException: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
+in APPPATH\Controllers\DashboardController.php on line 869.
+ 1 APPPATH\Controllers\DashboardController.php(869): PDOStatement->execute([...])
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->importExcel()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-04-09 17:39:04 --> PDOException: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
+in APPPATH\Controllers\DashboardController.php on line 869.
+ 1 APPPATH\Controllers\DashboardController.php(869): PDOStatement->execute([...])
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->importExcel()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-04-09 17:40:09 --> PDOException: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
+in APPPATH\Controllers\DashboardController.php on line 868.
+ 1 APPPATH\Controllers\DashboardController.php(868): PDOStatement->execute([...])
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->importExcel()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-04-09 17:40:34 --> PDOException: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
+in APPPATH\Controllers\DashboardController.php on line 868.
+ 1 APPPATH\Controllers\DashboardController.php(868): PDOStatement->execute([...])
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->importExcel()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-04-09 17:40:43 --> PDOException: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
+in APPPATH\Controllers\DashboardController.php on line 868.
+ 1 APPPATH\Controllers\DashboardController.php(868): PDOStatement->execute([...])
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->importExcel()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-04-09 17:42:08 --> PDOException: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
+in APPPATH\Controllers\DashboardController.php on line 874.
+ 1 APPPATH\Controllers\DashboardController.php(874): PDOStatement->execute([...])
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->importExcel()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-04-09 17:42:10 --> PDOException: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
+in APPPATH\Controllers\DashboardController.php on line 874.
+ 1 APPPATH\Controllers\DashboardController.php(874): PDOStatement->execute([...])
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->importExcel()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-04-09 17:42:13 --> PDOException: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
+in APPPATH\Controllers\DashboardController.php on line 874.
+ 1 APPPATH\Controllers\DashboardController.php(874): PDOStatement->execute([...])
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->importExcel()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-04-09 17:42:15 --> PDOException: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
+in APPPATH\Controllers\DashboardController.php on line 874.
+ 1 APPPATH\Controllers\DashboardController.php(874): PDOStatement->execute([...])
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->importExcel()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-04-09 17:42:58 --> PDOException: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
+in APPPATH\Controllers\DashboardController.php on line 874.
+ 1 APPPATH\Controllers\DashboardController.php(874): PDOStatement->execute([...])
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->importExcel()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-04-09 17:45:05 --> PDOException: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
+in APPPATH\Controllers\DashboardController.php on line 876.
+ 1 APPPATH\Controllers\DashboardController.php(876): PDOStatement->execute([...])
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->importExcel()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-04-09 17:45:15 --> PDOException: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
+in APPPATH\Controllers\DashboardController.php on line 876.
+ 1 APPPATH\Controllers\DashboardController.php(876): PDOStatement->execute([...])
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->importExcel()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-04-09 17:46:28 --> PDOException: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
+in APPPATH\Controllers\DashboardController.php on line 876.
+ 1 APPPATH\Controllers\DashboardController.php(876): PDOStatement->execute([...])
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->importExcel()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-04-09 17:46:35 --> PDOException: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
+in APPPATH\Controllers\DashboardController.php on line 876.
+ 1 APPPATH\Controllers\DashboardController.php(876): PDOStatement->execute([...])
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->importExcel()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-04-09 17:47:42 --> PDOException: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
+in APPPATH\Controllers\DashboardController.php on line 876.
+ 1 APPPATH\Controllers\DashboardController.php(876): PDOStatement->execute([...])
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->importExcel()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-04-09 17:47:44 --> PDOException: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
+in APPPATH\Controllers\DashboardController.php on line 876.
+ 1 APPPATH\Controllers\DashboardController.php(876): PDOStatement->execute([...])
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->importExcel()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-04-09 17:49:50 --> PDOException: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
+in APPPATH\Controllers\DashboardController.php on line 876.
+ 1 APPPATH\Controllers\DashboardController.php(876): PDOStatement->execute([...])
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->importExcel()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')

@@ -31,25 +31,16 @@
             <span>About Fields</span>
         </li>
         <li class>
-        <li><a href="/cropplanting" style="margin-left: 40px;">Planting</a></li>
+        <li><a href="/cropplanting" style="margin-left: 40px;">Cultivation</a></li>
         <li><a href="/expenses" style="margin-left: 40px;">Expenses</a></li>
+        <li><a href="/damages" style="margin-left: 40px;">Damages</a></li>
         <li><a href="/harvest" style="margin-left: 40px;">Harvest</a></li>
         </li>
         <li class="side_menu_title">
             <span>Data Analytics</span>
         </li>
         <li class>
-            <a class="has-arrow" href="#" aria-expanded="false">
-                <img src="img/menu-icon/4.svg" alt>
-                <span>View Charts</span>
-            </a>
-            <ul>
-                <li><a href="">Vegetation History</a></li>
-                <li><a href="">Variety</a></li>
-                <li><a href="">Field Yields</a></li>
-                <li><a href="">Expenses</a></li>
-            </ul>
-        </li>
+        <li><a href="/viewcharts" style="margin-left: 40px;">Charts</a></li>
         <li class="side_menu_title">
             <span>Barangay Inventory</span>
         </li>
