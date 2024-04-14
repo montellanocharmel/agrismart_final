@@ -113,6 +113,7 @@ $routes->post('/searchcropplanting', 'DashboardController::searchCropplanting');
 $routes->post('/searchexpense', 'DashboardController::searchExpense');
 $routes->post('/searchharvest', 'DashboardController::searchHarvest');
 $routes->post('/searchdamage', 'DashboardController::searchDamage');
+$routes->post('/searchfarmerprofiles', 'DashboardController::searchfarmerprofiles');
 
 // export
 $routes->get('/exportToExcel', 'DashboardController::exportToExcel');
@@ -121,6 +122,7 @@ $routes->get('/exportToExceldamage', 'DashboardController::exportToExceldamage')
 $routes->get('/exportToExcelplanting', 'DashboardController::exportToExcelplanting');
 $routes->get('/exportToExcelharvest', 'DashboardController::exportToExcelharvest');
 $routes->get('/exportToExcelexpense', 'DashboardController::exportToExcelexpense');
+$routes->get('/exportToExcelfarmerprofiles', 'DashboardController::exportToExcelfarmerprofiles');
 
 // charts
 $routes->get('/viewcharts', 'DashboardController::charts');

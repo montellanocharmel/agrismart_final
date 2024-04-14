@@ -8,16 +8,18 @@
                         <div class=" box_right d-flex lms_block">
                             <div class="serach_field_2">
                                 <div class="search_inner">
-                                    <form Active="#">
+                                    <form method="post" action="/searchfarmerprofiles">
                                         <div class="search_field">
-                                            <input type="text" placeholder="Search content here...">
+                                            <input type="text" name="search_term" placeholder="Search Farmer Name...">
                                         </div>
                                         <button type="submit"> <i class="ti-search"></i> </button>
                                     </form>
                                 </div>
                             </div>
                             <div class="add_button ms-2">
-                                <a href="#" data-bs-toggle="modal" data-bs-target="#addfarmermodal" class="btn_1">Add New</a>
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#addfarmermodal" class="btn btn-primary"><i class="fa-solid fa-plus"></i></a>
+                                <a href="/farmerprofiles" class="btn btn-primary"><i class="fa-solid fa-arrows-rotate"></i></a>
+                                <a href="/exportToExcelfarmerprofiles" class="btn btn-primary"><i class="fa-regular fa-file-excel"></i></a>
                             </div>
                         </div>
                     </div>

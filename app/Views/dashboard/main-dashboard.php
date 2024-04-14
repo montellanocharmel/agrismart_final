@@ -42,12 +42,11 @@
                 <div class="white_box mb_30 ">
                     <div class="box_header border_bottom_1px  ">
                         <div class="main-title">
-                            <h3 class="mb_25">Income</h3>
+                            <h3 class="mb_25">Harvest Quantity</h3>
                         </div>
                     </div>
                     <div class="my-4">
                         <canvas id="harvestChart" width="400" height="100"></canvas>
-
                     </div>
 
 

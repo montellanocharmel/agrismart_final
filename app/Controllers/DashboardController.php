@@ -876,7 +876,25 @@ class DashboardController extends BaseController
 
         return view('userfolder/cropplanting', $data);
     }
+    public function searchfarmerprofiles()
+    {
+        if (!session()->get('isLoggedIn')) {
+            return redirect()->to('/sign_ins');
+        }
 
+        $userId = session()->get('leader_id');
+        $searchTerm = $this->request->getPost('search_term');
+
+        $profiles = $this->profiles->like('fullname', $searchTerm)
+            ->where('user_id', $userId)
+            ->findAll();
+
+        $data = [
+            'profiles' => $profiles,
+        ];
+
+        return view('userfolder/farmerprofile', $data);
+    }
     public function exportToExcel()
     {
         $userId = session()->get('leader_id');
@@ -1084,7 +1102,36 @@ class DashboardController extends BaseController
 
         $writer->save('php://output');
     }
+    public function exportToExcelfarmerprofiles()
+    {
+        $userId = session()->get('leader_id');
+        $profiles = $this->profiles->where('user_id', $userId)->findAll();
 
+        $spreadsheet = new Spreadsheet();
+
+        $spreadsheet->getActiveSheet()->setTitle('profiles Details');
+
+        $spreadsheet->getActiveSheet()->setCellValue('A1', 'FIMS Code');
+        $spreadsheet->getActiveSheet()->setCellValue('B1', 'Name');
+        $spreadsheet->getActiveSheet()->setCellValue('C1', 'Address');
+
+        // Populate data
+        $row = 2;
+        foreach ($profiles as $profiles) {
+            $spreadsheet->getActiveSheet()->setCellValue('A' . $row, $profiles['fims_code']);
+            $spreadsheet->getActiveSheet()->setCellValue('B' . $row, $profiles['fullname']);
+            $spreadsheet->getActiveSheet()->setCellValue('C' . $row, $profiles['address']);
+            $row++;
+        }
+
+        header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+        header('Content-Disposition: attachment;filename="farmer_profiles.xlsx"');
+        header('Cache-Control: max-age=0');
+
+        $writer = new Xlsx($spreadsheet);
+
+        $writer->save('php://output');
+    }
     // charts
 
     public function charts()
@@ -1116,7 +1163,6 @@ class DashboardController extends BaseController
                 ],
             ],
         ];
-        // Fetching the number of crop varieties used
         $cropVarietyCount = $this->planting
             ->select('crop_variety, COUNT(crop_variety) as variety_count')
             ->where('user_id', $userId)
@@ -1125,11 +1171,9 @@ class DashboardController extends BaseController
             ->limit(10)
             ->findAll();
 
-        // Extracting variety names and counts for the chart
         $varietyNames = array_column($cropVarietyCount, 'crop_variety');
         $varietyCounts = array_column($cropVarietyCount, 'variety_count');
 
-        // Chart data for variety count
         $chartData2 = [
             'labels' => $varietyNames,
             'datasets' => [
@@ -1143,10 +1187,73 @@ class DashboardController extends BaseController
             ],
         ];
 
+        $damageCounts = $this->damages
+            ->select('pest_type, COUNT(*) as count')
+            ->where('user_id', $userId)
+            ->groupBy('pest_type')
+            ->findAll();
 
+        $pestTypes = array_column($damageCounts, 'pest_type');
+        $damageCountsData = array_column($damageCounts, 'count');
+
+        $chartData3 = [
+            'labels' => $pestTypes,
+            'datasets' => [
+                [
+                    'label' => 'Number of Damages',
+                    'backgroundColor' => 'rgb(250, 108, 92)',
+                    'borderColor' => 'rgb(250, 108, 92)',
+                    'borderWidth' => 1,
+                    'data' => $damageCountsData,
+                ],
+            ],
+        ];
+        $weatherEventCounts = $this->damages
+            ->select('weather_events, COUNT(*) as count')
+            ->where('user_id', $userId)
+            ->groupBy('weather_events')
+            ->findAll();
+
+        $weatherEvents = array_column($weatherEventCounts, 'weather_events');
+        $weatherEventCountsData = array_column($weatherEventCounts, 'count');
+
+        $chartData4 = [
+            'labels' => $weatherEvents,
+            'datasets' => [
+                [
+                    'label' => 'Number of Damages',
+                    'backgroundColor' => 'rgb(92, 182, 250)',
+                    'borderColor' => 'rgb(92, 182, 250)',
+                    'borderWidth' => 1,
+                    'data' => $weatherEventCountsData,
+                ],
+            ],
+        ];
+        $harvestData = $this->harvest
+            ->select('harvest_date, harvest_quantity')
+            ->where('user_id', $userId)
+            ->findAll();
+
+        $harvestDates = array_column($harvestData, 'harvest_date');
+        $harvestQuantities = array_column($harvestData, 'harvest_quantity');
+
+        $chartData6 = [
+            'labels' => $harvestDates,
+            'datasets' => [
+                [
+                    'label' => 'Harvest Quantity',
+                    'backgroundColor' => 'rgb(54, 162, 235)',
+                    'borderColor' => 'rgb(54, 162, 235)',
+                    'data' => $harvestQuantities,
+                ],
+            ],
+        ];
         $data = [
             'chartData' => $chartData,
             'chartData2' => $chartData2,
+            'chartData3' => $chartData3,
+            'chartData4' => $chartData4,
+            'chartData6' => $chartData6,
         ];
         return view('userfolder/charts', $data);
     }

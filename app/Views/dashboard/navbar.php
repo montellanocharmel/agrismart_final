@@ -42,29 +42,9 @@
         <li class>
         <li><a href="/viewcharts" style="margin-left: 40px;">Charts</a></li>
         <li class="side_menu_title">
-            <span>Barangay Inventory</span>
+            <span>Farmer Profiles</span>
         </li>
         <li class>
-            <a class="has-arrow" href="#" aria-expanded="false">
-                <img src="img/menu-icon/4.svg" alt>
-                <span>Profile</span>
-            </a>
-            <ul>
-                <li><a href="/myprofile">My Profile</a></li>
-                <li><a href="/farmerprofiles">Farmer Profiles</a></li>
-            </ul>
-        </li>
-        <li class>
-            <a class="has-arrow" href="#" aria-expanded="false">
-                <img src="img/menu-icon/4.svg" alt>
-                <span>Inventory</span>
-            </a>
-            <ul>
-                <li><a href="/workers">Workers</a></li>
-                <li><a href="/cropvariety">Crop Variety</a></li>
-                <li><a href="/fertilizers">Fertilizers</a></li>
-                <li><a href="/otherexpenses">Other Expenses</a></li>
-            </ul>
-        </li>
+        <li><a href="/farmerprofiles" style="margin-left: 40px;">Profiles</a></li>
     </ul>
 </nav>

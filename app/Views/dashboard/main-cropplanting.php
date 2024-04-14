@@ -18,7 +18,7 @@
                             </div>
                             <div class="add_button ms-2">
                                 <a href="/cropplanting" class="btn btn-primary"><i class="fa-solid fa-arrows-rotate"></i></a>
-                                <a href="/exportToExcelplanting" class="btn btn-primary"><i class="fa-regular fa-file-excel"></i></i></a>
+                                <a href="/exportToExcelplanting" class="btn btn-primary"><i class="fa-regular fa-file-excel"></i></a>
                             </div>
                         </div>
                     </div>
@@ -170,11 +170,7 @@
                         <input type="date" name="start_date" id="editstart_date" class="form-control">
                     </div>
                     <div class="mb-3">
-                        <label for="editend_date" class="form-label">Araw ng Pagtatapos ng Pagtatanim</label>
-                        <input type="date" name="end_date" id="editend_date" class="form-control">
-                    </div>
-                    <div class="mb-3">
-                        <label for="editnotes" class="form-label">Pangalan ng Variety</label>
+                        <label for="editnotes" class="form-label">Notes</label>
                         <textarea name="notes" id="editnotes" class="form-control"></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Save Changes</button>

@@ -45,7 +45,7 @@
         $('#addplantingmodal').modal('show');
     }
 
-    function openEditPlantingModal(planting_id, farmer_name, field_name, crop_variety, planting_date, season, start_date, end_date, notes) {
+    function openEditPlantingModal(planting_id, farmer_name, field_name, crop_variety, planting_date, season, start_date, notes) {
         document.getElementById('editplanting_id').value = planting_id;
         document.getElementById('editfarmer_name').value = farmer_name;
         document.getElementById('editfield_name').value = field_name;
@@ -53,7 +53,6 @@
         document.getElementById('editplanting_date').value = planting_date;
         document.getElementById('editseason').value = season;
         document.getElementById('editstart_date').value = start_date;
-        document.getElementById('editend_date').value = end_date;
         document.getElementById('editnotes').value = notes;
 
         $('#editplantingmodal').modal('show');
@@ -328,7 +327,31 @@
         });
     });
 </script>
+<script type="text/javascript">
+    (function(w, d, v3) {
+        w.chaportConfig = {
+            appId: '661be9dc7db7c259746c97d2'
+        };
 
+        if (w.chaport) return;
+        v3 = w.chaport = {};
+        v3._q = [];
+        v3._l = {};
+        v3.q = function() {
+            v3._q.push(arguments)
+        };
+        v3.on = function(e, fn) {
+            if (!v3._l[e]) v3._l[e] = [];
+            v3._l[e].push(fn)
+        };
+        var s = d.createElement('script');
+        s.type = 'text/javascript';
+        s.async = true;
+        s.src = 'https://app.chaport.com/javascripts/insert.js';
+        var ss = d.getElementsByTagName('script')[0];
+        ss.parentNode.insertBefore(s, ss)
+    })(window, document);
+</script>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

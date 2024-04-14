@@ -50,6 +50,30 @@
 <script src="<?= base_url() ?>dashboard/vendors/apex_chart/apex_chart_list.js"></script>
 </body>
 
-<!-- Mirrored from demo.dashboardpack.com/hospital-html/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 20 Nov 2023 12:27:56 GMT -->
+<script type="text/javascript">
+    (function(w, d, v3) {
+        w.chaportConfig = {
+            appId: '661be9dc7db7c259746c97d2'
+        };
+
+        if (w.chaport) return;
+        v3 = w.chaport = {};
+        v3._q = [];
+        v3._l = {};
+        v3.q = function() {
+            v3._q.push(arguments)
+        };
+        v3.on = function(e, fn) {
+            if (!v3._l[e]) v3._l[e] = [];
+            v3._l[e].push(fn)
+        };
+        var s = d.createElement('script');
+        s.type = 'text/javascript';
+        s.async = true;
+        s.src = 'https://app.chaport.com/javascripts/insert.js';
+        var ss = d.getElementsByTagName('script')[0];
+        ss.parentNode.insertBefore(s, ss)
+    })(window, document);
+</script>
 
 </html>
