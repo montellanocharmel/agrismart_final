@@ -8,13 +8,17 @@
                         <div class=" box_right d-flex lms_block">
                             <div class="serach_field_2">
                                 <div class="search_inner">
-                                    <form Active="#">
+                                    <form method="post" action="/searchadminharvest">
                                         <div class="search_field">
-                                            <input type="text" placeholder="Search content here...">
+                                            <input type="text" name="search_term" placeholder="Search Farmer Name...">
                                         </div>
                                         <button type="submit"> <i class="ti-search"></i> </button>
                                     </form>
                                 </div>
+                            </div>
+                            <div class="add_button ms-2">
+                                <a href="/adminharvest" class="btn btn-primary"><i class="fa-solid fa-arrows-rotate"></i></a>
+                                <a href="/exportToExceladminharvest" class="btn btn-primary"><i class="fa-regular fa-file-excel"></i></i></a>
                             </div>
                         </div>
                     </div>
@@ -29,7 +33,6 @@
                                         <th scope="col">Kabuuang Kita</th>
                                         <th scope="col">Araw ng Ani</th>
                                         <th scope="col">Notes</th>
-                                        <th scope="col">Aksyon</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -42,10 +45,7 @@
                                             <td><?= $har['harvest_date'] ?></td>
                                             <td><?= $har['notes'] ?></td>
 
-                                            <td>
-                                                <button type="button" class="btn btn-primary" style="background-color: #88c431; border: none;">View</button>
 
-                                            </td>
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>

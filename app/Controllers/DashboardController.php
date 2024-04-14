@@ -24,6 +24,7 @@ class DashboardController extends BaseController
     private $expense;
     private $profiles;
     private $damages;
+    private $admin;
 
 
     public function __construct()
@@ -40,6 +41,7 @@ class DashboardController extends BaseController
         $this->equipment = new \App\Models\EquipmentModel();
         $this->prof = new \App\Models\FarmelProfileModel();
         $this->profiles = new \App\Models\FarmerProfilesModel();
+        $this->admin = new \App\Models\AdminModel();
     }
 
     public function dashboards()
@@ -759,6 +761,18 @@ class DashboardController extends BaseController
         ];
         return view('adminfolder/croprotation', $data);
     }
+    public function adminexpense()
+    {
+        $userId = session()->get('leader_id');
+        if (!session()->get('isLoggedIn')) {
+            return redirect()->to('/sign_ins');
+        } else {
+            $data = [
+                'expense' => $this->expense->findAll()
+            ];
+            return view('adminfolder/jobs', $data);
+        }
+    }
     public function adminharvest()
     {
         if (!session()->get('isLoggedIn')) {
@@ -769,6 +783,17 @@ class DashboardController extends BaseController
             'harvest' => $this->harvest->findAll()
         ];
         return view('adminfolder/harvest', $data);
+    }
+    public function admindamages()
+    {
+        $userId = session()->get('leader_id');
+        if (!session()->get('isLoggedIn')) {
+            return redirect()->to('/sign_ins');
+        }
+        $data = [
+            'damages' => $this->damages->findAll()
+        ];
+        return view('adminfolder/damage', $data);
     }
 
     public function searchFields()
@@ -895,6 +920,119 @@ class DashboardController extends BaseController
 
         return view('userfolder/farmerprofile', $data);
     }
+    public function searchadminFields()
+    {
+        if (!session()->get('isLoggedIn')) {
+            return redirect()->to('/signinadmin');
+        }
+
+        $searchTerm = $this->request->getPost('search_term');
+
+        $fields = $this->field->like('farmer_name', $searchTerm)
+            ->findAll();
+        $profiles = [];
+        foreach ($fields as $field) {
+            $profile = $this->profiles->where('fims_code', $field['fims_code'])->first();
+            if ($profile) {
+                $profiles[] = $profile;
+            }
+        }
+
+        $data = [
+            'field' => $fields,
+            'profiles' => $profiles,
+        ];
+
+        return view('adminfolder/fields', $data);
+    }
+    public function searchadminCropplanting()
+    {
+        if (!session()->get('isLoggedIn')) {
+            return redirect()->to('/signinadmin');
+        }
+
+        $searchTerm = $this->request->getPost('search_term');
+
+        $plant = $this->planting->like('farmer_name', $searchTerm)
+            ->findAll();
+
+        $data = [
+            'planting' => $plant,
+        ];
+
+        return view('adminfolder/croprotation', $data);
+    }
+    public function searchadminExpense()
+    {
+        if (!session()->get('isLoggedIn')) {
+            return redirect()->to('/signinadmin');
+        }
+
+        $searchTerm = $this->request->getPost('search_term');
+
+        $exp = $this->expense->like('expense_name', $searchTerm)
+            ->findAll();
+
+        $data = [
+            'expense' => $exp,
+        ];
+
+        return view('adminfolder/jobs', $data);
+    }
+
+    public function searchadminDamage()
+    {
+        if (!session()->get('isLoggedIn')) {
+            return redirect()->to('/signinadmin');
+        }
+
+        $searchTerm = $this->request->getPost('search_term');
+
+        $dam = $this->damages->like('farmer_name', $searchTerm)
+            ->findAll();
+
+        $data = [
+            'damages' => $dam,
+        ];
+
+        return view('adminfolder/croprotation', $data);
+    }
+
+    public function searchadminHarvest()
+    {
+        if (!session()->get('isLoggedIn')) {
+            return redirect()->to('/signinadmin');
+        }
+
+        $searchTerm = $this->request->getPost('search_term');
+
+        $har = $this->harvest->like('farmer_name', $searchTerm)
+            ->findAll();
+
+        $data = [
+            'harvest' => $har,
+        ];
+
+        return view('adminfolder/harvest', $data);
+    }
+    public function searchadminmanageaccounts()
+    {
+        if (!session()->get('isLoggedIn')) {
+            return redirect()->to('/signinadmin');
+        }
+
+        $searchTerm = $this->request->getPost('search_term');
+
+        $adm = $this->users->like('leader_name', $searchTerm)
+            ->findAll();
+
+        $data = [
+            'users' => $adm,
+        ];
+
+        return view('adminfolder/manageaccounts', $data);
+    }
+
     public function exportToExcel()
     {
         $userId = session()->get('leader_id');
@@ -910,7 +1048,6 @@ class DashboardController extends BaseController
         $spreadsheet->getActiveSheet()->setCellValue('D1', 'Field Address');
         $spreadsheet->getActiveSheet()->setCellValue('E1', 'Field Total Area');
 
-        // Populate data
         $row = 2;
         foreach ($fields as $field) {
             $spreadsheet->getActiveSheet()->setCellValue('A' . $row, $field['farmer_name']);
@@ -921,15 +1058,12 @@ class DashboardController extends BaseController
             $row++;
         }
 
-        // Set headers for download
         header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
         header('Content-Disposition: attachment;filename="field_data.xlsx"');
         header('Cache-Control: max-age=0');
 
-        // Create Excel writer object
         $writer = new Xlsx($spreadsheet);
 
-        // Save Excel file to php://output (download)
         $writer->save('php://output');
     }
 
@@ -1132,6 +1266,214 @@ class DashboardController extends BaseController
 
         $writer->save('php://output');
     }
+
+    public function exportToExceladminfields()
+    {
+        $userId = session()->get('leader_id');
+        $fields = $this->field->findAll();
+
+        $spreadsheet = new Spreadsheet();
+
+        $spreadsheet->getActiveSheet()->setTitle('Field Data');
+
+        $spreadsheet->getActiveSheet()->setCellValue('A1', 'Farmer Name');
+        $spreadsheet->getActiveSheet()->setCellValue('B1', 'Field Name');
+        $spreadsheet->getActiveSheet()->setCellValue('C1', 'Field Owner');
+        $spreadsheet->getActiveSheet()->setCellValue('D1', 'Field Address');
+        $spreadsheet->getActiveSheet()->setCellValue('E1', 'Field Total Area');
+
+        // Populate data
+        $row = 2;
+        foreach ($fields as $field) {
+            $spreadsheet->getActiveSheet()->setCellValue('A' . $row, $field['farmer_name']);
+            $spreadsheet->getActiveSheet()->setCellValue('B' . $row, $field['field_name']);
+            $spreadsheet->getActiveSheet()->setCellValue('C' . $row, $field['field_owner']);
+            $spreadsheet->getActiveSheet()->setCellValue('D' . $row, $field['field_address']);
+            $spreadsheet->getActiveSheet()->setCellValue('E' . $row, $field['field_total_area']);
+            $row++;
+        }
+
+        // Set headers for download
+        header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+        header('Content-Disposition: attachment;filename="field_data.xlsx"');
+        header('Cache-Control: max-age=0');
+
+        // Create Excel writer object
+        $writer = new Xlsx($spreadsheet);
+
+        // Save Excel file to php://output (download)
+        $writer->save('php://output');
+    }
+    public function exportToExceladminplanting()
+    {
+        $userId = session()->get('leader_id');
+        $plant = $this->planting->findAll();
+
+        $spreadsheet = new Spreadsheet();
+
+        $spreadsheet->getActiveSheet()->setTitle('Planting Details');
+
+        $spreadsheet->getActiveSheet()->setCellValue('A1', 'Field Address');
+        $spreadsheet->getActiveSheet()->setCellValue('B1', 'Field Name');
+        $spreadsheet->getActiveSheet()->setCellValue('C1', 'Crop Variety');
+        $spreadsheet->getActiveSheet()->setCellValue('D1', 'Planting Date');
+        $spreadsheet->getActiveSheet()->setCellValue('E1', 'Season');
+        $spreadsheet->getActiveSheet()->setCellValue('F1', 'Start Date');
+        $spreadsheet->getActiveSheet()->setCellValue('G1', 'Notes');
+        $spreadsheet->getActiveSheet()->setCellValue('H1', 'Farmer Name');
+        $spreadsheet->getActiveSheet()->setCellValue('I1', 'FIMS Code');
+
+        // Populate data
+        $row = 2;
+        foreach ($plant as $planting) {
+            $spreadsheet->getActiveSheet()->setCellValue('A' . $row, $planting['field_address']);
+            $spreadsheet->getActiveSheet()->setCellValue('B' . $row, $planting['field_name']);
+            $spreadsheet->getActiveSheet()->setCellValue('C' . $row, $planting['crop_variety']);
+            $spreadsheet->getActiveSheet()->setCellValue('D' . $row, $planting['planting_date']);
+            $spreadsheet->getActiveSheet()->setCellValue('E' . $row, $planting['season']);
+            $spreadsheet->getActiveSheet()->setCellValue('F' . $row, $planting['start_date']);
+            $spreadsheet->getActiveSheet()->setCellValue('G' . $row, $planting['notes']);
+            $spreadsheet->getActiveSheet()->setCellValue('H' . $row, $planting['farmer_name']);
+            $spreadsheet->getActiveSheet()->setCellValue('I' . $row, $planting['fims_code']);
+            $row++;
+        }
+
+        header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+        header('Content-Disposition: attachment;filename="planting_data.xlsx"');
+        header('Cache-Control: max-age=0');
+
+        $writer = new Xlsx($spreadsheet);
+
+        $writer->save('php://output');
+    }
+    public function exportToExceladminexpense()
+    {
+        $exp = $this->expense->findAll();
+
+        $spreadsheet = new Spreadsheet();
+
+        $spreadsheet->getActiveSheet()->setTitle('expenses Data');
+
+        $spreadsheet->getActiveSheet()->setCellValue('A1', 'Expense Name');
+        $spreadsheet->getActiveSheet()->setCellValue('B1', 'Field Name');
+        $spreadsheet->getActiveSheet()->setCellValue('C1', 'Finished Date');
+        $spreadsheet->getActiveSheet()->setCellValue('D1', 'Total Money Spent');
+        $spreadsheet->getActiveSheet()->setCellValue('E1', 'Notes');
+        $spreadsheet->getActiveSheet()->setCellValue('F1', 'Farmer Name');
+        $spreadsheet->getActiveSheet()->setCellValue('G1', 'FIMS Code');
+
+        $row = 2;
+        foreach ($exp as $expense) {
+            $spreadsheet->getActiveSheet()->setCellValue('A' . $row, $expense['expense_name']);
+            $spreadsheet->getActiveSheet()->setCellValue('B' . $row, $expense['field_name']);
+            $spreadsheet->getActiveSheet()->setCellValue('C' . $row, $expense['finished_date']);
+            $spreadsheet->getActiveSheet()->setCellValue('D' . $row, $expense['total_money_spent']);
+            $spreadsheet->getActiveSheet()->setCellValue('E' . $row, $expense['notes']);
+            $spreadsheet->getActiveSheet()->setCellValue('F' . $row, $expense['farmer_name']);
+            $spreadsheet->getActiveSheet()->setCellValue('G' . $row, $expense['fims_code']);
+            $row++;
+        }
+
+        header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+        header('Content-Disposition: attachment;filename="expenses_data.xlsx"');
+        header('Cache-Control: max-age=0');
+
+        $writer = new Xlsx($spreadsheet);
+
+        $writer->save('php://output');
+    }
+
+
+    public function exportToExceladmindamage()
+    {
+        $damage = $this->damages->findAll();
+
+        $spreadsheet = new Spreadsheet();
+
+        $spreadsheet->getActiveSheet()->setTitle('Damage Details');
+
+        $spreadsheet->getActiveSheet()->setCellValue('A1', 'Field Name');
+        $spreadsheet->getActiveSheet()->setCellValue('B1', 'Field Address');
+        $spreadsheet->getActiveSheet()->setCellValue('C1', 'Farmer Name');
+        $spreadsheet->getActiveSheet()->setCellValue('D1', 'FIMS Code');
+        $spreadsheet->getActiveSheet()->setCellValue('E1', 'Crop Variety');
+        $spreadsheet->getActiveSheet()->setCellValue('F1', 'Damage Type');
+        $spreadsheet->getActiveSheet()->setCellValue('G1', 'Pest Type');
+        $spreadsheet->getActiveSheet()->setCellValue('H1', 'Severity');
+        $spreadsheet->getActiveSheet()->setCellValue('I1', 'Symptoms');
+        $spreadsheet->getActiveSheet()->setCellValue('J1', 'Actions');
+        $spreadsheet->getActiveSheet()->setCellValue('K1', 'Weather Events');
+        $spreadsheet->getActiveSheet()->setCellValue('L1', 'Damage Descriptions');
+        $spreadsheet->getActiveSheet()->setCellValue('M1', 'Damage Severity');
+        $spreadsheet->getActiveSheet()->setCellValue('N1', 'Mitigation Measures');
+
+        // Populate data
+        $row = 2;
+        foreach ($damage as $damages) {
+            $spreadsheet->getActiveSheet()->setCellValue('A' . $row, $damages['field_name']);
+            $spreadsheet->getActiveSheet()->setCellValue('B' . $row, $damages['field_address']);
+            $spreadsheet->getActiveSheet()->setCellValue('C' . $row, $damages['farmer_name']);
+            $spreadsheet->getActiveSheet()->setCellValue('D' . $row, $damages['fims_code']);
+            $spreadsheet->getActiveSheet()->setCellValue('E' . $row, $damages['crop_variety']);
+            $spreadsheet->getActiveSheet()->setCellValue('F' . $row, $damages['damage_type']);
+            $spreadsheet->getActiveSheet()->setCellValue('G' . $row, $damages['pest_type']);
+            $spreadsheet->getActiveSheet()->setCellValue('H' . $row, $damages['severity']);
+            $spreadsheet->getActiveSheet()->setCellValue('I' . $row, $damages['symptoms']);
+            $spreadsheet->getActiveSheet()->setCellValue('J' . $row, $damages['actions']);
+            $spreadsheet->getActiveSheet()->setCellValue('K' . $row, $damages['weather_events']);
+            $spreadsheet->getActiveSheet()->setCellValue('L' . $row, $damages['damage_descriptions']);
+            $spreadsheet->getActiveSheet()->setCellValue('M' . $row, $damages['damage_severity']);
+            $spreadsheet->getActiveSheet()->setCellValue('N' . $row, $damages['mitigation_measures']);
+            $row++;
+        }
+
+        header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+        header('Content-Disposition: attachment;filename="damage_data.xlsx"');
+        header('Cache-Control: max-age=0');
+
+        $writer = new Xlsx($spreadsheet);
+
+        $writer->save('php://output');
+    }
+
+    public function exportToExceladminharvest()
+    {
+        $harv = $this->harvest->findAll();
+
+        $spreadsheet = new Spreadsheet();
+
+        $spreadsheet->getActiveSheet()->setTitle('Harvest Data');
+
+        $spreadsheet->getActiveSheet()->setCellValue('A1', 'Field Name');
+        $spreadsheet->getActiveSheet()->setCellValue('B1', 'Variety Name');
+        $spreadsheet->getActiveSheet()->setCellValue('C1', 'Harvest Quantity');
+        $spreadsheet->getActiveSheet()->setCellValue('D1', 'Total Revenue');
+        $spreadsheet->getActiveSheet()->setCellValue('E1', 'Harvest Date');
+        $spreadsheet->getActiveSheet()->setCellValue('F1', 'Farmer Name');
+        $spreadsheet->getActiveSheet()->setCellValue('G1', 'FIMS Code');
+
+        $row = 2;
+        foreach ($harv as $harvest) {
+            $spreadsheet->getActiveSheet()->setCellValue('A' . $row, $harvest['field_name']);
+            $spreadsheet->getActiveSheet()->setCellValue('B' . $row, $harvest['variety_name']);
+            $spreadsheet->getActiveSheet()->setCellValue('C' . $row, $harvest['harvest_quantity']);
+            $spreadsheet->getActiveSheet()->setCellValue('D' . $row, $harvest['total_revenue']);
+            $spreadsheet->getActiveSheet()->setCellValue('E' . $row, $harvest['harvest_date']);
+            $spreadsheet->getActiveSheet()->setCellValue('F' . $row, $harvest['farmer_name']);
+            $spreadsheet->getActiveSheet()->setCellValue('G' . $row, $harvest['fims_code']);
+            $row++;
+        }
+
+        header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+        header('Content-Disposition: attachment;filename="harvest_data.xlsx"');
+        header('Cache-Control: max-age=0');
+
+        $writer = new Xlsx($spreadsheet);
+
+        $writer->save('php://output');
+    }
+
+
     // charts
 
     public function charts()
@@ -1256,6 +1598,124 @@ class DashboardController extends BaseController
             'chartData6' => $chartData6,
         ];
         return view('userfolder/charts', $data);
+    }
+    public function admincharts()
+    {
+        if (!session()->get('isLoggedIn')) {
+            return redirect()->to('/sign_ins');
+        }
+
+        $topBarangays = $this->field
+            ->select('field_address, SUM(field_total_area) as total_area')
+            ->groupBy('field_address')
+            ->orderBy('total_area', 'DESC')
+            ->limit(10)
+            ->findAll();
+
+        $barangayNames = array_column($topBarangays, 'field_address');
+        $totalAreas = array_column($topBarangays, 'total_area');
+
+
+        $chartData = [
+            'labels' => $barangayNames,
+            'datasets' => [
+                [
+                    'label' => 'Total Field Area',
+                    'backgroundColor' => ['rgb(250, 208, 92)', 'rgb(136, 196, 49)'],
+                    'borderWidth' => 1,
+                    'data' => $totalAreas,
+                ],
+            ],
+        ];
+        $cropVarietyCount = $this->planting
+            ->select('crop_variety, COUNT(crop_variety) as variety_count')
+            ->groupBy('crop_variety')
+            ->orderBy('variety_count', 'DESC')
+            ->limit(10)
+            ->findAll();
+
+        $varietyNames = array_column($cropVarietyCount, 'crop_variety');
+        $varietyCounts = array_column($cropVarietyCount, 'variety_count');
+
+        $chartData2 = [
+            'labels' => $varietyNames,
+            'datasets' => [
+                [
+                    'label' => 'Number of Crop Varieties',
+                    'backgroundColor' => 'rgb(250, 208, 92)',
+                    'borderColor' => 'rgb(250, 208, 92)',
+                    'borderWidth' => 1,
+                    'data' => $varietyCounts,
+                ],
+            ],
+        ];
+
+        $damageCounts = $this->damages
+            ->select('pest_type, COUNT(*) as count')
+            ->groupBy('pest_type')
+            ->findAll();
+
+        $pestTypes = array_column($damageCounts, 'pest_type');
+        $damageCountsData = array_column($damageCounts, 'count');
+
+        $chartData3 = [
+            'labels' => $pestTypes,
+            'datasets' => [
+                [
+                    'label' => 'Number of Damages',
+                    'backgroundColor' => 'rgb(250, 108, 92)',
+                    'borderColor' => 'rgb(250, 108, 92)',
+                    'borderWidth' => 1,
+                    'data' => $damageCountsData,
+                ],
+            ],
+        ];
+        $weatherEventCounts = $this->damages
+            ->select('weather_events, COUNT(*) as count')
+            ->groupBy('weather_events')
+            ->findAll();
+
+        $weatherEvents = array_column($weatherEventCounts, 'weather_events');
+        $weatherEventCountsData = array_column($weatherEventCounts, 'count');
+
+        $chartData4 = [
+            'labels' => $weatherEvents,
+            'datasets' => [
+                [
+                    'label' => 'Number of Damages',
+                    'backgroundColor' => 'rgb(92, 182, 250)',
+                    'borderColor' => 'rgb(92, 182, 250)',
+                    'borderWidth' => 1,
+                    'data' => $weatherEventCountsData,
+                ],
+            ],
+        ];
+        $harvestData = $this->harvest
+            ->select('harvest_date, harvest_quantity')
+            ->findAll();
+
+        $harvestDates = array_column($harvestData, 'harvest_date');
+        $harvestQuantities = array_column($harvestData, 'harvest_quantity');
+
+        $chartData6 = [
+            'labels' => $harvestDates,
+            'datasets' => [
+                [
+                    'label' => 'Harvest Quantity',
+                    'backgroundColor' => 'rgb(54, 162, 235)',
+                    'borderColor' => 'rgb(54, 162, 235)',
+                    'data' => $harvestQuantities,
+                ],
+            ],
+        ];
+        $data = [
+            'chartData' => $chartData,
+            'chartData2' => $chartData2,
+            'chartData3' => $chartData3,
+            'chartData4' => $chartData4,
+            'chartData6' => $chartData6,
+        ];
+        return view('adminfolder/viewcharts', $data);
     }
 
     /*public function importExcel()

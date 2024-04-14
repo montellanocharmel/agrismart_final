@@ -20,8 +20,6 @@
                         <div class="profile_info_iner">
                             <h5><?php echo session()->get('leader_name'); ?></h5>
                             <div class="profile_info_details">
-                                <a href="#">My Profile <i class="fa-regular fa-user" style="color: #ffffff;"></i></a>
-                                <a href="#">Settings <i class="fa-solid fa-gear" style="color: #ffffff;"></i></i></a>
                                 <a href="/">Log Out <i class="fa-solid fa-arrow-right-from-bracket" style="color: #ffffff;"></i></a>
                             </div>
                         </div>

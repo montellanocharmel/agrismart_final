@@ -48,8 +48,6 @@
                     <div class="my-4">
                         <canvas id="harvestChart" width="400" height="100"></canvas>
                     </div>
-
-
                 </div>
             </div>
         </div>

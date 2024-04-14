@@ -32,48 +32,22 @@
         </li>
         <li class>
         <li><a href="/admincropplanting" style="margin-left: 40px;">Planting</a></li>
-        <li><a href="/admincropplanting" style="margin-left: 40px;">Expenses</a></li>
+        <li><a href="/adminexpense" style="margin-left: 40px;">Expenses</a></li>
+        <li><a href="/admindamage" style="margin-left: 40px;">Damages</a></li>
         <li><a href="/adminharvest" style="margin-left: 40px;">Harvest</a></li>
         </li>
         <li class="side_menu_title">
             <span>Data Analytics</span>
         </li>
         <li class>
-            <a class="has-arrow" href="#" aria-expanded="false">
-                <img src="img/menu-icon/4.svg" alt>
-                <span>View Charts</span>
-            </a>
-            <ul>
-                <li><a href="">Vegetation History</a></li>
-                <li><a href="">Variety</a></li>
-                <li><a href="">Field Yields</a></li>
-                <li><a href="">Expenses</a></li>
-            </ul>
+        <li><a href="/adminviewcharts" style="margin-left: 40px;">Charts</a></li>
+
         </li>
         <li class="side_menu_title">
-            <span>Barangay Inventory</span>
+            <span>Account Management</span>
         </li>
         <li class>
-            <a class="has-arrow" href="#" aria-expanded="false">
-                <img src="img/menu-icon/4.svg" alt>
-                <span>Profile</span>
-            </a>
-            <ul>
-                <li><a href="/adminprofile">My Profile</a></li>
-                <li><a href="/manageaccounts">Manage Accounts</a></li>
-            </ul>
-        </li>
-        <li class>
-            <a class="has-arrow" href="#" aria-expanded="false">
-                <img src="img/menu-icon/4.svg" alt>
-                <span>Inventory</span>
-            </a>
-            <ul>
-                <li><a href="/workers">Workers</a></li>
-                <li><a href="/cropvariety">Crop Variety</a></li>
-                <li><a href="/fertilizers">Fertilizers</a></li>
-                <li><a href="/otherexpenses">Other Expenses</a></li>
-            </ul>
+        <li><a href="/manageaccounts" style="margin-left: 40px;">Manage</a></li>
         </li>
     </ul>
 </nav>

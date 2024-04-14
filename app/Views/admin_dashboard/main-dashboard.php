@@ -42,12 +42,39 @@
                 <div class="white_box mb_30 ">
                     <div class="box_header border_bottom_1px  ">
                         <div class="main-title">
-                            <h3 class="mb_25">Total Income</h3>
+                            <h3 class="mb_25">Harvest Quantity</h3>
                         </div>
                     </div>
-                    <div id="bar_wev"></div>
+                    <div class="my-4">
+                        <canvas id="harvestChart" width="400" height="100"></canvas>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    var ctx = document.getElementById('harvestChart').getContext('2d');
+    var chart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: <?= json_encode($monthlyLabels) ?>,
+            datasets: [{
+                label: 'Harvest Quantity',
+                data: <?= json_encode($monthlyHarvestData) ?>,
+                fill: false,
+                borderColor: 'rgb(250, 208, 92)',
+                tension: 0.1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>

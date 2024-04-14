@@ -18,6 +18,7 @@ class LoginController extends BaseController
     private $profiles;
     private $users;
     private $variety;
+    private $admin;
 
     public function __construct()
     {
@@ -29,6 +30,7 @@ class LoginController extends BaseController
         $this->variety = new \App\Models\VarietyModel();
         $this->users = new \App\Models\RegisterModel();
         $this->profiles = new \App\Models\FarmerProfilesModel();
+        $this->admin = new \App\Models\AdminModel();
     }
 
     public function index()
@@ -456,7 +458,6 @@ class LoginController extends BaseController
             $password = reset($password);
         }
 
-        // Hash the password
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
         $dataToUpdate = [
@@ -477,5 +478,41 @@ class LoginController extends BaseController
     {
         $this->users->update($leader_id, ['accountstatus' => 'unrestricted']);
         return redirect()->to('/manageaccounts')->with('success', 'Account unrestricted successfully');
+    }
+    public function adminaccounts()
+    {
+        if (!session()->get('isLoggedIn')) {
+            return redirect()->to('/signinadmin');
+        }
+
+        $data = [
+            'admin' => $this->admin->findAll()
+        ];
+        return view('adminfolder/adminaccounts', $data);
+    }
+    public function editadminpassword($id)
+    {
+        $admin = $this->admin->find($id);
+
+        return view('admin', ['admin' => $admin]);
+    }
+    public function updateadminpassword()
+    {
+        $id = $this->request->getPost('id');
+        $password = $this->request->getPost('password');
+
+        if (is_array($password)) {
+            $password = reset($password);
+        }
+
+        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
+        $dataToUpdate = [
+            'password' => $hashedPassword,
+        ];
+
+        $this->admin->update($id, $dataToUpdate);
+
+        return redirect()->to('/manageaccounts')->with('success', 'Password updated successfully');
     }
 }

@@ -8,12 +8,9 @@
                     </div>
                     <div class="serach_field-area">
                         <div class="search_inner">
-                            <form action="#">
-                                <div class="search_field">
-                                    <input type="text" placeholder="Search here...">
-                                </div>
-                                <button type="submit"> <img src="<?= base_url() ?>dashboard/img/icon/icon_search.svg" alt> </button>
-                            </form>
+                            <div class="main-title">
+                                <h3 class="mb-0">Welcome, <?php echo session()->get('fullname'); ?>!</h3>
+                            </div>
                         </div>
                     </div>
                     <div class="header_right d-flex justify-content-between align-items-center">
@@ -26,8 +23,6 @@
                             <div class="profile_info_iner">
                                 <h5><?php echo session()->get('fullname'); ?></h5>
                                 <div class="profile_info_details">
-                                    <a href="#">My Profile <i class="fa-regular fa-user" style="color: white;"></i></a>
-                                    <a href="#">Settings <i class="fa-solid fa-gear" style="color: white;"></i></i></a>
                                     <a href="/">Log Out <i class="fa-solid fa-arrow-right-from-bracket" style="color: white;"></i></a>
                                 </div>
                             </div>

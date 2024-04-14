@@ -85,6 +85,9 @@ $routes->match(['post', 'get'], '/admindashboard', 'LoginController::admindashbo
 $routes->get('/adminfields', 'DashboardController::adminfields');
 $routes->get('/admincropplanting', 'DashboardController::admincropplanting');
 $routes->get('/adminharvest', 'DashboardController::adminharvest');
+$routes->get('/adminexpense', 'DashboardController::adminexpense');
+$routes->get('/admindamage', 'DashboardController::admindamages');
+$routes->get('/adminviewcharts', 'DashboardController::admincharts');
 
 $routes->get('/map', 'DashboardController::map');
 $routes->get('/eq', 'DashboardController::eq');
@@ -114,6 +117,12 @@ $routes->post('/searchexpense', 'DashboardController::searchExpense');
 $routes->post('/searchharvest', 'DashboardController::searchHarvest');
 $routes->post('/searchdamage', 'DashboardController::searchDamage');
 $routes->post('/searchfarmerprofiles', 'DashboardController::searchfarmerprofiles');
+$routes->post('/searchadminfields', 'DashboardController::searchadminFields');
+$routes->post('/searchadmincropplanting', 'DashboardController::searchadminCropplanting');
+$routes->post('/searchadminexpense', 'DashboardController::searchadminExpense');
+$routes->post('/searchadmindamage', 'DashboardController::searchadminDamage');
+$routes->post('/searchadminharvest', 'DashboardController::searchadminHarvest');
+$routes->post('/searchadminmanageaccounts', 'DashboardController::searchadminmanageaccounts');
 
 // export
 $routes->get('/exportToExcel', 'DashboardController::exportToExcel');
@@ -123,6 +132,12 @@ $routes->get('/exportToExcelplanting', 'DashboardController::exportToExcelplanti
 $routes->get('/exportToExcelharvest', 'DashboardController::exportToExcelharvest');
 $routes->get('/exportToExcelexpense', 'DashboardController::exportToExcelexpense');
 $routes->get('/exportToExcelfarmerprofiles', 'DashboardController::exportToExcelfarmerprofiles');
+$routes->get('/exportToExceladminfields', 'DashboardController::exportToExceladminfields');
+$routes->get('/exportToExceladminplanting', 'DashboardController::exportToExceladminplanting');
+$routes->get('/exportToExceldamage', 'DashboardController::exportToExceldamage');
+$routes->get('/exportToExceladminexpense', 'DashboardController::exportToExceladminexpense');
+$routes->get('/exportToExceladmindamage', 'DashboardController::exportToExceladmindamage');
+$routes->get('/exportToExceladminharvest', 'DashboardController::exportToExceladminharvest');
 
 // charts
 $routes->get('/viewcharts', 'DashboardController::charts');

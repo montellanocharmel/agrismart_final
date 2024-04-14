@@ -20,7 +20,6 @@
                                 <a href="#" data-bs-toggle="modal" data-bs-target="#addfieldmodal" class="btn btn-primary"><i class="fa-solid fa-plus"></i></a>
                                 <a href="/viewfields" class="btn btn-primary"><i class="fa-solid fa-arrows-rotate"></i></a>
                                 <a href="/exportToExcel" class="btn btn-primary"><i class="fa-regular fa-file-excel"></i></i></a>
-
                             </div>
                         </div>
                     </div>

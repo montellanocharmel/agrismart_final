@@ -8,13 +8,16 @@
                         <div class=" box_right d-flex lms_block">
                             <div class="serach_field_2">
                                 <div class="search_inner">
-                                    <form Active="#">
+                                    <form method="post" action="/searchadminmanageaccounts">
                                         <div class="search_field">
-                                            <input type="text" placeholder="Search content here...">
+                                            <input type="text" name="search_term" placeholder="Search Leader Name...">
                                         </div>
                                         <button type="submit"> <i class="ti-search"></i> </button>
                                     </form>
                                 </div>
+                            </div>
+                            <div class="add_button ms-2">
+                                <a href="/manageaccounts" class="btn btn-primary"><i class="fa-solid fa-arrows-rotate"></i></a>
                             </div>
                         </div>
                     </div>
