@@ -45,15 +45,20 @@
                                         <td><?= $us['accountstatus'] ?></td>
                                         <td><?= $us['created_at'] ?></td>
                                         <td>
+                                            <button type="button" class="btn" style="background-color: #47a9ff; color: white;" onclick="openEditAccountModal( 
+                                                <?= $us['leader_id']; ?>,
+                                                '<?= $us['leader_name']; ?>', 
+                                                '<?= $us['idnumber']; ?>', 
+                                                '<?= $us['position']; ?>' 
+                                                )"><i class="fa-solid fa-user-pen"></i></button>
                                             <button type="button" class="btn btn-primary" onclick="openEditPasswordModal(
                                                         <?= $us['leader_id']; ?>,
-                                                        '<?= $us['password']; ?>'
-                                                        )">Update Password</button>
-
+                                                        '<?= $us['password']; ?>',
+                                                        )"><i class="fa-solid fa-key"></i></button>
                                             <?php if ($us['accountstatus'] === 'unrestricted') : ?>
-                                                <a href="/restrict-account/<?= $us['leader_id']; ?>" class="btn btn-danger" style="color: white;">Restrict</a>
+                                                <a href="/restrict-account/<?= $us['leader_id']; ?>" class="btn btn-danger" style="color: white;"><i class="fa-solid fa-ban"></i></a>
                                             <?php else : ?>
-                                                <a href="/unrestrict-account/<?= $us['leader_id']; ?>" class="btn btn-success" style="color: white;">Unrestrict</a>
+                                                <a href="/unrestrict-account/<?= $us['leader_id']; ?>" class="btn btn-success" style="color: white;"><i class="fa-solid fa-circle-check"></i></a>
                                             <?php endif; ?>
 
 
@@ -84,6 +89,37 @@
                     <div class="mb-3">
                         <label for="editpassword" class="form-label">Change Password</label>
                         <input type="password" name="password" id="editpassword" class="form-control">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- edit account modal.php -->
+
+<div class="modal fade" id="editaccountmodal" tabindex="-1" aria-labelledby="editaccountmodalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editaccountmodalLabel">Update Account</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="/updateaccount/update" method="post">
+                    <input type="hidden" name="leader_id" id="editleader_id1">
+                    <div class="mb-3">
+                        <label for="editleader_name" class="form-label">Change Name</label>
+                        <input type="text" name="leader_name" id="editleader_name" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="editidnumber" class="form-label">Change ID Number</label>
+                        <input type="text" name="idnumber" id="editidnumber" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="editposition" class="form-label">Change Position</label>
+                        <input type="text" name="position" id="editposition" class="form-control">
                     </div>
                     <button type="submit" class="btn btn-primary">Save Changes</button>
                 </form>

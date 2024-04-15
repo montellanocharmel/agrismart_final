@@ -15,7 +15,7 @@
                     </div>
 
 
-                    <div class="profile_info" style="align-self: center; margin-right: 20px;">
+                    <div class="profile_info" style="align-self: center; margin-right: 20px; z-index: 1000;">
                         <i class="fa-solid fa-user fa-2xl" style="color: #88c431;"></i>
                         <div class="profile_info_iner">
                             <h5><?php echo session()->get('leader_name'); ?></h5>

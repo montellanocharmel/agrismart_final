@@ -164,11 +164,6 @@
                 barangay_name: 'Laguna'
             },
             {
-                lat: 13.2903,
-                lng: 121.3005,
-                barangay_name: 'Mabini'
-            },
-            {
                 lat: 13.3220,
                 lng: 121.2977,
                 barangay_name: 'Andres Ilagan'

@@ -183,10 +183,9 @@
                                 <option value="San Luis">San Luis</option>
                                 <option value="San Nicolas">San Nicolas</option>
                                 <option value="San Pedro">San Pedro</option>
-                                <option value="Sta. Cruz">Sta. Cruz</option>
-                                <option value="Sta. Cruz">Sta. Cruz</option>
-                                <option value="Sta. Isabel">Sta. Isabel</option>
-                                <option value="Sta. Maria">Sta. Maria</option>
+                                <option value="Santa Cruz">Sta. Cruz</option>\
+                                <option value="Santa Isabel">Sta. Isabel</option>
+                                <option value="Santa Maria">Sta. Maria</option>
                                 <option value="Satiago">Satiago</option>
                                 <option value="Sto. Niño">Sto. Niño</option>
                                 <option value="Tagumpay">Tagumpay</option>

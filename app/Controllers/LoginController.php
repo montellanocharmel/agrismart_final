@@ -515,4 +515,26 @@ class LoginController extends BaseController
 
         return redirect()->to('/manageaccounts')->with('success', 'Password updated successfully');
     }
+    public function editaccount($leader_id)
+    {
+        $users = $this->users->find($leader_id);
+
+        return view('users', ['users' => $users]);
+    }
+    public function updateaccount()
+    {
+
+        $leader_id = $this->request->getPost('leader_id');
+
+
+        $dataToUpdate = [
+            'leader_name' => $this->request->getPost('leader_name'),
+            'idnumber' => $this->request->getPost('idnumber'),
+            'position' => $this->request->getPost('position'),
+        ];
+
+        $this->users->update($leader_id, $dataToUpdate);
+
+        return redirect()->to('/manageaccounts')->with('success', 'Field updated successfully');
+    }
 }

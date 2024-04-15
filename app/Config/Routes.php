@@ -107,6 +107,8 @@ $routes->post('/updatepassword/edit/(:num)', 'LoginController::editpassword/$1')
 $routes->post('/updatepassword/update', 'LoginController::updatepassword');
 $routes->get('/restrict-account/(:num)', 'LoginController::restrictAccount/$1');
 $routes->get('/unrestrict-account/(:num)', 'LoginController::unrestrictAccount/$1');
+$routes->post('/updateaccount/edit/(:num)', 'LoginController::editaccount/$1');
+$routes->post('/updateaccount/update', 'LoginController::updateaccount');
 
 
 // search functions

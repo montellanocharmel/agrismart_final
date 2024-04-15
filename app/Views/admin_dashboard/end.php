@@ -4,6 +4,14 @@
         document.getElementById('editpassword').value = password;
         $('#editpasswordmodal').modal('show');
     }
+
+    function openEditAccountModal(leader_id, leader_name, idnumber, position) {
+        document.getElementById('editleader_id1').value = leader_id;
+        document.getElementById('editleader_name').value = leader_name;
+        document.getElementById('editidnumber').value = idnumber;
+        document.getElementById('editposition').value = position;
+        $('#editaccountmodal').modal('show');
+    }
 </script>
 <script src="<?= base_url() ?>dashboard/js/jquery1-3.4.1.min.js"></script>
 

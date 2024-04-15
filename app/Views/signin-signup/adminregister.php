@@ -28,12 +28,9 @@
                         <h4>Gumawa ng Bagong Account</h4>
                     </div>
                     <div class="text-center mb-2">
-                        <?php
-                        $msg = session('msg');
-                        if (!empty($msg)) :
-                        ?>
-                            <div class="alert alert-danger" role="alert">
-                                <?= esc($msg) ?>
+                        <?php if (isset($validation)) : ?>
+                            <div class="alert alert-warning">
+                                <?= $validation->listErrors() ?>
                             </div>
                         <?php endif; ?>
                     </div>
