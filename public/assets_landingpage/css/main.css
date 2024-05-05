@@ -520,6 +520,7 @@ a.boxed-btn, a.bordered-btn, a.cart-btn {
 # Header Styles
 
 ----------------------------------------------------------------------------- */
+
 ul.navbar-nav li.nav-item a.nav-link, ul.navbar-nav li.nav-item.active a.nav-link {
   color: #051922;
 }
@@ -556,7 +557,7 @@ nav.main-menu ul li {
 }
 
 nav.main-menu ul li a {
-  color: #fff;
+  color: #c2985d;
   font-weight: 700;
   display: block;
   padding: 15px;
@@ -579,7 +580,7 @@ nav.main-menu ul ul.sub-menu {
   -o-transition: 0.3s;
   transition: 0.3s;
   opacity: 0;
-  visibility: hidden;
+  visibility: none;
   -webkit-box-shadow: 0 0 20px #555555;
   box-shadow: 0 0 20px #555555;
 }
@@ -665,7 +666,7 @@ nav.mean-nav > ul > li:first-child > a {
 }
 
 .header-icons a {
-  color: #fff;
+  color: #84675c;
   display: inline-block;
   padding: 10px;
 }

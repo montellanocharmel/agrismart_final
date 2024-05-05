@@ -4,7 +4,7 @@
             <div class="col-12">
                 <div class="QA_section">
                     <div class="white_box_tittle list_header" style="margin-top: 4vh;">
-                        <h4 style="color:#88c431; ">Damages</h4>
+                        <h3 style="color:#88c431; ">Damages</h3>
                         <div class=" box_right d-flex lms_block">
                             <div class="serach_field_2">
                                 <div class="search_inner">

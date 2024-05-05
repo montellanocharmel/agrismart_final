@@ -1,0 +1,80 @@
+CRITICAL - 2024-05-02 06:41:49 --> ErrorException: Undefined property: App\Controllers\DashboardController::$trivia
+in APPPATH\Controllers\DashboardController.php on line 1792.
+ 1 APPPATH\Controllers\DashboardController.php(1792): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\DashboardController::$trivia', 'D:\\laragon\\www\\agrismart_final\\app\\Controllers\\DashboardController.php', 1792)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->adtrivias()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\laragon\\www\\agrismart_final\\public\\index.php')
+CRITICAL - 2024-05-02 06:46:15 --> ErrorException: Undefined property: App\Controllers\DashboardController::$trivia
+in APPPATH\Controllers\DashboardController.php on line 1792.
+ 1 APPPATH\Controllers\DashboardController.php(1792): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\DashboardController::$trivia', 'D:\\laragon\\www\\agrismart_final\\app\\Controllers\\DashboardController.php', 1792)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->adtrivias()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\laragon\\www\\agrismart_final\\public\\index.php')
+CRITICAL - 2024-05-02 06:46:19 --> ErrorException: Undefined property: App\Controllers\DashboardController::$trivia
+in APPPATH\Controllers\DashboardController.php on line 1792.
+ 1 APPPATH\Controllers\DashboardController.php(1792): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\DashboardController::$trivia', 'D:\\laragon\\www\\agrismart_final\\app\\Controllers\\DashboardController.php', 1792)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->adtrivias()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\laragon\\www\\agrismart_final\\public\\index.php')
+CRITICAL - 2024-05-02 06:46:26 --> ErrorException: Undefined property: App\Controllers\DashboardController::$trivia
+in APPPATH\Controllers\DashboardController.php on line 1792.
+ 1 APPPATH\Controllers\DashboardController.php(1792): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\DashboardController::$trivia', 'D:\\laragon\\www\\agrismart_final\\app\\Controllers\\DashboardController.php', 1792)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->adtrivias()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\laragon\\www\\agrismart_final\\public\\index.php')
+CRITICAL - 2024-05-02 06:47:28 --> ErrorException: Undefined property: App\Controllers\DashboardController::$trivia
+in APPPATH\Controllers\DashboardController.php on line 1792.
+ 1 APPPATH\Controllers\DashboardController.php(1792): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\DashboardController::$trivia', 'D:\\laragon\\www\\agrismart_final\\app\\Controllers\\DashboardController.php', 1792)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->adtrivias()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\laragon\\www\\agrismart_final\\public\\index.php')
+CRITICAL - 2024-05-02 06:48:22 --> ErrorException: Undefined property: App\Controllers\DashboardController::$trivia
+in APPPATH\Controllers\DashboardController.php on line 1792.
+ 1 APPPATH\Controllers\DashboardController.php(1792): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\DashboardController::$trivia', 'D:\\laragon\\www\\agrismart_final\\app\\Controllers\\DashboardController.php', 1792)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->adtrivias()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\laragon\\www\\agrismart_final\\public\\index.php')
+CRITICAL - 2024-05-02 06:57:41 --> ErrorException: Undefined property: App\Controllers\DashboardController::$trivia
+in APPPATH\Controllers\DashboardController.php on line 1792.
+ 1 APPPATH\Controllers\DashboardController.php(1792): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\DashboardController::$trivia', 'D:\\laragon\\www\\agrismart_final\\app\\Controllers\\DashboardController.php', 1792)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->adtrivias()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\laragon\\www\\agrismart_final\\public\\index.php')
+CRITICAL - 2024-05-02 07:00:21 --> ErrorException: Undefined property: App\Controllers\DashboardController::$trivia
+in APPPATH\Controllers\DashboardController.php on line 1792.
+ 1 APPPATH\Controllers\DashboardController.php(1792): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\DashboardController::$trivia', 'D:\\laragon\\www\\agrismart_final\\app\\Controllers\\DashboardController.php', 1792)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->adtrivias()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\laragon\\www\\agrismart_final\\public\\index.php')
+CRITICAL - 2024-05-02 07:26:12 --> ErrorException: Undefined property: App\Controllers\DashboardController::$trivia
+in APPPATH\Controllers\DashboardController.php on line 1792.
+ 1 APPPATH\Controllers\DashboardController.php(1792): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\DashboardController::$trivia', 'D:\\laragon\\www\\agrismart_final\\app\\Controllers\\DashboardController.php', 1792)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->adtrivias()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\laragon\\www\\agrismart_final\\public\\index.php')
+CRITICAL - 2024-05-02 07:27:36 --> ErrorException: Undefined property: App\Controllers\DashboardController::$trivia
+in APPPATH\Controllers\DashboardController.php on line 1792.
+ 1 APPPATH\Controllers\DashboardController.php(1792): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\DashboardController::$trivia', 'D:\\laragon\\www\\agrismart_final\\app\\Controllers\\DashboardController.php', 1792)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->adtrivias()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\laragon\\www\\agrismart_final\\public\\index.php')

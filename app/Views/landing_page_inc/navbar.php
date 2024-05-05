@@ -17,15 +17,23 @@
 								<li class="current-list-item"><a href="/">Home</a>
 
 								</li>
-								<li><a href="#about">About</a>
-
+								<li><a href="/about">About</a>
+								<li><a href="/trivias">Trivias</a></li>
+								
 								</li>
+								
+								</li>
+								
+								<li><a href="/reports">Reports</a>
+								<li><a href="/trainings">Trainings and Seminars</a>
+								<li><a href="/farmerstats">Statistics</a>
 								<li><a href="#contact">Contact</a>
 
-								</li>
-								<li><a href="/sign_ins">Login</a></li>
-								<li><a href="/registerview">Register</a></li>
-								<li><a href="/farmerstats">See Your Stats</a>
+								<li><a href="/sign_ins">Log In</a></li>
+								<li><a href="/registerview">Sign Up</a></li>
+								
+
+
 								<li>
 								</li>
 							</ul>

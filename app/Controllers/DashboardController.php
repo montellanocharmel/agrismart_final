@@ -25,6 +25,9 @@ class DashboardController extends BaseController
     private $profiles;
     private $damages;
     private $admin;
+    private $trivia;
+    private $reports;
+    private $trainings;
 
 
     public function __construct()
@@ -42,6 +45,10 @@ class DashboardController extends BaseController
         $this->prof = new \App\Models\FarmelProfileModel();
         $this->profiles = new \App\Models\FarmerProfilesModel();
         $this->admin = new \App\Models\AdminModel();
+        $this->trivia = new \App\Models\TriviasModel();
+        $this->reports = new \App\Models\ReportsModel();
+        $this->trainings = new \App\Models\TrainingsModel();
+
     }
 
     public function dashboards()
@@ -1069,6 +1076,84 @@ class DashboardController extends BaseController
         return view('adminfolder/manageaccounts', $data);
     }
 
+    public function searchTrivia()
+    {
+        if (!session()->get('isLoggedIn')) {
+            return redirect()->to('/sign_ins');
+        }
+
+        $userId = session()->get('id');
+        $searchTerm = $this->request->getPost('search_term');
+
+        $trivs = $this->trivia->like('trivia', $searchTerm)
+            ->where('user_id', $userId)
+            ->findAll();
+
+        $data = [
+            'trivia' => $trivs,
+        ];
+
+        return view('adminfolder/adtrivias', $data);
+    }
+
+    public function searchUserTrivia()
+    {
+        if (!session()->get('isLoggedIn')) {
+            return redirect()->to('/sign_ins');
+        }
+
+        $searchTerm = $this->request->getPost('search_term');
+
+        $trivs = $this->trivia->like('trivia', $searchTerm)
+            ->findAll();
+
+        $data = [
+            'trivia' => $trivs,
+        ];
+
+        return view('userfolder/usertrivias', $data);
+    }
+
+    public function searchReports()
+    {
+        if (!session()->get('isLoggedIn')) {
+            return redirect()->to('/sign_ins');
+        }
+
+        $userId = session()->get('id');
+        $searchTerm = $this->request->getPost('search_term');
+
+        $reps = $this->reports->like('description', $searchTerm)
+            ->where('user_id', $userId)
+            ->findAll();
+
+        $data = [
+            'reports' => $reps,
+        ];
+
+        return view('adminfolder/adreports', $data);
+    }
+
+    public function searchTrainings()
+    {
+        if (!session()->get('isLoggedIn')) {
+            return redirect()->to('/sign_ins');
+        }
+
+        $userId = session()->get('id');
+        $searchTerm = $this->request->getPost('search_term');
+
+        $trains = $this->reports->like('event_title', $searchTerm)
+            ->where('user_id', $userId)
+            ->findAll();
+
+        $data = [
+            'trainings' => $trains,
+        ];
+
+        return view('adminfolder/adtrainings', $data);
+    }
+
     public function exportToExcel()
     {
         $userId = session()->get('leader_id');
@@ -1753,6 +1838,335 @@ class DashboardController extends BaseController
         ];
         return view('adminfolder/viewcharts', $data);
     }
+
+    public function userreports()
+    {
+        return view('userfolder/userreports');
+    }
+
+    public function usertrainings()
+    {
+        return view('userfolder/usertrainings');
+    }
+
+ //admintrivias
+ public function adtrivias()
+ {
+     $userId = session()->get('id');
+     if (!session()->get('isLoggedIn')) {
+         return redirect()->to('/sign_ins');
+     } else {
+         $data = [
+             'trivia' => $this->trivia->where('user_id', $userId)->findAll()
+         ];
+         return view('adminfolder/adtrivias', $data);
+     }
+ }
+ public function addnewtrivia()
+ {
+     $userId = session()->get('id');
+     $triviaId = $this->request->getPost('trivia_id');
+     $trivia = $this->trivia->find($triviaId);
+     $validation = $this->validate([
+         'trivia' => 'required',
+     ]);
+
+     if (!$validation) {
+         return view('adminfolder/adtrivias', ['validation' => $this->validator]);
+     }
+
+
+    
+     $this->trivia->save([
+         'trivia_id' => $this->request->getPost('trivia_id'),
+         'image' => $this->request->getPost('image'),
+         'trivia' => $this->request->getPost('trivia'),
+         'user_id' => $userId,
+     ]);
+
+     return redirect()->to('/adtrivias')->with('success', 'Field added successfully');
+ }
+
+ public function edittrivia($trivia_id)
+ {
+     $trivia = $this->trivia->find($trivia_id);
+
+     return view('trivia', ['trivia' => $trivia]);
+ }
+ public function updatetrivia()
+ {
+
+     $trivia_id = $this->request->getPost('trivia_id');
+
+     $dataToUpdate = [
+         'image' => $this->request->getPost('image'),
+         'trivia' => $this->request->getPost('trivia'),
+     ];
+
+     $this->trivia->update($trivia_id, $dataToUpdate);
+
+     return redirect()->to('/adtrivias')->with('success', 'Field updated successfully');
+ }
+ public function deletetrivia($trivia_id)
+ {
+
+     $trivia = $this->trivia->find($trivia_id);
+
+     if ($trivia) {
+         $this->trivia->delete($trivia_id);
+         return redirect()->to('/adtrivias')->with('success', 'field deleted successfully');
+     } else {
+         return redirect()->to('/adtrivias')->with('error', 'field not found');
+     }
+ }
+
+
+    // //admintrivias
+    // public function adtrivias()
+    //  {
+    //      $userId = session()->get('id');
+    //      if (!session()->get('isLoggedIn')) {
+    //          return redirect()->to('/sign_ins');
+    //      } else {
+    //          $data = [
+    //              'trivia' => $this->trivia->where('user_id', $userId)->findAll()
+    //          ];
+    //          return view('adminfolder/adtrivias', $data);
+    //      }
+    //  }
+    //  public function addnewtrivia()
+    //  {
+    //      $userId = session()->get('id');
+    //      $triviaId = $this->request->getPost('trivia_id');
+    //      $trivia = $this->trivia->find($triviaId);
+    //                   // Handle image upload
+    //                   $image = $this->request->getFile('image');
+    //                   $imageName = $image->getRandomName();
+    //                   $image->move(WRITEPATH . 'public/fileuploads', $imageName);
+    //      $validation = $this->validate([
+    //          'trivia' => 'required',
+    //          'image' => [
+    //             'uploaded[image]',
+    //             'mime_in[image,image/jpg,image/jpeg,image/png]',
+    //             'max_size[image,4096]', // 4MB max size
+    //         ],
+    //      ]);
+ 
+    //      if (!$validation) {
+    //          return view('adminfolder/adtrivias', ['validation' => $this->validator]);
+    //      }
+
+
+        
+    //      $this->trivia->save([
+    //          'trivia_id' => $this->request->getPost('trivia_id'),
+    //          'image' => $imageName,
+    //          'trivia' => $this->request->getPost('trivia'),
+    //          'user_id' => $userId,
+    //      ]);
+ 
+    //      return redirect()->to('/adtrivias')->with('success', 'Field added successfully');
+    //  }
+ 
+    //  public function edittrivia($trivia_id)
+    //  {
+    //      $trivia = $this->trivia->find($trivia_id);
+ 
+    //      return view('trivia', ['trivia' => $trivia]);
+    //  }
+    //  public function updatetrivia()
+    //  {
+ 
+    //      $trivia_id = $this->request->getPost('trivia_id');
+ 
+    //      $dataToUpdate = [
+    //          'image' => $this->request->getPost('image'),
+    //          'trivia' => $this->request->getPost('trivia'),
+    //      ];
+ 
+    //      $this->trivia->update($trivia_id, $dataToUpdate);
+ 
+    //      return redirect()->to('/adtrivias')->with('success', 'Field updated successfully');
+    //  }
+    //  public function deletetrivia($trivia_id)
+    //  {
+ 
+    //      $trivia = $this->trivia->find($trivia_id);
+ 
+    //      if ($trivia) {
+    //          $this->trivia->delete($trivia_id);
+    //          return redirect()->to('/adtrivias')->with('success', 'field deleted successfully');
+    //      } else {
+    //          return redirect()->to('/adtrivias')->with('error', 'field not found');
+    //      }
+    //  }
+
+    //adminreports
+    public function adreports()
+    {
+        $userId = session()->get('id');
+        if (!session()->get('isLoggedIn')) {
+            return redirect()->to('/sign_ins');
+        } else {
+            $data = [
+                'reports' => $this->reports->where('user_id', $userId)->findAll()
+            ];
+            return view('adminfolder/adreports', $data);
+        }
+    }
+    public function addnewreport()
+    {
+        $userId = session()->get('id');
+        $reportId = $this->request->getPost('report_id');
+        $reports = $this->reports->find($reportId);
+        $validation = $this->validate([
+            'title' => 'required',
+        ]);
+
+        if (!$validation) {
+            return view('adminfolder/adreports', ['validation' => $this->validator]);
+        }
+
+        $this->reports->save([
+            'report_id' => $this->request->getPost('report_id'),
+            'title' => $this->request->getPost('title'),
+            'images' => $this->request->getPost('images'),
+            'description' => $this->request->getPost('description'),
+            'validity' => $this->request->getPost('validity'),
+            'user_id' => $userId,
+        ]);
+
+        return redirect()->to('/adreports')->with('success', 'Field added successfully');
+    }
+
+    public function editreport($report_id)
+    {
+        $reports = $this->reports->find($report_id);
+
+        return view('reports', ['reports' => $reports]);
+    }
+    public function updatereport()
+    {
+
+        $report_id = $this->request->getPost('report_id');
+
+        $dataToUpdate = [
+            'title' => $this->request->getPost('title'),
+            'images' => $this->request->getPost('images'),
+            'description' => $this->request->getPost('description'),
+            'validity' => $this->request->getPost('validity'),
+        ];
+
+        $this->reports->update($report_id, $dataToUpdate);
+
+        return redirect()->to('/adreports')->with('success', 'Field updated successfully');
+    }
+    public function deletereport($report_id)
+    {
+
+        $reports = $this->reports->find($report_id);
+
+        if ($reports) {
+            $this->reports->delete($report_id);
+            return redirect()->to('/adreports')->with('success', 'field deleted successfully');
+        } else {
+            return redirect()->to('/adreports')->with('error', 'field not found');
+        }
+    }
+
+      //admintrainings
+      public function adtrainings()
+      {
+          $userId = session()->get('id');
+          if (!session()->get('isLoggedIn')) {
+              return redirect()->to('/sign_ins');
+          } else {
+              $data = [
+                  'trainings' => $this->trainings->where('user_id', $userId)->findAll()
+              ];
+              return view('adminfolder/adtrainings', $data);
+          }
+      }
+      public function addnewtraining()
+      {
+          $userId = session()->get('id');
+          $trainingId = $this->request->getPost('training_id');
+          $trainings = $this->trainings->find($trainingId);
+          $validation = $this->validate([
+              'event_title' => 'required',
+          ]);
+  
+          if (!$validation) {
+              return view('adminfolder/adtrainings', ['validation' => $this->validator]);
+          }
+  
+          $this->trainings->save([
+              'training_id' => $this->request->getPost('training_id'),
+              'image_training' => $this->request->getPost('image_training'),
+              'event_title' => $this->request->getPost('event_title'),
+              'date' => $this->request->getPost('date'),
+              'time' => $this->request->getPost('time'),
+              'speaker' => $this->request->getPost('speaker'),
+              'place' => $this->request->getPost('place'),
+              'validity_training' => $this->request->getPost('validity_training'),
+              'user_id' => $userId,
+          ]);
+  
+          return redirect()->to('/adtrainings')->with('success', 'Field added successfully');
+      }
+  
+      public function edittraining($training_id)
+      {
+          $trainings = $this->trainings->find($training_id);
+  
+          return view('trainings', ['trainings' => $trainings]);
+      }
+      public function updatetraining()
+      {
+  
+          $training_id = $this->request->getPost('training_id');
+  
+          $dataToUpdate = [
+            'image_training' => $this->request->getPost('image_training'),
+            'event_title' => $this->request->getPost('event_title'),
+            'date' => $this->request->getPost('date'),
+            'time' => $this->request->getPost('time'),
+            'speaker' => $this->request->getPost('speaker'),
+            'place' => $this->request->getPost('place'),
+            'validity_training' => $this->request->getPost('validity_training'),
+          ];
+  
+          $this->trainings->update($training_id, $dataToUpdate);
+  
+          return redirect()->to('/adtrainings')->with('success', 'Field updated successfully');
+      }
+      public function deletetraining($training_id)
+      {
+  
+          $trainings = $this->trainings->find($training_id);
+  
+          if ($trainings) {
+              $this->trainings->delete($training_id);
+              return redirect()->to('/adtrainings')->with('success', 'field deleted successfully');
+          } else {
+              return redirect()->to('/adtrainings')->with('error', 'field not found');
+          }
+      }
+
+      //usertrivias
+      public function usertrivias()
+      {
+          $userId = session()->get('leader_id');
+          if (!session()->get('isLoggedIn')) {
+              return redirect()->to('/sign_ins');
+          } else {
+              $data = [
+                  'trivia' => $this->trivia->findAll()
+              ];
+              return view('userfolder/usertrivias', $data);
+          }
+      }
+
 
     /*public function importExcel()
     {
