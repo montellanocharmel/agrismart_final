@@ -105,7 +105,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="/trivia/update" method="post">
+                <form action="/trivia/update" method="post" enctype="multipart/form-data">
                     <input type="hidden" name="trivia_id" id="edittrivia_id">
                     <div class="mb-3">
                         <label for="edittrivia_image" class="form-label">Images</label>

@@ -41,7 +41,7 @@
                                 <?php foreach ($trainings as $tra) : ?>
                                     <tr>
                                         
-                                        <td><?= $tra['image_training'] ?></td>
+                                    <td><img src="<?= 'http://agrismart_final.test/'.$tra['image_training'] ?>" alt="" class="avatar-img rounded-circle mx-auto d-block" style="display: block; margin: 0 auto; width: 200px; height: 200px;"></td>
                                         <td><?= $tra['event_title'] ?></td>
                                         <td><?= $tra['date'] ?></td>
                                         <td><?= $tra['time'] ?></td>
@@ -90,7 +90,7 @@
                 <h5 class="modal-title" id="addtrainingsmodalLabel">Add New Trainings and Seminars</h5>
             </div>
             <div class="modal-body">
-                <form action="/addtraining" method="post">
+                <form action="/addtraining" method="post" enctype="multipart/form-data">
                     <div class="mb-3">
                         <label for="image_training" class="form-label">Image</label>
                         <input type="file" name="image_training" id="image_training" placeholder="Poster of Trainings and Seminars" class="form-control">
@@ -145,7 +145,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="/trainings/update" method="post">
+                <form action="/trainings/update" method="post" enctype="multipart/form-data">
                     <input type="hidden" name="training_id" id="edittraining_id">
                     <div class="mb-3">
                         <label for="editimage_training" class="form-label">Images</label>

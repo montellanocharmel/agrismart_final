@@ -41,7 +41,7 @@
                                         <td><?= $rep ['title'] ?></td>
                                         <td><?= $rep ['created_at'] ?></td>
                                         <td><?= $rep ['description'] ?></td>
-                                        <td><?= $rep ['images'] ?></td> 
+                                        <td><img src="<?= 'http://agrismart_final.test/'.$rep['images'] ?>" alt="" style="display: block; margin: 0 auto; width: 200px; height: 200px;"></td>
                                         <td><?= $rep ['validity'] ?></td>
                                         <td>
                                             <div class="btn-group">
@@ -84,7 +84,7 @@
                 <h5 class="modal-title" id="addreportsmodalLabel">Send Reports</h5>
             </div>
             <div class="modal-body">
-                <form action="/addreport" method="post">
+                <form action="/addreport" method="post" enctype="multipart/form-data">
                     <div class="mb-3">
                         <label for="title" class="form-label">Title</label>
                         <input type="text" name="title" id="title" placeholder="Title" class="form-control">
@@ -129,7 +129,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="/reports/update" method="post">
+                <form action="/reports/update" method="post" enctype="multipart/form-data">
                     <input type="hidden" name="report_id" id="editreport_id">
                     <div class="mb-3">
                         <label for="edit_title" class="form-label">Title</label>
