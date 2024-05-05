@@ -12,6 +12,9 @@
         </li>
         <li>
         <li><a href="/dashboards" style="margin-left: 40px;">Dashboard</a></li>
+        <li><a href="/userreports" style="margin-left: 40px;">Reports</a></li>
+        <li><a href="/usertrivias" style="margin-left: 40px;">Trivias</a></li>
+        <li><a href="/usertrainings" style="margin-left: 40px;">Trainings and Seminars</a></li>
 
         </li>
         <li class="side_menu_title">

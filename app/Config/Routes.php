@@ -13,6 +13,11 @@ $routes->get('/sign_ins', 'LoginController::login');
 $routes->post('/loginauth', 'LoginController::loginauth');
 $routes->match(['post', 'get'], '/dashboards', 'LoginController::dashboards', ['filter' => 'authGuard']);
 
+$routes->get('/about', 'LoginController::about');
+$routes->get('/trivias', 'LoginController::trivias');
+$routes->get('/reports', 'LoginController::reports');
+$routes->get('/trainings', 'LoginController::trainings');
+
 //fields
 
 $routes->get('/viewfields', 'DashboardController::viewfields');
@@ -114,7 +119,6 @@ $routes->post('/updateaccount/update', 'LoginController::updateaccount');
 // search functions
 
 $routes->post('/searchfields', 'DashboardController::searchFields');
-$routes->post('/searchcropplanting', 'DashboardController::searchCropplanting');
 $routes->post('/searchexpense', 'DashboardController::searchExpense');
 $routes->post('/searchharvest', 'DashboardController::searchHarvest');
 $routes->post('/searchdamage', 'DashboardController::searchDamage');
@@ -125,6 +129,10 @@ $routes->post('/searchadminexpense', 'DashboardController::searchadminExpense');
 $routes->post('/searchadmindamage', 'DashboardController::searchadminDamage');
 $routes->post('/searchadminharvest', 'DashboardController::searchadminHarvest');
 $routes->post('/searchadminmanageaccounts', 'DashboardController::searchadminmanageaccounts');
+$routes->post('/searchtrivia', 'DashboardController::searchTrivia');
+$routes->post('/searchreports', 'DashboardController::searchReports');
+$routes->post('/searchtrainings', 'DashboardController::searchTrainings');
+$routes->post('/searchusertrivia', 'DashboardController::searchUserTrivia');
 
 // export
 $routes->get('/exportToExcel', 'DashboardController::exportToExcel');
@@ -143,3 +151,36 @@ $routes->get('/exportToExceladminharvest', 'DashboardController::exportToExcelad
 
 // charts
 $routes->get('/viewcharts', 'DashboardController::charts');
+
+//adtrivias
+$routes->get('/adtrivias', 'DashboardController::adtrivias');
+$routes->post('/addtrivia', 'DashboardController::addnewtrivia');
+$routes->post('/adtrivias/edit/(:num)', 'DashboardController::edittrivia/$1');
+$routes->post('/trivia/update', 'DashboardController::updatetrivia');
+$routes->post('adtrivias/delete/(:num)', 'DashboardController::deletetrivia/$1');
+
+//trainings
+$routes->get('/adtrainings', 'DashboardController::adtrainings');
+
+//adreports
+$routes->get('/adreports', 'DashboardController::adreports');
+$routes->post('/addreport', 'DashboardController::addnewreport');
+$routes->post('/adreports/edit/(:num)', 'DashboardController::editreport/$1');
+$routes->post('/reports/update', 'DashboardController::updatereport');
+$routes->post('adreports/delete/(:num)', 'DashboardController::deletereport/$1');
+
+//adtrainings
+$routes->get('/adtrainings', 'DashboardController::adtrainings');
+$routes->post('/addtraining', 'DashboardController::addnewtraining');
+$routes->post('/adtrainings/edit/(:num)', 'DashboardController::edittraining/$1');
+$routes->post('/trainings/update', 'DashboardController::updatetraining');
+$routes->post('adtrainings/delete/(:num)', 'DashboardController::deletetraining/$1');
+
+//harvest
+$routes->get('/userreports', 'DashboardController::userreports');
+//harvest
+$routes->get('/usertrivias', 'DashboardController::usertrivias');
+//harvest
+$routes->get('/usertrainings', 'DashboardController::usertrainings');
+
+

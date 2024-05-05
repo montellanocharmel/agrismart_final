@@ -238,7 +238,7 @@ class LoginController extends BaseController
         $email = \Config\Services::email();
         $email->setMailType("html");
         $email->setTo($to);
-        $email->setFrom('marymaetolentino03@gmail.com', $subject);
+        $email->setFrom('charmelmontellano29@gmail.com', $subject);
         $email->setMessage($message);
 
         if ($email->send()) {
@@ -376,7 +376,7 @@ class LoginController extends BaseController
             'monthlyHarvestData' => $monthlyHarvestData,
         ];
 
-        return view('landing_page_inc/farmerstats', $data);
+        return view('statistics', $data);
     }
 
     public function searchFarmerProfiles()
@@ -399,7 +399,7 @@ class LoginController extends BaseController
                 'monthlyHarvestData' => $monthlyHarvestData,
                 'error' => 'No farmer profiles found with the provided FIMS Code.'
             ];
-            return view('landing_page_inc/farmerstats', $data);
+            return view('statistics', $data);
         }
         $fields = $this->field->where('fims_code', $searchTerm)->findAll();
         $planting = $this->planting->where('fims_code', $searchTerm)->findAll();
@@ -425,7 +425,7 @@ class LoginController extends BaseController
             'monthlyHarvestData' => $monthlyHarvestData,
         ];
 
-        return view('landing_page_inc/farmerstats', $data);
+        return view('statistics', $data);
     }
 
     // admin
@@ -537,4 +537,26 @@ class LoginController extends BaseController
 
         return redirect()->to('/manageaccounts')->with('success', 'Field updated successfully');
     }
+
+    public function about()
+    {
+        return view('about_sec');
+    }
+
+    public function trivias()
+    {
+        return view('trivias_sec');
+    }
+
+    public function reports()
+    {
+        return view('reports_sec');
+    }
+
+    public function trainings()
+    {
+        return view('trainings_sec');
+    }
+
 }
+

@@ -25,12 +25,12 @@
 				<div class="col-lg-9 offset-lg-2 text-center">
 					<div class="hero-text">
 						<div class="hero-text-tablecell">
-							<p class="subtitle" ">Magkasama nating baguhin ang hinaharap</p>
-							<h1 >AgriSmart</h1>
-                            <p class="subtitle" ">Ang susi sa maunlad na pagsasaka!</p>
+							<p class="subtitle">Magkasama nating baguhin ang hinaharap</p>
+							<h2 style= "color: white;" >AgriSmart: Naujan, Oriental Mindoro</h2>
+                            <p class="subtitle">Ang susi sa maunlad na pagsasaka!</p>
 							<div class="hero-btns">
 								<a href="/sign_ins" class="boxed-btn">Magsimula</a>
-								<a href="#contact" class="bordered-btn">Contact Us</a>
+								<a href="#contact" class="bordered-btn">Makipag-ugnayan</a>
 							</div>
 						</div>
 					</div>

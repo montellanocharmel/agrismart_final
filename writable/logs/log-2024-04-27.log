@@ -1,0 +1,27 @@
+CRITICAL - 2024-04-27 02:51:22 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "about.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(216): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('about.php')
+ 2 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('about', [], true)
+ 3 APPPATH\Controllers\LoginController.php(543): view('about')
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\LoginController->about()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LoginController))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\laragon\\www\\agrismart_final\\public\\index.php')
+CRITICAL - 2024-04-27 04:12:46 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "trivias_sec.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(216): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('trivias_sec.php')
+ 2 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('trivias_sec', [], true)
+ 3 APPPATH\Controllers\LoginController.php(548): view('trivias_sec')
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\LoginController->trivias()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LoginController))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\laragon\\www\\agrismart_final\\public\\index.php')
+ERROR - 2024-04-27 11:11:53 --> Failed login attempt for non-existent user: Marlon Manalo
+ERROR - 2024-04-27 11:11:58 --> Failed login attempt for non-existent user: Rico Malimata
+ERROR - 2024-04-27 11:12:08 --> Failed login attempt for non-existent user: Rico Malimata
+ERROR - 2024-04-27 11:50:59 --> Failed login attempt for user: Mary Mae Tolentino
+ERROR - 2024-04-27 11:59:53 --> Failed login attempt for non-existent user: Marlon Manalo
+ERROR - 2024-04-27 14:25:39 --> Failed login attempt for user: Charmel Montellano
+ERROR - 2024-04-27 14:26:07 --> Failed login attempt for user: Charmel Montellano
