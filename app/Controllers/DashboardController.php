@@ -1867,24 +1867,22 @@ class DashboardController extends BaseController
      $userId = session()->get('id');
      $triviaId = $this->request->getPost('trivia_id');
      $trivia = $this->trivia->find($triviaId);
-     $validation = $this->validate([
-         'trivia' => 'required',
-     ]);
 
-     if (!$validation) {
-         return view('adminfolder/adtrivias', ['validation' => $this->validator]);
-     }
+     $image = $this->request->getFile('image');
+     $imageName = $image->getRandomName();
+     $image->move(ROOTPATH . 'public/uploads/trivia_img/', $imageName);
 
 
     
      $this->trivia->save([
          'trivia_id' => $this->request->getPost('trivia_id'),
-         'image' => $this->request->getPost('image'),
+         'image' => 'uploads/trivia_img/' . $imageName,
          'trivia' => $this->request->getPost('trivia'),
          'user_id' => $userId,
      ]);
 
      return redirect()->to('/adtrivias')->with('success', 'Field added successfully');
+    //var_dump($image);
  }
 
  public function edittrivia($trivia_id)
