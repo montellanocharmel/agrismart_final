@@ -8,7 +8,7 @@
                         <div class=" box_right d-flex lms_block">
                             <div class="serach_field_2">
                                 <div class="search_inner">
-                                    <form method="post" action="/usersearchtrivia">
+                                    <form method="post" action="/searchusertrivia">
                                         <div class="search_field">
                                             <input type="text" name="search_term" placeholder="Search Trivia About...">
                                         </div>

@@ -1102,11 +1102,9 @@ class DashboardController extends BaseController
             return redirect()->to('/sign_ins');
         }
 
-        $userId = session()->get('leader_id');
         $searchTerm = $this->request->getPost('search_term');
 
         $trivs = $this->trivia->like('trivia', $searchTerm)
-            ->where('user_id', $userId)
             ->findAll();
 
         $data = [
@@ -2154,6 +2152,8 @@ class DashboardController extends BaseController
               return redirect()->to('/adtrainings')->with('error', 'field not found');
           }
       }
+
+      //usertrivias
       public function usertrivias()
       {
           $userId = session()->get('leader_id');
