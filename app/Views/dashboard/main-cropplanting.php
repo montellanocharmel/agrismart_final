@@ -17,6 +17,7 @@
                                 </div>
                             </div>
                             <div class="add_button ms-2">
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#addplantingmodal" class="btn btn-primary"><i class="fa-solid fa-plus"></i></a>
                                 <a href="/cropplanting" class="btn btn-primary"><i class="fa-solid fa-arrows-rotate"></i></a>
                                 <a href="/exportToExcelplanting" class="btn btn-primary"><i class="fa-regular fa-file-excel"></i></a>
                             </div>

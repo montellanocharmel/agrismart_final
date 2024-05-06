@@ -1867,24 +1867,22 @@ class DashboardController extends BaseController
      $userId = session()->get('id');
      $triviaId = $this->request->getPost('trivia_id');
      $trivia = $this->trivia->find($triviaId);
-     $validation = $this->validate([
-         'trivia' => 'required',
-     ]);
 
-     if (!$validation) {
-         return view('adminfolder/adtrivias', ['validation' => $this->validator]);
-     }
+     $image = $this->request->getFile('image');
+     $imageName = $image->getRandomName();
+     $image->move(ROOTPATH . 'public/uploads/trivia_img/', $imageName);
 
 
     
      $this->trivia->save([
          'trivia_id' => $this->request->getPost('trivia_id'),
-         'image' => $this->request->getPost('image'),
+         'image' => 'uploads/trivia_img/' . $imageName,
          'trivia' => $this->request->getPost('trivia'),
          'user_id' => $userId,
      ]);
 
-     return redirect()->to('/adtrivias')->with('success', 'Field added successfully');
+     return redirect()->to('/adtrivias')->with('success', 'Trivia added successfully');
+    //var_dump($image);
  }
 
  public function edittrivia($trivia_id)
@@ -1905,7 +1903,7 @@ class DashboardController extends BaseController
 
      $this->trivia->update($trivia_id, $dataToUpdate);
 
-     return redirect()->to('/adtrivias')->with('success', 'Field updated successfully');
+     return redirect()->to('/adtrivias')->with('success', 'Trivia updated successfully');
  }
  public function deletetrivia($trivia_id)
  {
@@ -1914,92 +1912,11 @@ class DashboardController extends BaseController
 
      if ($trivia) {
          $this->trivia->delete($trivia_id);
-         return redirect()->to('/adtrivias')->with('success', 'field deleted successfully');
+         return redirect()->to('/adtrivias')->with('success', 'Trivia deleted successfully');
      } else {
-         return redirect()->to('/adtrivias')->with('error', 'field not found');
+         return redirect()->to('/adtrivias')->with('error', 'Trivia not found');
      }
  }
-
-
-    // //admintrivias
-    // public function adtrivias()
-    //  {
-    //      $userId = session()->get('id');
-    //      if (!session()->get('isLoggedIn')) {
-    //          return redirect()->to('/sign_ins');
-    //      } else {
-    //          $data = [
-    //              'trivia' => $this->trivia->where('user_id', $userId)->findAll()
-    //          ];
-    //          return view('adminfolder/adtrivias', $data);
-    //      }
-    //  }
-    //  public function addnewtrivia()
-    //  {
-    //      $userId = session()->get('id');
-    //      $triviaId = $this->request->getPost('trivia_id');
-    //      $trivia = $this->trivia->find($triviaId);
-    //                   // Handle image upload
-    //                   $image = $this->request->getFile('image');
-    //                   $imageName = $image->getRandomName();
-    //                   $image->move(WRITEPATH . 'public/fileuploads', $imageName);
-    //      $validation = $this->validate([
-    //          'trivia' => 'required',
-    //          'image' => [
-    //             'uploaded[image]',
-    //             'mime_in[image,image/jpg,image/jpeg,image/png]',
-    //             'max_size[image,4096]', // 4MB max size
-    //         ],
-    //      ]);
- 
-    //      if (!$validation) {
-    //          return view('adminfolder/adtrivias', ['validation' => $this->validator]);
-    //      }
-
-
-        
-    //      $this->trivia->save([
-    //          'trivia_id' => $this->request->getPost('trivia_id'),
-    //          'image' => $imageName,
-    //          'trivia' => $this->request->getPost('trivia'),
-    //          'user_id' => $userId,
-    //      ]);
- 
-    //      return redirect()->to('/adtrivias')->with('success', 'Field added successfully');
-    //  }
- 
-    //  public function edittrivia($trivia_id)
-    //  {
-    //      $trivia = $this->trivia->find($trivia_id);
- 
-    //      return view('trivia', ['trivia' => $trivia]);
-    //  }
-    //  public function updatetrivia()
-    //  {
- 
-    //      $trivia_id = $this->request->getPost('trivia_id');
- 
-    //      $dataToUpdate = [
-    //          'image' => $this->request->getPost('image'),
-    //          'trivia' => $this->request->getPost('trivia'),
-    //      ];
- 
-    //      $this->trivia->update($trivia_id, $dataToUpdate);
- 
-    //      return redirect()->to('/adtrivias')->with('success', 'Field updated successfully');
-    //  }
-    //  public function deletetrivia($trivia_id)
-    //  {
- 
-    //      $trivia = $this->trivia->find($trivia_id);
- 
-    //      if ($trivia) {
-    //          $this->trivia->delete($trivia_id);
-    //          return redirect()->to('/adtrivias')->with('success', 'field deleted successfully');
-    //      } else {
-    //          return redirect()->to('/adtrivias')->with('error', 'field not found');
-    //      }
-    //  }
 
     //adminreports
     public function adreports()
@@ -2019,24 +1936,21 @@ class DashboardController extends BaseController
         $userId = session()->get('id');
         $reportId = $this->request->getPost('report_id');
         $reports = $this->reports->find($reportId);
-        $validation = $this->validate([
-            'title' => 'required',
-        ]);
-
-        if (!$validation) {
-            return view('adminfolder/adreports', ['validation' => $this->validator]);
-        }
+        $images = $this->request->getFile('images');
+        $imagesName = $images->getRandomName();
+        $images->move(ROOTPATH . 'public/uploads/report_img/', $imagesName);
+    
 
         $this->reports->save([
             'report_id' => $this->request->getPost('report_id'),
             'title' => $this->request->getPost('title'),
-            'images' => $this->request->getPost('images'),
+            'images' => 'uploads/report_img/' . $imagesName,
             'description' => $this->request->getPost('description'),
             'validity' => $this->request->getPost('validity'),
             'user_id' => $userId,
         ]);
 
-        return redirect()->to('/adreports')->with('success', 'Field added successfully');
+        return redirect()->to('/adreports')->with('success', 'Report submitted successfully');
     }
 
     public function editreport($report_id)
@@ -2059,7 +1973,7 @@ class DashboardController extends BaseController
 
         $this->reports->update($report_id, $dataToUpdate);
 
-        return redirect()->to('/adreports')->with('success', 'Field updated successfully');
+        return redirect()->to('/adreports')->with('success', 'Report updated successfully');
     }
     public function deletereport($report_id)
     {
@@ -2068,9 +1982,9 @@ class DashboardController extends BaseController
 
         if ($reports) {
             $this->reports->delete($report_id);
-            return redirect()->to('/adreports')->with('success', 'field deleted successfully');
+            return redirect()->to('/adreports')->with('success', 'Report deleted successfully');
         } else {
-            return redirect()->to('/adreports')->with('error', 'field not found');
+            return redirect()->to('/adreports')->with('error', 'Report not found');
         }
     }
 
@@ -2092,17 +2006,13 @@ class DashboardController extends BaseController
           $userId = session()->get('id');
           $trainingId = $this->request->getPost('training_id');
           $trainings = $this->trainings->find($trainingId);
-          $validation = $this->validate([
-              'event_title' => 'required',
-          ]);
-  
-          if (!$validation) {
-              return view('adminfolder/adtrainings', ['validation' => $this->validator]);
-          }
-  
+          $image_training = $this->request->getFile('image_training');
+          $image_trainingName = $image_training->getRandomName();
+          $image_training->move(ROOTPATH . 'public/uploads/training_img/', $image_trainingName);
+            
           $this->trainings->save([
               'training_id' => $this->request->getPost('training_id'),
-              'image_training' => $this->request->getPost('image_training'),
+              'image_training' => 'uploads/training_img/' . $image_trainingName,
               'event_title' => $this->request->getPost('event_title'),
               'date' => $this->request->getPost('date'),
               'time' => $this->request->getPost('time'),
@@ -2112,7 +2022,7 @@ class DashboardController extends BaseController
               'user_id' => $userId,
           ]);
   
-          return redirect()->to('/adtrainings')->with('success', 'Field added successfully');
+          return redirect()->to('/adtrainings')->with('success', 'Trainings or Seminars added successfully');
       }
   
       public function edittraining($training_id)
@@ -2138,7 +2048,7 @@ class DashboardController extends BaseController
   
           $this->trainings->update($training_id, $dataToUpdate);
   
-          return redirect()->to('/adtrainings')->with('success', 'Field updated successfully');
+          return redirect()->to('/adtrainings')->with('success', 'Trainings or Seminars updated successfully');
       }
       public function deletetraining($training_id)
       {
@@ -2147,9 +2057,9 @@ class DashboardController extends BaseController
   
           if ($trainings) {
               $this->trainings->delete($training_id);
-              return redirect()->to('/adtrainings')->with('success', 'field deleted successfully');
+              return redirect()->to('/adtrainings')->with('success', 'Trainings or Seminars deleted successfully');
           } else {
-              return redirect()->to('/adtrainings')->with('error', 'field not found');
+              return redirect()->to('/adtrainings')->with('error', 'Trainings or Seminars not found');
           }
       }
 

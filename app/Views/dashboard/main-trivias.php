@@ -35,8 +35,7 @@
                             <tbody>
                                 <?php foreach ($trivia as $tri) : ?>
                                     <tr>
-                                        <!--<td><img src="/fileuploads/<?= $tri['image'] ?>" alt="Trivia Image" style="max-width: 100px;"></td>-->
-                                        <td><?= $tri['image'] ?></td>
+                                    <td><img src="<?= 'http://agrismart_final.test/'.$tri['image'] ?>" alt="" class="avatar-img rounded-circle mx-auto d-block" style="display: block; margin: 0 auto; width: 200px; height: 200px;"></td>
                                         <td><?= $tri['trivia'] ?></td>
                                     </tr>
                                 <?php endforeach; ?>

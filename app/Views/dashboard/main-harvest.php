@@ -17,6 +17,7 @@
                                 </div>
                             </div>
                             <div class="add_button ms-2">
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#addharvestmodal" class="btn btn-primary"><i class="fa-solid fa-plus"></i></a>
                                 <a href="/harvest" class="btn btn-primary"><i class="fa-solid fa-arrows-rotate"></i></a>
                                 <a href="/exportToExcelharvest" class="btn btn-primary"><i class="fa-regular fa-file-excel"></i></i></a>
                             </div>

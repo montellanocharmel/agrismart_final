@@ -35,8 +35,7 @@
                             <tbody>
                                 <?php foreach ($trivia as $tri) : ?>
                                     <tr>
-                                        <!--<td><img src="/fileuploads/<?= $tri['image'] ?>" alt="Trivia Image" style="max-width: 100px;"></td>-->
-                                        <td><?= $tri['image'] ?></td>
+                                        <td><img src="<?= 'http://agrismart_final.test/'.$tri['image'] ?>" alt="" class="avatar-img rounded-circle mx-auto d-block" style="display: block; margin: 0 auto; width: 200px; height: 200px;"></td>
                                         <td><?= $tri['trivia'] ?></td>
                                         <td>
                                             <div class="btn-group">
@@ -45,7 +44,7 @@
                                                     </button>
                                                 <div class="dropdown-menu">
                                                     <button class="dropdown-item" onclick="openEditTriviaModal(
-                                                        <?= $tri['trivia_id']; ?>,
+                                                        <?= $tri['trivia_id']; ?>'
                                                         '<?= $tri['image']; ?>',
                                                         '<?= $tri['trivia']; ?>',
                                                         )">Edit</button>
@@ -76,7 +75,7 @@
                 <h5 class="modal-title" id="addtriviasmodalLabel">Add New Trivias</h5>
             </div>
             <div class="modal-body">
-                <form action="/addtrivia" method="post">
+                <form action="/addtrivia" method="post" enctype="multipart/form-data">
                     <div class="mb-3">
                         <label for="image" class="form-label">Images</label>
                         <input type="file" name="image" id="image" placeholder="Trivia Image" class="form-control">
@@ -106,7 +105,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="/trivia/update" method="post">
+                <form action="/trivia/update" method="post" enctype="multipart/form-data">
                     <input type="hidden" name="trivia_id" id="edittrivia_id">
                     <div class="mb-3">
                         <label for="edittrivia_image" class="form-label">Images</label>
