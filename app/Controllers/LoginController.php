@@ -238,7 +238,7 @@ class LoginController extends BaseController
         $email = \Config\Services::email();
         $email->setMailType("html");
         $email->setTo($to);
-        $email->setFrom('charmelmontellano29@gmail.com', $subject);
+        $email->setFrom('marymaetolentino03@gmail.com', $subject);
         $email->setMessage($message);
 
         if ($email->send()) {

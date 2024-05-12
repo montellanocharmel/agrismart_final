@@ -19,8 +19,8 @@
 						<a href="single-news.html"><div class="latest-news-bg news-bg-1"></div></a>
 						<div class="news-text-box">
 							<h3><a href="single-news.html">Alam niyo ba?</a></h3>
-							<p class="excerpt">Vivamus lacus enim, pulvinar vel nulla sed, scelerisque rhoncus nisi. Praesent vitae mattis nunc, egestas viverra eros.</p>
-							<a href="single-news.html" class="read-more-btn">read more <i class="fas fa-angle-right"></i></a>
+							<p class="excerpt">Ang paggamit ng "biotechnology" ay nagpapahintulot sa paglikha ng mga tanim na mas matibay sa sakit, mas mabilis lumaki, at may mas mataas na ani, na nagpapabawas sa pag-aalaga at nagpapalakas sa kita ng mga magsasaka.</p>
+							<a href="single-news.html"></a>
 						</div>
 					</div>
 				</div>
@@ -29,8 +29,8 @@
 						<a href="single-news.html"><div class="latest-news-bg news-bg-2"></div></a>
 						<div class="news-text-box">
 							<h3><a href="single-news.html">Alam niyo ba?</a></h3>
-							<p class="excerpt">Vivamus lacus enim, pulvinar vel nulla sed, scelerisque rhoncus nisi. Praesent vitae mattis nunc, egestas viverra eros.</p>
-							<a href="single-news.html" class="read-more-btn">read more <i class="fas fa-angle-right"></i></a>
+							<p class="excerpt">Ang paggamit ng "greenhouse technology" ay nagpapahintulot sa pagtatanim ng mga kahoy at gulay sa mga kontroladong kapaligiran, na nagbibigay proteksyon laban sa klima at peste at nagpapalakas sa ani.</p>
+							<a href="single-news.html"></a>
 						</div>
 					</div>
 				</div>
@@ -39,8 +39,8 @@
 						<a href="single-news.html"><div class="latest-news-bg news-bg-3"></div></a>
 						<div class="news-text-box">
 							<h3><a href="single-news.html">Alam niyo ba?</a></h3>
-							<p class="excerpt">Vivamus lacus enim, pulvinar vel nulla sed, scelerisque rhoncus nisi. Praesent vitae mattis nunc, egestas viverra eros.</p>
-							<a href="single-news.html" class="read-more-btn">read more <i class="fas fa-angle-right"></i></a>
+							<p class="excerpt">Ang "hydroponics" ay isang modernong paraan ng pagtatanim na hindi gumagamit ng lupa. Sa halip, ang mga halaman ay itinatanim sa isang solusyon ng tubig na may mga nutrients, na nagbibigay ng mas mabilis na paglaki at mas malaking ani.</p>
+							<a href="single-news.html"></a>
 						</div>
 					</div>
 				</div>
