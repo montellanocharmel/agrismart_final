@@ -156,8 +156,9 @@ $routes->get('/viewcharts', 'DashboardController::charts');
 $routes->get('/adtrivias', 'DashboardController::adtrivias');
 $routes->post('/addtrivia', 'DashboardController::addnewtrivia');
 $routes->post('/adtrivias/edit/(:num)', 'DashboardController::edittrivia/$1');
-$routes->post('/trivia/update', 'DashboardController::updatetrivia');
+$routes->post('/adtrivias/update', 'DashboardController::updatetrivia');
 $routes->post('adtrivias/delete/(:num)', 'DashboardController::deletetrivia/$1');
+$routes->get('/triviareadmore/(:num)', 'LoginController::triviareadmore/$1');
 
 //trainings
 $routes->get('/adtrainings', 'DashboardController::adtrainings');
@@ -183,4 +184,4 @@ $routes->get('/usertrivias', 'DashboardController::usertrivias');
 //harvest
 $routes->get('/usertrainings', 'DashboardController::usertrainings');
 
-
+$routes->get('/trivias', 'LoginController::trivias');

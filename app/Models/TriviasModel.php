@@ -12,7 +12,7 @@ class TriviasModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['image','trivia','user_id'];
+    protected $allowedFields    = ['image', 'triviatitle', 'trivia', 'user_id'];
 
     protected bool $allowEmptyInserts = false;
 

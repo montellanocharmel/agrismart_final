@@ -12,6 +12,29 @@
         document.getElementById('editposition').value = position;
         $('#editaccountmodal').modal('show');
     }
+
+    function openEditTriviaModal(trivia_id, triviatitle, image, trivia) {
+        document.getElementById('edittrivia_id').value = trivia_id;
+        document.getElementById('edittriviatitle').value = triviatitle;
+        document.getElementById('editimage').value = image;
+        document.getElementById('edittrivia').value = trivia;
+        $('#edittriviasmodal').modal('show');
+    }
+
+    function deletetrivia(trivia_id) {
+        if (confirm("Are you sure you want to delete this trivia?")) {
+            $.ajax({
+                type: 'POST',
+                url: '/adtrivias/delete/' + trivia_id,
+                success: function(response) {
+                    window.location.reload();
+                },
+                error: function(error) {
+                    console.error('Error:', error);
+                }
+            });
+        }
+    }
 </script>
 <script src="<?= base_url() ?>dashboard/js/jquery1-3.4.1.min.js"></script>
 

@@ -48,7 +48,6 @@ class DashboardController extends BaseController
         $this->trivia = new \App\Models\TriviasModel();
         $this->reports = new \App\Models\ReportsModel();
         $this->trainings = new \App\Models\TrainingsModel();
-
     }
 
     public function dashboards()
@@ -1849,74 +1848,75 @@ class DashboardController extends BaseController
         return view('userfolder/usertrainings');
     }
 
- //admintrivias
- public function adtrivias()
- {
-     $userId = session()->get('id');
-     if (!session()->get('isLoggedIn')) {
-         return redirect()->to('/sign_ins');
-     } else {
-         $data = [
-             'trivia' => $this->trivia->where('user_id', $userId)->findAll()
-         ];
-         return view('adminfolder/adtrivias', $data);
-     }
- }
- public function addnewtrivia()
- {
-     $userId = session()->get('id');
-     $triviaId = $this->request->getPost('trivia_id');
-     $trivia = $this->trivia->find($triviaId);
+    //admintrivias
+    public function adtrivias()
+    {
+        $userId = session()->get('id');
+        if (!session()->get('isLoggedIn')) {
+            return redirect()->to('/sign_ins');
+        } else {
+            $data = [
+                'trivia' => $this->trivia->where('user_id', $userId)->findAll()
+            ];
+            return view('adminfolder/adtrivias', $data);
+        }
+    }
 
-     $image = $this->request->getFile('image');
-     $imageName = $image->getRandomName();
-     $image->move(ROOTPATH . 'public/uploads/trivia_img/', $imageName);
+    public function addnewtrivia()
+    {
+        $userId = session()->get('id');
+        $triviaId = $this->request->getPost('trivia_id');
+        $trivia = $this->trivia->find($triviaId);
 
+        $image = $this->request->getFile('image');
+        $imageName = $image->getRandomName();
+        $image->move(ROOTPATH . 'public/uploads/trivia_img/', $imageName);
 
-    
-     $this->trivia->save([
-         'trivia_id' => $this->request->getPost('trivia_id'),
-         'image' => 'uploads/trivia_img/' . $imageName,
-         'trivia' => $this->request->getPost('trivia'),
-         'user_id' => $userId,
-     ]);
+        $this->trivia->save([
+            'trivia_id' => $this->request->getPost('trivia_id'),
+            'image' => 'uploads/trivia_img/' . $imageName,
+            'triviatitle' => $this->request->getPost('triviatitle'),
+            'trivia' => $this->request->getPost('trivia'),
+            'user_id' => $userId,
+        ]);
 
-     return redirect()->to('/adtrivias')->with('success', 'Trivia added successfully');
-    //var_dump($image);
- }
+        return redirect()->to('/adtrivias')->with('success', 'Trivia added successfully');
+        //var_dump($image);
+    }
 
- public function edittrivia($trivia_id)
- {
-     $trivia = $this->trivia->find($trivia_id);
+    public function edittrivia($trivia_id)
+    {
+        $trivia = $this->trivia->find($trivia_id);
 
-     return view('trivia', ['trivia' => $trivia]);
- }
- public function updatetrivia()
- {
+        return view('trivia', ['trivia' => $trivia]);
+    }
+    public function updatetrivia()
+    {
 
-     $trivia_id = $this->request->getPost('trivia_id');
+        $trivia_id = $this->request->getPost('trivia_id');
 
-     $dataToUpdate = [
-         'image' => $this->request->getPost('image'),
-         'trivia' => $this->request->getPost('trivia'),
-     ];
+        $dataToUpdate = [
+            'triviatitle' => $this->request->getPost('triviatitle'),
+            'image' => $this->request->getPost('image'),
+            'trivia' => $this->request->getPost('trivia'),
+        ];
 
-     $this->trivia->update($trivia_id, $dataToUpdate);
+        $this->trivia->update($trivia_id, $dataToUpdate);
 
-     return redirect()->to('/adtrivias')->with('success', 'Trivia updated successfully');
- }
- public function deletetrivia($trivia_id)
- {
+        return redirect()->to('/adtrivias')->with('success', 'Trivia updated successfully');
+    }
+    public function deletetrivia($trivia_id)
+    {
 
-     $trivia = $this->trivia->find($trivia_id);
+        $trivia = $this->trivia->find($trivia_id);
 
-     if ($trivia) {
-         $this->trivia->delete($trivia_id);
-         return redirect()->to('/adtrivias')->with('success', 'Trivia deleted successfully');
-     } else {
-         return redirect()->to('/adtrivias')->with('error', 'Trivia not found');
-     }
- }
+        if ($trivia) {
+            $this->trivia->delete($trivia_id);
+            return redirect()->to('/adtrivias')->with('success', 'Trivia deleted successfully');
+        } else {
+            return redirect()->to('/adtrivias')->with('error', 'Trivia not found');
+        }
+    }
 
     //adminreports
     public function adreports()
@@ -1939,7 +1939,7 @@ class DashboardController extends BaseController
         $images = $this->request->getFile('images');
         $imagesName = $images->getRandomName();
         $images->move(ROOTPATH . 'public/uploads/report_img/', $imagesName);
-    
+
 
         $this->reports->save([
             'report_id' => $this->request->getPost('report_id'),
@@ -1988,55 +1988,55 @@ class DashboardController extends BaseController
         }
     }
 
-      //admintrainings
-      public function adtrainings()
-      {
-          $userId = session()->get('id');
-          if (!session()->get('isLoggedIn')) {
-              return redirect()->to('/sign_ins');
-          } else {
-              $data = [
-                  'trainings' => $this->trainings->where('user_id', $userId)->findAll()
-              ];
-              return view('adminfolder/adtrainings', $data);
-          }
-      }
-      public function addnewtraining()
-      {
-          $userId = session()->get('id');
-          $trainingId = $this->request->getPost('training_id');
-          $trainings = $this->trainings->find($trainingId);
-          $image_training = $this->request->getFile('image_training');
-          $image_trainingName = $image_training->getRandomName();
-          $image_training->move(ROOTPATH . 'public/uploads/training_img/', $image_trainingName);
-            
-          $this->trainings->save([
-              'training_id' => $this->request->getPost('training_id'),
-              'image_training' => 'uploads/training_img/' . $image_trainingName,
-              'event_title' => $this->request->getPost('event_title'),
-              'date' => $this->request->getPost('date'),
-              'time' => $this->request->getPost('time'),
-              'speaker' => $this->request->getPost('speaker'),
-              'place' => $this->request->getPost('place'),
-              'validity_training' => $this->request->getPost('validity_training'),
-              'user_id' => $userId,
-          ]);
-  
-          return redirect()->to('/adtrainings')->with('success', 'Trainings or Seminars added successfully');
-      }
-  
-      public function edittraining($training_id)
-      {
-          $trainings = $this->trainings->find($training_id);
-  
-          return view('trainings', ['trainings' => $trainings]);
-      }
-      public function updatetraining()
-      {
-  
-          $training_id = $this->request->getPost('training_id');
-  
-          $dataToUpdate = [
+    //admintrainings
+    public function adtrainings()
+    {
+        $userId = session()->get('id');
+        if (!session()->get('isLoggedIn')) {
+            return redirect()->to('/sign_ins');
+        } else {
+            $data = [
+                'trainings' => $this->trainings->where('user_id', $userId)->findAll()
+            ];
+            return view('adminfolder/adtrainings', $data);
+        }
+    }
+    public function addnewtraining()
+    {
+        $userId = session()->get('id');
+        $trainingId = $this->request->getPost('training_id');
+        $trainings = $this->trainings->find($trainingId);
+        $image_training = $this->request->getFile('image_training');
+        $image_trainingName = $image_training->getRandomName();
+        $image_training->move(ROOTPATH . 'public/uploads/training_img/', $image_trainingName);
+
+        $this->trainings->save([
+            'training_id' => $this->request->getPost('training_id'),
+            'image_training' => 'uploads/training_img/' . $image_trainingName,
+            'event_title' => $this->request->getPost('event_title'),
+            'date' => $this->request->getPost('date'),
+            'time' => $this->request->getPost('time'),
+            'speaker' => $this->request->getPost('speaker'),
+            'place' => $this->request->getPost('place'),
+            'validity_training' => $this->request->getPost('validity_training'),
+            'user_id' => $userId,
+        ]);
+
+        return redirect()->to('/adtrainings')->with('success', 'Trainings or Seminars added successfully');
+    }
+
+    public function edittraining($training_id)
+    {
+        $trainings = $this->trainings->find($training_id);
+
+        return view('trainings', ['trainings' => $trainings]);
+    }
+    public function updatetraining()
+    {
+
+        $training_id = $this->request->getPost('training_id');
+
+        $dataToUpdate = [
             'image_training' => $this->request->getPost('image_training'),
             'event_title' => $this->request->getPost('event_title'),
             'date' => $this->request->getPost('date'),
@@ -2044,38 +2044,38 @@ class DashboardController extends BaseController
             'speaker' => $this->request->getPost('speaker'),
             'place' => $this->request->getPost('place'),
             'validity_training' => $this->request->getPost('validity_training'),
-          ];
-  
-          $this->trainings->update($training_id, $dataToUpdate);
-  
-          return redirect()->to('/adtrainings')->with('success', 'Trainings or Seminars updated successfully');
-      }
-      public function deletetraining($training_id)
-      {
-  
-          $trainings = $this->trainings->find($training_id);
-  
-          if ($trainings) {
-              $this->trainings->delete($training_id);
-              return redirect()->to('/adtrainings')->with('success', 'Trainings or Seminars deleted successfully');
-          } else {
-              return redirect()->to('/adtrainings')->with('error', 'Trainings or Seminars not found');
-          }
-      }
+        ];
 
-      //usertrivias
-      public function usertrivias()
-      {
-          $userId = session()->get('leader_id');
-          if (!session()->get('isLoggedIn')) {
-              return redirect()->to('/sign_ins');
-          } else {
-              $data = [
-                  'trivia' => $this->trivia->findAll()
-              ];
-              return view('userfolder/usertrivias', $data);
-          }
-      }
+        $this->trainings->update($training_id, $dataToUpdate);
+
+        return redirect()->to('/adtrainings')->with('success', 'Trainings or Seminars updated successfully');
+    }
+    public function deletetraining($training_id)
+    {
+
+        $trainings = $this->trainings->find($training_id);
+
+        if ($trainings) {
+            $this->trainings->delete($training_id);
+            return redirect()->to('/adtrainings')->with('success', 'Trainings or Seminars deleted successfully');
+        } else {
+            return redirect()->to('/adtrainings')->with('error', 'Trainings or Seminars not found');
+        }
+    }
+
+    //usertrivias
+    public function usertrivias()
+    {
+        $userId = session()->get('leader_id');
+        if (!session()->get('isLoggedIn')) {
+            return redirect()->to('/sign_ins');
+        } else {
+            $data = [
+                'trivia' => $this->trivia->findAll()
+            ];
+            return view('userfolder/usertrivias', $data);
+        }
+    }
 
 
     /*public function importExcel()
