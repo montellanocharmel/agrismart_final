@@ -3,35 +3,29 @@
 			<div class="row">
 				<div class="col-lg-12 col-sm-12 text-center">
 					<div class="main-menu-wrap">
-						<!-- logo -->
 						<div class="site-logo">
 							<a href="/">
 								<img src="<?= base_url() ?>assets_landingpage/img/agrismart-logo1.png" alt="">
 							</a>
 						</div>
-						<!-- logo -->
-
-						<!-- menu start -->
 						<nav class="main-menu">
 							<ul>
 								<li class="current-list-item"><a href="/">Home</a>
-
 								</li>
 								<li><a href="/about">About</a>
-								<li><a href="/trivias">Trivias</a></li>
-								
+								<li><a href="#">Information</a>
+									<ul class="sub-menu">
+										<li><a href="/trivias">Trivias</a></li>
+										<li><a href="/reports">Reports</a>
+										<li><a href="/trainings">Trainings and Seminars</a>
+										<li><a href="/farmerstats">Statistics</a>
+									</ul>
 								</li>
-								
 								</li>
-								
-								<li><a href="/reports">Reports</a>
-								<li><a href="/trainings">Trainings and Seminars</a>
-								<li><a href="/farmerstats">Statistics</a>
 								<li><a href="#contact">Contact</a>
-
 								<li><a href="/sign_ins">Log In</a></li>
 								<li><a href="/registerview">Sign Up</a></li>
-								
+
 
 
 								<li>
@@ -40,15 +34,11 @@
 						</nav>
 						<a class="mobile-show search-bar-icon" href="#"><i class="fas fa-search"></i></a>
 						<div class="mobile-menu"></div>
-						<!-- menu end -->
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<!-- end header -->
-
-	<!-- search area -->
 	<div class="search-area">
 		<div class="container">
 			<div class="row">
@@ -65,3 +55,21 @@
 			</div>
 		</div>
 	</div>
+	<style>
+		.main-menu ul li a {
+			color: white;
+			text-decoration: none;
+		}
+
+		.main-menu ul li a:hover {
+			color: orange;
+		}
+
+		.main-menu ul li .sub-menu li a {
+			color: white;
+		}
+
+		.main-menu ul li .sub-menu li a:hover {
+			color: orange;
+		}
+	</style>

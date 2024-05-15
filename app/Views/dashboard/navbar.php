@@ -10,12 +10,18 @@
         <li class="side_menu_title">
             <span>Dashboard</span>
         </li>
-        <li>
-        <li><a href="/dashboards" style="margin-left: 40px;">Dashboard</a></li>
-        <li><a href="/userreports" style="margin-left: 40px;">Reports</a></li>
-        <li><a href="/usertrivias" style="margin-left: 40px;">Trivias</a></li>
-        <li><a href="/usertrainings" style="margin-left: 40px;">Trainings and Seminars</a></li>
 
+        <li>
+            <a class="has-arrow" href="#" aria-expanded="false">
+                <img src="img/menu-icon/1.svg" alt>
+                <span>Dashboard</span>
+            </a>
+            <ul>
+                <li><a href="/dashboards">Dashboard</a></li>
+                <li><a href="/userreports">Reports</a></li>
+                <li><a href="/usertrivias">Trivias</a></li>
+                <li><a href="/usertrainings">Trainings and Seminars</a></li>
+            </ul>
         </li>
         <li class="side_menu_title">
             <span>Fields</span>

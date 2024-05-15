@@ -19,7 +19,7 @@
                             <div class="add_button ms-2">
                                 <a href="#" data-bs-toggle="modal" data-bs-target="#addtriviasmodal" class="btn btn-primary"><i class="fa-solid fa-plus"></i></a>
                                 <a href="/adtrivias" class="btn btn-primary"><i class="fa-solid fa-arrows-rotate"></i></a>
-                    
+
                             </div>
                         </div>
                     </div>
@@ -28,24 +28,31 @@
                             <thead>
                                 <tr>
                                     <th scope="col">Image</th>
+                                    <th scope="col">Title</th>
                                     <th scope="col">Trivias</th>
+                                    <th scope="col">Author</th>
+                                    <th scope="col">Date</th>
                                     <th scope="col">Aksyon</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php foreach ($trivia as $tri) : ?>
                                     <tr>
-                                        <td><img src="<?= 'http://agrismart_final.test/'.$tri['image'] ?>" alt="" class="avatar-img rounded-circle mx-auto d-block" style="display: block; margin: 0 auto; width: 200px; height: 200px;"></td>
+                                        <td><img src="<?= 'http://agrismart_final.test/' . $tri['image'] ?>" alt="" class="avatar-img rounded-circle mx-auto d-block" style="display: block; margin: 0 auto; width: 200px; height: 200px;"></td>
+                                        <td><?= $tri['triviatitle'] ?></td>
                                         <td><?= $tri['trivia'] ?></td>
+                                        <td><?= $tri['author'] ?></td>
+                                        <td><?= $tri['date'] ?></td>
                                         <td>
                                             <div class="btn-group">
-                                            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: #88c431; border: none;">
-                                                        Actions
-                                                    </button>
+                                                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: #88c431; border: none;">
+                                                    Actions
+                                                </button>
                                                 <div class="dropdown-menu">
                                                     <button class="dropdown-item" onclick="openEditTriviaModal(
                                                         <?= $tri['trivia_id']; ?>'
                                                         '<?= $tri['image']; ?>',
+                                                        '<?= $tri['triviatitle']; ?>',
                                                         '<?= $tri['trivia']; ?>',
                                                         )">Edit</button>
                                                     <button class="dropdown-item" onclick="deletetrivia(<?= $tri['trivia_id']; ?>)">Delete</button>
@@ -81,19 +88,23 @@
                         <input type="file" name="image" id="image" placeholder="Trivia Image" class="form-control">
                     </div>
                     <div class="mb-3">
+                        <label for="triviatitle" class="form-label">Title</label>
+                        <input type="text" name="triviatitle" id="triviatitle" placeholder="Title" class="form-control">
+                    </div>
+                    <div class="mb-3">
                         <label for="trivia" class="form-label">Trivias</label>
-                        <input type="text" name="trivia" id="trivia" placeholder="Trivias" class="form-control">
+                        <textarea name="trivia" id="trivia" placeholder="Trivias" class="form-control" rows="4"></textarea>
                     </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </div>
-                </form>
             </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+            </form>
         </div>
-
     </div>
+
+</div>
 </div>
 <!-- edit  -->
 
@@ -105,8 +116,12 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="/trivia/update" method="post" enctype="multipart/form-data">
+                <form action="/adtrivias/update" method="post" enctype="multipart/form-data">
                     <input type="hidden" name="trivia_id" id="edittrivia_id">
+                    <div class="mb-3">
+                        <label for="edittriviatitle" class="form-label">Trivias</label>
+                        <input type="text" name="triviatitle" id="edittriviatitle" class="form-control">
+                    </div>
                     <div class="mb-3">
                         <label for="edittrivia_image" class="form-label">Images</label>
                         <input type="file" name="image" id="edittrivia_image" class="form-control" readonly>
