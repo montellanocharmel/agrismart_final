@@ -13,19 +13,68 @@
         $('#editaccountmodal').modal('show');
     }
 
-    function openEditTriviaModal(trivia_id, triviatitle, image, trivia) {
+    function openEditTriviaModal(trivia_id, triviatitle, trivia) {
         document.getElementById('edittrivia_id').value = trivia_id;
         document.getElementById('edittriviatitle').value = triviatitle;
-        document.getElementById('editimage').value = image;
-        document.getElementById('edittrivia').value = trivia;
+        document.getElementById('edit_trivia').value = trivia;
         $('#edittriviasmodal').modal('show');
     }
+
 
     function deletetrivia(trivia_id) {
         if (confirm("Are you sure you want to delete this trivia?")) {
             $.ajax({
                 type: 'POST',
                 url: '/adtrivias/delete/' + trivia_id,
+                success: function(response) {
+                    window.location.reload();
+                },
+                error: function(error) {
+                    console.error('Error:', error);
+                }
+            });
+        }
+    }
+
+    function openEditReportsModal(report_id, title, description, validity) {
+        document.getElementById('editreport_id').value = report_id;
+        document.getElementById('edit_title').value = title;
+        document.getElementById('edit_description').value = description;
+        document.getElementById('edit_validity').value = validity;
+        $('#editreportsmodal').modal('show');
+    }
+
+    function deletereport(report_id) {
+        if (confirm("Are you sure you want to delete this report?")) {
+            $.ajax({
+                type: 'POST',
+                url: '/adreports/delete/' + report_id,
+                success: function(response) {
+                    window.location.reload();
+                },
+                error: function(error) {
+                    console.error('Error:', error);
+                }
+            });
+        }
+    }
+
+    function openEditTrainingModal(training_id, event_title, date, time, speaker, place, validity_training) {
+        document.getElementById('edittraining_id').value = training_id;
+        document.getElementById('editevent_title').value = event_title;
+        document.getElementById('edit_date').value = date;
+        document.getElementById('edit_time').value = time;
+        document.getElementById('edit_speaker').value = speaker;
+        document.getElementById('edit_place').value = place;
+        document.getElementById('editvalidity_training').value = validity_training;
+        $('#edittrainingsmodal').modal('show');
+    }
+
+    function deletetraining(training_id) {
+        if (confirm("Are you sure you want to delete this report?")) {
+            $.ajax({
+                type: 'POST',
+                url: '/adtrainings/delete/' + training_id,
                 success: function(response) {
                     window.location.reload();
                 },

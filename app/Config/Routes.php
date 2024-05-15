@@ -169,6 +169,8 @@ $routes->post('/addreport', 'DashboardController::addnewreport');
 $routes->post('/adreports/edit/(:num)', 'DashboardController::editreport/$1');
 $routes->post('/reports/update', 'DashboardController::updatereport');
 $routes->post('adreports/delete/(:num)', 'DashboardController::deletereport/$1');
+$routes->get('/reportsreadmore/(:num)', 'LoginController::reportsreadmore/$1');
+
 
 //adtrainings
 $routes->get('/adtrainings', 'DashboardController::adtrainings');

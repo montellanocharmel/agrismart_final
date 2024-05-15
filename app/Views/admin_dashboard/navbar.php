@@ -6,17 +6,23 @@
         </div>
     </div>
     <ul id="sidebar_menu">
-
         <li class="side_menu_title">
             <span>Dashboard</span>
         </li>
-        <li>
-        <li><a href="/admindashboard" style="margin-left: 40px;">Dashboard</a></li>
-        <li><a href="/adreports" style="margin-left: 40px;">Reports</a></li>
-        <li><a href="/adtrivias" style="margin-left: 40px;">Trivias</a></li>
-        <li><a href="/adtrainings" style="margin-left: 40px;">Trainings and Seminars</a></li>
 
+        <li>
+            <a class="has-arrow" href="#" aria-expanded="false">
+                <img src="img/menu-icon/1.svg" alt>
+                <span>Dashboard</span>
+            </a>
+            <ul>
+                <li><a href="/admindashboard">Dashboard</a></li>
+                <li><a href="/adreports">Reports</a></li>
+                <li><a href="/adtrivias">Trivias</a></li>
+                <li><a href="/adtrainings">Trainings and Seminars</a></li>
+            </ul>
         </li>
+
         <li class="side_menu_title">
             <span>Fields</span>
         </li>

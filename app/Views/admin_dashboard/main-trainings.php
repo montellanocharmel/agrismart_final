@@ -19,7 +19,7 @@
                             <div class="add_button ms-2">
                                 <a href="#" data-bs-toggle="modal" data-bs-target="#addtrainingsmodal" class="btn btn-primary"><i class="fa-solid fa-plus"></i></a>
                                 <a href="/adtrainings" class="btn btn-primary"><i class="fa-solid fa-arrows-rotate"></i></a>
-                    
+
                             </div>
                         </div>
                     </div>
@@ -40,8 +40,8 @@
                             <tbody>
                                 <?php foreach ($trainings as $tra) : ?>
                                     <tr>
-                                        
-                                    <td><img src="<?= 'http://agrismart_final.test/'.$tra['image_training'] ?>" alt="" class="avatar-img rounded-circle mx-auto d-block" style="display: block; margin: 0 auto; width: 200px; height: 200px;"></td>
+
+                                        <td><img src="<?= base_url() . $tra['image_training'] ?>" alt="" class="avatar-img rounded-circle mx-auto d-block" style="display: block; margin: 0 auto; width: 200px; height: 200px;"></td>
                                         <td><?= $tra['event_title'] ?></td>
                                         <td><?= $tra['date'] ?></td>
                                         <td><?= $tra['time'] ?></td>
@@ -50,20 +50,20 @@
                                         <td><?= $tra['validity_training'] ?></td>
                                         <td>
                                             <div class="btn-group">
-                                            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: #88c431; border: none;">
-                                                        Actions
-                                                    </button>
+                                                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: #88c431; border: none;">
+                                                    Actions
+                                                </button>
                                                 <div class="dropdown-menu">
-                                                    <button class="dropdown-item" onclick="openEditTriviaModal(
+                                                    <button class="dropdown-item" onclick="openEditTrainingModal(
                                                         <?= $tra['training_id']; ?>,
-                                                        '<?= $tra['image_training']; ?>',
+                                                        '<?= $tra['event_title']; ?>',
                                                         '<?= $tra['date']; ?>',
                                                         '<?= $tra['time']; ?>',
                                                         '<?= $tra['speaker']; ?>',
                                                         '<?= $tra['place']; ?>',
                                                         '<?= $tra['validity_training']; ?>',
                                                         )">Edit</button>
-                                                    <button class="dropdown-item" onclick="deletetrivia(<?= $tra['training_id']; ?>)">Delete</button>
+                                                    <button class="dropdown-item" onclick="deletetraining(<?= $tra['training_id']; ?>)">Delete</button>
                                                     <button type="button" class="dropdown-item" onclick="openAddTriviaModal('<?= $tra['training_id']; ?>', '<?= $tra['image_training']; ?>', '<?= $tra['event_title']; ?>', '<?= $tra['date']; ?>', '<?= $tra['time']; ?>', '<?= $tra['speaker']; ?>', '<?= $tra['place']; ?>'), '<?= $tra['validity_training']; ?>',">Add Trainings</button>
                                                 </div>
                                             </div>
@@ -118,22 +118,22 @@
                     <div class="mb-3">
                         <label for="validity_training" class="form-label">Validation of Trainings and Seminars</label>
                         <div class="form-input">
-                            <select class="form-select mb-3" name="validity_training" tabindex="10" required>       
+                            <select class="form-select mb-3" name="validity_training" tabindex="10" required>
                                 <option value="pending">pending</option>
                                 <option value="validated">validate</option>
                             </select>
                         </div>
                     </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </div>
-                </form>
             </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+            </form>
         </div>
-
     </div>
+
+</div>
 </div>
 <!-- edit  -->
 
@@ -148,33 +148,29 @@
                 <form action="/trainings/update" method="post" enctype="multipart/form-data">
                     <input type="hidden" name="training_id" id="edittraining_id">
                     <div class="mb-3">
-                        <label for="editimage_training" class="form-label">Images</label>
-                        <input type="file" name="image" id="editimage_training" class="form-control" readonly>
-                    </div>
-                    <div class="mb-3">
                         <label for="editevent_title" class="form-label">Event</label>
-                        <input type="text" name="editevent_title" id="editevent_title" placeholder="Event" class="form-control">
+                        <input type="text" name="event_title" id="editevent_title" placeholder="Event" class="form-control">
                     </div>
                     <div class="mb-3">
                         <label for="edit_date" class="form-label">Date</label>
-                        <input type="text" name="edit_date" id="edit_date" placeholder="Date of Event" class="form-control">
+                        <input type="text" name="date" id="edit_date" placeholder="Date of Event" class="form-control">
                     </div>
                     <div class="mb-3">
                         <label for="edit_time" class="form-label">Time</label>
-                        <input type="text" name="edit_time" id="edit_time" placeholder="Time of Event" class="form-control">
+                        <input type="text" name="time" id="edit_time" placeholder="Time of Event" class="form-control">
                     </div>
                     <div class="mb-3">
                         <label for="edit_place" class="form-label">Venue</label>
-                        <input type="text" name="edit_place" id="edit_place" placeholder="Venue of Event" class="form-control">
+                        <input type="text" name="place" id="edit_place" placeholder="Venue of Event" class="form-control">
                     </div>
                     <div class="mb-3">
                         <label for="edit_speaker" class="form-label">Resource Speaker</label>
-                        <input type="text" name="edit_speaker" id="edit_speaker" placeholder="Speakers of the Event" class="form-control">
+                        <input type="text" name="speaker" id="edit_speaker" placeholder="Speakers of the Event" class="form-control">
                     </div>
                     <div class="mb-3">
                         <label for="editvalidity_training" class="form-label">Validation of Trainings and Seminars</label>
                         <div class="form-input">
-                            <select class="form-select mb-3" name="editvalidity_training" tabindex="10" required>       
+                            <select class="form-select mb-3" name="validity_training" id="editvalidity_training" tabindex="10" required>
                                 <option value="pending">pending</option>
                                 <option value="validated">validate</option>
                             </select>

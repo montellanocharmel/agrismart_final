@@ -12,11 +12,11 @@
 			<?php foreach ($trivia as $tri) : ?>
 				<div class="col-lg-4 col-md-6 d-flex">
 					<div class="single-latest-news mt-3">
-						<a href="single-news.html">
+						<a href="<?= base_url('triviareadmore/' . $tri['trivia_id']) ?>">
 							<div class="news-image" style="background-image: url('<?= $tri['image'] ?>');"></div>
 						</a>
 						<div class="news-text-box">
-							<h3><a href="single-news.html">Alam niyo ba?</a></h3>
+							<h3><a href="<?= base_url('triviareadmore/' . $tri['trivia_id']) ?>">Alam niyo ba?</a></h3>
 							<p class="excerpt">
 								<?= substr($tri['trivia'], 0, 150) . (strlen($tri['trivia']) > 150 ? '...' : '') ?>
 							</p>

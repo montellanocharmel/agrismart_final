@@ -20,6 +20,8 @@ class LoginController extends BaseController
     private $variety;
     private $admin;
     private $trivia;
+    private $reports;
+    private $training;
 
     public function __construct()
     {
@@ -33,6 +35,8 @@ class LoginController extends BaseController
         $this->profiles = new \App\Models\FarmerProfilesModel();
         $this->admin = new \App\Models\AdminModel();
         $this->trivia = new \App\Models\TriviasModel();
+        $this->reports = new \App\Models\ReportsModel();
+        $this->training = new \App\Models\TrainingsModel();
     }
 
     public function index()
@@ -555,12 +559,18 @@ class LoginController extends BaseController
 
     public function reports()
     {
-        return view('reports_sec');
+        $data = [
+            'reports' => $this->reports->findAll()
+        ];
+        return view('reports_sec', $data);
     }
 
     public function trainings()
     {
-        return view('trainings_sec');
+        $data = [
+            'training' => $this->training->findAll()
+        ];
+        return view('trainings_sec', $data);
     }
     public function triviareadmore($trivia_id)
     {
@@ -575,5 +585,19 @@ class LoginController extends BaseController
         ];
 
         return view('readmoretrivia', $data);
+    }
+    public function reportsreadmore($report_id)
+    {
+        $reports = $this->reports->find($report_id);
+
+        if (!$reports) {
+            throw new \CodeIgniter\Exceptions\PageNotFoundException('reports not found: ' . $report_id);
+        }
+
+        $data = [
+            'reports' => $reports
+        ];
+
+        return view('readmorereport', $data);
     }
 }

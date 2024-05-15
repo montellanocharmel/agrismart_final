@@ -19,7 +19,7 @@
                             <div class="add_button ms-2">
                                 <a href="#" data-bs-toggle="modal" data-bs-target="#addreportsmodal" class="btn btn-primary"><i class="fa-solid fa-plus"></i></a>
                                 <a href="/adreports" class="btn btn-primary"><i class="fa-solid fa-arrows-rotate"></i></a>
-                                
+
                             </div>
                         </div>
                     </div>
@@ -30,41 +30,55 @@
                                     <th scope="col">Title</th>
                                     <th scope="col">Date Reported</th>
                                     <th scope="col">Report Description</th>
-                                    <th scope="col">Images</th> 
+                                    <th scope="col">Images</th>
                                     <th scope="col">Validity</th>
                                     <th scope="col">Aksyon</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <?php
+                            function truncateText($text, $maxLength)
+                            {
+                                if (strlen($text) > $maxLength) {
+                                    $text = substr($text, 0, $maxLength) . '...';
+                                }
+                                return $text;
+                            }
+                            ?><tbody>
                                 <?php foreach ($reports as $rep) : ?>
                                     <tr>
-                                        <td><?= $rep ['title'] ?></td>
-                                        <td><?= $rep ['created_at'] ?></td>
-                                        <td><?= $rep ['description'] ?></td>
-                                        <td><img src="<?= 'http://agrismart_final.test/'.$rep['images'] ?>" alt="" style="display: block; margin: 0 auto; width: 200px; height: 200px;"></td>
-                                        <td><?= $rep ['validity'] ?></td>
+                                        <td><?= $rep['title'] ?></td>
+                                        <td><?= $rep['created_at'] ?></td>
+                                        <td><?= truncateText($rep['description'], 100) ?></td>
+                                        <td><img src="<?= base_url() . $rep['images'] ?>" alt="" style="display: block; margin: 0 auto; width: 200px; height: 200px;"></td>
+                                        <td><?= $rep['validity'] ?></td>
                                         <td>
                                             <div class="btn-group">
-                                                <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: #88c431; border: none;">
+                                                <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: #88c431; border: none;">
                                                     Actions
                                                 </button>
                                                 <div class="dropdown-menu">
                                                     <button class="dropdown-item" onclick="openEditReportsModal(
                                                         <?= $rep['report_id']; ?>,
                                                         '<?= $rep['title']; ?>', 
-                                                        '<?= $rep['created_at']; ?>',
                                                         '<?= $rep['description']; ?>', 
-                                                        '<?= $rep['images']; ?>',  
-                                                        '<?= $rep['validity']; ?>',
-                                                        )">Edit</button>
+                                                        '<?= $rep['validity']; ?>'
+                                                    )">Edit</button>
                                                     <button class="dropdown-item" onclick="deletereport(<?= $rep['report_id']; ?>)">Delete</button>
-                                                    <button type="button" class="dropdown-item" onclick="openAddReportModal('<?= $rep['report_id']; ?>', '<?= $rep['title']; ?>', '<?= $rep['created_at']; ?>','<?= $rep['description']; ?>','<?= $rep['images']; ?>', '<?= $rep['validity']; ?>')">Send Report</button>
+                                                    <button class="dropdown-item" onclick="openAddReportModal(
+                                                        <?= $rep['report_id']; ?>, 
+                                                        '<?= $rep['title']; ?>', 
+                                                        '<?= $rep['created_at']; ?>',
+                                                        '<?= $rep['description']; ?>',
+                                                        '<?= $rep['images']; ?>', 
+                                                        '<?= $rep['validity']; ?>'
+                                                    )">Send Report</button>
                                                 </div>
                                             </div>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>
                             </tbody>
+
 
                         </table>
                     </div>
@@ -101,13 +115,13 @@
                         <label for="validity" class="form-label">Report Validation</label>
                         <div class="form-input">
                             <select class="form-select mb-3" name="validity" tabindex="10" required>
-                                
+
                                 <option value="pending">pending</option>
                                 <option value="validated">validate</option>
                             </select>
                         </div>
                     </div>
-                <div class="mb-3">
+                    <div class="mb-3">
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -138,10 +152,6 @@
                     <div class="mb-3">
                         <label for="edit_description" class="form-label">Report Description</label>
                         <textarea type="text" name="description" id="edit_description" class="form-control"></textarea>
-                    </div>
-                    <div class="mb-3">
-                        <label for="edit_images" class="form-label">Images</label>
-                        <input type="file" name="created_at" id="edit_images" class="form-control">
                     </div>
                     <div class="mb-3">
                         <label for="edit_validity" class="form-label">Report Validation</label>
