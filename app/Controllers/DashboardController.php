@@ -1897,7 +1897,6 @@ class DashboardController extends BaseController
 
         $dataToUpdate = [
             'triviatitle' => $this->request->getPost('triviatitle'),
-            'image' => $this->request->getPost('image'),
             'trivia' => $this->request->getPost('trivia'),
         ];
 
@@ -1966,7 +1965,6 @@ class DashboardController extends BaseController
 
         $dataToUpdate = [
             'title' => $this->request->getPost('title'),
-            'images' => $this->request->getPost('images'),
             'description' => $this->request->getPost('description'),
             'validity' => $this->request->getPost('validity'),
         ];
@@ -2037,7 +2035,6 @@ class DashboardController extends BaseController
         $training_id = $this->request->getPost('training_id');
 
         $dataToUpdate = [
-            'image_training' => $this->request->getPost('image_training'),
             'event_title' => $this->request->getPost('event_title'),
             'date' => $this->request->getPost('date'),
             'time' => $this->request->getPost('time'),

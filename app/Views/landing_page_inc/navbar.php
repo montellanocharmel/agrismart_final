@@ -16,7 +16,7 @@
 								<li><a href="#">Information</a>
 									<ul class="sub-menu">
 										<li><a href="/trivias">Trivias</a></li>
-										<li><a href="/reports">Reports</a>
+										<li><a href="/reports">News</a>
 										<li><a href="/trainings">Trainings and Seminars</a>
 										<li><a href="/farmerstats">Statistics</a>
 									</ul>
