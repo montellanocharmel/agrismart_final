@@ -15,11 +15,11 @@
 			<?php foreach ($reports as $rep) : ?>
 				<div class="col-lg-4 col-md-6">
 					<div class="single-latest-news">
-						<a href="<?= base_url('reportsreadmore/' . $tri['trivia_id']) ?>">
+						<a href="<?= base_url('reportsreadmore/' . $rep['report_id']) ?>">
 							<div class="news-image" style="background-image: url('<?= $rep['images'] ?>');"></div>
 						</a>
 						<div class="news-text-box">
-							<h3><a href="<?= base_url('reportsreadmore/' . $tri['trivia_id']) ?>"><?= $rep['title'] ?></a></h3>
+							<h3><a href="<?= base_url('reportsreadmore/' . $rep['report_id']) ?>"><?= $rep['title'] ?></a></h3>
 							<p class="blog-meta">
 								<span class="author"><i class="fas fa-user"></i> Admin</span>
 								<span class="date"><i class="fas fa-calendar"></i><?= $rep['created_at'] ?></span>
@@ -72,5 +72,10 @@
 
 	.news-text-box a {
 		align-self: flex-start;
+	}
+
+	p .excerpt {
+		text-align: justify;
+  		text-justify: inter-word;
 	}
 </style>

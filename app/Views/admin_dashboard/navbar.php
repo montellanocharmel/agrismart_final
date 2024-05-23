@@ -20,6 +20,8 @@
                 <li><a href="/adreports">Reports</a></li>
                 <li><a href="/adtrivias">Trivias</a></li>
                 <li><a href="/adtrainings">Trainings and Seminars</a></li>
+                <li><a href="/adpest">Pest</a></li>
+                <li><a href="/addisease">Diseases</a></li>
             </ul>
         </li>
 

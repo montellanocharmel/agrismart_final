@@ -15,7 +15,7 @@
                         <h2></h2>
                         <h2><?= $reports['title'] ?></h2>
 
-                        <p><?= $reports['description'] ?></p>
+                        <p style= "text-align: justify; text-justify: inter-word;"><?= $reports['description'] ?></p>
                     </div>
                 </div>
             </div>

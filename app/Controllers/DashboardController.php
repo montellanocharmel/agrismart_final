@@ -28,6 +28,8 @@ class DashboardController extends BaseController
     private $trivia;
     private $reports;
     private $trainings;
+    private $pest;
+    private $disease;
 
 
     public function __construct()
@@ -48,6 +50,9 @@ class DashboardController extends BaseController
         $this->trivia = new \App\Models\TriviasModel();
         $this->reports = new \App\Models\ReportsModel();
         $this->trainings = new \App\Models\TrainingsModel();
+        $this->pest = new \App\Models\PestModel();
+        $this-> disease= new \App\Models\DiseasesModel();
+
     }
 
     public function dashboards()
@@ -1142,7 +1147,7 @@ class DashboardController extends BaseController
         $userId = session()->get('id');
         $searchTerm = $this->request->getPost('search_term');
 
-        $trains = $this->reports->like('event_title', $searchTerm)
+        $trains = $this->trainings->like('event_title', $searchTerm)
             ->where('user_id', $userId)
             ->findAll();
 
@@ -1151,6 +1156,82 @@ class DashboardController extends BaseController
         ];
 
         return view('adminfolder/adtrainings', $data);
+    }
+
+    public function searchPest()
+    {
+        if (!session()->get('isLoggedIn')) {
+            return redirect()->to('/sign_ins');
+        }
+
+        $userId = session()->get('id');
+        $searchTerm = $this->request->getPost('search_term');
+
+        $pestss = $this->pest->like('pest_name', $searchTerm)
+            ->where('user_id', $userId)
+            ->findAll();
+
+        $data = [
+            'pest' => $pestss,
+        ];
+
+        return view('adminfolder/adpest', $data);
+    }
+
+    public function searchUserPest()
+    {
+        if (!session()->get('isLoggedIn')) {
+            return redirect()->to('/sign_ins');
+        }
+
+        $searchTerm = $this->request->getPost('search_term');
+
+        $pestss = $this->pest->like('pest_name', $searchTerm)
+            ->findAll();
+
+        $data = [
+            'pest' => $pestss,
+        ];
+
+        return view('userfolder/userpest', $data);
+    }
+
+    public function searchDisease()
+    {
+        if (!session()->get('isLoggedIn')) {
+            return redirect()->to('/sign_ins');
+        }
+
+        $userId = session()->get('id');
+        $searchTerm = $this->request->getPost('search_term');
+
+        $diss = $this->disease->like('dis_name', $searchTerm)
+            ->where('user_id', $userId)
+            ->findAll();
+
+        $data = [
+            'disease' => $diss,
+        ];
+
+        return view('adminfolder/addisease', $data);
+    }
+
+    public function searchUserDisease()
+    {
+        if (!session()->get('isLoggedIn')) {
+            return redirect()->to('/sign_ins');
+        }
+
+        $searchTerm = $this->request->getPost('search_term');
+
+        $diss = $this->pest->like('dis_name', $searchTerm)
+            ->findAll();
+
+        $data = [
+            'disease' => $diss,
+        ];
+
+        return view('userfolder/userdisease', $data);
     }
 
     public function exportToExcel()
@@ -2073,6 +2154,184 @@ class DashboardController extends BaseController
             return view('userfolder/usertrivias', $data);
         }
     }
+
+    //userpest
+    public function userpest()
+    {
+        $userId = session()->get('leader_id');
+        if (!session()->get('isLoggedIn')) {
+            return redirect()->to('/sign_ins');
+        } else {
+            $data = [
+                'pest' => $this->pest->findAll()
+            ];
+            return view('userfolder/userpest', $data);
+        }
+    }
+
+    //userdisease
+    public function userdisease()
+    {
+        $userId = session()->get('leader_id');
+        if (!session()->get('isLoggedIn')) {
+            return redirect()->to('/sign_ins');
+        } else {
+            $data = [
+                'disease' => $this->disease->findAll()
+            ];
+            return view('userfolder/userdisease', $data);
+        }
+    }
+
+       //adminpest
+       public function adpest()
+       {
+           $userId = session()->get('id');
+           if (!session()->get('isLoggedIn')) {
+               return redirect()->to('/sign_ins');
+           } else {
+               $data = [
+                   'pest' => $this->pest->where('user_id', $userId)->findAll()
+               ];
+               return view('adminfolder/adpest', $data);
+           }
+       }
+   
+       public function addnewpest()
+       {
+           $userId = session()->get('id');
+           $pestId = $this->request->getPost('pest_id');
+           $pest = $this->pest->find($pestId);
+   
+           $pest_image = $this->request->getFile('pest_image');
+           $pest_imageName = $pest_image->getRandomName();
+           $pest_image->move(ROOTPATH . 'public/uploads/pest_img/', $pest_imageName);
+   
+           $this->pest->save([
+               'pest_id' => $this->request->getPost('pest_id'),
+               'pest_image' => 'uploads/pest_img/' . $pest_imageName,
+               'pest_name' => $this->request->getPost('pest_name'),
+               'pest_type' => $this->request->getPost('pest_type'),
+               'pest_desc' => $this->request->getPost('pest_desc'),
+               'pest_solutions' => $this->request->getPost('pest_solutions'),
+               'user_id' => $userId,
+           ]);
+   
+           return redirect()->to('/adpest')->with('success', 'pest added successfully');
+           //var_dump($image);
+       }
+   
+       public function editpest($pest_id)
+       {
+           $pest = $this->pest->find($pest_id);
+   
+           return view('pest', ['pest' => $pest]);
+       }
+       public function updatepest()
+       {
+   
+           $pest_id = $this->request->getPost('pest_id');
+   
+           $dataToUpdate = [
+            'pest_id' => $this->request->getPost('pest_id'),
+            'pest_image' => 'uploads/pest_img/' . $pest_imageName,
+            'pest_name' => $this->request->getPost('pest_name'),
+            'pest_type' => $this->request->getPost('pest_type'),
+            'pest_desc' => $this->request->getPost('pest_desc'),
+            'pest_solutions' => $this->request->getPost('pest_solutions'),
+           ];
+   
+           $this->pest->update($pest_id, $dataToUpdate);
+   
+           return redirect()->to('/adpest')->with('success', 'pest updated successfully');
+       }
+       public function deletepest($pest_id)
+       {
+   
+           $pest = $this->pest->find($pest_id);
+   
+           if ($pest) {
+               $this->pest->delete($pest_id);
+               return redirect()->to('/adpest')->with('success', 'pest deleted successfully');
+           } else {
+               return redirect()->to('/adpest')->with('error', 'pest not found');
+           }
+       }
+
+      //admindisease
+      public function addisease()
+      {
+          $userId = session()->get('id');
+          if (!session()->get('isLoggedIn')) {
+              return redirect()->to('/sign_ins');
+          } else {
+              $data = [
+                  'disease' => $this->disease->where('user_id', $userId)->findAll()
+              ];
+              return view('adminfolder/addisease', $data);
+          }
+      }
+  
+      public function addnewdisease()
+      {
+          $userId = session()->get('id');
+          $diseaseId = $this->request->getPost('disease_id');
+          $disease = $this->disease->find($diseaseId);
+  
+          $dis_image = $this->request->getFile('dis_image');
+          $dis_imageName = $dis_image->getRandomName();
+          $dis_image->move(ROOTPATH . 'public/uploads/dis_img/', $dis_imageName);
+  
+          $this->disease->save([
+              'dis_id' => $this->request->getPost('dis_id'),
+              'dis_image' => 'uploads/dis_img/' . $dis_imageName,
+              'dis_name' => $this->request->getPost('dis_name'),
+              'dis_type' => $this->request->getPost('dis_type'),
+              'dis_desc' => $this->request->getPost('dis_desc'),
+              'dis_solutions' => $this->request->getPost('dis_solutions'),
+              'user_id' => $userId,
+          ]);
+  
+          return redirect()->to('/addisease')->with('success', 'disease added successfully');
+          //var_dump($image);
+      }
+  
+      public function editdisease($disease_id)
+      {
+          $disease = $this->disease->find($disease_id);
+  
+          return view('disease', ['disease' => $disease]);
+      }
+      public function updatedisease()
+      {
+  
+          $disease_id = $this->request->getPost('disease_id');
+  
+          $dataToUpdate = [
+           'disease_id' => $this->request->getPost('disease_id'),
+           'dis_image' => 'uploads/disease_img/' . $dis_imageName,
+           'dis_name' => $this->request->getPost('dis_name'),
+           'dis_type' => $this->request->getPost('dis_type'),
+           'dis_desc' => $this->request->getPost('dis_desc'),
+           'dis_solutions' => $this->request->getPost('dis_solutions'),
+          ];
+  
+          $this->disease->update($disease_id, $dataToUpdate);
+  
+          return redirect()->to('/addisease')->with('success', 'disease updated successfully');
+      }
+      public function deletedisease($disease_id)
+      {
+  
+          $disease = $this->disease->find($disease_id);
+  
+          if ($disease) {
+              $this->disease->delete($disease_id);
+              return redirect()->to('/addisease')->with('success', 'disease deleted successfully');
+          } else {
+              return redirect()->to('/addisease')->with('error', 'disease not found');
+          }
+      }
 
 
     /*public function importExcel()
