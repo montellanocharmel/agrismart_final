@@ -1,0 +1,232 @@
+ERROR - 2024-05-16 00:54:24 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in D:\laragon\www\agrismart_final\system\Database\MySQLi\Connection.php:185
+Stack trace:
+#0 D:\laragon\www\agrismart_final\system\Database\MySQLi\Connection.php(185): mysqli->real_connect('localhost', 'root', '', 'agrismart_reco', 3306, '', 0)
+#1 D:\laragon\www\agrismart_final\system\Database\BaseConnection.php(392): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 D:\laragon\www\agrismart_final\system\Database\BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+#3 D:\laragon\www\agrismart_final\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 D:\laragon\www\agrismart_final\system\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\laragon\www\agrismart_final\system\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\laragon\www\agrismart_final\app\Controllers\LoginController.php(555): CodeIgniter\BaseModel->findAll()
+#7 D:\laragon\www\agrismart_final\system\CodeIgniter.php(941): App\Controllers\LoginController->trivias()
+#8 D:\laragon\www\agrismart_final\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LoginController))
+#9 D:\laragon\www\agrismart_final\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 D:\laragon\www\agrismart_final\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 D:\laragon\www\agrismart_final\system\Commands\Server\rewrite.php(47): require_once('D:\\laragon\\www\\...')
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in D:\laragon\www\agrismart_final\system\Database\MySQLi\Connection.php:229
+Stack trace:
+#0 D:\laragon\www\agrismart_final\system\Database\BaseConnection.php(392): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 D:\laragon\www\agrismart_final\system\Database\BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+#2 D:\laragon\www\agrismart_final\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 D:\laragon\www\agrismart_final\system\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+#4 D:\laragon\www\agrismart_final\system\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+#5 D:\laragon\www\agrismart_final\app\Controllers\LoginController.php(555): CodeIgniter\BaseModel->findAll()
+#6 D:\laragon\www\agrismart_final\system\CodeIgniter.php(941): App\Controllers\LoginController->trivias()
+#7 D:\laragon\www\agrismart_final\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LoginController))
+#8 D:\laragon\www\agrismart_final\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 D:\laragon\www\agrismart_final\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 D:\laragon\www\agrismart_final\system\Commands\Server\rewrite.php(47): require_once('D:\\laragon\\www\\...')
+#11 {main}
+CRITICAL - 2024-05-16 00:54:24 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+in SYSTEMPATH\Database\BaseConnection.php on line 428.
+ 1 SYSTEMPATH\Database\BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `trivias`', [], false)
+ 3 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 5 APPPATH\Controllers\LoginController.php(555): CodeIgniter\BaseModel->findAll()
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\LoginController->trivias()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LoginController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\laragon\\www\\agrismart_final\\public\\index.php')
+ERROR - 2024-05-16 00:54:28 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in D:\laragon\www\agrismart_final\system\Database\MySQLi\Connection.php:185
+Stack trace:
+#0 D:\laragon\www\agrismart_final\system\Database\MySQLi\Connection.php(185): mysqli->real_connect('localhost', 'root', '', 'agrismart_reco', 3306, '', 0)
+#1 D:\laragon\www\agrismart_final\system\Database\BaseConnection.php(392): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 D:\laragon\www\agrismart_final\system\Database\BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+#3 D:\laragon\www\agrismart_final\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 D:\laragon\www\agrismart_final\system\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\laragon\www\agrismart_final\system\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\laragon\www\agrismart_final\app\Controllers\LoginController.php(555): CodeIgniter\BaseModel->findAll()
+#7 D:\laragon\www\agrismart_final\system\CodeIgniter.php(941): App\Controllers\LoginController->trivias()
+#8 D:\laragon\www\agrismart_final\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LoginController))
+#9 D:\laragon\www\agrismart_final\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 D:\laragon\www\agrismart_final\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 D:\laragon\www\agrismart_final\system\Commands\Server\rewrite.php(47): require_once('D:\\laragon\\www\\...')
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in D:\laragon\www\agrismart_final\system\Database\MySQLi\Connection.php:229
+Stack trace:
+#0 D:\laragon\www\agrismart_final\system\Database\BaseConnection.php(392): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 D:\laragon\www\agrismart_final\system\Database\BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+#2 D:\laragon\www\agrismart_final\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 D:\laragon\www\agrismart_final\system\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+#4 D:\laragon\www\agrismart_final\system\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+#5 D:\laragon\www\agrismart_final\app\Controllers\LoginController.php(555): CodeIgniter\BaseModel->findAll()
+#6 D:\laragon\www\agrismart_final\system\CodeIgniter.php(941): App\Controllers\LoginController->trivias()
+#7 D:\laragon\www\agrismart_final\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LoginController))
+#8 D:\laragon\www\agrismart_final\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 D:\laragon\www\agrismart_final\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 D:\laragon\www\agrismart_final\system\Commands\Server\rewrite.php(47): require_once('D:\\laragon\\www\\...')
+#11 {main}
+CRITICAL - 2024-05-16 00:54:28 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+in SYSTEMPATH\Database\BaseConnection.php on line 428.
+ 1 SYSTEMPATH\Database\BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `trivias`', [], false)
+ 3 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 5 APPPATH\Controllers\LoginController.php(555): CodeIgniter\BaseModel->findAll()
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\LoginController->trivias()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LoginController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\laragon\\www\\agrismart_final\\public\\index.php')
+ERROR - 2024-05-16 00:54:32 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in D:\laragon\www\agrismart_final\system\Database\MySQLi\Connection.php:185
+Stack trace:
+#0 D:\laragon\www\agrismart_final\system\Database\MySQLi\Connection.php(185): mysqli->real_connect('localhost', 'root', '', 'agrismart_reco', 3306, '', 0)
+#1 D:\laragon\www\agrismart_final\system\Database\BaseConnection.php(392): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 D:\laragon\www\agrismart_final\system\Database\BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+#3 D:\laragon\www\agrismart_final\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 D:\laragon\www\agrismart_final\system\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\laragon\www\agrismart_final\system\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\laragon\www\agrismart_final\app\Controllers\LoginController.php(555): CodeIgniter\BaseModel->findAll()
+#7 D:\laragon\www\agrismart_final\system\CodeIgniter.php(941): App\Controllers\LoginController->trivias()
+#8 D:\laragon\www\agrismart_final\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LoginController))
+#9 D:\laragon\www\agrismart_final\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 D:\laragon\www\agrismart_final\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 D:\laragon\www\agrismart_final\system\Commands\Server\rewrite.php(47): require_once('D:\\laragon\\www\\...')
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in D:\laragon\www\agrismart_final\system\Database\MySQLi\Connection.php:229
+Stack trace:
+#0 D:\laragon\www\agrismart_final\system\Database\BaseConnection.php(392): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 D:\laragon\www\agrismart_final\system\Database\BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+#2 D:\laragon\www\agrismart_final\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 D:\laragon\www\agrismart_final\system\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+#4 D:\laragon\www\agrismart_final\system\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+#5 D:\laragon\www\agrismart_final\app\Controllers\LoginController.php(555): CodeIgniter\BaseModel->findAll()
+#6 D:\laragon\www\agrismart_final\system\CodeIgniter.php(941): App\Controllers\LoginController->trivias()
+#7 D:\laragon\www\agrismart_final\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LoginController))
+#8 D:\laragon\www\agrismart_final\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 D:\laragon\www\agrismart_final\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 D:\laragon\www\agrismart_final\system\Commands\Server\rewrite.php(47): require_once('D:\\laragon\\www\\...')
+#11 {main}
+CRITICAL - 2024-05-16 00:54:32 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+in SYSTEMPATH\Database\BaseConnection.php on line 428.
+ 1 SYSTEMPATH\Database\BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `trivias`', [], false)
+ 3 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 5 APPPATH\Controllers\LoginController.php(555): CodeIgniter\BaseModel->findAll()
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\LoginController->trivias()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LoginController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\laragon\\www\\agrismart_final\\public\\index.php')
+ERROR - 2024-05-16 00:55:11 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in D:\laragon\www\agrismart_final\system\Database\MySQLi\Connection.php:185
+Stack trace:
+#0 D:\laragon\www\agrismart_final\system\Database\MySQLi\Connection.php(185): mysqli->real_connect('localhost', 'root', '', 'agrismart_reco', 3306, '', 0)
+#1 D:\laragon\www\agrismart_final\system\Database\BaseConnection.php(392): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 D:\laragon\www\agrismart_final\system\Database\BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+#3 D:\laragon\www\agrismart_final\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 D:\laragon\www\agrismart_final\system\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\laragon\www\agrismart_final\system\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\laragon\www\agrismart_final\app\Controllers\LoginController.php(571): CodeIgniter\BaseModel->findAll()
+#7 D:\laragon\www\agrismart_final\system\CodeIgniter.php(941): App\Controllers\LoginController->trainings()
+#8 D:\laragon\www\agrismart_final\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LoginController))
+#9 D:\laragon\www\agrismart_final\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 D:\laragon\www\agrismart_final\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 D:\laragon\www\agrismart_final\system\Commands\Server\rewrite.php(47): require_once('D:\\laragon\\www\\...')
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in D:\laragon\www\agrismart_final\system\Database\MySQLi\Connection.php:229
+Stack trace:
+#0 D:\laragon\www\agrismart_final\system\Database\BaseConnection.php(392): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 D:\laragon\www\agrismart_final\system\Database\BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+#2 D:\laragon\www\agrismart_final\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 D:\laragon\www\agrismart_final\system\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+#4 D:\laragon\www\agrismart_final\system\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+#5 D:\laragon\www\agrismart_final\app\Controllers\LoginController.php(571): CodeIgniter\BaseModel->findAll()
+#6 D:\laragon\www\agrismart_final\system\CodeIgniter.php(941): App\Controllers\LoginController->trainings()
+#7 D:\laragon\www\agrismart_final\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LoginController))
+#8 D:\laragon\www\agrismart_final\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 D:\laragon\www\agrismart_final\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 D:\laragon\www\agrismart_final\system\Commands\Server\rewrite.php(47): require_once('D:\\laragon\\www\\...')
+#11 {main}
+CRITICAL - 2024-05-16 00:55:11 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+in SYSTEMPATH\Database\BaseConnection.php on line 428.
+ 1 SYSTEMPATH\Database\BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `trainings`', [], false)
+ 3 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 5 APPPATH\Controllers\LoginController.php(571): CodeIgniter\BaseModel->findAll()
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\LoginController->trainings()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LoginController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\laragon\\www\\agrismart_final\\public\\index.php')
+CRITICAL - 2024-05-16 00:56:03 --> ErrorException: Undefined variable $tri
+in APPPATH\Views\landing_page_inc\reports.php on line 18.
+ 1 APPPATH\Views\landing_page_inc\reports.php(18): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $tri', 'D:\\laragon\\www\\agrismart_final\\app\\Views\\landing_page_inc\\reports.php', 18)
+ 2 SYSTEMPATH\View\View.php(228): include('D:\\laragon\\www\\agrismart_final\\app\\Views\\landing_page_inc\\reports.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(469): CodeIgniter\View\View->render('/landing_page_inc/reports', null, true)
+ 5 APPPATH\Views\reports_sec.php(6): CodeIgniter\View\View->include('/landing_page_inc/reports')
+ 6 SYSTEMPATH\View\View.php(228): include('D:\\laragon\\www\\agrismart_final\\app\\Views\\reports_sec.php')
+ 7 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('reports_sec', [], true)
+ 9 APPPATH\Controllers\LoginController.php(565): view('reports_sec', [...])
+10 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\LoginController->reports()
+11 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LoginController))
+12 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\laragon\\www\\agrismart_final\\public\\index.php')
+CRITICAL - 2024-05-16 00:56:16 --> ErrorException: Undefined variable $tri
+in APPPATH\Views\landing_page_inc\reports.php on line 18.
+ 1 APPPATH\Views\landing_page_inc\reports.php(18): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $tri', 'D:\\laragon\\www\\agrismart_final\\app\\Views\\landing_page_inc\\reports.php', 18)
+ 2 SYSTEMPATH\View\View.php(228): include('D:\\laragon\\www\\agrismart_final\\app\\Views\\landing_page_inc\\reports.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(469): CodeIgniter\View\View->render('/landing_page_inc/reports', null, true)
+ 5 APPPATH\Views\reports_sec.php(6): CodeIgniter\View\View->include('/landing_page_inc/reports')
+ 6 SYSTEMPATH\View\View.php(228): include('D:\\laragon\\www\\agrismart_final\\app\\Views\\reports_sec.php')
+ 7 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('reports_sec', [], true)
+ 9 APPPATH\Controllers\LoginController.php(565): view('reports_sec', [...])
+10 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\LoginController->reports()
+11 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LoginController))
+12 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\laragon\\www\\agrismart_final\\public\\index.php')
+CRITICAL - 2024-05-16 00:57:11 --> ErrorException: Undefined variable $tri
+in APPPATH\Views\landing_page_inc\reports.php on line 18.
+ 1 APPPATH\Views\landing_page_inc\reports.php(18): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $tri', 'D:\\laragon\\www\\agrismart_final\\app\\Views\\landing_page_inc\\reports.php', 18)
+ 2 SYSTEMPATH\View\View.php(228): include('D:\\laragon\\www\\agrismart_final\\app\\Views\\landing_page_inc\\reports.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(469): CodeIgniter\View\View->render('/landing_page_inc/reports', null, true)
+ 5 APPPATH\Views\reports_sec.php(6): CodeIgniter\View\View->include('/landing_page_inc/reports')
+ 6 SYSTEMPATH\View\View.php(228): include('D:\\laragon\\www\\agrismart_final\\app\\Views\\reports_sec.php')
+ 7 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('reports_sec', [], true)
+ 9 APPPATH\Controllers\LoginController.php(565): view('reports_sec', [...])
+10 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\LoginController->reports()
+11 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LoginController))
+12 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\laragon\\www\\agrismart_final\\public\\index.php')
+CRITICAL - 2024-05-16 01:19:16 --> ErrorException: Undefined array key "farmer_name"
+in APPPATH\Controllers\DashboardController.php on line 267.
+ 1 APPPATH\Controllers\DashboardController.php(267): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "farmer_name"', 'D:\\laragon\\www\\agrismart_final\\app\\Controllers\\DashboardController.php', 267)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->addnewplanting()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\laragon\\www\\agrismart_final\\public\\index.php')

@@ -155,7 +155,13 @@
                     </div>
                     <div class="mb-3">
                         <label for="edit_validity" class="form-label">Report Validation</label>
-                        <input type="text" name="validity" id="edit_validity" class="form-control">
+                        <div class="form-input">
+                            <select class="form-select mb-3" name="validity" id="edit_validity"tabindex="10" required>
+
+                                <option value="pending">pending</option>
+                                <option value="validated">validate</option>
+                            </select>
+                        </div>
                     </div>
 
                     <button type="submit" class="btn btn-primary">Save Changes</button>

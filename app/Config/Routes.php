@@ -69,8 +69,6 @@ $routes->post('/damage/update', 'DashboardController::updatedamage');
 $routes->post('damage/delete/(:num)', 'DashboardController::deletedamage/$1');
 
 // maps
-
-
 $routes->get('/map', 'DashboardController::map');
 $routes->get('/eq', 'DashboardController::eq');
 $routes->get('/maps', 'DashboardController::farmermap');
@@ -133,6 +131,11 @@ $routes->post('/searchtrivia', 'DashboardController::searchTrivia');
 $routes->post('/searchreports', 'DashboardController::searchReports');
 $routes->post('/searchtrainings', 'DashboardController::searchTrainings');
 $routes->post('/searchusertrivia', 'DashboardController::searchUserTrivia');
+$routes->post('/searchpest', 'DashboardController::searchPest');
+$routes->post('/searchdisease', 'DashboardController::searchDisease');
+$routes->post('/searchuserpest', 'DashboardController::searchuserPest');
+$routes->post('/searchuserdisease', 'DashboardController::searchuserDisease');
+
 
 // export
 $routes->get('/exportToExcel', 'DashboardController::exportToExcel');
@@ -171,13 +174,28 @@ $routes->post('/reports/update', 'DashboardController::updatereport');
 $routes->post('adreports/delete/(:num)', 'DashboardController::deletereport/$1');
 $routes->get('/reportsreadmore/(:num)', 'LoginController::reportsreadmore/$1');
 
-
 //adtrainings
 $routes->get('/adtrainings', 'DashboardController::adtrainings');
 $routes->post('/addtraining', 'DashboardController::addnewtraining');
 $routes->post('/adtrainings/edit/(:num)', 'DashboardController::edittraining/$1');
 $routes->post('/trainings/update', 'DashboardController::updatetraining');
 $routes->post('adtrainings/delete/(:num)', 'DashboardController::deletetraining/$1');
+
+//adpest
+$routes->get('/adpest', 'DashboardController::adpest');
+$routes->post('/addpest', 'DashboardController::addnewpest');
+$routes->post('/adpest/edit/(:num)', 'DashboardController::editpest/$1');
+$routes->post('/adpest/update', 'DashboardController::updatepest');
+$routes->post('adpest/delete/(:num)', 'DashboardController::deletepest/$1');
+$routes->get('/pestreadmore/(:num)', 'LoginController::pestreadmore/$1');
+
+//addiseases
+$routes->get('/addisease', 'DashboardController::addisease');
+$routes->post('/adddisease', 'DashboardController::addnewdisease');
+$routes->post('/addisease/edit/(:num)', 'DashboardController::editdisease/$1');
+$routes->post('/addisease/update', 'DashboardController::updatedisease');
+$routes->post('addisease/delete/(:num)', 'DashboardController::deletedisease/$1');
+$routes->get('/diseasereadmore/(:num)', 'LoginController::diseasereadmore/$1');
 
 //harvest
 $routes->get('/userreports', 'DashboardController::userreports');

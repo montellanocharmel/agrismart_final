@@ -1,0 +1,239 @@
+CRITICAL - 2024-05-23 02:15:58 --> ErrorException: Undefined property: App\Controllers\DashboardController::$disease
+in APPPATH\Controllers\DashboardController.php on line 2269.
+ 1 APPPATH\Controllers\DashboardController.php(2269): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\DashboardController::$disease', 'D:\\laragon\\www\\agrismart_final\\app\\Controllers\\DashboardController.php', 2269)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->addisease()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\laragon\\www\\agrismart_final\\public\\index.php')
+ERROR - 2024-05-23 02:18:24 --> mysqli_sql_exception: Unknown column 'user_id' in 'where clause' in D:\laragon\www\agrismart_final\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 D:\laragon\www\agrismart_final\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *\nFROM `...', 0)
+#1 D:\laragon\www\agrismart_final\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 D:\laragon\www\agrismart_final\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 D:\laragon\www\agrismart_final\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 D:\laragon\www\agrismart_final\system\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\laragon\www\agrismart_final\system\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\laragon\www\agrismart_final\app\Controllers\DashboardController.php(2269): CodeIgniter\BaseModel->findAll()
+#7 D:\laragon\www\agrismart_final\system\CodeIgniter.php(941): App\Controllers\DashboardController->addisease()
+#8 D:\laragon\www\agrismart_final\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+#9 D:\laragon\www\agrismart_final\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 D:\laragon\www\agrismart_final\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 D:\laragon\www\agrismart_final\system\Commands\Server\rewrite.php(47): require_once('D:\\laragon\\www\\...')
+#12 {main}
+CRITICAL - 2024-05-23 02:18:24 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'user_id' in 'where clause'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `disease`
+WHERE `user_id` = :user_id:', [...], false)
+ 2 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\DashboardController.php(2269): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->addisease()
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\laragon\\www\\agrismart_final\\public\\index.php')
+CRITICAL - 2024-05-23 02:18:24 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'user_id' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `disease`
+WHERE `user_id` = \'20\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `disease`
+WHERE `user_id` = \'20\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `disease`
+WHERE `user_id` = :user_id:', [...], false)
+ 4 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Controllers\DashboardController.php(2269): CodeIgniter\BaseModel->findAll()
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->addisease()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\laragon\\www\\agrismart_final\\public\\index.php')
+CRITICAL - 2024-05-23 02:18:24 --> [Caused by] mysqli_sql_exception: Unknown column 'user_id' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *
+FROM `disease`
+WHERE `user_id` = \'20\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `disease`
+WHERE `user_id` = \'20\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `disease`
+WHERE `user_id` = \'20\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `disease`
+WHERE `user_id` = :user_id:', [...], false)
+ 5 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\DashboardController.php(2269): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->addisease()
+ 9 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\laragon\\www\\agrismart_final\\public\\index.php')
+ERROR - 2024-05-23 02:51:08 --> mysqli_sql_exception: Column 'pest_desc' cannot be null in D:\laragon\www\agrismart_final\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 D:\laragon\www\agrismart_final\system\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `pe...', 0)
+#1 D:\laragon\www\agrismart_final\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `pe...')
+#2 D:\laragon\www\agrismart_final\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `pe...')
+#3 D:\laragon\www\agrismart_final\system\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `pe...', Array, false)
+#4 D:\laragon\www\agrismart_final\system\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+#5 D:\laragon\www\agrismart_final\system\BaseModel.php(802): CodeIgniter\Model->doInsert(Array)
+#6 D:\laragon\www\agrismart_final\system\Model.php(744): CodeIgniter\BaseModel->insert(Array, false)
+#7 D:\laragon\www\agrismart_final\system\BaseModel.php(713): CodeIgniter\Model->insert(Array, false)
+#8 D:\laragon\www\agrismart_final\app\Controllers\DashboardController.php(2217): CodeIgniter\BaseModel->save(Array)
+#9 D:\laragon\www\agrismart_final\system\CodeIgniter.php(941): App\Controllers\DashboardController->addnewpest()
+#10 D:\laragon\www\agrismart_final\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+#11 D:\laragon\www\agrismart_final\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 D:\laragon\www\agrismart_final\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#13 D:\laragon\www\agrismart_final\system\Commands\Server\rewrite.php(47): require_once('D:\\laragon\\www\\...')
+#14 {main}
+CRITICAL - 2024-05-23 02:51:08 --> CodeIgniter\Database\Exceptions\DatabaseException: Column 'pest_desc' cannot be null
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `pest` (`pest_image`, `pest_name`, `pest_type`, `pest_desc`, `pest_solutions`, `user_id`) VALUES (:pest_image:, :pest_name:, :pest_type:, :pest_desc:, :pest_solutions:, :user_id:)', [...], false)
+ 2 SYSTEMPATH\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(802): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(744): CodeIgniter\BaseModel->insert([...], false)
+ 5 SYSTEMPATH\BaseModel.php(713): CodeIgniter\Model->insert([...], false)
+ 6 APPPATH\Controllers\DashboardController.php(2217): CodeIgniter\BaseModel->save([...])
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->addnewpest()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\laragon\\www\\agrismart_final\\public\\index.php')
+CRITICAL - 2024-05-23 02:51:08 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Column 'pest_desc' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `pest` (`pest_image`, `pest_name`, `pest_type`, `pest_desc`, `pest_solutions`, `user_id`) VALUES (\'uploads/pest_img/1716432668_1b76c67de9891d4ce754.jpg\', \'Yellow \', \'\', NULL, \'\', \'20\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `pest` (`pest_image`, `pest_name`, `pest_type`, `pest_desc`, `pest_solutions`, `user_id`) VALUES (\'uploads/pest_img/1716432668_1b76c67de9891d4ce754.jpg\', \'Yellow \', \'\', NULL, \'\', \'20\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `pest` (`pest_image`, `pest_name`, `pest_type`, `pest_desc`, `pest_solutions`, `user_id`) VALUES (:pest_image:, :pest_name:, :pest_type:, :pest_desc:, :pest_solutions:, :user_id:)', [...], false)
+ 4 SYSTEMPATH\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(802): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(744): CodeIgniter\BaseModel->insert([...], false)
+ 7 SYSTEMPATH\BaseModel.php(713): CodeIgniter\Model->insert([...], false)
+ 8 APPPATH\Controllers\DashboardController.php(2217): CodeIgniter\BaseModel->save([...])
+ 9 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->addnewpest()
+10 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+11 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\laragon\\www\\agrismart_final\\public\\index.php')
+CRITICAL - 2024-05-23 02:51:08 --> [Caused by] mysqli_sql_exception: Column 'pest_desc' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `pest` (`pest_image`, `pest_name`, `pest_type`, `pest_desc`, `pest_solutions`, `user_id`) VALUES (\'uploads/pest_img/1716432668_1b76c67de9891d4ce754.jpg\', \'Yellow \', \'\', NULL, \'\', \'20\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `pest` (`pest_image`, `pest_name`, `pest_type`, `pest_desc`, `pest_solutions`, `user_id`) VALUES (\'uploads/pest_img/1716432668_1b76c67de9891d4ce754.jpg\', \'Yellow \', \'\', NULL, \'\', \'20\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `pest` (`pest_image`, `pest_name`, `pest_type`, `pest_desc`, `pest_solutions`, `user_id`) VALUES (\'uploads/pest_img/1716432668_1b76c67de9891d4ce754.jpg\', \'Yellow \', \'\', NULL, \'\', \'20\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `pest` (`pest_image`, `pest_name`, `pest_type`, `pest_desc`, `pest_solutions`, `user_id`) VALUES (:pest_image:, :pest_name:, :pest_type:, :pest_desc:, :pest_solutions:, :user_id:)', [...], false)
+ 5 SYSTEMPATH\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(802): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(744): CodeIgniter\BaseModel->insert([...], false)
+ 8 SYSTEMPATH\BaseModel.php(713): CodeIgniter\Model->insert([...], false)
+ 9 APPPATH\Controllers\DashboardController.php(2217): CodeIgniter\BaseModel->save([...])
+10 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->addnewpest()
+11 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+12 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\laragon\\www\\agrismart_final\\public\\index.php')
+ERROR - 2024-05-23 03:03:37 --> mysqli_sql_exception: Column 'pest_desc' cannot be null in D:\laragon\www\agrismart_final\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 D:\laragon\www\agrismart_final\system\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `pe...', 0)
+#1 D:\laragon\www\agrismart_final\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `pe...')
+#2 D:\laragon\www\agrismart_final\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `pe...')
+#3 D:\laragon\www\agrismart_final\system\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `pe...', Array, false)
+#4 D:\laragon\www\agrismart_final\system\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+#5 D:\laragon\www\agrismart_final\system\BaseModel.php(802): CodeIgniter\Model->doInsert(Array)
+#6 D:\laragon\www\agrismart_final\system\Model.php(744): CodeIgniter\BaseModel->insert(Array, false)
+#7 D:\laragon\www\agrismart_final\system\BaseModel.php(713): CodeIgniter\Model->insert(Array, false)
+#8 D:\laragon\www\agrismart_final\app\Controllers\DashboardController.php(2217): CodeIgniter\BaseModel->save(Array)
+#9 D:\laragon\www\agrismart_final\system\CodeIgniter.php(941): App\Controllers\DashboardController->addnewpest()
+#10 D:\laragon\www\agrismart_final\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+#11 D:\laragon\www\agrismart_final\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 D:\laragon\www\agrismart_final\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#13 D:\laragon\www\agrismart_final\system\Commands\Server\rewrite.php(47): require_once('D:\\laragon\\www\\...')
+#14 {main}
+CRITICAL - 2024-05-23 03:03:37 --> CodeIgniter\Database\Exceptions\DatabaseException: Column 'pest_desc' cannot be null
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `pest` (`pest_image`, `pest_name`, `pest_type`, `pest_desc`, `pest_solutions`, `user_id`) VALUES (:pest_image:, :pest_name:, :pest_type:, :pest_desc:, :pest_solutions:, :user_id:)', [...], false)
+ 2 SYSTEMPATH\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(802): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(744): CodeIgniter\BaseModel->insert([...], false)
+ 5 SYSTEMPATH\BaseModel.php(713): CodeIgniter\Model->insert([...], false)
+ 6 APPPATH\Controllers\DashboardController.php(2217): CodeIgniter\BaseModel->save([...])
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->addnewpest()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\laragon\\www\\agrismart_final\\public\\index.php')
+CRITICAL - 2024-05-23 03:03:37 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Column 'pest_desc' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `pest` (`pest_image`, `pest_name`, `pest_type`, `pest_desc`, `pest_solutions`, `user_id`) VALUES (\'uploads/pest_img/1716433417_5b68d5c2673a20167ad0.jpg\', \'Yellow Stem Borer\', \'Rice Stem Borer\', NULL, \'Gumamit ng mga barayti na matibay laban sa peste.\\r\\nMagtanim at mag-ani sa tamang oras.\\r\\nAlisin at sunugin ang mga natitirang dayami.\\r\\nGumamit ng mga biological control agents tulad ng Trichogramma spp.\', \'20\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `pest` (`pest_image`, `pest_name`, `pest_type`, `pest_desc`, `pest_solutions`, `user_id`) VALUES (\'uploads/pest_img/1716433417_5b68d5c2673a20167ad0.jpg\', \'Yellow Stem Borer\', \'Rice Stem Borer\', NULL, \'Gumamit ng mga barayti na matibay laban sa peste.\\r\\nMagtanim at mag-ani sa tamang oras.\\r\\nAlisin at sunugin ang mga natitirang dayami.\\r\\nGumamit ng mga biological control agents tulad ng Trichogramma spp.\', \'20\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `pest` (`pest_image`, `pest_name`, `pest_type`, `pest_desc`, `pest_solutions`, `user_id`) VALUES (:pest_image:, :pest_name:, :pest_type:, :pest_desc:, :pest_solutions:, :user_id:)', [...], false)
+ 4 SYSTEMPATH\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(802): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(744): CodeIgniter\BaseModel->insert([...], false)
+ 7 SYSTEMPATH\BaseModel.php(713): CodeIgniter\Model->insert([...], false)
+ 8 APPPATH\Controllers\DashboardController.php(2217): CodeIgniter\BaseModel->save([...])
+ 9 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->addnewpest()
+10 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+11 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\laragon\\www\\agrismart_final\\public\\index.php')
+CRITICAL - 2024-05-23 03:03:37 --> [Caused by] mysqli_sql_exception: Column 'pest_desc' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `pest` (`pest_image`, `pest_name`, `pest_type`, `pest_desc`, `pest_solutions`, `user_id`) VALUES (\'uploads/pest_img/1716433417_5b68d5c2673a20167ad0.jpg\', \'Yellow Stem Borer\', \'Rice Stem Borer\', NULL, \'Gumamit ng mga barayti na matibay laban sa peste.\\r\\nMagtanim at mag-ani sa tamang oras.\\r\\nAlisin at sunugin ang mga natitirang dayami.\\r\\nGumamit ng mga biological control agents tulad ng Trichogramma spp.\', \'20\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `pest` (`pest_image`, `pest_name`, `pest_type`, `pest_desc`, `pest_solutions`, `user_id`) VALUES (\'uploads/pest_img/1716433417_5b68d5c2673a20167ad0.jpg\', \'Yellow Stem Borer\', \'Rice Stem Borer\', NULL, \'Gumamit ng mga barayti na matibay laban sa peste.\\r\\nMagtanim at mag-ani sa tamang oras.\\r\\nAlisin at sunugin ang mga natitirang dayami.\\r\\nGumamit ng mga biological control agents tulad ng Trichogramma spp.\', \'20\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `pest` (`pest_image`, `pest_name`, `pest_type`, `pest_desc`, `pest_solutions`, `user_id`) VALUES (\'uploads/pest_img/1716433417_5b68d5c2673a20167ad0.jpg\', \'Yellow Stem Borer\', \'Rice Stem Borer\', NULL, \'Gumamit ng mga barayti na matibay laban sa peste.\\r\\nMagtanim at mag-ani sa tamang oras.\\r\\nAlisin at sunugin ang mga natitirang dayami.\\r\\nGumamit ng mga biological control agents tulad ng Trichogramma spp.\', \'20\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `pest` (`pest_image`, `pest_name`, `pest_type`, `pest_desc`, `pest_solutions`, `user_id`) VALUES (:pest_image:, :pest_name:, :pest_type:, :pest_desc:, :pest_solutions:, :user_id:)', [...], false)
+ 5 SYSTEMPATH\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(802): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(744): CodeIgniter\BaseModel->insert([...], false)
+ 8 SYSTEMPATH\BaseModel.php(713): CodeIgniter\Model->insert([...], false)
+ 9 APPPATH\Controllers\DashboardController.php(2217): CodeIgniter\BaseModel->save([...])
+10 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->addnewpest()
+11 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+12 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\laragon\\www\\agrismart_final\\public\\index.php')
+CRITICAL - 2024-05-23 03:08:11 --> ErrorException: Undefined array key "image"
+in APPPATH\Views\admin_dashboard\main-pest.php on line 49.
+ 1 APPPATH\Views\admin_dashboard\main-pest.php(49): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "image"', 'D:\\laragon\\www\\agrismart_final\\app\\Views\\admin_dashboard\\main-pest.php', 49)
+ 2 SYSTEMPATH\View\View.php(228): include('D:\\laragon\\www\\agrismart_final\\app\\Views\\admin_dashboard\\main-pest.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(469): CodeIgniter\View\View->render('/admin_dashboard/main-pest', null, true)
+ 5 APPPATH\Views\adminfolder\adpest.php(6): CodeIgniter\View\View->include('/admin_dashboard/main-pest')
+ 6 SYSTEMPATH\View\View.php(228): include('D:\\laragon\\www\\agrismart_final\\app\\Views\\adminfolder\\adpest.php')
+ 7 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('adminfolder/adpest', [], true)
+ 9 APPPATH\Controllers\DashboardController.php(2196): view('adminfolder/adpest', [...])
+10 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->adpest()
+11 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+12 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\laragon\\www\\agrismart_final\\public\\index.php')
+CRITICAL - 2024-05-23 04:09:05 --> ErrorException: Undefined property: App\Controllers\DashboardController::$dis
+in APPPATH\Controllers\DashboardController.php on line 2285.
+ 1 APPPATH\Controllers\DashboardController.php(2285): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\DashboardController::$dis', 'D:\\laragon\\www\\agrismart_final\\app\\Controllers\\DashboardController.php', 2285)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->addnewdisease()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\laragon\\www\\agrismart_final\\public\\index.php')
+CRITICAL - 2024-05-23 04:10:01 --> ErrorException: Undefined array key "image"
+in APPPATH\Views\admin_dashboard\main-disease.php on line 49.
+ 1 APPPATH\Views\admin_dashboard\main-disease.php(49): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "image"', 'D:\\laragon\\www\\agrismart_final\\app\\Views\\admin_dashboard\\main-disease.php', 49)
+ 2 SYSTEMPATH\View\View.php(228): include('D:\\laragon\\www\\agrismart_final\\app\\Views\\admin_dashboard\\main-disease.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(469): CodeIgniter\View\View->render('/admin_dashboard/main-disease', null, true)
+ 5 APPPATH\Views\adminfolder\addisease.php(6): CodeIgniter\View\View->include('/admin_dashboard/main-disease')
+ 6 SYSTEMPATH\View\View.php(228): include('D:\\laragon\\www\\agrismart_final\\app\\Views\\adminfolder\\addisease.php')
+ 7 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('adminfolder/addisease', [], true)
+ 9 APPPATH\Controllers\DashboardController.php(2271): view('adminfolder/addisease', [...])
+10 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->addisease()
+11 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+12 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\laragon\\www\\agrismart_final\\public\\index.php')
