@@ -18,6 +18,8 @@
 										<li><a href="/trivias">Trivias</a></li>
 										<li><a href="/reports">Reports</a>
 										<li><a href="/trainings">Trainings and Seminars</a>
+										<li><a href="/pest">Agricultural Pests</a>
+										<li><a href="/disease">Agricultural Diseases</a>
 										<li><a href="/farmerstats">Statistics</a>
 									</ul>
 								</li>

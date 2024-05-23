@@ -22,6 +22,8 @@ class LoginController extends BaseController
     private $trivia;
     private $reports;
     private $training;
+    private $disease;
+    private $pest;
 
     public function __construct()
     {
@@ -37,6 +39,8 @@ class LoginController extends BaseController
         $this->trivia = new \App\Models\TriviasModel();
         $this->reports = new \App\Models\ReportsModel();
         $this->training = new \App\Models\TrainingsModel();
+        $this->disease = new \App\Models\DiseasesModel();
+        $this->pest = new \App\Models\PestModel();
     }
 
     public function index()
@@ -599,5 +603,51 @@ class LoginController extends BaseController
         ];
 
         return view('readmorereport', $data);
+    }
+
+    public function pest()
+    {
+        $data = [
+            'pest' => $this->pest->findAll()
+        ];
+        return view('pest_sec', $data);
+    }
+
+    public function disease()
+    {
+        $data = [
+            'disease' => $this->disease->findAll()
+        ];
+        return view('disease_sec', $data);
+    }
+
+    public function diseasereadmore($disease_id)
+    {
+        $disease = $this->disease->find($disease_id);
+
+        if (!$disease) {
+            throw new \CodeIgniter\Exceptions\PageNotFoundException('disease not found: ' . $disease_id);
+        }
+
+        $data = [
+            'disease' => $disease
+        ];
+
+        return view('readmoredisease', $data);
+    }
+
+    public function pestreadmore($pest_id)
+    {
+        $pest = $this->pest->find($pest_id);
+
+        if (!$pest) {
+            throw new \CodeIgniter\Exceptions\PageNotFoundException('pest not found: ' . $pest_id);
+        }
+
+        $data = [
+            'pest' => $pest
+        ];
+
+        return view('readmorepest', $data);
     }
 }

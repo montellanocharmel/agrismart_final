@@ -42,7 +42,7 @@
                                     <td><img src="<?= 'http://agrismart_final.test/'.$pes['pest_image'] ?>" alt="" class="avatar-img rounded-circle mx-auto d-block" style="display: block; margin: 0 auto; width: 200px; height: 200px;"></td>
                                         <td><?= $pes['pest_name'] ?></td>
                                         <td><?= $pes['pest_type'] ?></td>
-                                        <td><?= $pes['pest_description'] ?></td>
+                                        <td><?= $pes['pest_desc'] ?></td>
                                         <td><?= $pes['pest_solutions'] ?></td>
                                     </tr>
                                 <?php endforeach; ?>

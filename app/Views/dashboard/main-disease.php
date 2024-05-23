@@ -42,7 +42,7 @@
                                     <td><img src="<?= 'http://agrismart_final.test/'.$dis['dis_image'] ?>" alt="" class="avatar-img rounded-circle mx-auto d-block" style="display: block; margin: 0 auto; width: 200px; height: 200px;"></td>
                                         <td><?= $dis['dis_name'] ?></td>
                                         <td><?= $dis['dis_type'] ?></td>
-                                        <td><?= $dis['dis_description'] ?></td>
+                                        <td><?= $dis['dis_desc'] ?></td>
                                         <td><?= $dis['dis_solutions'] ?></td>
                                     </tr>
                                 <?php endforeach; ?>

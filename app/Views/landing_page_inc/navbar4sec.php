@@ -26,6 +26,8 @@
 								
 								<li><a href="/reports">Reports</a>
 								<li><a href="/trainings">Trainings and Seminars</a>
+								<li><a href="/pest">Agricultural Pests</a>
+								<li><a href="/disease">Agricultural Diseases</a>
 								<li><a href="/farmerstats">Statistics</a>
 								<li><a href="#contact">Contact</a>
 
