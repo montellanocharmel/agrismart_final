@@ -197,11 +197,20 @@ $routes->post('/addisease/update', 'DashboardController::updatedisease');
 $routes->post('addisease/delete/(:num)', 'DashboardController::deletedisease/$1');
 $routes->get('/diseasereadmore/(:num)', 'LoginController::diseasereadmore/$1');
 
-//harvest
+//userreports
 $routes->get('/userreports', 'DashboardController::userreports');
-//harvest
+//usertrivias
 $routes->get('/usertrivias', 'DashboardController::usertrivias');
-//harvest
+//usertrainings
 $routes->get('/usertrainings', 'DashboardController::usertrainings');
 
+//userpest
+$routes->get('/userpest', 'DashboardController::userpest');
+
+//userdisease
+$routes->get('/userdisease', 'DashboardController::userdisease');
+
 $routes->get('/trivias', 'LoginController::trivias');
+
+$routes->get('/disease', 'LoginController::disease');
+$routes->get('/pest', 'LoginController::pest');

@@ -20,6 +20,8 @@
                 <li><a href="/dashboards">Dashboard</a></li>
                 <li><a href="/userreports">Reports</a></li>
                 <li><a href="/usertrivias">Trivias</a></li>
+                <li><a href="/userpest">Pests</a></li>
+                <li><a href="/userdisease">Diseases</a></li>
                 <li><a href="/usertrainings">Trainings and Seminars</a></li>
             </ul>
         </li>
