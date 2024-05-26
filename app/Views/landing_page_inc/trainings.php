@@ -15,13 +15,14 @@
 			<?php foreach ($training as $train) : ?>
 				<div class="col-lg-4 col-md-6">
 					<div class="single-latest-news">
-						<a href="/trainings">
+					<a href="<?= base_url('trainingreadmore/' . $train['training_id']) ?>">
+					
 							<div class="news-image" style="background-image: url('<?= $train['image_training'] ?>');"></div>
 						</a>
 						<div class="news-text-box">
-							<h3><a href="/trainings"><?= $train['event_title'] ?></a></h3>
+							<h3><a href="<?= base_url('trainingreadmore/' . $train['training_id']) ?>"><?= $train['event_title'] ?></a></h3>
 							<p class="excerpt">Date: <?= $train['date'] ?> <br>Time: <?= $train['time'] ?> <br> Resource Speaker: <?= $train['speaker'] ?> <br>Venue: <?= $train['place'] ?></p>
-
+							<a href="<?= base_url('trainingreadmore/' . $train['training_id']) ?>" class="read-more-btn">read more <i class="fas fa-angle-right"></i></a>
 						</div>
 					</div>
 				</div>
@@ -30,9 +31,7 @@
 
 		</div>
 		<div class="row">
-			<div class="col-lg-12 text-center">
-				<a href="news.html" class="boxed-btn">More Info</a>
-			</div>
+
 		</div>
 	</div>
 </div>

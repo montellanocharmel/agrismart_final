@@ -64,7 +64,16 @@
                                                         '<?= $tra['validity_training']; ?>',
                                                         )">Edit</button>
                                                     <button class="dropdown-item" onclick="deletetraining(<?= $tra['training_id']; ?>)">Delete</button>
-                                                    <button type="button" class="dropdown-item" onclick="openAddTriviaModal('<?= $tra['training_id']; ?>', '<?= $tra['image_training']; ?>', '<?= $tra['event_title']; ?>', '<?= $tra['date']; ?>', '<?= $tra['time']; ?>', '<?= $tra['speaker']; ?>', '<?= $tra['place']; ?>'), '<?= $tra['validity_training']; ?>',">Add Trainings</button>
+                                                    <button type="button" class="dropdown-item" onclick="openAddTrainingModal(
+                                                        <?= $tra['training_id']; ?>', 
+                                                        
+                                                        '<?= $tra['event_title']; ?>', 
+                                                        '<?= $tra['date']; ?>', 
+                                                        '<?= $tra['time']; ?>', 
+                                                        '<?= $tra['speaker']; ?>', 
+                                                        '<?= $tra['place']; ?>', 
+                                                        '<?= $tra['validity_training']; ?>'
+                                                        )">Add Trainings</button>
                                                 </div>
                                             </div>
                                         </td>
