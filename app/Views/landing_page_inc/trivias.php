@@ -29,9 +29,7 @@
 			<?php endforeach; ?>
 		</div>
 		<div class="row">
-			<div class="col-lg-12 text-center">
-				<a href="news.html" class="boxed-btn">More Trivias</a>
-			</div>
+
 		</div>
 	</div>
 </div>

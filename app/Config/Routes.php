@@ -180,6 +180,7 @@ $routes->post('/addtraining', 'DashboardController::addnewtraining');
 $routes->post('/adtrainings/edit/(:num)', 'DashboardController::edittraining/$1');
 $routes->post('/trainings/update', 'DashboardController::updatetraining');
 $routes->post('adtrainings/delete/(:num)', 'DashboardController::deletetraining/$1');
+$routes->get('/trainingreadmore/(:num)', 'LoginController::trainingreadmore/$1');
 
 //adpest
 $routes->get('/adpest', 'DashboardController::adpest');

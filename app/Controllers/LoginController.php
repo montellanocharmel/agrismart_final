@@ -650,4 +650,19 @@ class LoginController extends BaseController
 
         return view('readmorepest', $data);
     }
+
+    public function trainingreadmore($training_id)
+    {
+        $training = $this->training->find($training_id);
+
+        if (!$training) {
+            throw new \CodeIgniter\Exceptions\PageNotFoundException('Trainings not found: ' . $training_id);
+        }
+
+        $data = [
+            'training' => $training
+        ];
+
+        return view('readmoretraining', $data);
+    }
 }

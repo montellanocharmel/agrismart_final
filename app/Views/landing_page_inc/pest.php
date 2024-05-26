@@ -4,7 +4,7 @@
 			<div class="col-lg-8 offset-lg-2 text-center">
 				<div class="section-title">
 					<h3><span class="orange-text">Agricultural</span> Pests</h3>
-					<p>Mga uri ng sakit ng peste sa halaman</p>
+					<p>Mga uri ng peste sa halaman</p>
 				</div>
 			</div>
 		</div>
@@ -31,9 +31,7 @@
 			<?php endforeach; ?>
 		</div>
 		<div class="row">
-			<div class="col-lg-12 text-center">
-				<a href="news.html" class="boxed-btn">More Trivias</a>
-			</div>
+
 		</div>
 	</div>
 </div>
