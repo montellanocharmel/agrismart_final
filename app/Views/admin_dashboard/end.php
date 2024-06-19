@@ -84,6 +84,29 @@
             });
         }
     }
+
+    function openEditReportsModal(report_id, title, description, validity) {
+        document.getElementById('editreport_id').value = report_id;
+        document.getElementById('edit_title').value = title;
+        document.getElementById('edit_description').value = description;
+        document.getElementById('edit_validity').value = validity;
+        $('#editreportsmodal').modal('show');
+    }
+
+    function deletereport(report_id) {
+        if (confirm("Are you sure you want to delete this report?")) {
+            $.ajax({
+                type: 'POST',
+                url: '/adreports/delete/' + report_id,
+                success: function(response) {
+                    window.location.reload();
+                },
+                error: function(error) {
+                    console.error('Error:', error);
+                }
+            });
+        }
+    }
 </script>
 <script src="<?= base_url() ?>dashboard/js/jquery1-3.4.1.min.js"></script>
 

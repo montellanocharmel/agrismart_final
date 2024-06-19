@@ -19,7 +19,6 @@
                             <div class="add_button ms-2">
                                 <a href="#" data-bs-toggle="modal" data-bs-target="#addreportsmodal" class="btn btn-primary"><i class="fa-solid fa-plus"></i></a>
                                 <a href="/adreports" class="btn btn-primary"><i class="fa-solid fa-arrows-rotate"></i></a>
-
                             </div>
                         </div>
                     </div>
@@ -32,7 +31,7 @@
                                     <th scope="col">Report Description</th>
                                     <th scope="col">Images</th>
                                     <th scope="col">Validity</th>
-                                    <th scope="col">Aksyon</th>
+                                    <th scope="col">Actions</th>
                                 </tr>
                             </thead>
                             <?php
@@ -43,12 +42,13 @@
                                 }
                                 return $text;
                             }
-                            ?><tbody>
+                            ?>
+                            <tbody>
                                 <?php foreach ($reports as $rep) : ?>
                                     <tr>
-                                        <td><?= $rep['title'] ?></td>
+                                        <td><?= addslashes($rep['title']) ?></td>
                                         <td><?= $rep['created_at'] ?></td>
-                                        <td><?= truncateText($rep['description'], 100) ?></td>
+                                        <td><?= addslashes(truncateText($rep['description'], 100)) ?></td>
                                         <td><img src="<?= base_url() . $rep['images'] ?>" alt="" style="display: block; margin: 0 auto; width: 200px; height: 200px;"></td>
                                         <td><?= $rep['validity'] ?></td>
                                         <td>
@@ -58,17 +58,17 @@
                                                 </button>
                                                 <div class="dropdown-menu">
                                                     <button class="dropdown-item" onclick="openEditReportsModal(
-                                                        <?= $rep['report_id']; ?>,
-                                                        '<?= $rep['title']; ?>', 
-                                                        '<?= $rep['description']; ?>', 
-                                                        '<?= $rep['validity']; ?>'
+                                                        '<?= $rep['report_id']; ?>',
+                                                        '<?= addslashes($rep['title']); ?>', 
+                                                        '<?= addslashes($rep['description']); ?>',  
+                                                        '<?= $rep['validity']; ?>',
                                                     )">Edit</button>
                                                     <button class="dropdown-item" onclick="deletereport(<?= $rep['report_id']; ?>)">Delete</button>
                                                     <button class="dropdown-item" onclick="openAddReportModal(
-                                                        <?= $rep['report_id']; ?>, 
-                                                        '<?= $rep['title']; ?>', 
+                                                        '<?= $rep['report_id']; ?>', 
+                                                        '<?= addslashes($rep['title']); ?>', 
                                                         '<?= $rep['created_at']; ?>',
-                                                        '<?= $rep['description']; ?>',
+                                                        '<?= addslashes($rep['description']); ?>',
                                                         '<?= $rep['images']; ?>', 
                                                         '<?= $rep['validity']; ?>'
                                                     )">Send Report</button>
@@ -78,8 +78,6 @@
                                     </tr>
                                 <?php endforeach; ?>
                             </tbody>
-
-
                         </table>
                     </div>
                 </div>
@@ -133,8 +131,7 @@
 
     </div>
 </div>
-<!-- edit  -->
-
+<!-- Edit Modal -->
 <div class="modal fade" id="editreportsmodal" tabindex="-1" aria-labelledby="editreportsmodalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -147,7 +144,7 @@
                     <input type="hidden" name="report_id" id="editreport_id">
                     <div class="mb-3">
                         <label for="edit_title" class="form-label">Title</label>
-                        <input type="text" name="title" id="edit_title" class="form-control" readonly>
+                        <input type="text" name="title" id="edit_title" class="form-control">
                     </div>
                     <div class="mb-3">
                         <label for="edit_description" class="form-label">Report Description</label>
@@ -156,41 +153,15 @@
                     <div class="mb-3">
                         <label for="edit_validity" class="form-label">Report Validation</label>
                         <div class="form-input">
-                            <select class="form-select mb-3" name="validity" id="edit_validity"tabindex="10" required>
-
+                            <select class="form-select mb-3" name="validity" id="edit_validity" tabindex="10" required>
                                 <option value="pending">pending</option>
                                 <option value="validated">validate</option>
                             </select>
                         </div>
                     </div>
-
                     <button type="submit" class="btn btn-primary">Save Changes</button>
                 </form>
             </div>
         </div>
     </div>
 </div>
-
-
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        var pestDiseaseRadio = document.getElementById("pest_disease");
-        var weatherRelatedRadio = document.getElementById("weather_related");
-        var pestDiseaseFields = document.getElementById("pest_disease_fields");
-        var weatherRelatedFields = document.getElementById("weather_related_fields");
-
-        pestDiseaseRadio.addEventListener("change", function() {
-            if (this.checked) {
-                pestDiseaseFields.style.display = "block";
-                weatherRelatedFields.style.display = "none";
-            }
-        });
-
-        weatherRelatedRadio.addEventListener("change", function() {
-            if (this.checked) {
-                pestDiseaseFields.style.display = "none";
-                weatherRelatedFields.style.display = "block";
-            }
-        });
-    });
-</script>

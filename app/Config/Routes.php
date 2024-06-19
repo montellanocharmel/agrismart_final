@@ -200,6 +200,11 @@ $routes->get('/diseasereadmore/(:num)', 'LoginController::diseasereadmore/$1');
 
 //userreports
 $routes->get('/userreports', 'DashboardController::userreports');
+$routes->post('/useraddeports', 'DashboardController::addnewuserreport');
+$routes->post('/edituserreport/edit/(:num)', 'DashboardController::edituserreport/$1');
+$routes->post('/updateuserreport/update', 'DashboardController::updateuserreport');
+$routes->post('deleteuserreport/delete/(:num)', 'DashboardController::deleteuserreport/$1');
+$routes->get('/userreportsreadmore/(:num)', 'DashboardController::userreportsreadmore/$1');
 //usertrivias
 $routes->get('/usertrivias', 'DashboardController::usertrivias');
 //usertrainings

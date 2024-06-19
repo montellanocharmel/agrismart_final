@@ -564,7 +564,7 @@ class LoginController extends BaseController
     public function reports()
     {
         $data = [
-            'reports' => $this->reports->findAll()
+            'reports' => $this->reports->where('validity', 'validated')->findAll()
         ];
         return view('reports_sec', $data);
     }

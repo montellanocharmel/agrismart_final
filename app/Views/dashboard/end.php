@@ -275,6 +275,35 @@
 
         });
     });
+
+    function openEditUserReportsModal(report_id, title, description, images) {
+        document.getElementById('edituserreport_id').value = report_id;
+        document.getElementById('edituser_title').value = title;
+        document.getElementById('edituser_description').value = description;
+
+        // Set the current image preview
+        const imageElement = document.getElementById('edituser_image_preview');
+        imageElement.src = images;
+        imageElement.style.display = 'block';
+
+        $('#edituserreportsmodal').modal('show');
+    }
+
+
+    function deleteuserreport(report_id) {
+        if (confirm("Are you sure you want to delete this report?")) {
+            $.ajax({
+                type: 'POST',
+                url: '/deleteuserreport/delete/' + report_id,
+                success: function(response) {
+                    window.location.reload();
+                },
+                error: function(error) {
+                    console.error('Error:', error);
+                }
+            });
+        }
+    }
 </script>
 <script>
     $(document).ready(function() {
