@@ -60,18 +60,12 @@
                                                     <button class="dropdown-item" onclick="openEditReportsModal(
                                                         '<?= $rep['report_id']; ?>',
                                                         '<?= addslashes($rep['title']); ?>', 
-                                                        '<?= addslashes($rep['description']); ?>',  
-                                                        '<?= $rep['validity']; ?>',
-                                                    )">Edit</button>
-                                                    <button class="dropdown-item" onclick="deletereport(<?= $rep['report_id']; ?>)">Delete</button>
-                                                    <button class="dropdown-item" onclick="openAddReportModal(
-                                                        '<?= $rep['report_id']; ?>', 
-                                                        '<?= addslashes($rep['title']); ?>', 
-                                                        '<?= $rep['created_at']; ?>',
-                                                        '<?= addslashes($rep['description']); ?>',
+                                                        '<?= addslashes($rep['description']); ?>', 
                                                         '<?= $rep['images']; ?>', 
-                                                        '<?= $rep['validity']; ?>'
-                                                    )">Send Report</button>
+                                                        '<?= $rep['validity']; ?>',
+                                                    )">Validate</button>
+                                                    <button class="dropdown-item" onclick="deletereport(<?= $rep['report_id']; ?>)">Delete</button>
+
                                                 </div>
                                             </div>
                                         </td>
@@ -148,7 +142,12 @@
                     </div>
                     <div class="mb-3">
                         <label for="edit_description" class="form-label">Report Description</label>
-                        <textarea type="text" name="description" id="edit_description" class="form-control"></textarea>
+                        <textarea type="text" name="description" id="edit_description" class="form-control" rows="5"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="edituser_images" class="form-label">Images</label>
+                        <input type="file" name="images" id="edituser_images" class="form-control">
+                        <img id="edituser_image_preview" src="" alt="Current Image" style="display: none; width: 100%; height: auto; margin-top: 10px;">
                     </div>
                     <div class="mb-3">
                         <label for="edit_validity" class="form-label">Report Validation</label>

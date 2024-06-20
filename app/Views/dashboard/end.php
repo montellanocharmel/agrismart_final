@@ -280,8 +280,6 @@
         document.getElementById('edituserreport_id').value = report_id;
         document.getElementById('edituser_title').value = title;
         document.getElementById('edituser_description').value = description;
-
-        // Set the current image preview
         const imageElement = document.getElementById('edituser_image_preview');
         imageElement.src = images;
         imageElement.style.display = 'block';
@@ -295,6 +293,34 @@
             $.ajax({
                 type: 'POST',
                 url: '/deleteuserreport/delete/' + report_id,
+                success: function(response) {
+                    window.location.reload();
+                },
+                error: function(error) {
+                    console.error('Error:', error);
+                }
+            });
+        }
+    }
+
+    function openEditUserTrainingModal(training_id, event_title, date, time, speaker, place, image_training) {
+        document.getElementById('edittraining_id').value = training_id;
+        document.getElementById('editevent_title').value = event_title;
+        document.getElementById('edit_date').value = date;
+        document.getElementById('edit_time').value = time;
+        document.getElementById('edit_speaker').value = speaker;
+        document.getElementById('edit_place').value = place;
+        const imageElement = document.getElementById('editimage_training_preview');
+        imageElement.src = image_training;
+        imageElement.style.display = 'block';
+        $('#editusertrainingsmodal').modal('show');
+    }
+
+    function deleteusertraining(training_id) {
+        if (confirm("Are you sure you want to delete this report?")) {
+            $.ajax({
+                type: 'POST',
+                url: '/usertrainings/delete/' + training_id,
                 success: function(response) {
                     window.location.reload();
                 },

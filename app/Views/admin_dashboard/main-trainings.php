@@ -19,7 +19,6 @@
                             <div class="add_button ms-2">
                                 <a href="#" data-bs-toggle="modal" data-bs-target="#addtrainingsmodal" class="btn btn-primary"><i class="fa-solid fa-plus"></i></a>
                                 <a href="/adtrainings" class="btn btn-primary"><i class="fa-solid fa-arrows-rotate"></i></a>
-
                             </div>
                         </div>
                     </div>
@@ -34,13 +33,12 @@
                                     <th scope="col">Resource speaker</th>
                                     <th scope="col">Venue</th>
                                     <th scope="col">Validation</th>
-                                    <th scope="col">Aksyon</th>
+                                    <th scope="col">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php foreach ($trainings as $tra) : ?>
                                     <tr>
-
                                         <td><img src="<?= base_url() . $tra['image_training'] ?>" alt="" class="avatar-img rounded-circle mx-auto d-block" style="display: block; margin: 0 auto; width: 200px; height: 200px;"></td>
                                         <td><?= $tra['event_title'] ?></td>
                                         <td><?= $tra['date'] ?></td>
@@ -50,37 +48,27 @@
                                         <td><?= $tra['validity_training'] ?></td>
                                         <td>
                                             <div class="btn-group">
-                                                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: #88c431; border: none;">
+                                                <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: #88c431; border: none;">
                                                     Actions
                                                 </button>
                                                 <div class="dropdown-menu">
                                                     <button class="dropdown-item" onclick="openEditTrainingModal(
-                                                        <?= $tra['training_id']; ?>,
-                                                        '<?= $tra['event_title']; ?>',
+                                                        '<?= $tra['training_id']; ?>',
+                                                        '<?= addslashes($tra['event_title']); ?>',
                                                         '<?= $tra['date']; ?>',
                                                         '<?= $tra['time']; ?>',
-                                                        '<?= $tra['speaker']; ?>',
-                                                        '<?= $tra['place']; ?>',
+                                                        '<?= addslashes($tra['speaker']); ?>',
+                                                        '<?= addslashes($tra['place']); ?>',
                                                         '<?= $tra['validity_training']; ?>',
-                                                        )">Edit</button>
+                                                        '<?= addslashes($tra['image_training']); ?>'
+                                                    )">Edit</button>
                                                     <button class="dropdown-item" onclick="deletetraining(<?= $tra['training_id']; ?>)">Delete</button>
-                                                    <button type="button" class="dropdown-item" onclick="openAddTrainingModal(
-                                                        <?= $tra['training_id']; ?>', 
-                                                        
-                                                        '<?= $tra['event_title']; ?>', 
-                                                        '<?= $tra['date']; ?>', 
-                                                        '<?= $tra['time']; ?>', 
-                                                        '<?= $tra['speaker']; ?>', 
-                                                        '<?= $tra['place']; ?>', 
-                                                        '<?= $tra['validity_training']; ?>'
-                                                        )">Add Trainings</button>
                                                 </div>
                                             </div>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>
                             </tbody>
-
                         </table>
                     </div>
                 </div>
@@ -91,12 +79,11 @@
 
 <!-- Add Modal -->
 <div class="modal fade" id="addtrainingsmodal" role="dialog" aria-labelledby="addtrainingsmodalLabel" aria-hidden="true">
-    <br>
     <div class="modal-dialog modal-dialog-centered" style="z-index: 10000;">
-
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="addtrainingsmodalLabel">Add New Trainings and Seminars</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <form action="/addtraining" method="post" enctype="multipart/form-data">
@@ -141,16 +128,14 @@
             </form>
         </div>
     </div>
-
 </div>
-</div>
-<!-- edit  -->
 
+<!-- Edit Modal -->
 <div class="modal fade" id="edittrainingsmodal" tabindex="-1" aria-labelledby="edittrainingsmodalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="edittrainingsmodalLabel">Edit Trivias</h5>
+                <h5 class="modal-title" id="edittrainingsmodalLabel">Edit Trainings</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -177,6 +162,12 @@
                         <input type="text" name="speaker" id="edit_speaker" placeholder="Speakers of the Event" class="form-control">
                     </div>
                     <div class="mb-3">
+                        <label for="editadimage_training" class="form-label">Images</label>
+                        <input type="file" name="image_training" id="editadimage_training" class="form-control">
+
+                        <img id="editadimage_training_preview" src="" alt="Current Image" style="display: none; width: 100%; height: auto; margin-top: 10px;">
+                    </div>
+                    <div class="mb-3">
                         <label for="editvalidity_training" class="form-label">Validation of Trainings and Seminars</label>
                         <div class="form-input">
                             <select class="form-select mb-3" name="validity_training" id="editvalidity_training" tabindex="10" required>
@@ -191,6 +182,7 @@
         </div>
     </div>
 </div>
+
 
 
 <script>

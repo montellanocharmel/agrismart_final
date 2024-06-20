@@ -1961,13 +1961,11 @@ class DashboardController extends BaseController
     {
         $report_id = $this->request->getPost('report_id');
 
-        // Initialize the data to update
         $dataToUpdate = [
             'title' => $this->request->getPost('title'),
             'description' => $this->request->getPost('description'),
         ];
 
-        // Check if an image file is uploaded
         $img = $this->request->getFile('images');
         if ($img && $img->isValid() && !$img->hasMoved()) {
             $imgName = $img->getRandomName();
@@ -1975,7 +1973,6 @@ class DashboardController extends BaseController
             $dataToUpdate['images'] = 'uploads/' . $imgName;
         }
 
-        // Update the report
         $this->reports->update($report_id, $dataToUpdate);
 
         return redirect()->to('/userreports')->with('success', 'Report updated successfully');
@@ -1987,9 +1984,9 @@ class DashboardController extends BaseController
 
         if ($reports) {
             $this->reports->delete($report_id);
-            return redirect()->to('/adreports')->with('success', 'Report deleted successfully');
+            return redirect()->to('/userreports')->with('success', 'Report deleted successfully');
         } else {
-            return redirect()->to('/adreports')->with('error', 'Report not found');
+            return redirect()->to('/userreports')->with('error', 'Report not found');
         }
     }
     public function userreportsreadmore($report_id)
@@ -2009,7 +2006,73 @@ class DashboardController extends BaseController
 
     public function usertrainings()
     {
-        return view('userfolder/usertrainings');
+        $userId = session()->get('leader_id');
+        if (!session()->get('isLoggedIn')) {
+            return redirect()->to('/sign_ins');
+        } else {
+            $data = [
+                'trainings' => $this->trainings->where('user_id', $userId)->findAll()
+            ];
+            return view('userfolder/usertrainings', $data);
+        }
+    }
+    public function addusertrainings()
+    {
+        $userId = session()->get('leader_id');
+        $trainingId = $this->request->getPost('training_id');
+        $trainings = $this->trainings->find($trainingId);
+        $image_training = $this->request->getFile('image_training');
+        $image_trainingName = $image_training->getRandomName();
+        $image_training->move(ROOTPATH . 'public/uploads/training_img/', $image_trainingName);
+
+        $this->trainings->save([
+            'training_id' => $this->request->getPost('training_id'),
+            'image_training' => 'uploads/training_img/' . $image_trainingName,
+            'event_title' => $this->request->getPost('event_title'),
+            'date' => $this->request->getPost('date'),
+            'time' => $this->request->getPost('time'),
+            'speaker' => $this->request->getPost('speaker'),
+            'place' => $this->request->getPost('place'),
+            'user_id' => $userId,
+        ]);
+
+        return redirect()->to('/usertrainings')->with('success', 'Trainings or Seminars added successfully');
+    }
+    public function editusertraining($training_id)
+    {
+        $trainings = $this->trainings->find($training_id);
+
+        return view('trainings', ['trainings' => $trainings]);
+    }
+    public function updateusertraining()
+    {
+
+        $training_id = $this->request->getPost('training_id');
+
+        $dataToUpdate = [
+            'event_title' => $this->request->getPost('event_title'),
+            'date' => $this->request->getPost('date'),
+            'time' => $this->request->getPost('time'),
+            'speaker' => $this->request->getPost('speaker'),
+            'place' => $this->request->getPost('place'),
+            'validity_training' => $this->request->getPost('validity_training'),
+        ];
+
+        $this->trainings->update($training_id, $dataToUpdate);
+
+        return redirect()->to('/usertrainings')->with('success', 'Trainings or Seminars updated successfully');
+    }
+    public function deleteusertraining($training_id)
+    {
+
+        $trainings = $this->trainings->find($training_id);
+
+        if ($trainings) {
+            $this->trainings->delete($training_id);
+            return redirect()->to('/usertrainings')->with('success', 'Trainings or Seminars deleted successfully');
+        } else {
+            return redirect()->to('/usertrainings')->with('error', 'Trainings or Seminars not found');
+        }
     }
 
     //admintrivias
@@ -2089,7 +2152,7 @@ class DashboardController extends BaseController
             return redirect()->to('/signinadmin');
         } else {
             $data = [
-                'reports' => $this->reports->where('user_id', $userId)->findAll()
+                'reports' => $this->reports->findAll()
             ];
             return view('adminfolder/adreports', $data);
         }
@@ -2131,7 +2194,12 @@ class DashboardController extends BaseController
             'description' => $this->request->getPost('description'),
             'validity' => $this->request->getPost('validity'),
         ];
-
+        $img = $this->request->getFile('images');
+        if ($img && $img->isValid() && !$img->hasMoved()) {
+            $imgName = $img->getRandomName();
+            $img->move('uploads/', $imgName);
+            $dataToUpdate['images'] = 'uploads/' . $imgName;
+        }
         $this->reports->update($report_id, $dataToUpdate);
 
         return redirect()->to('/adreports')->with('success', 'Report updated successfully');

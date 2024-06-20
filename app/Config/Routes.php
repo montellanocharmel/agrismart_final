@@ -205,10 +205,16 @@ $routes->post('/edituserreport/edit/(:num)', 'DashboardController::edituserrepor
 $routes->post('/updateuserreport/update', 'DashboardController::updateuserreport');
 $routes->post('deleteuserreport/delete/(:num)', 'DashboardController::deleteuserreport/$1');
 $routes->get('/userreportsreadmore/(:num)', 'DashboardController::userreportsreadmore/$1');
+
 //usertrivias
 $routes->get('/usertrivias', 'DashboardController::usertrivias');
+
 //usertrainings
 $routes->get('/usertrainings', 'DashboardController::usertrainings');
+$routes->post('/addusertrainings', 'DashboardController::addusertrainings');
+$routes->post('/usertrainings/edit/(:num)', 'DashboardController::editusertraining/$1');
+$routes->post('/usertrainings/update', 'DashboardController::updateusertraining');
+$routes->post('usertrainings/delete/(:num)', 'DashboardController::deleteusertraining/$1');
 
 //userpest
 $routes->get('/userpest', 'DashboardController::userpest');

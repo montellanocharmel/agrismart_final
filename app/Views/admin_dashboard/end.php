@@ -59,7 +59,7 @@
         }
     }
 
-    function openEditTrainingModal(training_id, event_title, date, time, speaker, place, validity_training) {
+    function openEditTrainingModal(training_id, event_title, date, time, speaker, place, validity_training, image_training) {
         document.getElementById('edittraining_id').value = training_id;
         document.getElementById('editevent_title').value = event_title;
         document.getElementById('edit_date').value = date;
@@ -67,7 +67,11 @@
         document.getElementById('edit_speaker').value = speaker;
         document.getElementById('edit_place').value = place;
         document.getElementById('editvalidity_training').value = validity_training;
-        $('#edittrainingsmodal').modal('show');
+        const imageElement = document.getElementById('editadimage_training_preview');
+        imageElement.src = image_training;
+        imageElement.style.display = 'block';
+        var editTrainingsModal = new bootstrap.Modal(document.getElementById('edittrainingsmodal'));
+        editTrainingsModal.show();
     }
 
     function deletetraining(training_id) {
@@ -85,10 +89,13 @@
         }
     }
 
-    function openEditReportsModal(report_id, title, description, validity) {
+    function openEditReportsModal(report_id, title, description, validity, images) {
         document.getElementById('editreport_id').value = report_id;
         document.getElementById('edit_title').value = title;
         document.getElementById('edit_description').value = description;
+        const imageElement = document.getElementById('edituser_image_preview');
+        imageElement.src = images;
+        imageElement.style.display = 'block';
         document.getElementById('edit_validity').value = validity;
         $('#editreportsmodal').modal('show');
     }

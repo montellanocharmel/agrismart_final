@@ -131,7 +131,7 @@
                     <input type="hidden" name="report_id" id="edituserreport_id">
                     <div class="mb-3">
                         <label for="edituser_title" class="form-label">Title</label>
-                        <input type="text" name="title" id="edituser_title" class="form-control" readonly>
+                        <input type="text" name="title" id="edituser_title" class="form-control">
                     </div>
                     <div class="mb-3">
                         <label for="edituser_description" class="form-label">Report Description</label>
@@ -140,7 +140,7 @@
                     <div class="mb-3">
                         <label for="edituser_images" class="form-label">Images</label>
                         <input type="file" name="images" id="edituser_images" class="form-control">
-                        <!-- Image Preview -->
+
                         <img id="edituser_image_preview" src="" alt="Current Image" style="display: none; width: 100%; height: auto; margin-top: 10px;">
                     </div>
                     <button type="submit" class="btn btn-primary">Save Changes</button>

@@ -572,7 +572,7 @@ class LoginController extends BaseController
     public function trainings()
     {
         $data = [
-            'training' => $this->training->findAll()
+            'training' => $this->training->where('validity_training', 'validated')->findAll()
         ];
         return view('trainings_sec', $data);
     }
