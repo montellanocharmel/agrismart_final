@@ -16,7 +16,8 @@
         "ext-mbstring": "*",
         "laminas/laminas-escaper": "^2.9",
         "phpoffice/phpspreadsheet": "^2.0",
-        "psr/log": "^1.1"
+        "psr/log": "^1.1",
+        "tecnickcom/tcpdf": "^6.7"
     },
     "require-dev": {
         "codeigniter/coding-standard": "^1.7",

@@ -6,24 +6,15 @@
         </div>
     </div>
     <ul id="sidebar_menu">
+
         <li class="side_menu_title">
             <span>Dashboard</span>
         </li>
+        <li class>
+        <li><a href="/admindashboard" style="margin-left: 40px;">Dashboard</a></li>
 
-        <li>
-            <a class="has-arrow" href="#" aria-expanded="false">
-                <img src="img/menu-icon/1.svg" alt>
-                <span>Dashboard</span>
-            </a>
-            <ul>
-                <li><a href="/admindashboard">Dashboard</a></li>
-                <li><a href="/adreports">Reports</a></li>
-                <li><a href="/adtrivias">Trivias</a></li>
-                <li><a href="/adtrainings">Trainings and Seminars</a></li>
-                <li><a href="/adpest">Pest</a></li>
-                <li><a href="/addisease">Diseases</a></li>
-            </ul>
         </li>
+
 
         <li class="side_menu_title">
             <span>Fields</span>
@@ -41,11 +32,20 @@
         <li class="side_menu_title">
             <span>About Fields</span>
         </li>
-        <li class>
-        <li><a href="/admincropplanting" style="margin-left: 40px;">Planting</a></li>
-        <li><a href="/adminexpense" style="margin-left: 40px;">Expenses</a></li>
-        <li><a href="/admindamage" style="margin-left: 40px;">Damages</a></li>
-        <li><a href="/adminharvest" style="margin-left: 40px;">Harvest</a></li>
+
+        <li>
+            <a class="has-arrow" href="#" aria-expanded="false">
+                <img src="img/menu-icon/1.svg" alt>
+                <span>Details</span>
+            </a>
+            <ul>
+                <li><a href="/admincropplanting">Planting</a></li>
+                <li><a href="/adminexpense">Expenses</a></li>
+                <li><a href="/admindamage">Damages</a></li>
+                <li><a href="/adminharvest">Harvest</a></li>
+                <li><a href="/adpest">Pest</a></li>
+                <li><a href="/addisease">Diseases</a></li>
+            </ul>
         </li>
         <li class="side_menu_title">
             <span>Data Analytics</span>
@@ -53,6 +53,22 @@
         <li class>
         <li><a href="/adminviewcharts" style="margin-left: 40px;">Charts</a></li>
 
+        </li>
+
+        <li class="side_menu_title">
+            <span>Admin</span>
+        </li>
+
+        <li>
+            <a class="has-arrow" href="#" aria-expanded="false">
+                <img src="img/menu-icon/1.svg" alt>
+                <span>Admin</span>
+            </a>
+            <ul>
+                <li><a href="/adreports">Reports</a></li>
+                <li><a href="/adtrivias">Trivias</a></li>
+                <li><a href="/adtrainings">Trainings and Seminars</a></li>
+            </ul>
         </li>
         <li class="side_menu_title">
             <span>Account Management</span>

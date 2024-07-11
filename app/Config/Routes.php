@@ -226,3 +226,8 @@ $routes->get('/trivias', 'LoginController::trivias');
 
 $routes->get('/disease', 'LoginController::disease');
 $routes->get('/pest', 'LoginController::pest');
+
+
+// PDF
+$routes->get('exportToPDFadminfields', 'DashboardController::exportToPDF');
+$routes->get('exportToPDFadminplanting', 'DashboardController::exportToPDFplanting');

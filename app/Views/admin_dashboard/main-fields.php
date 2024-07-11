@@ -18,7 +18,8 @@
                             </div>
                             <div class="add_button ms-2">
                                 <a href="/adminfields" class="btn btn-primary"><i class="fa-solid fa-arrows-rotate"></i></a>
-                                <a href="/exportToExceladminfields" class="btn btn-primary"><i class="fa-regular fa-file-excel"></i></i></a>
+                                <a href="/exportToExceladminfields" class="btn btn-primary"><i class="fa-regular fa-file-excel"></i></a>
+                                <a href="/exportToPDFadminfields" class="btn btn-primary"><i class="fa-regular fa-file-pdf"></i></a>
                             </div>
                         </div>
                     </div>

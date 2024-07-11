@@ -1,0 +1,215 @@
+CRITICAL - 2024-07-04 13:11:30 --> ErrorException: Undefined variable $cellspacingx
+in VENDORPATH\tecnickcom\tcpdf\tcpdf.php on line 18324.
+ 1 VENDORPATH\tecnickcom\tcpdf\tcpdf.php(18324): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $cellspacingx', 'C:\\laragon\\www\\final_agrismart\\vendor\\tecnickcom\\tcpdf\\tcpdf.php', 18324)
+ 2 APPPATH\Controllers\DashboardController.php(1333): TCPDF->writeHTML('
+            <table style="width: 100%; text-align: center;">
+                <tr>
+                    <td style="width: 20%;">
+                    <img src="<?= base_url() ?>dashboard/img/naujan-offical-logo.png"  alt="Logo" width="50">
+                      
+                    </td>
+                    <td style="width: 80%; text-align: left;">
+                        <h2>Republic of the Philippines</h2>
+                        <h3>Province of Oriental Mindoro</h3>
+                        <h4>Municipality of Naujan</h4>
+                        <h5>Municipal Agricultural Office</h5>
+                    </td>
+                </tr>
+            </table>
+            <h1>Field Data</h1>
+                <table border="1" cellspacing="3" cellpadding="4">
+                    <thead>
+                        <tr>
+                            <th>Pangalan ng Magbubukid</th>
+                            <th>Pangalan ng Bukid</th>
+                            <th>May-ari ng Lupa</th>
+                            <th>Address ng Bukid</th>
+                            <th>Kabuuang Sukat</th>
+                        </tr>
+                    </thead>
+                    <tbody><tr>
+                        <td>Bersoto, Cristopher Barrion</td>
+                        <td>Kanluran</td>
+                        <td></td>
+                        <td>Caburo</td>
+                        <td>23</td>
+                      </tr><tr>
+                        <td>Bersoto, Cristopher Barrion</td>
+                        <td>Kanluran</td>
+                        <td></td>
+                        <td>Concepcion</td>
+                        <td>5</td>
+                      </tr><tr>
+                        <td>Alcaraz, Rodrigo Lomio</td>
+                        <td>Kanluran</td>
+                        <td></td>
+                        <td>Kalinisan</td>
+                        <td>4</td>
+                      </tr><tr>
+                        <td>Alcaraz, Rodrigo Lomio</td>
+                        <td>Silangan</td>
+                        <td></td>
+                        <td>Kalinisan</td>
+                        <td>1.6</td>
+                      </tr><tr>
+                        <td>Abella, Hanah Dela Luna</td>
+                        <td>Ibaba</td>
+                        <td></td>
+                        <td>Kalinisan</td>
+                        <td>2</td>
+                      </tr><tr>
+                        <td>Agbing, Ruben Bacay</td>
+                        <td>Kanluran</td>
+                        <td></td>
+                        <td>Kalinisan</td>
+                        <td>10</td>
+                      </tr><tr>
+                        <td>Agbing, Ruben Bacay</td>
+                        <td>Kanluran</td>
+                        <td></td>
+                        <td>Santa Isabel</td>
+                        <td>80</td>
+                      </tr><tr>
+                        <td>Agbing, Ruben Bacay</td>
+                        <td>Kanluran</td>
+                        <td></td>
+                        <td>Dao</td>
+                        <td>90</td>
+                      </tr></tbody></table>', true, false, true, false, '')
+ 3 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->exportToPDF()
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-07-04 13:16:08 --> ErrorException: Undefined variable $cellspacingx
+in VENDORPATH\tecnickcom\tcpdf\tcpdf.php on line 18324.
+ 1 VENDORPATH\tecnickcom\tcpdf\tcpdf.php(18324): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $cellspacingx', 'C:\\laragon\\www\\final_agrismart\\vendor\\tecnickcom\\tcpdf\\tcpdf.php', 18324)
+ 2 APPPATH\Controllers\DashboardController.php(1336): TCPDF->writeHTML('
+    <table style="width: 100%; text-align: center;">
+        <tr>
+            <td style="width: 20%;">
+                <img src="http://localhost:8080/public/dashboard/img/naujan-official-logo.png" alt="Logo" width="50">
+            </td>
+            <td style="width: 80%; text-align: left
+                    <td style="width: 80%; text-align: left;">
+                        <h2>Republic of the Philippines</h2>
+                        <h3>Province of Oriental Mindoro</h3>
+                        <h4>Municipality of Naujan</h4>
+                        <h5>Municipal Agricultural Office</h5>
+                    </td>
+                </tr>
+            </table>
+            <h1>Field Data</h1>
+                <table border="1" cellspacing="3" cellpadding="4">
+                    <thead>
+                        <tr>
+                            <th>Pangalan ng Magbubukid</th>
+                            <th>Pangalan ng Bukid</th>
+                            <th>May-ari ng Lupa</th>
+                            <th>Address ng Bukid</th>
+                            <th>Kabuuang Sukat</th>
+                        </tr>
+                    </thead>
+                    <tbody><tr>
+                        <td>Bersoto, Cristopher Barrion</td>
+                        <td>Kanluran</td>
+                        <td></td>
+                        <td>Caburo</td>
+                        <td>23</td>
+                      </tr><tr>
+                        <td>Bersoto, Cristopher Barrion</td>
+                        <td>Kanluran</td>
+                        <td></td>
+                        <td>Concepcion</td>
+                        <td>5</td>
+                      </tr><tr>
+                        <td>Alcaraz, Rodrigo Lomio</td>
+                        <td>Kanluran</td>
+                        <td></td>
+                        <td>Kalinisan</td>
+                        <td>4</td>
+                      </tr><tr>
+                        <td>Alcaraz, Rodrigo Lomio</td>
+                        <td>Silangan</td>
+                        <td></td>
+                        <td>Kalinisan</td>
+                        <td>1.6</td>
+                      </tr><tr>
+                        <td>Abella, Hanah Dela Luna</td>
+                        <td>Ibaba</td>
+                        <td></td>
+                        <td>Kalinisan</td>
+                        <td>2</td>
+                      </tr><tr>
+                        <td>Agbing, Ruben Bacay</td>
+                        <td>Kanluran</td>
+                        <td></td>
+                        <td>Kalinisan</td>
+                        <td>10</td>
+                      </tr><tr>
+                        <td>Agbing, Ruben Bacay</td>
+                        <td>Kanluran</td>
+                        <td></td>
+                        <td>Santa Isabel</td>
+                        <td>80</td>
+                      </tr><tr>
+                        <td>Agbing, Ruben Bacay</td>
+                        <td>Kanluran</td>
+                        <td></td>
+                        <td>Dao</td>
+                        <td>90</td>
+                      </tr></tbody></table>', true, false, true, false, '')
+ 3 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->exportToPDF()
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-07-04 13:20:56 --> ParseError: syntax error, unexpected token "public"
+in APPPATH\Controllers\DashboardController.php on line 1346.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(290): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\laragon\\www\\final_agrismart\\app\\Controllers\\DashboardController.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(266): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\DashboardController')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\DashboardController')
+ 4 SYSTEMPATH\CodeIgniter.php(899): class_exists('\\App\\Controllers\\DashboardController', true)
+ 5 SYSTEMPATH\CodeIgniter.php(489): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-07-04 13:28:24 --> ErrorException: require_once(C:\laragon\www\final_agrismart\app\ThirdParty/tcpdf/tcpdf.php): Failed to open stream: No such file or directory
+in APPPATH\Controllers\DashboardController.php on line 14.
+ 1 APPPATH\Controllers\DashboardController.php(14): CodeIgniter\Debug\Exceptions->errorHandler(2, 'require_once(C:\\laragon\\www\\final_agrismart\\app\\ThirdParty/tcpdf/tcpdf.php): Failed to open stream: No such file or directory', 'C:\\laragon\\www\\final_agrismart\\app\\Controllers\\DashboardController.php', 14)
+ 2 APPPATH\Controllers\DashboardController.php(14): require_once()
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(311): include_once('C:\\laragon\\www\\final_agrismart\\app\\Controllers\\DashboardController.php')
+ 4 SYSTEMPATH\Autoloader\Autoloader.php(290): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\laragon\\www\\final_agrismart\\app\\Controllers\\DashboardController.php')
+ 5 SYSTEMPATH\Autoloader\Autoloader.php(266): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\DashboardController')
+ 6 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\DashboardController')
+ 7 SYSTEMPATH\CodeIgniter.php(899): class_exists('\\App\\Controllers\\DashboardController', true)
+ 8 SYSTEMPATH\CodeIgniter.php(489): CodeIgniter\CodeIgniter->startController()
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-07-04 13:32:03 --> ErrorException: require_once(C:\laragon\www\final_agrismart\app\ThirdParty/tcpdf/tcpdf.php): Failed to open stream: No such file or directory
+in APPPATH\Controllers\DashboardController.php on line 9.
+ 1 APPPATH\Controllers\DashboardController.php(9): CodeIgniter\Debug\Exceptions->errorHandler(2, 'require_once(C:\\laragon\\www\\final_agrismart\\app\\ThirdParty/tcpdf/tcpdf.php): Failed to open stream: No such file or directory', 'C:\\laragon\\www\\final_agrismart\\app\\Controllers\\DashboardController.php', 9)
+ 2 APPPATH\Controllers\DashboardController.php(9): require_once()
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(311): include_once('C:\\laragon\\www\\final_agrismart\\app\\Controllers\\DashboardController.php')
+ 4 SYSTEMPATH\Autoloader\Autoloader.php(290): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\laragon\\www\\final_agrismart\\app\\Controllers\\DashboardController.php')
+ 5 SYSTEMPATH\Autoloader\Autoloader.php(266): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\DashboardController')
+ 6 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\DashboardController')
+ 7 SYSTEMPATH\CodeIgniter.php(899): class_exists('\\App\\Controllers\\DashboardController', true)
+ 8 SYSTEMPATH\CodeIgniter.php(489): CodeIgniter\CodeIgniter->startController()
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-07-04 13:32:04 --> ErrorException: require_once(C:\laragon\www\final_agrismart\app\ThirdParty/tcpdf/tcpdf.php): Failed to open stream: No such file or directory
+in APPPATH\Controllers\DashboardController.php on line 9.
+ 1 APPPATH\Controllers\DashboardController.php(9): CodeIgniter\Debug\Exceptions->errorHandler(2, 'require_once(C:\\laragon\\www\\final_agrismart\\app\\ThirdParty/tcpdf/tcpdf.php): Failed to open stream: No such file or directory', 'C:\\laragon\\www\\final_agrismart\\app\\Controllers\\DashboardController.php', 9)
+ 2 APPPATH\Controllers\DashboardController.php(9): require_once()
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(311): include_once('C:\\laragon\\www\\final_agrismart\\app\\Controllers\\DashboardController.php')
+ 4 SYSTEMPATH\Autoloader\Autoloader.php(290): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\laragon\\www\\final_agrismart\\app\\Controllers\\DashboardController.php')
+ 5 SYSTEMPATH\Autoloader\Autoloader.php(266): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\DashboardController')
+ 6 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\DashboardController')
+ 7 SYSTEMPATH\CodeIgniter.php(899): class_exists('\\App\\Controllers\\DashboardController', true)
+ 8 SYSTEMPATH\CodeIgniter.php(489): CodeIgniter\CodeIgniter->startController()
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')

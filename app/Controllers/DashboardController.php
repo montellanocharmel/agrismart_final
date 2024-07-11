@@ -9,6 +9,40 @@ use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
 use PhpOffice\PhpSpreadsheet\IOFactory;
 use PDO;
+use TCPDF;
+
+class MYPDF extends TCPDF
+{
+    // Page header
+    public function Header()
+    {
+        $logoPath = FCPATH . 'dashboard/img/naujan-official-logo.png';
+
+        $html = '<br><br><br><table style="width: 100%; text-align: center; border: none;">
+                    <tr>
+                        <td style="width: 40%; text-align: center; border: none;">
+                            <img src="' . $logoPath . '" alt="Logo"   width="100">
+                        </td>
+                        <td style="width: 60%; text-align: left; border: none;">
+                            <h5 style="margin: 0;">Republic of the Philippines</h5>
+                            <h5 style="margin: 0;">Province of Oriental Mindoro</h5>
+                            <h5 style="margin: 0;">Municipality of Naujan</h5>
+                            <h5 style="margin: 0;">Municipal Agriculture Office</h5>
+                        </td>
+                    </tr>
+                </table> <hr>';
+
+        $this->writeHTML($html, true, false, true, false, '');
+        $this->Ln(20);
+    }
+
+    public function Footer()
+    {
+        $this->SetY(-15);
+        $this->SetFont('helvetica', 'I', 8);
+        $this->Cell(0, 10, 'Page ' . $this->getAliasNumPage() . '/' . $this->getAliasNbPages(), 0, false, 'C', 0, '', 0, false, 'T', 'M');
+    }
+}
 
 class DashboardController extends BaseController
 {
@@ -2385,7 +2419,7 @@ class DashboardController extends BaseController
 
         $dataToUpdate = [
             'pest_id' => $this->request->getPost('pest_id'),
-            'pest_image' => 'uploads/pest_img/' . $pest_imageName,
+            //'pest_image' => 'uploads/pest_img/' . $pest_imageName,
             'pest_name' => $this->request->getPost('pest_name'),
             'pest_type' => $this->request->getPost('pest_type'),
             'pest_desc' => $this->request->getPost('pest_desc'),
@@ -2460,7 +2494,7 @@ class DashboardController extends BaseController
 
         $dataToUpdate = [
             'disease_id' => $this->request->getPost('disease_id'),
-            'dis_image' => 'uploads/disease_img/' . $dis_imageName,
+            //'dis_image' => 'uploads/disease_img/' . $dis_imageName,
             'dis_name' => $this->request->getPost('dis_name'),
             'dis_type' => $this->request->getPost('dis_type'),
             'dis_desc' => $this->request->getPost('dis_desc'),
@@ -2484,6 +2518,115 @@ class DashboardController extends BaseController
         }
     }
 
+    //pdf
+
+    public function exportToPDF()
+    {
+        $fields = $this->field->findAll();
+
+        $pdf = new MYPDF();
+
+        $pdf->SetCreator(PDF_CREATOR);
+        $pdf->SetAuthor('Naujan Municipal Agriculture Office');
+        $pdf->SetTitle('Field Data');
+        $pdf->SetSubject('Field Data');
+        $pdf->SetKeywords('TCPDF, PDF, field, data');
+
+        $pdf->AddPage();
+
+        $pdf->SetFont('helvetica', '', 10);
+
+        $html = '
+        <br><br><br><br><br><br><br><br>
+            <h1 style="text-align: center;">Field Data</h1>
+            <table style="border-collapse: collapse; width: 100%;" cellspacing="0" cellpadding="4">
+        <thead>
+            <tr>
+                <th style="border: 1px solid black;"><b>Pangalan ng Magbubukid</b></th>
+                <th style="border: 1px solid black;"><b>Pangalan ng Bukid</b></th>
+                <th style="border: 1px solid black;"><b>May-ari ng Lupa</b></th>
+                <th style="border: 1px solid black;"><b>Address ng Bukid</b></th>
+                <th style="border: 1px solid black;"><b>Kabuuang Sukat</b></th>
+            </tr>
+        </thead>
+                <tbody>';
+
+
+        foreach ($fields as $field) {
+            $html .= '<tr>
+            <td style="border: 1px solid black;">' . htmlspecialchars($field['farmer_name'], ENT_QUOTES, 'UTF-8') . '</td>
+            <td style="border: 1px solid black;">' . htmlspecialchars($field['field_name'], ENT_QUOTES, 'UTF-8') . '</td>
+            <td style="border: 1px solid black;">' . htmlspecialchars($field['field_owner'], ENT_QUOTES, 'UTF-8') . '</td>
+            <td style="border: 1px solid black;">' . htmlspecialchars($field['field_address'], ENT_QUOTES, 'UTF-8') . '</td>
+            <td style="border: 1px solid black;">' . htmlspecialchars($field['field_total_area'], ENT_QUOTES, 'UTF-8') . '</td>
+          </tr>';
+        }
+
+        $html .= '</tbody></table>';
+
+        $pdf->writeHTML($html, true, false, true, false, '');
+
+        $pdf->Output('field_data.pdf', 'D');
+        exit();
+    }
+    public function exportToPDFplanting()
+    {
+        $plantings = $this->planting->findAll();
+
+        $pdf = new MYPDF();
+
+        $pdf->SetCreator(PDF_CREATOR);
+        $pdf->SetAuthor('Naujan Municipal Agriculture Office');
+        $pdf->SetTitle('Cultivation Data');
+        $pdf->SetSubject('Field Data');
+        $pdf->SetKeywords('TCPDF, PDF, planting, data');
+
+        $pdf->AddPage();
+
+        $pdf->SetFont('helvetica', '', 10);
+
+        $html = '
+        <br><br><br><br><br><br><br><br><br>
+            <h1 style="text-align: center;">Cultivation Data</h1>
+            
+            <table style="border-collapse: collapse; width: 100%;" cellspacing="0" cellpadding="4">
+        <thead>
+            <tr>
+                <th style="border: 1px solid black; text-align: center;" ><b>Pangalan ng Magbubukid</b></th>
+                <th style="border: 1px solid black; text-align: center;"><b>FIMS Code</b></th>
+                <th style="border: 1px solid black; text-align: center;"><b>Pangalan ng Bukid</b></th>
+                <th style="border: 1px solid black; text-align: center;"><b>Address ng Bukid</b></th>
+                <th style="border: 1px solid black; text-align: center;"><b>Variety</b></th>
+                <th style="border: 1px solid black; text-align: center;"><b>Araw ng Pagtatanim</b></th>
+                <th style="border: 1px solid black; text-align: center;"><b>Season</b></th>
+                <th style="border: 1px solid black; text-align: center;"><b>Simula ng Pagsasaka</b></th>
+                <th style="border: 1px solid black; text-align: center;"><b>Season</b></th>
+            </tr>
+        </thead>
+                <tbody>';
+
+
+        foreach ($plantings as $planting) {
+            $html .= '<tr>
+            <td style="border: 1px solid black;">' . htmlspecialchars($planting['farmer_name'], ENT_QUOTES, 'UTF-8') . '</td>
+            <td style="border: 1px solid black;">' . htmlspecialchars($planting['fims_code'], ENT_QUOTES, 'UTF-8') . '</td>
+            <td style="border: 1px solid black;">' . htmlspecialchars($planting['field_name'], ENT_QUOTES, 'UTF-8') . '</td>
+            <td style="border: 1px solid black;">' . htmlspecialchars($planting['field_address'], ENT_QUOTES, 'UTF-8') . '</td>
+            <td style="border: 1px solid black;">' . htmlspecialchars($planting['crop_variety'], ENT_QUOTES, 'UTF-8') . '</td>
+            <td style="border: 1px solid black;">' . htmlspecialchars($planting['planting_date'], ENT_QUOTES, 'UTF-8') . '</td>
+            <td style="border: 1px solid black;">' . htmlspecialchars($planting['season'], ENT_QUOTES, 'UTF-8') . '</td>
+            <td style="border: 1px solid black;">' . htmlspecialchars($planting['start_date'], ENT_QUOTES, 'UTF-8') . '</td>
+            <td style="border: 1px solid black;">' . htmlspecialchars($planting['season'], ENT_QUOTES, 'UTF-8') . '</td>
+          </tr>';
+        }
+
+        $html .= '</tbody></table>';
+
+        $pdf->writeHTML($html, true, false, true, false, '');
+
+        $pdf->Output('planting_data.pdf', 'D');
+        exit();
+    }
 
     /*public function importExcel()
     {
