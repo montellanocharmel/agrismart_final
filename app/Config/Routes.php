@@ -231,3 +231,7 @@ $routes->get('/pest', 'LoginController::pest');
 // PDF
 $routes->get('exportToPDFadminfields', 'DashboardController::exportToPDF');
 $routes->get('exportToPDFadminplanting', 'DashboardController::exportToPDFplanting');
+$routes->get('exportToPDFadminexpenses', 'DashboardController::exportToPDFexpenses');
+$routes->get('exportToPDFadmindamage', 'DashboardController::exportToPDFdamage');
+$routes->get('exportToPDFadminharvest', 'DashboardController::exportToPDFharvest');
+$routes->get('/exportToPDFusers', 'LoginController::exportToPDFusers');

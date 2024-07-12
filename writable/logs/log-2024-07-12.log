@@ -1,0 +1,92 @@
+CRITICAL - 2024-07-12 06:16:08 --> ErrorException: Undefined array key "expense_date"
+in APPPATH\Controllers\DashboardController.php on line 2670.
+ 1 APPPATH\Controllers\DashboardController.php(2670): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "expense_date"', 'C:\\laragon\\www\\final_agrismart\\app\\Controllers\\DashboardController.php', 2670)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->exportToPDFexpenses()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-07-12 07:02:53 --> ErrorException: Undefined array key "damages_name"
+in APPPATH\Controllers\DashboardController.php on line 2723.
+ 1 APPPATH\Controllers\DashboardController.php(2723): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "damages_name"', 'C:\\laragon\\www\\final_agrismart\\app\\Controllers\\DashboardController.php', 2723)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->exportToPDFdamage()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+ERROR - 2024-07-12 07:27:49 --> mysqli_sql_exception: Table 'agrismart_reco.pest' doesn't exist in C:\laragon\www\final_agrismart\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\final_agrismart\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\laragon\www\final_agrismart\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\laragon\www\final_agrismart\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\laragon\www\final_agrismart\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\laragon\www\final_agrismart\system\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\final_agrismart\system\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\laragon\www\final_agrismart\app\Controllers\DashboardController.php(2380): CodeIgniter\BaseModel->findAll()
+#7 C:\laragon\www\final_agrismart\system\CodeIgniter.php(941): App\Controllers\DashboardController->adpest()
+#8 C:\laragon\www\final_agrismart\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+#9 C:\laragon\www\final_agrismart\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\laragon\www\final_agrismart\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 C:\laragon\www\final_agrismart\system\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\...')
+#12 {main}
+CRITICAL - 2024-07-12 07:27:49 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'agrismart_reco.pest' doesn't exist
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `pest`
+WHERE `user_id` = :user_id:', [...], false)
+ 2 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\DashboardController.php(2380): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->adpest()
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-07-12 07:27:49 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'agrismart_reco.pest' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `pest`
+WHERE `user_id` = \'20\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `pest`
+WHERE `user_id` = \'20\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `pest`
+WHERE `user_id` = :user_id:', [...], false)
+ 4 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Controllers\DashboardController.php(2380): CodeIgniter\BaseModel->findAll()
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->adpest()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-07-12 07:27:49 --> [Caused by] mysqli_sql_exception: Table 'agrismart_reco.pest' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *
+FROM `pest`
+WHERE `user_id` = \'20\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `pest`
+WHERE `user_id` = \'20\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `pest`
+WHERE `user_id` = \'20\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `pest`
+WHERE `user_id` = :user_id:', [...], false)
+ 5 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\DashboardController.php(2380): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->adpest()
+ 9 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-07-12 07:57:21 --> Error: Class "App\Controllers\MYPDF" not found
+in APPPATH\Controllers\LoginController.php on line 672.
+ 1 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\LoginController->exportToPDFusers()
+ 2 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LoginController))
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')

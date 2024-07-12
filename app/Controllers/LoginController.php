@@ -6,6 +6,39 @@ use App\Models\RegisterModel;
 use App\Controllers\BaseController;
 use App\Models\AdminModel;
 
+use TCPDF;
+
+class MYPDF extends TCPDF
+{
+    public function Header()
+    {
+        $logoPath = FCPATH . 'dashboard/img/naujan-official-logo.png';
+
+        $html = '<br><br><table style="width: 100%; text-align: center; border: none;">
+                    <tr>
+                        <td style="width: 40%; text-align: center; border: none;">
+                            <img src="' . $logoPath . '" alt="Logo"   width="100">
+                        </td>
+                        <td style="width: 60%; text-align: left; border: none;">
+                            <h5 style="margin: 0;">Republic of the Philippines</h5>
+                            <h5 style="margin: 0;">Province of Oriental Mindoro</h5>
+                            <h5 style="margin: 0;">Municipality of Naujan</h5>
+                            <h5 style="margin: 0;">Municipal Agriculture Office</h5>
+                        </td>
+                    </tr>
+                </table> <hr>';
+
+        $this->writeHTML($html, true, false, true, false, '');
+        $this->Ln(20);
+    }
+
+    public function Footer()
+    {
+        $this->SetY(-15);
+        $this->SetFont('helvetica', 'I', 8);
+        $this->Cell(0, 10, 'Page ' . $this->getAliasNumPage() . '/' . $this->getAliasNbPages(), 0, false, 'C', 0, '', 0, false, 'T', 'M');
+    }
+}
 class LoginController extends BaseController
 {
 
@@ -664,5 +697,54 @@ class LoginController extends BaseController
         ];
 
         return view('readmoretraining', $data);
+    }
+    public function exportToPDFusers()
+    {
+        $users = $this->users->findAll();
+
+        $pdf = new MYPDF();
+
+        $pdf->SetCreator(PDF_CREATOR);
+        $pdf->SetAuthor('Naujan Municipal Agriculture Office');
+        $pdf->SetTitle('Users Data');
+        $pdf->SetSubject('Users Data');
+        $pdf->SetKeywords('TCPDF, PDF, users, data');
+
+        $pdf->AddPage();
+
+        $pdf->SetFont('helvetica', '', 10);
+
+        $html = '
+    <br><br><br><br><br><br><br><br><br>
+        <h1 style="text-align: center;">Users Data</h1>
+        
+        <table style="border-collapse: collapse; width: 100%;" cellspacing="0" cellpadding="4">
+    <thead>
+        <tr>
+            <th style="border: 1px solid black; text-align: center;"><b>Leader Name</b></th>
+            <th style="border: 1px solid black; text-align: center;"><b>ID Number</b></th>
+            <th style="border: 1px solid black; text-align: center;"><b>Barangay</b></th>
+            <th style="border: 1px solid black; text-align: center;"><b>Position</b></th>
+            <th style="border: 1px solid black; text-align: center;"><b>Created At</b></th>
+        </tr>
+    </thead>
+    <tbody>';
+
+        foreach ($users as $user) {
+            $html .= '<tr>
+            <td style="border: 1px solid black;">' . htmlspecialchars($user['leader_name'], ENT_QUOTES, 'UTF-8') . '</td>
+            <td style="border: 1px solid black;">' . htmlspecialchars($user['idnumber'], ENT_QUOTES, 'UTF-8') . '</td>
+            <td style="border: 1px solid black;">' . htmlspecialchars($user['barangay'], ENT_QUOTES, 'UTF-8') . '</td>
+            <td style="border: 1px solid black;">' . htmlspecialchars($user['position'], ENT_QUOTES, 'UTF-8') . '</td>
+            <td style="border: 1px solid black;">' . htmlspecialchars($user['created_at'], ENT_QUOTES, 'UTF-8') . '</td>
+        </tr>';
+        }
+
+        $html .= '</tbody></table>';
+
+        $pdf->writeHTML($html, true, false, true, false, '');
+
+        $pdf->Output('users_data.pdf', 'D');
+        exit();
     }
 }

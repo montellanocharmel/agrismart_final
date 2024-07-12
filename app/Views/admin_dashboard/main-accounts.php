@@ -18,6 +18,7 @@
                             </div>
                             <div class="add_button ms-2">
                                 <a href="/manageaccounts" class="btn btn-primary"><i class="fa-solid fa-arrows-rotate"></i></a>
+                                <a href="/exportToPDFusers" class="btn btn-primary"><i class="fa-regular fa-file-pdf"></i></a>
                             </div>
                         </div>
                     </div>

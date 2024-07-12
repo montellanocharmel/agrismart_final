@@ -5,25 +5,36 @@
                 <div class="QA_section">
                     <div class="white_box_tittle list_header" style="margin-top: 4vh;">
                         <h3 style="color:#88c431; ">Damages</h3>
-                        <div class=" box_right d-flex lms_block">
+                        <div class="box_right d-flex lms_block">
                             <div class="serach_field_2">
                                 <div class="search_inner">
-                                    <form Active="#">
-                                        <form method="post" action="/searchadmindamage">
-                                            <div class="search_field">
-                                                <input type="text" name="search_term" placeholder="Search Farmer Name...">
-                                            </div>
-                                            <button type="submit"> <i class="ti-search"></i> </button>
-                                        </form>
+                                    <form method="post" action="/searchadmindamage">
+                                        <div class="search_field">
+                                            <input type="text" name="search_term" placeholder="Search Farmer Name or Damage Type...">
+                                        </div>
                                         <button type="submit"> <i class="ti-search"></i> </button>
                                     </form>
                                 </div>
                             </div>
-                            <div class="add_button ms-2">
-                                <a href="/admindamage" class="btn btn-primary"><i class="fa-solid fa-arrows-rotate"></i></a>
-                                <a href="/exportToExceladmindamage" class="btn btn-primary"><i class="fa-regular fa-file-excel"></i></i></a>
+                            <div class="add_button ms-2 d-flex align-items-center">
+                                <a href="/admindamage" class="btn btn-primary me-2"><i class="fa-solid fa-arrows-rotate"></i></a>
+                                <a href="/exportToExceladmindamage" class="btn btn-primary me-2"><i class="fa-regular fa-file-excel"></i></a>
+                                <form action="/exportToPDFadmindamage" method="get" class="d-inline">
+                                    <div class="input-group">
+                                        <select name="filter" class="form-select">
+                                            <option value="" disabled selected>Export File</option>
+                                            <option value="all">All</option>
+                                            <option value="pest">Pest</option>
+                                            <option value="weather">Weather</option>
+                                        </select>
+                                        <button type="submit" class="btn btn-primary">
+                                            <i class="fa-regular fa-file-pdf"></i>
+                                        </button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
+
                     </div>
                     <div class="table-responsive">
                         <div class="QA_table mb_30">
@@ -61,7 +72,6 @@
                                             <td><?= $dam['damage_descriptions'] ?></td>
                                             <td><?= $dam['damage_severity'] ?></td>
                                             <td><?= $dam['mitigation_measures'] ?></td>
-
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>

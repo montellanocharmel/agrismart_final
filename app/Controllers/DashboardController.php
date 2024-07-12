@@ -13,12 +13,11 @@ use TCPDF;
 
 class MYPDF extends TCPDF
 {
-    // Page header
     public function Header()
     {
         $logoPath = FCPATH . 'dashboard/img/naujan-official-logo.png';
 
-        $html = '<br><br><br><table style="width: 100%; text-align: center; border: none;">
+        $html = '<br><br><table style="width: 100%; text-align: center; border: none;">
                     <tr>
                         <td style="width: 40%; text-align: center; border: none;">
                             <img src="' . $logoPath . '" alt="Logo"   width="100">
@@ -971,7 +970,7 @@ class DashboardController extends BaseController
         $userId = session()->get('leader_id');
         $searchTerm = $this->request->getPost('search_term');
 
-        $dam = $this->damages->like('farmer_name', $searchTerm)
+        $dam = $this->damages->like('farmer_name',  $searchTerm)
             ->where('user_id', $userId)
             ->findAll();
 
@@ -1069,13 +1068,15 @@ class DashboardController extends BaseController
         $searchTerm = $this->request->getPost('search_term');
 
         $dam = $this->damages->like('farmer_name', $searchTerm)
+            ->orLike('pest_type', $searchTerm)
+            ->orLike('weather_events', $searchTerm)
             ->findAll();
 
         $data = [
             'damages' => $dam,
         ];
 
-        return view('adminfolder/croprotation', $data);
+        return view('adminfolder/damage', $data);
     }
 
     public function searchadminHarvest()
@@ -2600,7 +2601,6 @@ class DashboardController extends BaseController
                 <th style="border: 1px solid black; text-align: center;"><b>Araw ng Pagtatanim</b></th>
                 <th style="border: 1px solid black; text-align: center;"><b>Season</b></th>
                 <th style="border: 1px solid black; text-align: center;"><b>Simula ng Pagsasaka</b></th>
-                <th style="border: 1px solid black; text-align: center;"><b>Season</b></th>
             </tr>
         </thead>
                 <tbody>';
@@ -2616,7 +2616,6 @@ class DashboardController extends BaseController
             <td style="border: 1px solid black;">' . htmlspecialchars($planting['planting_date'], ENT_QUOTES, 'UTF-8') . '</td>
             <td style="border: 1px solid black;">' . htmlspecialchars($planting['season'], ENT_QUOTES, 'UTF-8') . '</td>
             <td style="border: 1px solid black;">' . htmlspecialchars($planting['start_date'], ENT_QUOTES, 'UTF-8') . '</td>
-            <td style="border: 1px solid black;">' . htmlspecialchars($planting['season'], ENT_QUOTES, 'UTF-8') . '</td>
           </tr>';
         }
 
@@ -2627,74 +2626,250 @@ class DashboardController extends BaseController
         $pdf->Output('planting_data.pdf', 'D');
         exit();
     }
-
-    /*public function importExcel()
+    public function exportToPDFexpenses()
     {
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            if (isset($_FILES["excel_file"]) && $_FILES["excel_file"]["error"] == UPLOAD_ERR_OK) {
-                $uploadDirectory = __DIR__ . '/uploads/excel';
+        $expenses = $this->expense->findAll();
 
-                if (!file_exists($uploadDirectory)) {
-                    mkdir($uploadDirectory, 0777, true);
-                }
+        $pdf = new MYPDF();
 
-                $fileTmpName = $_FILES["excel_file"]["tmp_name"];
-                $fileName = $_FILES["excel_file"]["name"];
+        $pdf->SetCreator(PDF_CREATOR);
+        $pdf->SetAuthor('Naujan Municipal Agriculture Office');
+        $pdf->SetTitle('Expenses Data');
+        $pdf->SetSubject('Expenses Data');
+        $pdf->SetKeywords('TCPDF, PDF, expense, data');
 
-                move_uploaded_file($fileTmpName, $uploadDirectory . $fileName);
+        $pdf->AddPage();
 
-                $spreadsheet = IOFactory::load($uploadDirectory . $fileName);
+        $pdf->SetFont('helvetica', '', 10);
 
-                $worksheet = $spreadsheet->getActiveSheet();
-
-                $highestRow = $worksheet->getHighestRow();
-                $highestColumn = $worksheet->getHighestColumn();
-                $highestColumnIndex = \PhpOffice\PhpSpreadsheet\Cell\Coordinate::columnIndexFromString($highestColumn);
-
-                $pdo = new PDO('mysql:host=localhost;dbname=final_agrismart', 'root', '');
-                // Modify your SQL statement to exclude the field_id column
-                $stmt = $pdo->prepare("INSERT INTO fields (farmer_name, field_name, field_owner, field_address, field_total_area, user_id, fims_code) VALUES (?, ?, ?, ?, ?, ?, ?)");
-
-                // Modify the loop to adjust for the excluded field_id column
-                for ($row = 2; $row <= $highestRow; ++$row) {
-                    $rowData = [];
-
-                    // Fetch the farmer name from the Excel file
-                    $farmerName = $worksheet->getCell('A' . $row)->getValue();
-
-                    // Skip reading the first column (farmer name) and start from the second column
-                    for ($col = 2; $col <= $highestColumnIndex; ++$col) {
-                        $columnLetter = \PhpOffice\PhpSpreadsheet\Cell\Coordinate::stringFromColumnIndex($col);
-
-                        $cellValue = $worksheet->getCell($columnLetter . $row)->getValue();
-                        $rowData[] = $cellValue;
-                    }
-
-                    // Fetch fims_code from the database based on the farmer name
-                    $profile = $this->profiles->where('fullname', $farmerName)->first();
-                    if ($profile) {
-                        $fimsCode = $profile['fims_code'];
-                    } else {
-                        $fimsCode = null;
-                    }
-
-                    // Add user_id and fims_code to $rowData
-                    $userId = session()->get('leader_id');
-                    $rowData[] = $userId;
-                    $rowData[] = $fimsCode;
-
-                    // Execute the SQL statement with the extracted data
-                    $stmt->execute($rowData);
-                }
+        $html = '
+        <br><br><br><br><br><br><br><br><br>
+            <h1 style="text-align: center;">Expenses Data</h1>
+            
+            <table style="border-collapse: collapse; width: 100%;" cellspacing="0" cellpadding="4">
+        <thead>
+            <tr>
+                <th style="border: 1px solid black; text-align: center;" ><b>Pangalan ng Magbubukid</b></th>
+                <th style="border: 1px solid black; text-align: center;"><b>FIMS Code</b></th>
+                <th style="border: 1px solid black; text-align: center;"><b>Pangalan ng Bukid</b></th>
+                <th style="border: 1px solid black; text-align: center;"><b>Usage</b></th>
+                <th style="border: 1px solid black; text-align: center;"><b>Completion Date</b></th>
+                <th style="border: 1px solid black; text-align: center;"><b>Total Money Spent</b></th>
+                <th style="border: 1px solid black; text-align: center;"><b>Notes</b></th>
+            </tr>
+        </thead>
+                <tbody>';
 
 
+        foreach ($expenses as $expense) {
+            $html .= '<tr>
+            <td style="border: 1px solid black;">' . htmlspecialchars($expense['farmer_name'], ENT_QUOTES, 'UTF-8') . '</td>
+            <td style="border: 1px solid black;">' . htmlspecialchars($expense['fims_code'], ENT_QUOTES, 'UTF-8') . '</td>
+            <td style="border: 1px solid black;">' . htmlspecialchars($expense['field_name'], ENT_QUOTES, 'UTF-8') . '</td>
+            <td style="border: 1px solid black;">' . htmlspecialchars($expense['expense_name'], ENT_QUOTES, 'UTF-8') . '</td>
+            <td style="border: 1px solid black;">' . htmlspecialchars($expense['finished_date'], ENT_QUOTES, 'UTF-8') . '</td>
+            <td style="border: 1px solid black;">' . htmlspecialchars($expense['total_money_spent'], ENT_QUOTES, 'UTF-8') . '</td>
+            <td style="border: 1px solid black;">' . htmlspecialchars($expense['notes'], ENT_QUOTES, 'UTF-8') . '</td>
+          </tr>';
+        }
 
-                $pdo = null;
+        $html .= '</tbody></table>';
 
-                echo "Data imported successfully.";
-            } else {
-                echo "Please upload an Excel file.";
+        $pdf->writeHTML($html, true, false, true, false, '');
+
+        $pdf->Output('expense_data.pdf', 'D');
+        exit();
+    }
+    public function exportToPDFdamage()
+    {
+        $filter = $this->request->getGet('filter');
+
+        if ($filter == 'pest') {
+            $damages = $this->damages->where('damage_type', 'Pest Disease')->findAll();
+        } elseif ($filter == 'weather') {
+            $damages = $this->damages->where('damage_type', 'Weather Related')->findAll();
+        } else {
+            $damages = $this->damages->findAll();
+        }
+
+        $pdf = new MYPDF();
+
+        $pdf->SetCreator(PDF_CREATOR);
+        $pdf->SetAuthor('Naujan Municipal Agriculture Office');
+        $pdf->SetTitle('Damage Data');
+        $pdf->SetSubject('Damage Data');
+        $pdf->SetKeywords('TCPDF, PDF, damage, data');
+
+        $pdf->AddPage();
+
+        $pdf->SetFont('helvetica', '', 10);
+
+        $html = '<br><br><br><br><br><br><br><br><br><h1 style="text-align: center;">Damage Data</h1>';
+
+        if ($filter == 'pest') {
+            $html .= '
+            <table style="border-collapse: collapse; width: 100%;" cellspacing="0" cellpadding="4">
+                <thead>
+                    <tr>
+                        <th style="border: 1px solid black; text-align: center;">Pangalan ng Magbubukid</th>
+                        <th style="border: 1px solid black; text-align: center;">Pangalan ng Bukid</th>
+                        <th style="border: 1px solid black; text-align: center;">Address ng Bukid</th>
+                        <th style="border: 1px solid black; text-align: center;">Uri ng Pananim</th>
+                        <th style="border: 1px solid black; text-align: center;">Uri ng Pinsala</th>
+                        <th style="border: 1px solid black; text-align: center;">Uri ng Peste</th>
+                        <th style="border: 1px solid black; text-align: center;">Tindi ng Pinsala</th>
+                        <th style="border: 1px solid black; text-align: center;">Mga Sintomas</th>
+                        <th style="border: 1px solid black; text-align: center;">Mga Ginawang Hakbang</th>
+                    </tr>
+                </thead>
+                <tbody>';
+
+            foreach ($damages as $dam) {
+                $html .= '<tr>
+                <td style="border: 1px solid black;">' . htmlspecialchars($dam['farmer_name'], ENT_QUOTES, 'UTF-8') . '</td>
+                <td style="border: 1px solid black;">' . htmlspecialchars($dam['field_name'], ENT_QUOTES, 'UTF-8') . '</td>
+                <td style="border: 1px solid black;">' . htmlspecialchars($dam['field_address'], ENT_QUOTES, 'UTF-8') . '</td>
+                <td style="border: 1px solid black;">' . htmlspecialchars($dam['crop_variety'], ENT_QUOTES, 'UTF-8') . '</td>
+                <td style="border: 1px solid black;">' . htmlspecialchars($dam['damage_type'], ENT_QUOTES, 'UTF-8') . '</td>
+                <td style="border: 1px solid black;">' . htmlspecialchars($dam['pest_type'], ENT_QUOTES, 'UTF-8') . '</td>
+                <td style="border: 1px solid black;">' . htmlspecialchars($dam['severity'], ENT_QUOTES, 'UTF-8') . '</td>
+                <td style="border: 1px solid black;">' . htmlspecialchars($dam['symptoms'], ENT_QUOTES, 'UTF-8') . '</td>
+                <td style="border: 1px solid black;">' . htmlspecialchars($dam['actions'], ENT_QUOTES, 'UTF-8') . '</td>
+              </tr>';
+            }
+        } elseif ($filter == 'weather') {
+            $html .= '
+            <table style="border-collapse: collapse; width: 100%;" cellspacing="0" cellpadding="4">
+                <thead>
+                    <tr>
+                        <th style="border: 1px solid black; text-align: center;">Pangalan ng Magbubukid</th>
+                        <th style="border: 1px solid black; text-align: center;">Pangalan ng Bukid</th>
+                        <th style="border: 1px solid black; text-align: center;">Address ng Bukid</th>
+                        <th style="border: 1px solid black; text-align: center;">Uri ng Pananim</th>
+                        <th style="border: 1px solid black; text-align: center;">Uri ng Pinsala</th>
+                        <th style="border: 1px solid black; text-align: center;">Mga Pangyayari sa Panahon</th>
+                        <th style="border: 1px solid black; text-align: center;">Paglalarawan ng Pinsala</th>
+                        <th style="border: 1px solid black; text-align: center;">Tindi ng Pinsala</th>
+                        <th style="border: 1px solid black; text-align: center;">Mga Paraan ng Pag-iwas</th>
+                    </tr>
+                </thead>
+                <tbody>';
+
+            foreach ($damages as $dam) {
+                $html .= '<tr>
+                <td style="border: 1px solid black;">' . htmlspecialchars($dam['farmer_name'], ENT_QUOTES, 'UTF-8') . '</td>
+                <td style="border: 1px solid black;">' . htmlspecialchars($dam['field_name'], ENT_QUOTES, 'UTF-8') . '</td>
+                <td style="border: 1px solid black;">' . htmlspecialchars($dam['field_address'], ENT_QUOTES, 'UTF-8') . '</td>
+                <td style="border: 1px solid black;">' . htmlspecialchars($dam['crop_variety'], ENT_QUOTES, 'UTF-8') . '</td>
+                <td style="border: 1px solid black;">' . htmlspecialchars($dam['damage_type'], ENT_QUOTES, 'UTF-8') . '</td>
+                <td style="border: 1px solid black;">' . htmlspecialchars($dam['weather_events'], ENT_QUOTES, 'UTF-8') . '</td>
+                <td style="border: 1px solid black;">' . htmlspecialchars($dam['damage_descriptions'], ENT_QUOTES, 'UTF-8') . '</td>
+                <td style="border: 1px solid black;">' . htmlspecialchars($dam['damage_severity'], ENT_QUOTES, 'UTF-8') . '</td>
+                <td style="border: 1px solid black;">' . htmlspecialchars($dam['mitigation_measures'], ENT_QUOTES, 'UTF-8') . '</td>
+              </tr>';
+            }
+        } else {
+            $html .= '
+            <table style="border-collapse: collapse; width: 100%;" cellspacing="0" cellpadding="4">
+                <thead>
+                    <tr>
+                        <th style="border: 1px solid black; text-align: center;">Pangalan ng Magbubukid</th>
+                        <th style="border: 1px solid black; text-align: center;">Pangalan ng Bukid</th>
+                        <th style="border: 1px solid black; text-align: center;">Address ng Bukid</th>
+                        <th style="border: 1px solid black; text-align: center;">Uri ng Pananim</th>
+                        <th style="border: 1px solid black; text-align: center;">Uri ng Pinsala</th>
+                        <th style="border: 1px solid black; text-align: center;">Uri ng Peste</th>
+                        <th style="border: 1px solid black; text-align: center;">Tindi ng Pinsala</th>
+                        <th style="border: 1px solid black; text-align: center;">Mga Sintomas</th>
+                        <th style="border: 1px solid black; text-align: center;">Mga Ginawang Hakbang</th>
+                        <th style="border: 1px solid black; text-align: center;">Mga Pangyayari sa Panahon</th>
+                        <th style="border: 1px solid black; text-align: center;">Paglalarawan ng Pinsala</th>
+                        <th style="border: 1px solid black; text-align: center;">Tindi ng Pinsala</th>
+                        <th style="border: 1px solid black; text-align: center;">Mga Paraan ng Pag-iwas</th>
+                    </tr>
+                </thead>
+                <tbody>';
+
+            foreach ($damages as $dam) {
+                $html .= '<tr>
+                <td style="border: 1px solid black;">' . htmlspecialchars($dam['farmer_name'], ENT_QUOTES, 'UTF-8') . '</td>
+                <td style="border: 1px solid black;">' . htmlspecialchars($dam['field_name'], ENT_QUOTES, 'UTF-8') . '</td>
+                <td style="border: 1px solid black;">' . htmlspecialchars($dam['field_address'], ENT_QUOTES, 'UTF-8') . '</td>
+                <td style="border: 1px solid black;">' . htmlspecialchars($dam['crop_variety'], ENT_QUOTES, 'UTF-8') . '</td>
+                <td style="border: 1px solid black;">' . htmlspecialchars($dam['damage_type'], ENT_QUOTES, 'UTF-8') . '</td>
+                <td style="border: 1px solid black;">' . htmlspecialchars($dam['pest_type'], ENT_QUOTES, 'UTF-8') . '</td>
+                <td style="border: 1px solid black;">' . htmlspecialchars($dam['severity'], ENT_QUOTES, 'UTF-8') . '</td>
+                <td style="border: 1px solid black;">' . htmlspecialchars($dam['symptoms'], ENT_QUOTES, 'UTF-8') . '</td>
+                <td style="border: 1px solid black;">' . htmlspecialchars($dam['actions'], ENT_QUOTES, 'UTF-8') . '</td>
+                <td style="border: 1px solid black;">' . htmlspecialchars($dam['weather_events'], ENT_QUOTES, 'UTF-8') . '</td>
+                <td style="border: 1px solid black;">' . htmlspecialchars($dam['damage_descriptions'], ENT_QUOTES, 'UTF-8') . '</td>
+                <td style="border: 1px solid black;">' . htmlspecialchars($dam['damage_severity'], ENT_QUOTES, 'UTF-8') . '</td>
+                <td style="border: 1px solid black;">' . htmlspecialchars($dam['mitigation_measures'], ENT_QUOTES, 'UTF-8') . '</td>
+              </tr>';
             }
         }
-    }*/
+
+        $html .= '</tbody></table>';
+
+        $pdf->writeHTML($html, true, false, true, false, '');
+
+        $pdf->Output('damage_data.pdf', 'D');
+
+        exit();
+    }
+    public function exportToPDFharvest()
+    {
+        $harvests = $this->harvest->findAll();
+
+        $pdf = new MYPDF();
+
+        $pdf->SetCreator(PDF_CREATOR);
+        $pdf->SetAuthor('Naujan Municipal Agriculture Office');
+        $pdf->SetTitle('Harvest Data');
+        $pdf->SetSubject('Harvest Data');
+        $pdf->SetKeywords('TCPDF, PDF, harvest, data');
+
+        $pdf->AddPage();
+
+        $pdf->SetFont('helvetica', '', 10);
+
+        $html = '
+    <br><br><br><br><br><br><br><br><br>
+        <h1 style="text-align: center;">Harvest Data</h1>
+        
+        <table style="border-collapse: collapse; width: 100%;" cellspacing="0" cellpadding="4">
+    <thead>
+        <tr>
+            <th style="border: 1px solid black; text-align: center;"><b>Pangalan ng Magbubukid</b></th>
+            <th style="border: 1px solid black; text-align: center;"><b>FIMS Code</b></th>
+            <th style="border: 1px solid black; text-align: center;"><b>Pangalan ng Bukid</b></th>
+            <th style="border: 1px solid black; text-align: center;"><b>Variety Name</b></th>
+            <th style="border: 1px solid black; text-align: center;"><b>Harvest Quantity</b></th>
+            <th style="border: 1px solid black; text-align: center;"><b>Total Revenue</b></th>
+            <th style="border: 1px solid black; text-align: center;"><b>Harvest Date</b></th>
+            <th style="border: 1px solid black; text-align: center;"><b>Notes</b></th>
+        </tr>
+    </thead>
+            <tbody>';
+
+        foreach ($harvests as $harvest) {
+            $html .= '<tr>
+        <td style="border: 1px solid black;">' . htmlspecialchars($harvest['farmer_name'], ENT_QUOTES, 'UTF-8') . '</td>
+        <td style="border: 1px solid black;">' . htmlspecialchars($harvest['fims_code'], ENT_QUOTES, 'UTF-8') . '</td>
+        <td style="border: 1px solid black;">' . htmlspecialchars($harvest['field_name'], ENT_QUOTES, 'UTF-8') . '</td>
+        <td style="border: 1px solid black;">' . htmlspecialchars($harvest['variety_name'], ENT_QUOTES, 'UTF-8') . '</td>
+        <td style="border: 1px solid black;">' . htmlspecialchars($harvest['harvest_quantity'], ENT_QUOTES, 'UTF-8') . '</td>
+        <td style="border: 1px solid black;">' . htmlspecialchars($harvest['total_revenue'], ENT_QUOTES, 'UTF-8') . '</td>
+        <td style="border: 1px solid black;">' . htmlspecialchars($harvest['harvest_date'], ENT_QUOTES, 'UTF-8') . '</td>
+        <td style="border: 1px solid black;">' . htmlspecialchars($harvest['notes'], ENT_QUOTES, 'UTF-8') . '</td>
+      </tr>';
+        }
+
+        $html .= '</tbody></table>';
+
+        $pdf->writeHTML($html, true, false, true, false, '');
+
+        $pdf->Output('harvest_data.pdf', 'D');
+        exit();
+    }
 }

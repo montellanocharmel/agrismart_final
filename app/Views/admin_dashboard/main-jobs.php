@@ -18,7 +18,9 @@
                             </div>
                             <div class="add_button ms-2">
                                 <a href="/adminexpense" class="btn btn-primary"><i class="fa-solid fa-arrows-rotate"></i></a>
-                                <a href="/exportToExceladminexpense" class="btn btn-primary"><i class="fa-regular fa-file-excel"></i></i></a>
+                                <a href="/exportToExceladminexpense" class="btn btn-primary"><i class="fa-regular fa-file-excel"></i></a>
+                                <a href="/exportToPDFadminexpenses" class="btn btn-primary"><i class="fa-regular fa-file-pdf"></i></a>
+
                             </div>
                         </div>
                     </div>

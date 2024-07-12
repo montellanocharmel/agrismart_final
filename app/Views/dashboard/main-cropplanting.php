@@ -17,7 +17,7 @@
                                 </div>
                             </div>
                             <div class="add_button ms-2">
-                            <a href="#" data-bs-toggle="modal" data-bs-target="#addplantingmodal" class="btn btn-primary"><i class="fa-solid fa-plus"></i></a>
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#addplantingmodal" class="btn btn-primary"><i class="fa-solid fa-plus"></i></a>
                                 <a href="/cropplanting" class="btn btn-primary"><i class="fa-solid fa-arrows-rotate"></i></a>
                                 <a href="/exportToExcelplanting" class="btn btn-primary"><i class="fa-regular fa-file-excel"></i></a>
                             </div>
@@ -220,11 +220,11 @@
                     <div class="mb-3">
                         <label for="damage_type" class="form-label">Damage Type:</label><br>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="damage_type" id="pest_disease" value="pest_disease">
+                            <input class="form-check-input" type="radio" name="damage_type" id="pest_disease" value="Pest Disease">
                             <label class="form-check-label" for="pest_disease">Damage Caused by Pest/Disease</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="damage_type" id="weather_related" value="weather_related">
+                            <input class="form-check-input" type="radio" name="damage_type" id="weather_related" value="Weather Related">
                             <label class="form-check-label" for="weather_related">Damage Caused by Weather</label>
                         </div>
                     </div>
