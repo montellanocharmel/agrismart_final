@@ -63,6 +63,7 @@
                                                     <button type="button" class="dropdown-item" onclick="openAddPlantingModal('<?= $fie['field_id']; ?>', '<?= $fie['field_name']; ?>')">Add New Planting Details</button>
                                                     <button type="button" class="dropdown-item" onclick="openAddJobModal('<?= $fie['field_id']; ?>', '<?= $fie['field_name']; ?>')">Add Expenses</button>
                                                     <button type="button" class="dropdown-item" onclick="openAddHarvestModal('<?= $fie['field_id']; ?>', '<?= $fie['field_name']; ?>')">Add New Harvest</button>
+                                                    <a href="/showFieldDetails/<?= $fie['field_id']; ?>" style="color: black" class="dropdown-item">Show All Field Data</a>
                                                 </div>
                                             </div>
                                         </td>

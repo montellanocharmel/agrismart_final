@@ -222,8 +222,9 @@
     }
     // damage
 
-    function openAddDamageModal(planting_id, field_name, field_address, farmer_name, fims_code, crop_variety) {
+    function openAddDamageModal(planting_id, field_id, field_name, field_address, farmer_name, fims_code, crop_variety) {
         document.getElementById('planting_id').value = planting_id;
+        document.getElementById('field_id').value = field_id;
         document.getElementById('field_name_add').value = field_name;
         document.getElementById('field_address_add').value = field_address;
         document.getElementById('farmer_name_add').value = farmer_name;

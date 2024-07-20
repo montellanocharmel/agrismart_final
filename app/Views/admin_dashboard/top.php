@@ -45,7 +45,7 @@
     <script src="https://kit.fontawesome.com/5f1f084a1d.js" crossorigin="anonymous"></script>
     <style>
         .body {
-            font-size: 30px;
+            font-size: 20px;
         }
     </style>
 </head>

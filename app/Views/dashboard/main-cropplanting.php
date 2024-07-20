@@ -66,7 +66,7 @@
                                                         '<?= $pla['notes']; ?>',
                                                         )">Edit</button>
                                                     <button class="dropdown-item" onclick="deleteplanting(<?= $pla['planting_id']; ?>)">Delete</button>
-                                                    <button type="button" class="dropdown-item" onclick="openAddDamageModal('<?= $pla['planting_id']; ?>', '<?= $pla['field_name']; ?>', '<?= $pla['field_address']; ?>', '<?= $pla['farmer_name']; ?>', '<?= $pla['fims_code']; ?>', '<?= $pla['crop_variety']; ?>')">Add Damage</button>
+                                                    <button type="button" class="dropdown-item" onclick="openAddDamageModal('<?= $pla['planting_id']; ?>', '<?= $pla['field_id']; ?>', '<?= $pla['field_name']; ?>', '<?= $pla['field_address']; ?>', '<?= $pla['farmer_name']; ?>', '<?= $pla['fims_code']; ?>', '<?= $pla['crop_variety']; ?>')">Add Damage</button>
                                                 </div>
                                             </div>
                                         </td>
@@ -196,6 +196,10 @@
                     <div class="mb-3" hidden>
                         <label for="planting_id" class="form-label">ID</label>
                         <input type="text" name="planting_id" id="planting_id" class="form-control" readonly>
+                    </div>
+                    <div class="mb-3" hidden>
+                        <label for="field_id" class="form-label">ID</label>
+                        <input type="text" name="field_id" id="field_id" class="form-control" readonly>
                     </div>
                     <div class="mb-3">
                         <label for="field_name" class="form-label">Pangalan ng Bukid</label>

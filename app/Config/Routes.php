@@ -235,3 +235,5 @@ $routes->get('exportToPDFadminexpenses', 'DashboardController::exportToPDFexpens
 $routes->get('exportToPDFadmindamage', 'DashboardController::exportToPDFdamage');
 $routes->get('exportToPDFadminharvest', 'DashboardController::exportToPDFharvest');
 $routes->get('/exportToPDFusers', 'LoginController::exportToPDFusers');
+
+$routes->get('/showFieldDetails/(:num)', 'DashboardController::showFieldDetails/$1');

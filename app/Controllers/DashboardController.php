@@ -2872,4 +2872,27 @@ class DashboardController extends BaseController
         $pdf->Output('harvest_data.pdf', 'D');
         exit();
     }
+    public function showFieldDetails($field_id)
+    {
+        $userId = session()->get('leader_id');
+        if (!session()->get('isLoggedIn')) {
+            return redirect()->to('/sign_ins');
+        } else {
+            $plantingDetails = $this->planting->where('field_id', $field_id)->findAll();
+
+            $field = $this->field->find($field_id);
+
+            if (!$field) {
+                throw new \CodeIgniter\Exceptions\PageNotFoundException('Field not found');
+            }
+
+
+            $data = [
+                'field' => $field,
+                'plantingDetails' => $plantingDetails,
+            ];
+
+            return view('userfolder/showfielddata', $data);
+        }
+    }
 }
