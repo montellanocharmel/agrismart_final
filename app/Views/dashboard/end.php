@@ -331,6 +331,18 @@
             });
         }
     }
+    // disease
+
+    function openAddDiseaseModal(planting_id, field_id, field_name, field_address, farmer_name, fims_code, crop_variety) {
+        document.getElementById('disease_planting_id').value = planting_id;
+        document.getElementById('disease_field_id').value = field_id;
+        document.getElementById('disease_field_name_add').value = field_name;
+        document.getElementById('disease_field_address_add').value = field_address;
+        document.getElementById('disease_farmer_name_add').value = farmer_name;
+        document.getElementById('disease_fims_code_add').value = fims_code;
+        document.getElementById('disease_crop_variety_add').value = crop_variety;
+        $('#adddiseasemodal').modal('show');
+    }
 </script>
 <script>
     $(document).ready(function() {
@@ -460,6 +472,7 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="<?= base_url() ?>dashboard/vendors/chartjs/chartjs_init.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.10.1/main.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
 
 </body>
 

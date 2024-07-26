@@ -34,11 +34,11 @@
                                                 <p style="line-height: 2; margin: 0; text-align: right;">Field Total Area</p>
                                             </div>
                                             <div class="col-7 responsive-font">
-                                                <p style="line-height: 2; margin: 0;"><strong><?= htmlspecialchars($field['farmer_name'] ?: ' ', ENT_QUOTES, 'UTF-8') ?></strong></p>
-                                                <p style="line-height: 2; margin: 0;"><strong><?= htmlspecialchars($field['fims_code'] ?: ' ', ENT_QUOTES, 'UTF-8') ?></strong></p>
-                                                <p style="line-height: 2; margin: 0;"><strong><?= htmlspecialchars($field['field_owner'] ?: ' .', ENT_QUOTES, 'UTF-8') ?></strong></p>
-                                                <p style="line-height: 2; margin: 0;"><strong><?= htmlspecialchars($field['field_address'] ?: ' ', ENT_QUOTES, 'UTF-8') ?></strong></p>
-                                                <p style="line-height: 2; margin: 0;"><strong><?= htmlspecialchars($field['field_total_area'] ?: ' ', ENT_QUOTES, 'UTF-8') ?></strong></p>
+                                                <p style="line-height: 2; margin: 0;"><strong><?= htmlspecialchars($field['farmer_name'] ?: ' N/A', ENT_QUOTES, 'UTF-8') ?></strong></p>
+                                                <p style="line-height: 2; margin: 0;"><strong><?= htmlspecialchars($field['fims_code'] ?: ' N/A', ENT_QUOTES, 'UTF-8') ?></strong></p>
+                                                <p style="line-height: 2; margin: 0;"><strong><?= htmlspecialchars($field['field_owner'] ?: ' N/A', ENT_QUOTES, 'UTF-8') ?></strong></p>
+                                                <p style="line-height: 2; margin: 0;"><strong><?= htmlspecialchars($field['field_address'] ?: ' N/A', ENT_QUOTES, 'UTF-8') ?></strong></p>
+                                                <p style="line-height: 2; margin: 0;"><strong><?= htmlspecialchars($field['field_total_area'] ?: ' N/A', ENT_QUOTES, 'UTF-8') ?></strong></p>
                                             </div>
                                         </div>
                                     </div>
@@ -54,58 +54,129 @@
                             <div class="col-md-8">
                                 <div class="card">
                                     <div class="card-header">
-                                        <h2 style="color:#88c431">Field Details</h2>
+
+                                        <h2 style="color:#88c431; margin-top: 10px;"><?= htmlspecialchars($field['field_name'], ENT_QUOTES, 'UTF-8') ?></h2>
                                     </div>
                                     <div class="card-body">
                                         <!-- Nav tabs -->
                                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                                             <li class="nav-item">
-                                                <a class="nav-link active" id="planting-details-tab" data-toggle="tab" href="#planting-details" role="tab" aria-controls="planting-details" aria-selected="true">Planting Details</a>
+                                                <a class="nav-link active" id="planting-details-tab" data-toggle="tab" style="font-size: large; color:#88c431;" href="#planting-details" role="tab" aria-controls="planting-details" aria-selected="true"><i class="fa-solid fa-circle-info"></i></a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" id="expenses-tab" data-toggle="tab" href="#expenses" role="tab" aria-controls="expenses" aria-selected="false">Expenses</a>
+                                                <a class="nav-link" id="expenses-tab" data-toggle="tab" href="#expenses" style="font-size: large; color:#88c431;" role="tab" aria-controls="expenses" aria-selected="false"><i class="fa-solid fa-money-bill-1-wave"></i></a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" id="damages-tab" data-toggle="tab" href="#damages" role="tab" aria-controls="damages" aria-selected="false">Damages</a>
+                                                <a class="nav-link" id="damages-tab" data-toggle="tab" href="#damages" style="font-size: large; color:#88c431;" role="tab" aria-controls="damages" aria-selected="false"><i class="fa-solid fa-cloud-showers-water"></i></a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" id="harvest-details-tab" data-toggle="tab" href="#harvest-details" role="tab" aria-controls="harvest-details" aria-selected="false">Harvest Details</a>
+                                                <a class="nav-link" id="harvest-details-tab" data-toggle="tab" style="font-size: large; color:#88c431;" href="#harvest-details" role="tab" aria-controls="harvest-details" aria-selected="false"><i class="fa-solid fa-seedling"></i></a>
                                             </li>
                                         </ul>
 
                                         <!-- Tab panes -->
                                         <div class="tab-content">
                                             <div class="tab-pane fade show active" id="planting-details" role="tabpanel" aria-labelledby="planting-details-tab">
+                                                <div class="container">
 
-                                                <?php if (isset($plantingDetails) && !empty($plantingDetails)) : ?>
-                                                    <?php foreach ($plantingDetails as $detail) : ?>
-                                                        <div class="card" style="font-size: 1vw; margin-bottom: 1rem;">
-                                                            <h1 style="margin-left: 15px;"> <?= htmlspecialchars($detail['field_name'], ENT_QUOTES, 'UTF-8') ?></h1>
-
-                                                            <div class="card-body" style="font-size: .8vw;">
-                                                                <p style="font-size: .8vw;"><strong>Crop Variety:</strong> <?= htmlspecialchars($detail['crop_variety'], ENT_QUOTES, 'UTF-8') ?></p>
-                                                                <p style="font-size: .8vw;"><strong>Planting Date:</strong> <?= htmlspecialchars($detail['planting_date'], ENT_QUOTES, 'UTF-8') ?></p>
-                                                                <p style="font-size: .8vw;"><strong>Season:</strong> <?= htmlspecialchars($detail['season'], ENT_QUOTES, 'UTF-8') ?></p>
-                                                                <p style="font-size: .8vw;"><strong>Start Date:</strong> <?= htmlspecialchars($detail['start_date'], ENT_QUOTES, 'UTF-8') ?></p>
-                                                                <p style="font-size: .8vw;"><strong>Notes:</strong> <?= htmlspecialchars($detail['notes'], ENT_QUOTES, 'UTF-8') ?></p>
-                                                            </div>
-                                                        </div>
-                                                    <?php endforeach; ?>
+                                                    <div class="table-responsive">
+                                                        <table id="plantingTable" class="table table-striped table-bordered" style="width:100%;">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Crop Variety</th>
+                                                                    <th>Planting Date</th>
+                                                                    <th>Season</th>
+                                                                    <th>Start Date</th>
+                                                                    <th>Notes</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <?php if (isset($plantingDetails) && !empty($plantingDetails)) : ?>
+                                                                    <?php foreach ($plantingDetails as $detail) : ?>
+                                                                        <tr>
+                                                                            <td><?= htmlspecialchars($detail['crop_variety'], ENT_QUOTES, 'UTF-8') ?></td>
+                                                                            <td><?= htmlspecialchars($detail['planting_date'], ENT_QUOTES, 'UTF-8') ?></td>
+                                                                            <td><?= htmlspecialchars($detail['season'], ENT_QUOTES, 'UTF-8') ?></td>
+                                                                            <td><?= htmlspecialchars($detail['start_date'], ENT_QUOTES, 'UTF-8') ?></td>
+                                                                            <td><?= htmlspecialchars($detail['notes'], ENT_QUOTES, 'UTF-8') ?></td>
+                                                                        </tr>
+                                                                    <?php endforeach; ?>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
                                                 <?php else : ?>
-                                                    <p style="font-size: .8vw;">No planting details found for this field.</p>
+                                                    <p style="font-size: 15px;"> </p>
                                                 <?php endif; ?>
+                                                </div>
                                             </div>
                                             <div class="tab-pane fade" id="expenses" role="tabpanel" aria-labelledby="expenses-tab">
-                                                <h3>Expenses</h3>
-                                                <!-- Your expenses content here -->
+
+                                                <div class="container">
+
+                                                    <div class="table-responsive">
+                                                        <table id="expenseTable" class="table table-striped table-bordered" style="width:100%;">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Expense Details</th>
+                                                                    <th>Date</th>
+                                                                    <th>Total Money Spent</th>
+                                                                    <th>Remarks</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <?php if (isset($expensesDetails) && !empty($expensesDetails)) : ?>
+                                                                    <?php foreach ($expensesDetails as $expdetails) : ?>
+                                                                        <tr>
+                                                                            <td><?= htmlspecialchars($expdetails['expense_name'], ENT_QUOTES, 'UTF-8') ?></td>
+                                                                            <td><?= htmlspecialchars($expdetails['finished_date'], ENT_QUOTES, 'UTF-8') ?></td>
+                                                                            <td><?= htmlspecialchars($expdetails['total_money_spent'], ENT_QUOTES, 'UTF-8') ?></td>
+                                                                            <td><?= htmlspecialchars($expdetails['notes'], ENT_QUOTES, 'UTF-8') ?></td>
+                                                                        </tr>
+                                                                    <?php endforeach; ?>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                <?php else : ?>
+                                                    <p style="font-size: 15px;"> </p>
+                                                <?php endif; ?>
+                                                </div>
                                             </div>
                                             <div class="tab-pane fade" id="damages" role="tabpanel" aria-labelledby="damages-tab">
                                                 <h3>Damages</h3>
                                                 <!-- Your damages content here -->
                                             </div>
                                             <div class="tab-pane fade" id="harvest-details" role="tabpanel" aria-labelledby="harvest-details-tab">
-                                                <h3>Harvest Details</h3>
-                                                <!-- Your harvest details content here -->
+                                                <div class="container">
+
+                                                    <div class="table-responsive">
+                                                        <table id="harvestTable" class="table table-striped table-bordered" style="width:100%;">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Variety Name</th>
+                                                                    <th>Harvest Quantity</th>
+                                                                    <th>Total Revenue</th>
+                                                                    <th>Harvest Date</th>
+                                                                    <th>Remarks</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <?php if (isset($harvestDetails) && !empty($harvestDetails)) : ?>
+                                                                    <?php foreach ($harvestDetails as $harvestDetails) : ?>
+                                                                        <tr>
+                                                                            <td><?= htmlspecialchars($harvestDetails['variety_name'], ENT_QUOTES, 'UTF-8') ?></td>
+                                                                            <td><?= htmlspecialchars($harvestDetails['harvest_quantity'], ENT_QUOTES, 'UTF-8') ?></td>
+                                                                            <td><?= htmlspecialchars($harvestDetails['total_revenue'], ENT_QUOTES, 'UTF-8') ?></td>
+                                                                            <td><?= htmlspecialchars($harvestDetails['harvest_date'], ENT_QUOTES, 'UTF-8') ?></td>
+                                                                            <td><?= htmlspecialchars($harvestDetails['notes'], ENT_QUOTES, 'UTF-8') ?></td>
+                                                                        </tr>
+                                                                    <?php endforeach; ?>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                <?php else : ?>
+                                                    <p style="font-size: 15px;"></p>
+                                                <?php endif; ?>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -119,3 +190,85 @@
         </div>
     </div>
 </div>
+<style>
+    .dataTables_wrapper .dataTables_filter input {
+        margin-left: 0.5em;
+        display: inline-block;
+        width: auto;
+    }
+
+    .dataTables_wrapper .dataTables_length select {
+        margin-right: 0.5em;
+        display: inline-block;
+        width: auto;
+    }
+
+    #plantingTable tbody tr {
+        background-color: white;
+    }
+
+    #plantingTable tbody tr:hover {
+        background-color: #f1f1f1;
+    }
+
+    #plantingTable thead th,
+    #plantingTable tbody td {
+        font-size: 17px;
+    }
+
+    #expenseTable thead th,
+    #expenseTable tbody td {
+        font-size: 17px;
+    }
+
+    #harvestTable thead th,
+    #harvestTable tbody td {
+        font-size: 17px;
+    }
+</style>
+
+<script>
+    $(document).ready(function() {
+        $('#plantingTable').DataTable({
+            "pagingType": "simple_numbers",
+            "lengthMenu": [5, 10, 25, 50],
+            "pageLength": 5,
+            "dom": '<"top"f>rt<"bottom"lp><"clear">',
+            "language": {
+                "paginate": {
+                    "previous": "<i class='fas fa-chevron-left'></i>",
+                    "next": "<i class='fas fa-chevron-right'></i>"
+                }
+            }
+        });
+    });
+
+    $(document).ready(function() {
+        $('#expenseTable').DataTable({
+            "pagingType": "simple_numbers",
+            "lengthMenu": [5, 10, 25, 50],
+            "pageLength": 5,
+            "dom": '<"top"f>rt<"bottom"lp><"clear">',
+            "language": {
+                "paginate": {
+                    "previous": "<i class='fas fa-chevron-left'></i>",
+                    "next": "<i class='fas fa-chevron-right'></i>"
+                }
+            }
+        });
+    });
+    $(document).ready(function() {
+        $('#harvestTable').DataTable({
+            "pagingType": "simple_numbers",
+            "lengthMenu": [5, 10, 25, 50],
+            "pageLength": 5,
+            "dom": '<"top"f>rt<"bottom"lp><"clear">',
+            "language": {
+                "paginate": {
+                    "previous": "<i class='fas fa-chevron-left'></i>",
+                    "next": "<i class='fas fa-chevron-right'></i>"
+                }
+            }
+        });
+    });
+</script>

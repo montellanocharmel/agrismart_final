@@ -67,6 +67,7 @@
                                                         )">Edit</button>
                                                     <button class="dropdown-item" onclick="deleteplanting(<?= $pla['planting_id']; ?>)">Delete</button>
                                                     <button type="button" class="dropdown-item" onclick="openAddDamageModal('<?= $pla['planting_id']; ?>', '<?= $pla['field_id']; ?>', '<?= $pla['field_name']; ?>', '<?= $pla['field_address']; ?>', '<?= $pla['farmer_name']; ?>', '<?= $pla['fims_code']; ?>', '<?= $pla['crop_variety']; ?>')">Add Damage</button>
+                                                    <button type="button" class="dropdown-item" onclick="openAddDiseaseModal('<?= $pla['planting_id']; ?>', '<?= $pla['field_id']; ?>', '<?= $pla['field_name']; ?>', '<?= $pla['field_address']; ?>', '<?= $pla['farmer_name']; ?>', '<?= $pla['fims_code']; ?>', '<?= $pla['crop_variety']; ?>')">Add Disease</button>
                                                 </div>
                                             </div>
                                         </td>
@@ -290,6 +291,78 @@
             </div>
         </div>
     </div>
+</div>
+
+<!-- Add Damage Modal -->
+<div class="modal fade" id="adddiseasemodal" role="dialog" aria-labelledby="adddiseasemodalLabel" aria-hidden="true">
+    <br>
+    <div class="modal-dialog modal-dialog-centered" style="z-index: 10000;">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="adddiseasemodalLabel">Add Disease</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="/adddis" method="post" enctype="multipart/form-data">
+                    <div class="mb-3" hidden>
+                        <label for="planting_id" class="form-label">ID</label>
+                        <input type="text" name="planting_id" id="disease_planting_id" class="form-control" readonly>
+                    </div>
+                    <div class="mb-3" hidden>
+                        <label for="field_id" class="form-label">ID</label>
+                        <input type="text" name="field_id" id="disease_field_id" class="form-control" readonly>
+                    </div>
+                    <div class="mb-3">
+                        <label for="field_name" class="form-label">Pangalan ng Bukid</label>
+                        <input type="text" name="field_name" id="disease_field_name_add" class="form-control" readonly>
+                    </div>
+                    <div class="mb-3" hidden>
+                        <label for="field_address" class="form-label">Field Address</label>
+                        <input type="text" name="field_address" id="disease_field_address_add" class="form-control" readonly>
+                    </div>
+                    <div class="mb-3" hidden>
+                        <label for="farmer_name" class="form-label">Pangalan ng Magbubukid</label>
+                        <input type="text" name="farmer_name" id="disease_farmer_name_add" class="form-control" readonly>
+                    </div>
+                    <div class="mb-3" hidden>
+                        <label for="fims_code" class="form-label">Pangalan ng Bukid</label>
+                        <input type="text" name="fims_code" id="disease_fims_code_add" class="form-control" readonly>
+                    </div>
+                    <div class="mb-3" hidden>
+                        <label for="crop_variety" class="form-label">Pangalan ng Bukid</label>
+                        <input type="text" name="crop_variety" id="disease_crop_variety_add" class="form-control" readonly>
+                    </div>
+                    <div class="mb-3">
+                        <label for="dis_image" class="form-label">Images</label>
+                        <input type="file" name="dis_image" id="dis_image" placeholder="Disease Image" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="dis_name" class="form-label">Actions taken or recommended mitigation measures:</label>
+                        <textarea name="dis_name" id="dis_name" class="form-control"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="dis_type" class="form-label">Actions taken or recommended mitigation measures:</label>
+                        <textarea name="dis_type" id="dis_type" class="form-control"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="dis_desc" class="form-label">Actions taken or recommended mitigation measures:</label>
+                        <textarea name="dis_desc" id="dis_desc" class="form-control"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="dis_solutions" class="form-label">Actions taken or recommended mitigation measures:</label>
+                        <textarea name="dis_solutions" id="dis_solutions" class="form-control"></textarea>
+                    </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
 </div>
 
 

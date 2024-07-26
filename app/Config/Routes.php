@@ -237,3 +237,5 @@ $routes->get('exportToPDFadminharvest', 'DashboardController::exportToPDFharvest
 $routes->get('/exportToPDFusers', 'LoginController::exportToPDFusers');
 
 $routes->get('/showFieldDetails/(:num)', 'DashboardController::showFieldDetails/$1');
+
+$routes->post('/adddis', 'DashboardController::addnewdis');

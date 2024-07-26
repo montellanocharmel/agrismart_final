@@ -63,6 +63,7 @@ class DashboardController extends BaseController
     private $trainings;
     private $pest;
     private $disease;
+    private $dis;
 
 
     public function __construct()
@@ -85,6 +86,7 @@ class DashboardController extends BaseController
         $this->trainings = new \App\Models\TrainingsModel();
         $this->pest = new \App\Models\PestModel();
         $this->disease = new \App\Models\DiseasesModel();
+        $this->dis = new \App\Models\DiseaseModel();
     }
 
     public function dashboards()
@@ -2879,6 +2881,8 @@ class DashboardController extends BaseController
             return redirect()->to('/sign_ins');
         } else {
             $plantingDetails = $this->planting->where('field_id', $field_id)->findAll();
+            $expensesDetails = $this->expense->where('field_id', $field_id)->findAll();
+            $harvestDetails = $this->harvest->where('field_id', $field_id)->findAll();
 
             $field = $this->field->find($field_id);
 
@@ -2890,9 +2894,66 @@ class DashboardController extends BaseController
             $data = [
                 'field' => $field,
                 'plantingDetails' => $plantingDetails,
+                'expensesDetails' => $expensesDetails,
+                'harvestDetails' => $harvestDetails,
+
             ];
 
             return view('userfolder/showfielddata', $data);
         }
+    }
+    public function addis()
+    {
+        $userId = session()->get('id');
+        if (!session()->get('isLoggedIn')) {
+            return redirect()->to('/sign_ins');
+        } else {
+            $data = [
+                'dis' => $this->dis->where('user_id', $userId)->findAll()
+            ];
+            return view('userfolder/cropplanting', $data);
+        }
+    }
+    public function addnewdis()
+    {
+        $userId = session()->get('leader_id');
+        $fieldId = $this->request->getPost('field_id');
+        $plantingId = $this->request->getPost('planting_id');
+        $fieldAddress = $this->request->getPost('field_address');
+        $fieldName = $this->request->getPost('field_name');
+        $cropVariety = $this->request->getPost('crop_variety');
+        $farmerName = $this->request->getPost('farmer_name');
+        $fimsCode = $this->request->getPost('fims_code');
+        $planting = $this->planting->find($fieldId);
+        $validation = $this->validate([
+            'field_name' => 'required',
+        ]);
+        if (!$validation) {
+            return view('userfolder/croplanting', ['validation' => $this->validator]);
+        }
+        $dis_image = $this->request->getFile('dis_image');
+        $dis_imageName = $dis_image->getRandomName();
+        $dis_image->move(ROOTPATH . 'public/uploads/dis_img/', $dis_imageName);
+
+        $this->dis->save([
+            'field_id' => $fieldId,
+            'planting_id' => $plantingId,
+            'field_address' => $fieldAddress,
+            'field_name' => $fieldName,
+            'crop_variety' => $cropVariety,
+            'user_id' => $userId,
+            'farmer_name' => $farmerName,
+            'fims_code' => $fimsCode,
+            'dis_id' => $this->request->getPost('dis_id'),
+            'dis_image' => 'uploads/dis_img/' . $dis_imageName,
+            'dis_name' => $this->request->getPost('dis_name'),
+            'dis_type' => $this->request->getPost('dis_type'),
+            'dis_desc' => $this->request->getPost('dis_desc'),
+            'dis_solutions' => $this->request->getPost('dis_solutions'),
+            'user_id' => $userId,
+        ]);
+
+        return redirect()->to('/cropplanting')->with('success', 'disease added successfully');
+        //var_dump($image);
     }
 }
