@@ -72,7 +72,6 @@ class LoginController extends BaseController
         $this->trivia = new \App\Models\TriviasModel();
         $this->reports = new \App\Models\ReportsModel();
         $this->training = new \App\Models\TrainingsModel();
-        $this->disease = new \App\Models\DiseasesModel();
         $this->pest = new \App\Models\PestModel();
     }
 

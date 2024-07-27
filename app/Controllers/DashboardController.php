@@ -62,8 +62,8 @@ class DashboardController extends BaseController
     private $reports;
     private $trainings;
     private $pest;
-    private $disease;
     private $dis;
+    private $disaster;
 
 
     public function __construct()
@@ -85,8 +85,8 @@ class DashboardController extends BaseController
         $this->reports = new \App\Models\ReportsModel();
         $this->trainings = new \App\Models\TrainingsModel();
         $this->pest = new \App\Models\PestModel();
-        $this->disease = new \App\Models\DiseasesModel();
         $this->dis = new \App\Models\DiseaseModel();
+        $this->disaster = new \App\Models\DisasterModel();
     }
 
     public function dashboards()
@@ -1241,12 +1241,11 @@ class DashboardController extends BaseController
         $userId = session()->get('id');
         $searchTerm = $this->request->getPost('search_term');
 
-        $diss = $this->disease->like('dis_name', $searchTerm)
-            ->where('user_id', $userId)
+        $dis = $this->dis->like('dis_name', $searchTerm)
             ->findAll();
 
         $data = [
-            'disease' => $diss,
+            'dis' => $dis,
         ];
 
         return view('adminfolder/addisease', $data);
@@ -2357,19 +2356,6 @@ class DashboardController extends BaseController
         }
     }
 
-    //userdisease
-    public function userdisease()
-    {
-        $userId = session()->get('leader_id');
-        if (!session()->get('isLoggedIn')) {
-            return redirect()->to('/sign_ins');
-        } else {
-            $data = [
-                'disease' => $this->disease->findAll()
-            ];
-            return view('userfolder/userdisease', $data);
-        }
-    }
 
     //adminpest
     public function adpest()
@@ -2449,77 +2435,16 @@ class DashboardController extends BaseController
     //admindisease
     public function addisease()
     {
-        $userId = session()->get('id');
         if (!session()->get('isLoggedIn')) {
             return redirect()->to('/sign_ins');
         } else {
             $data = [
-                'disease' => $this->disease->where('user_id', $userId)->findAll()
+                'dise' => $this->dis->findAll()
             ];
             return view('adminfolder/addisease', $data);
         }
     }
 
-    public function addnewdisease()
-    {
-        $userId = session()->get('id');
-        $diseaseId = $this->request->getPost('disease_id');
-        $disease = $this->disease->find($diseaseId);
-
-        $dis_image = $this->request->getFile('dis_image');
-        $dis_imageName = $dis_image->getRandomName();
-        $dis_image->move(ROOTPATH . 'public/uploads/dis_img/', $dis_imageName);
-
-        $this->disease->save([
-            'dis_id' => $this->request->getPost('dis_id'),
-            'dis_image' => 'uploads/dis_img/' . $dis_imageName,
-            'dis_name' => $this->request->getPost('dis_name'),
-            'dis_type' => $this->request->getPost('dis_type'),
-            'dis_desc' => $this->request->getPost('dis_desc'),
-            'dis_solutions' => $this->request->getPost('dis_solutions'),
-            'user_id' => $userId,
-        ]);
-
-        return redirect()->to('/addisease')->with('success', 'disease added successfully');
-        //var_dump($image);
-    }
-
-    public function editdisease($disease_id)
-    {
-        $disease = $this->disease->find($disease_id);
-
-        return view('disease', ['disease' => $disease]);
-    }
-    public function updatedisease()
-    {
-
-        $disease_id = $this->request->getPost('disease_id');
-
-        $dataToUpdate = [
-            'disease_id' => $this->request->getPost('disease_id'),
-            //'dis_image' => 'uploads/disease_img/' . $dis_imageName,
-            'dis_name' => $this->request->getPost('dis_name'),
-            'dis_type' => $this->request->getPost('dis_type'),
-            'dis_desc' => $this->request->getPost('dis_desc'),
-            'dis_solutions' => $this->request->getPost('dis_solutions'),
-        ];
-
-        $this->disease->update($disease_id, $dataToUpdate);
-
-        return redirect()->to('/addisease')->with('success', 'disease updated successfully');
-    }
-    public function deletedisease($disease_id)
-    {
-
-        $disease = $this->disease->find($disease_id);
-
-        if ($disease) {
-            $this->disease->delete($disease_id);
-            return redirect()->to('/addisease')->with('success', 'disease deleted successfully');
-        } else {
-            return redirect()->to('/addisease')->with('error', 'disease not found');
-        }
-    }
 
     //pdf
 
@@ -2902,16 +2827,16 @@ class DashboardController extends BaseController
             return view('userfolder/showfielddata', $data);
         }
     }
-    public function addis()
+    public function dis()
     {
-        $userId = session()->get('id');
+        $userId = session()->get('leader_id');
         if (!session()->get('isLoggedIn')) {
             return redirect()->to('/sign_ins');
         } else {
             $data = [
                 'dis' => $this->dis->where('user_id', $userId)->findAll()
             ];
-            return view('userfolder/cropplanting', $data);
+            return view('userfolder/dis', $data);
         }
     }
     public function addnewdis()
@@ -2954,6 +2879,124 @@ class DashboardController extends BaseController
         ]);
 
         return redirect()->to('/cropplanting')->with('success', 'disease added successfully');
-        //var_dump($image);
+    }
+    public function addDamage()
+    {
+        $userId = session()->get('leader_id');
+        $damageType = $this->request->getPost('damage_type');
+        $fieldId = $this->request->getPost('field_id');
+        $plantingId = $this->request->getPost('planting_id');
+        $fieldAddress = $this->request->getPost('field_address');
+        $fieldName = $this->request->getPost('field_name');
+        $cropVariety = $this->request->getPost('crop_variety');
+        $farmerName = $this->request->getPost('farmer_name');
+        $fimsCode = $this->request->getPost('fims_code');
+
+        // Data Handling Based on Damage Type
+        if ($damageType == 'natural_disaster') {
+            $data = [
+                'field_id' => $fieldId,
+                'planting_id' => $plantingId,
+                'field_address' => $fieldAddress,
+                'field_name' => $fieldName,
+                'crop_variety' => $cropVariety,
+                'user_id' => $userId,
+                'farmer_name' => $farmerName,
+                'fims_code' => $fimsCode,
+                'weather_events' => $this->request->getPost('weather_events'),
+                'damage_description' => $this->request->getPost('damage_description'),
+                'damage_severity' => $this->request->getPost('damage_severity'),
+                'mitigation_measures' => $this->request->getPost('mitigation_measures'),
+            ];
+            $this->disaster->save($data);
+        } elseif ($damageType == 'disease') {
+            $dis_image = $this->request->getFile('dis_image');
+            $dis_imageName = $dis_image->getRandomName();
+            $dis_image->move(ROOTPATH . 'public/uploads/dis_img/', $dis_imageName);
+
+            $data = [
+                'field_id' => $fieldId,
+                'planting_id' => $plantingId,
+                'field_address' => $fieldAddress,
+                'field_name' => $fieldName,
+                'crop_variety' => $cropVariety,
+                'user_id' => $userId,
+                'farmer_name' => $farmerName,
+                'fims_code' => $fimsCode,
+                'dis_image' => 'uploads/dis_img/' . $dis_imageName,
+                'dis_name' => $this->request->getPost('dis_name'),
+                'dis_type' => $this->request->getPost('dis_type'),
+                'dis_desc' => $this->request->getPost('dis_desc'),
+                'dis_solutions' => $this->request->getPost('dis_solutions'),
+            ];
+            $this->dis->save($data);
+        } elseif ($damageType == 'pest') {
+            $pest_image = $this->request->getFile('pest_image');
+            $pest_imageName = $pest_image->getRandomName();
+            $pest_image->move(ROOTPATH . 'public/uploads/pest_img/', $pest_imageName);
+            $data = [
+                'field_id' => $fieldId,
+                'planting_id' => $plantingId,
+                'field_address' => $fieldAddress,
+                'field_name' => $fieldName,
+                'crop_variety' => $cropVariety,
+                'user_id' => $userId,
+                'farmer_name' => $farmerName,
+                'fims_code' => $fimsCode,
+                'pest_image' => 'uploads/pest_img/' . $pest_imageName,
+                'pest_name' => $this->request->getPost('pest_name'),
+                'pest_desc' => $this->request->getPost('pest_desc'),
+                'pest_type' => $this->request->getPost('pest_type'),
+                'pest_solutions' => $this->request->getPost('pest_solutions'),
+            ];
+            $this->pest->save($data);
+        }
+
+        return redirect()->to('/cropplanting')->with('status', 'Damage added successfully');
+    }
+
+    public function editdisease($disease_id)
+    {
+        $dis = $this->dis->find($disease_id);
+
+        return view('dis', ['dis' => $dis]);
+    }
+    public function updatedisease()
+    {
+        $disease_id = $this->request->getPost('disease_id');
+
+        $dataToUpdate = [
+            'dis_name' => $this->request->getPost('dis_name'),
+            'dis_type' => $this->request->getPost('dis_type'),
+            'dis_desc' => $this->request->getPost('dis_desc'),
+            'dis_solutions' => $this->request->getPost('dis_solutions'),
+        ];
+
+        $img = $this->request->getFile('dis_image');
+        if ($img && $img->isValid() && !$img->hasMoved()) {
+            $imgName = $img->getRandomName();
+            $img->move('uploads/', $imgName);
+            $dataToUpdate['dis_image'] = 'uploads/' . $imgName;
+        }
+
+        // Check if there is any data to update
+        if (!empty(array_filter($dataToUpdate))) {
+            $this->dis->update($disease_id, $dataToUpdate);
+            return redirect()->to('/dis')->with('success', 'Report updated successfully');
+        } else {
+            return redirect()->to('/dis')->with('error', 'No data to update');
+        }
+    }
+
+    public function deletedisease($disease_id)
+    {
+        $dis = $this->dis->find($disease_id);
+
+        if ($dis) {
+            $this->dis->delete($disease_id);
+            return redirect()->to('/dis')->with('success', 'Report deleted successfully');
+        } else {
+            return redirect()->to('/dis')->with('error', 'Report not found');
+        }
     }
 }

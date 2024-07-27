@@ -1,0 +1,699 @@
+CRITICAL - 2024-07-27 08:00:39 --> ErrorException: Undefined variable $planting
+in APPPATH\Views\dashboard\main-cropplanting.php on line 42.
+ 1 APPPATH\Views\dashboard\main-cropplanting.php(42): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $planting', 'C:\\laragon\\www\\final_agrismart\\app\\Views\\dashboard\\main-cropplanting.php', 42)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\final_agrismart\\app\\Views\\dashboard\\main-cropplanting.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(469): CodeIgniter\View\View->render('/dashboard/main-cropplanting', null, true)
+ 5 APPPATH\Views\userfolder\cropplanting.php(6): CodeIgniter\View\View->include('/dashboard/main-cropplanting')
+ 6 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\final_agrismart\\app\\Views\\userfolder\\cropplanting.php')
+ 7 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('userfolder/cropplanting', [], true)
+ 9 APPPATH\Controllers\DashboardController.php(2914): view('userfolder/cropplanting', [...])
+10 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->dis()
+11 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+12 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-07-27 08:00:58 --> ErrorException: Undefined variable $disease
+in APPPATH\Views\dashboard\main-disease.php on line 40.
+ 1 APPPATH\Views\dashboard\main-disease.php(40): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $disease', 'C:\\laragon\\www\\final_agrismart\\app\\Views\\dashboard\\main-disease.php', 40)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\final_agrismart\\app\\Views\\dashboard\\main-disease.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(469): CodeIgniter\View\View->render('/dashboard/main-disease', null, true)
+ 5 APPPATH\Views\userfolder\dis.php(6): CodeIgniter\View\View->include('/dashboard/main-disease')
+ 6 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\final_agrismart\\app\\Views\\userfolder\\dis.php')
+ 7 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('userfolder/dis', [], true)
+ 9 APPPATH\Controllers\DashboardController.php(2914): view('userfolder/dis', [...])
+10 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->dis()
+11 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+12 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-07-27 08:02:33 --> ErrorException: Undefined variable $tra
+in APPPATH\Views\dashboard\main-disease.php on line 42.
+ 1 APPPATH\Views\dashboard\main-disease.php(42): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $tra', 'C:\\laragon\\www\\final_agrismart\\app\\Views\\dashboard\\main-disease.php', 42)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\final_agrismart\\app\\Views\\dashboard\\main-disease.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(469): CodeIgniter\View\View->render('/dashboard/main-disease', null, true)
+ 5 APPPATH\Views\userfolder\dis.php(6): CodeIgniter\View\View->include('/dashboard/main-disease')
+ 6 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\final_agrismart\\app\\Views\\userfolder\\dis.php')
+ 7 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('userfolder/dis', [], true)
+ 9 APPPATH\Controllers\DashboardController.php(2914): view('userfolder/dis', [...])
+10 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->dis()
+11 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+12 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-07-27 08:05:25 --> ErrorException: Undefined variable $dis
+in APPPATH\Views\dashboard\main-disease.php on line 40.
+ 1 APPPATH\Views\dashboard\main-disease.php(40): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $dis', 'C:\\laragon\\www\\final_agrismart\\app\\Views\\dashboard\\main-disease.php', 40)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\final_agrismart\\app\\Views\\dashboard\\main-disease.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(469): CodeIgniter\View\View->render('/dashboard/main-disease', null, true)
+ 5 APPPATH\Views\userfolder\userdisease.php(6): CodeIgniter\View\View->include('/dashboard/main-disease')
+ 6 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\final_agrismart\\app\\Views\\userfolder\\userdisease.php')
+ 7 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('userfolder/userdisease', [], true)
+ 9 APPPATH\Controllers\DashboardController.php(2370): view('userfolder/userdisease', [...])
+10 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->userdisease()
+11 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+12 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+ERROR - 2024-07-27 08:05:44 --> mysqli_sql_exception: Unknown column 'dis_name' in 'where clause' in C:\laragon\www\final_agrismart\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\final_agrismart\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\laragon\www\final_agrismart\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\laragon\www\final_agrismart\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\laragon\www\final_agrismart\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\laragon\www\final_agrismart\system\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\final_agrismart\system\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\laragon\www\final_agrismart\app\Controllers\DashboardController.php(1264): CodeIgniter\BaseModel->findAll()
+#7 C:\laragon\www\final_agrismart\system\CodeIgniter.php(941): App\Controllers\DashboardController->searchUserDisease()
+#8 C:\laragon\www\final_agrismart\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+#9 C:\laragon\www\final_agrismart\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\laragon\www\final_agrismart\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 C:\laragon\www\final_agrismart\system\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\...')
+#12 {main}
+CRITICAL - 2024-07-27 08:05:44 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'dis_name' in 'where clause'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `pest`
+WHERE `dis_name` LIKE :dis_name: ESCAPE \'!\'', [...], false)
+ 2 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\DashboardController.php(1264): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->searchUserDisease()
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-07-27 08:05:44 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'dis_name' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `pest`
+WHERE `dis_name` LIKE \'%%\' ESCAPE \'!\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `pest`
+WHERE `dis_name` LIKE \'%%\' ESCAPE \'!\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `pest`
+WHERE `dis_name` LIKE :dis_name: ESCAPE \'!\'', [...], false)
+ 4 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Controllers\DashboardController.php(1264): CodeIgniter\BaseModel->findAll()
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->searchUserDisease()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-07-27 08:05:44 --> [Caused by] mysqli_sql_exception: Unknown column 'dis_name' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *
+FROM `pest`
+WHERE `dis_name` LIKE \'%%\' ESCAPE \'!\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `pest`
+WHERE `dis_name` LIKE \'%%\' ESCAPE \'!\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `pest`
+WHERE `dis_name` LIKE \'%%\' ESCAPE \'!\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `pest`
+WHERE `dis_name` LIKE :dis_name: ESCAPE \'!\'', [...], false)
+ 5 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\DashboardController.php(1264): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->searchUserDisease()
+ 9 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+ERROR - 2024-07-27 08:06:02 --> mysqli_sql_exception: Unknown column 'dis_name' in 'where clause' in C:\laragon\www\final_agrismart\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\final_agrismart\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\laragon\www\final_agrismart\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\laragon\www\final_agrismart\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\laragon\www\final_agrismart\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\laragon\www\final_agrismart\system\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\final_agrismart\system\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\laragon\www\final_agrismart\app\Controllers\DashboardController.php(1264): CodeIgniter\BaseModel->findAll()
+#7 C:\laragon\www\final_agrismart\system\CodeIgniter.php(941): App\Controllers\DashboardController->searchUserDisease()
+#8 C:\laragon\www\final_agrismart\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+#9 C:\laragon\www\final_agrismart\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\laragon\www\final_agrismart\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 C:\laragon\www\final_agrismart\system\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\...')
+#12 {main}
+CRITICAL - 2024-07-27 08:06:02 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'dis_name' in 'where clause'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `pest`
+WHERE `dis_name` LIKE :dis_name: ESCAPE \'!\'', [...], false)
+ 2 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\DashboardController.php(1264): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->searchUserDisease()
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-07-27 08:06:02 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'dis_name' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `pest`
+WHERE `dis_name` LIKE \'%%\' ESCAPE \'!\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `pest`
+WHERE `dis_name` LIKE \'%%\' ESCAPE \'!\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `pest`
+WHERE `dis_name` LIKE :dis_name: ESCAPE \'!\'', [...], false)
+ 4 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Controllers\DashboardController.php(1264): CodeIgniter\BaseModel->findAll()
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->searchUserDisease()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-07-27 08:06:02 --> [Caused by] mysqli_sql_exception: Unknown column 'dis_name' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *
+FROM `pest`
+WHERE `dis_name` LIKE \'%%\' ESCAPE \'!\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `pest`
+WHERE `dis_name` LIKE \'%%\' ESCAPE \'!\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `pest`
+WHERE `dis_name` LIKE \'%%\' ESCAPE \'!\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `pest`
+WHERE `dis_name` LIKE :dis_name: ESCAPE \'!\'', [...], false)
+ 5 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\DashboardController.php(1264): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->searchUserDisease()
+ 9 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+ERROR - 2024-07-27 08:06:06 --> mysqli_sql_exception: Unknown column 'dis_name' in 'where clause' in C:\laragon\www\final_agrismart\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\final_agrismart\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\laragon\www\final_agrismart\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\laragon\www\final_agrismart\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\laragon\www\final_agrismart\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\laragon\www\final_agrismart\system\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\final_agrismart\system\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\laragon\www\final_agrismart\app\Controllers\DashboardController.php(1264): CodeIgniter\BaseModel->findAll()
+#7 C:\laragon\www\final_agrismart\system\CodeIgniter.php(941): App\Controllers\DashboardController->searchUserDisease()
+#8 C:\laragon\www\final_agrismart\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+#9 C:\laragon\www\final_agrismart\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\laragon\www\final_agrismart\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 C:\laragon\www\final_agrismart\system\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\...')
+#12 {main}
+CRITICAL - 2024-07-27 08:06:06 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'dis_name' in 'where clause'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `pest`
+WHERE `dis_name` LIKE :dis_name: ESCAPE \'!\'', [...], false)
+ 2 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\DashboardController.php(1264): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->searchUserDisease()
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-07-27 08:06:06 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'dis_name' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `pest`
+WHERE `dis_name` LIKE \'%ds%\' ESCAPE \'!\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `pest`
+WHERE `dis_name` LIKE \'%ds%\' ESCAPE \'!\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `pest`
+WHERE `dis_name` LIKE :dis_name: ESCAPE \'!\'', [...], false)
+ 4 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Controllers\DashboardController.php(1264): CodeIgniter\BaseModel->findAll()
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->searchUserDisease()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-07-27 08:06:06 --> [Caused by] mysqli_sql_exception: Unknown column 'dis_name' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *
+FROM `pest`
+WHERE `dis_name` LIKE \'%ds%\' ESCAPE \'!\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `pest`
+WHERE `dis_name` LIKE \'%ds%\' ESCAPE \'!\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `pest`
+WHERE `dis_name` LIKE \'%ds%\' ESCAPE \'!\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `pest`
+WHERE `dis_name` LIKE :dis_name: ESCAPE \'!\'', [...], false)
+ 5 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\DashboardController.php(1264): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->searchUserDisease()
+ 9 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+ERROR - 2024-07-27 09:07:17 --> mysqli_sql_exception: Column 'user_id' cannot be null in C:\laragon\www\final_agrismart\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\final_agrismart\system\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `di...', 0)
+#1 C:\laragon\www\final_agrismart\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `di...')
+#2 C:\laragon\www\final_agrismart\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `di...')
+#3 C:\laragon\www\final_agrismart\system\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `di...', Array, false)
+#4 C:\laragon\www\final_agrismart\system\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\laragon\www\final_agrismart\system\BaseModel.php(802): CodeIgniter\Model->doInsert(Array)
+#6 C:\laragon\www\final_agrismart\system\Model.php(744): CodeIgniter\BaseModel->insert(Array, false)
+#7 C:\laragon\www\final_agrismart\system\BaseModel.php(713): CodeIgniter\Model->insert(Array, false)
+#8 C:\laragon\www\final_agrismart\app\Controllers\DashboardController.php(2926): CodeIgniter\BaseModel->save(Array)
+#9 C:\laragon\www\final_agrismart\system\CodeIgniter.php(941): App\Controllers\DashboardController->addDamage()
+#10 C:\laragon\www\final_agrismart\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+#11 C:\laragon\www\final_agrismart\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\laragon\www\final_agrismart\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#13 C:\laragon\www\final_agrismart\system\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\...')
+#14 {main}
+CRITICAL - 2024-07-27 09:07:17 --> CodeIgniter\Database\Exceptions\DatabaseException: Column 'user_id' cannot be null
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `disease` (`field_id`, `planting_id`, `field_address`, `field_name`, `crop_variety`, `user_id`, `farmer_name`, `fims_code`, `dis_name`, `dis_type`, `dis_desc`, `dis_solutions`) VALUES (:field_id:, :planting_id:, :field_address:, :field_name:, :crop_variety:, :user_id:, :farmer_name:, :fims_code:, :dis_name:, :dis_type:, :dis_desc:, :dis_solutions:)', [...], false)
+ 2 SYSTEMPATH\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(802): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(744): CodeIgniter\BaseModel->insert([...], false)
+ 5 SYSTEMPATH\BaseModel.php(713): CodeIgniter\Model->insert([...], false)
+ 6 APPPATH\Controllers\DashboardController.php(2926): CodeIgniter\BaseModel->save([...])
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->addDamage()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-07-27 09:07:17 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Column 'user_id' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `disease` (`field_id`, `planting_id`, `field_address`, `field_name`, `crop_variety`, `user_id`, `farmer_name`, `fims_code`, `dis_name`, `dis_type`, `dis_desc`, `dis_solutions`) VALUES (\'\', \'\', \'Kalinisan\', \'\', \'\', NULL, \'Abella, Hanah Dela Luna\', \'175208022000003\', \'one\\r\\n\', \'fvf\', \'fdd\', \'dfd\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `disease` (`field_id`, `planting_id`, `field_address`, `field_name`, `crop_variety`, `user_id`, `farmer_name`, `fims_code`, `dis_name`, `dis_type`, `dis_desc`, `dis_solutions`) VALUES (\'\', \'\', \'Kalinisan\', \'\', \'\', NULL, \'Abella, Hanah Dela Luna\', \'175208022000003\', \'one\\r\\n\', \'fvf\', \'fdd\', \'dfd\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `disease` (`field_id`, `planting_id`, `field_address`, `field_name`, `crop_variety`, `user_id`, `farmer_name`, `fims_code`, `dis_name`, `dis_type`, `dis_desc`, `dis_solutions`) VALUES (:field_id:, :planting_id:, :field_address:, :field_name:, :crop_variety:, :user_id:, :farmer_name:, :fims_code:, :dis_name:, :dis_type:, :dis_desc:, :dis_solutions:)', [...], false)
+ 4 SYSTEMPATH\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(802): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(744): CodeIgniter\BaseModel->insert([...], false)
+ 7 SYSTEMPATH\BaseModel.php(713): CodeIgniter\Model->insert([...], false)
+ 8 APPPATH\Controllers\DashboardController.php(2926): CodeIgniter\BaseModel->save([...])
+ 9 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->addDamage()
+10 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+11 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-07-27 09:07:17 --> [Caused by] mysqli_sql_exception: Column 'user_id' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `disease` (`field_id`, `planting_id`, `field_address`, `field_name`, `crop_variety`, `user_id`, `farmer_name`, `fims_code`, `dis_name`, `dis_type`, `dis_desc`, `dis_solutions`) VALUES (\'\', \'\', \'Kalinisan\', \'\', \'\', NULL, \'Abella, Hanah Dela Luna\', \'175208022000003\', \'one\\r\\n\', \'fvf\', \'fdd\', \'dfd\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `disease` (`field_id`, `planting_id`, `field_address`, `field_name`, `crop_variety`, `user_id`, `farmer_name`, `fims_code`, `dis_name`, `dis_type`, `dis_desc`, `dis_solutions`) VALUES (\'\', \'\', \'Kalinisan\', \'\', \'\', NULL, \'Abella, Hanah Dela Luna\', \'175208022000003\', \'one\\r\\n\', \'fvf\', \'fdd\', \'dfd\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `disease` (`field_id`, `planting_id`, `field_address`, `field_name`, `crop_variety`, `user_id`, `farmer_name`, `fims_code`, `dis_name`, `dis_type`, `dis_desc`, `dis_solutions`) VALUES (\'\', \'\', \'Kalinisan\', \'\', \'\', NULL, \'Abella, Hanah Dela Luna\', \'175208022000003\', \'one\\r\\n\', \'fvf\', \'fdd\', \'dfd\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `disease` (`field_id`, `planting_id`, `field_address`, `field_name`, `crop_variety`, `user_id`, `farmer_name`, `fims_code`, `dis_name`, `dis_type`, `dis_desc`, `dis_solutions`) VALUES (:field_id:, :planting_id:, :field_address:, :field_name:, :crop_variety:, :user_id:, :farmer_name:, :fims_code:, :dis_name:, :dis_type:, :dis_desc:, :dis_solutions:)', [...], false)
+ 5 SYSTEMPATH\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(802): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(744): CodeIgniter\BaseModel->insert([...], false)
+ 8 SYSTEMPATH\BaseModel.php(713): CodeIgniter\Model->insert([...], false)
+ 9 APPPATH\Controllers\DashboardController.php(2926): CodeIgniter\BaseModel->save([...])
+10 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->addDamage()
+11 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+12 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+ERROR - 2024-07-27 09:07:37 --> mysqli_sql_exception: Column 'user_id' cannot be null in C:\laragon\www\final_agrismart\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\final_agrismart\system\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `di...', 0)
+#1 C:\laragon\www\final_agrismart\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `di...')
+#2 C:\laragon\www\final_agrismart\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `di...')
+#3 C:\laragon\www\final_agrismart\system\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `di...', Array, false)
+#4 C:\laragon\www\final_agrismart\system\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\laragon\www\final_agrismart\system\BaseModel.php(802): CodeIgniter\Model->doInsert(Array)
+#6 C:\laragon\www\final_agrismart\system\Model.php(744): CodeIgniter\BaseModel->insert(Array, false)
+#7 C:\laragon\www\final_agrismart\system\BaseModel.php(713): CodeIgniter\Model->insert(Array, false)
+#8 C:\laragon\www\final_agrismart\app\Controllers\DashboardController.php(2927): CodeIgniter\BaseModel->save(Array)
+#9 C:\laragon\www\final_agrismart\system\CodeIgniter.php(941): App\Controllers\DashboardController->addDamage()
+#10 C:\laragon\www\final_agrismart\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+#11 C:\laragon\www\final_agrismart\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\laragon\www\final_agrismart\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#13 C:\laragon\www\final_agrismart\system\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\...')
+#14 {main}
+CRITICAL - 2024-07-27 09:07:37 --> CodeIgniter\Database\Exceptions\DatabaseException: Column 'user_id' cannot be null
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `disease` (`field_id`, `planting_id`, `field_address`, `field_name`, `crop_variety`, `user_id`, `farmer_name`, `fims_code`, `dis_name`, `dis_type`, `dis_desc`, `dis_solutions`) VALUES (:field_id:, :planting_id:, :field_address:, :field_name:, :crop_variety:, :user_id:, :farmer_name:, :fims_code:, :dis_name:, :dis_type:, :dis_desc:, :dis_solutions:)', [...], false)
+ 2 SYSTEMPATH\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(802): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(744): CodeIgniter\BaseModel->insert([...], false)
+ 5 SYSTEMPATH\BaseModel.php(713): CodeIgniter\Model->insert([...], false)
+ 6 APPPATH\Controllers\DashboardController.php(2927): CodeIgniter\BaseModel->save([...])
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->addDamage()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-07-27 09:07:37 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Column 'user_id' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `disease` (`field_id`, `planting_id`, `field_address`, `field_name`, `crop_variety`, `user_id`, `farmer_name`, `fims_code`, `dis_name`, `dis_type`, `dis_desc`, `dis_solutions`) VALUES (\'\', \'\', \'Kalinisan\', \'\', \'\', NULL, \'Abella, Hanah Dela Luna\', \'175208022000003\', \'one\\r\\n\', \'fvf\', \'fdd\', \'dfd\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `disease` (`field_id`, `planting_id`, `field_address`, `field_name`, `crop_variety`, `user_id`, `farmer_name`, `fims_code`, `dis_name`, `dis_type`, `dis_desc`, `dis_solutions`) VALUES (\'\', \'\', \'Kalinisan\', \'\', \'\', NULL, \'Abella, Hanah Dela Luna\', \'175208022000003\', \'one\\r\\n\', \'fvf\', \'fdd\', \'dfd\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `disease` (`field_id`, `planting_id`, `field_address`, `field_name`, `crop_variety`, `user_id`, `farmer_name`, `fims_code`, `dis_name`, `dis_type`, `dis_desc`, `dis_solutions`) VALUES (:field_id:, :planting_id:, :field_address:, :field_name:, :crop_variety:, :user_id:, :farmer_name:, :fims_code:, :dis_name:, :dis_type:, :dis_desc:, :dis_solutions:)', [...], false)
+ 4 SYSTEMPATH\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(802): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(744): CodeIgniter\BaseModel->insert([...], false)
+ 7 SYSTEMPATH\BaseModel.php(713): CodeIgniter\Model->insert([...], false)
+ 8 APPPATH\Controllers\DashboardController.php(2927): CodeIgniter\BaseModel->save([...])
+ 9 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->addDamage()
+10 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+11 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-07-27 09:07:37 --> [Caused by] mysqli_sql_exception: Column 'user_id' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `disease` (`field_id`, `planting_id`, `field_address`, `field_name`, `crop_variety`, `user_id`, `farmer_name`, `fims_code`, `dis_name`, `dis_type`, `dis_desc`, `dis_solutions`) VALUES (\'\', \'\', \'Kalinisan\', \'\', \'\', NULL, \'Abella, Hanah Dela Luna\', \'175208022000003\', \'one\\r\\n\', \'fvf\', \'fdd\', \'dfd\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `disease` (`field_id`, `planting_id`, `field_address`, `field_name`, `crop_variety`, `user_id`, `farmer_name`, `fims_code`, `dis_name`, `dis_type`, `dis_desc`, `dis_solutions`) VALUES (\'\', \'\', \'Kalinisan\', \'\', \'\', NULL, \'Abella, Hanah Dela Luna\', \'175208022000003\', \'one\\r\\n\', \'fvf\', \'fdd\', \'dfd\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `disease` (`field_id`, `planting_id`, `field_address`, `field_name`, `crop_variety`, `user_id`, `farmer_name`, `fims_code`, `dis_name`, `dis_type`, `dis_desc`, `dis_solutions`) VALUES (\'\', \'\', \'Kalinisan\', \'\', \'\', NULL, \'Abella, Hanah Dela Luna\', \'175208022000003\', \'one\\r\\n\', \'fvf\', \'fdd\', \'dfd\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `disease` (`field_id`, `planting_id`, `field_address`, `field_name`, `crop_variety`, `user_id`, `farmer_name`, `fims_code`, `dis_name`, `dis_type`, `dis_desc`, `dis_solutions`) VALUES (:field_id:, :planting_id:, :field_address:, :field_name:, :crop_variety:, :user_id:, :farmer_name:, :fims_code:, :dis_name:, :dis_type:, :dis_desc:, :dis_solutions:)', [...], false)
+ 5 SYSTEMPATH\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(802): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(744): CodeIgniter\BaseModel->insert([...], false)
+ 8 SYSTEMPATH\BaseModel.php(713): CodeIgniter\Model->insert([...], false)
+ 9 APPPATH\Controllers\DashboardController.php(2927): CodeIgniter\BaseModel->save([...])
+10 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->addDamage()
+11 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+12 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+ERROR - 2024-07-27 09:08:02 --> mysqli_sql_exception: Column 'user_id' cannot be null in C:\laragon\www\final_agrismart\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\final_agrismart\system\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `di...', 0)
+#1 C:\laragon\www\final_agrismart\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `di...')
+#2 C:\laragon\www\final_agrismart\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `di...')
+#3 C:\laragon\www\final_agrismart\system\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `di...', Array, false)
+#4 C:\laragon\www\final_agrismart\system\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\laragon\www\final_agrismart\system\BaseModel.php(802): CodeIgniter\Model->doInsert(Array)
+#6 C:\laragon\www\final_agrismart\system\Model.php(744): CodeIgniter\BaseModel->insert(Array, false)
+#7 C:\laragon\www\final_agrismart\system\BaseModel.php(713): CodeIgniter\Model->insert(Array, false)
+#8 C:\laragon\www\final_agrismart\app\Controllers\DashboardController.php(2927): CodeIgniter\BaseModel->save(Array)
+#9 C:\laragon\www\final_agrismart\system\CodeIgniter.php(941): App\Controllers\DashboardController->addDamage()
+#10 C:\laragon\www\final_agrismart\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+#11 C:\laragon\www\final_agrismart\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\laragon\www\final_agrismart\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#13 C:\laragon\www\final_agrismart\system\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\...')
+#14 {main}
+CRITICAL - 2024-07-27 09:08:02 --> CodeIgniter\Database\Exceptions\DatabaseException: Column 'user_id' cannot be null
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `disease` (`field_id`, `planting_id`, `field_address`, `field_name`, `crop_variety`, `user_id`, `farmer_name`, `fims_code`, `dis_name`, `dis_type`, `dis_desc`, `dis_solutions`) VALUES (:field_id:, :planting_id:, :field_address:, :field_name:, :crop_variety:, :user_id:, :farmer_name:, :fims_code:, :dis_name:, :dis_type:, :dis_desc:, :dis_solutions:)', [...], false)
+ 2 SYSTEMPATH\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(802): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(744): CodeIgniter\BaseModel->insert([...], false)
+ 5 SYSTEMPATH\BaseModel.php(713): CodeIgniter\Model->insert([...], false)
+ 6 APPPATH\Controllers\DashboardController.php(2927): CodeIgniter\BaseModel->save([...])
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->addDamage()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-07-27 09:08:02 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Column 'user_id' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `disease` (`field_id`, `planting_id`, `field_address`, `field_name`, `crop_variety`, `user_id`, `farmer_name`, `fims_code`, `dis_name`, `dis_type`, `dis_desc`, `dis_solutions`) VALUES (\'\', \'\', \'Kalinisan\', \'\', \'\', NULL, \'Abella, Hanah Dela Luna\', \'175208022000003\', \'one\\r\\n\', \'fghf\', \'gfhfgh\', \'gfhfgh\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `disease` (`field_id`, `planting_id`, `field_address`, `field_name`, `crop_variety`, `user_id`, `farmer_name`, `fims_code`, `dis_name`, `dis_type`, `dis_desc`, `dis_solutions`) VALUES (\'\', \'\', \'Kalinisan\', \'\', \'\', NULL, \'Abella, Hanah Dela Luna\', \'175208022000003\', \'one\\r\\n\', \'fghf\', \'gfhfgh\', \'gfhfgh\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `disease` (`field_id`, `planting_id`, `field_address`, `field_name`, `crop_variety`, `user_id`, `farmer_name`, `fims_code`, `dis_name`, `dis_type`, `dis_desc`, `dis_solutions`) VALUES (:field_id:, :planting_id:, :field_address:, :field_name:, :crop_variety:, :user_id:, :farmer_name:, :fims_code:, :dis_name:, :dis_type:, :dis_desc:, :dis_solutions:)', [...], false)
+ 4 SYSTEMPATH\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(802): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(744): CodeIgniter\BaseModel->insert([...], false)
+ 7 SYSTEMPATH\BaseModel.php(713): CodeIgniter\Model->insert([...], false)
+ 8 APPPATH\Controllers\DashboardController.php(2927): CodeIgniter\BaseModel->save([...])
+ 9 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->addDamage()
+10 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+11 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-07-27 09:08:02 --> [Caused by] mysqli_sql_exception: Column 'user_id' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `disease` (`field_id`, `planting_id`, `field_address`, `field_name`, `crop_variety`, `user_id`, `farmer_name`, `fims_code`, `dis_name`, `dis_type`, `dis_desc`, `dis_solutions`) VALUES (\'\', \'\', \'Kalinisan\', \'\', \'\', NULL, \'Abella, Hanah Dela Luna\', \'175208022000003\', \'one\\r\\n\', \'fghf\', \'gfhfgh\', \'gfhfgh\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `disease` (`field_id`, `planting_id`, `field_address`, `field_name`, `crop_variety`, `user_id`, `farmer_name`, `fims_code`, `dis_name`, `dis_type`, `dis_desc`, `dis_solutions`) VALUES (\'\', \'\', \'Kalinisan\', \'\', \'\', NULL, \'Abella, Hanah Dela Luna\', \'175208022000003\', \'one\\r\\n\', \'fghf\', \'gfhfgh\', \'gfhfgh\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `disease` (`field_id`, `planting_id`, `field_address`, `field_name`, `crop_variety`, `user_id`, `farmer_name`, `fims_code`, `dis_name`, `dis_type`, `dis_desc`, `dis_solutions`) VALUES (\'\', \'\', \'Kalinisan\', \'\', \'\', NULL, \'Abella, Hanah Dela Luna\', \'175208022000003\', \'one\\r\\n\', \'fghf\', \'gfhfgh\', \'gfhfgh\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `disease` (`field_id`, `planting_id`, `field_address`, `field_name`, `crop_variety`, `user_id`, `farmer_name`, `fims_code`, `dis_name`, `dis_type`, `dis_desc`, `dis_solutions`) VALUES (:field_id:, :planting_id:, :field_address:, :field_name:, :crop_variety:, :user_id:, :farmer_name:, :fims_code:, :dis_name:, :dis_type:, :dis_desc:, :dis_solutions:)', [...], false)
+ 5 SYSTEMPATH\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(802): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(744): CodeIgniter\BaseModel->insert([...], false)
+ 8 SYSTEMPATH\BaseModel.php(713): CodeIgniter\Model->insert([...], false)
+ 9 APPPATH\Controllers\DashboardController.php(2927): CodeIgniter\BaseModel->save([...])
+10 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->addDamage()
+11 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+12 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-07-27 09:15:05 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "userfolder/croplanting.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(216): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('userfolder/croplanting.php')
+ 2 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('userfolder/croplanting', [], true)
+ 3 APPPATH\Controllers\DashboardController.php(2898): view('userfolder/croplanting', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->addDamage()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-07-27 09:18:53 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "userfolder/croplanting.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(216): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('userfolder/croplanting.php')
+ 2 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('userfolder/croplanting', [], true)
+ 3 APPPATH\Controllers\DashboardController.php(2898): view('userfolder/croplanting', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->addDamage()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-07-27 09:19:47 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "userfolder/croplanting.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(216): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('userfolder/croplanting.php')
+ 2 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('userfolder/croplanting', [], true)
+ 3 APPPATH\Controllers\DashboardController.php(2898): view('userfolder/croplanting', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->addDamage()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-07-27 09:21:46 --> ErrorException: Undefined variable $planting
+in APPPATH\Views\dashboard\main-cropplanting.php on line 42.
+ 1 APPPATH\Views\dashboard\main-cropplanting.php(42): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $planting', 'C:\\laragon\\www\\final_agrismart\\app\\Views\\dashboard\\main-cropplanting.php', 42)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\final_agrismart\\app\\Views\\dashboard\\main-cropplanting.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(469): CodeIgniter\View\View->render('/dashboard/main-cropplanting', null, true)
+ 5 APPPATH\Views\userfolder\cropplanting.php(6): CodeIgniter\View\View->include('/dashboard/main-cropplanting')
+ 6 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\final_agrismart\\app\\Views\\userfolder\\cropplanting.php')
+ 7 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('userfolder/cropplanting', [], true)
+ 9 APPPATH\Controllers\DashboardController.php(2898): view('userfolder/cropplanting', [...])
+10 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->addDamage()
+11 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+12 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-07-27 09:46:50 --> CodeIgniter\HTTP\Exceptions\HTTPException: The original file is not a valid file.
+in SYSTEMPATH\HTTP\Files\UploadedFile.php on line 146.
+ 1 SYSTEMPATH\HTTP\Files\UploadedFile.php(146): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidFile()
+ 2 APPPATH\Controllers\DashboardController.php(2897): CodeIgniter\HTTP\Files\UploadedFile->move('C:\\laragon\\www\\final_agrismart\\public/uploads/dis_img/', '1722073610_2129901a94fabff3f3c2')
+ 3 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->addDamage()
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-07-27 09:47:55 --> CodeIgniter\HTTP\Exceptions\HTTPException: The original file is not a valid file.
+in SYSTEMPATH\HTTP\Files\UploadedFile.php on line 146.
+ 1 SYSTEMPATH\HTTP\Files\UploadedFile.php(146): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidFile()
+ 2 APPPATH\Controllers\DashboardController.php(2897): CodeIgniter\HTTP\Files\UploadedFile->move('C:\\laragon\\www\\final_agrismart\\public/uploads/dis_img/', '1722073675_719966dffd98d2491ece')
+ 3 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->addDamage()
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-07-27 09:50:51 --> CodeIgniter\HTTP\Exceptions\HTTPException: The original file is not a valid file.
+in SYSTEMPATH\HTTP\Files\UploadedFile.php on line 146.
+ 1 SYSTEMPATH\HTTP\Files\UploadedFile.php(146): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidFile()
+ 2 APPPATH\Controllers\DashboardController.php(2897): CodeIgniter\HTTP\Files\UploadedFile->move('C:\\laragon\\www\\final_agrismart\\public/uploads/dis_img/', '1722073851_b34e5a2befba693c03a4')
+ 3 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->addDamage()
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-07-27 09:51:37 --> CodeIgniter\HTTP\Exceptions\HTTPException: The original file is not a valid file.
+in SYSTEMPATH\HTTP\Files\UploadedFile.php on line 146.
+ 1 SYSTEMPATH\HTTP\Files\UploadedFile.php(146): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidFile()
+ 2 APPPATH\Controllers\DashboardController.php(2897): CodeIgniter\HTTP\Files\UploadedFile->move('C:\\laragon\\www\\final_agrismart\\public/uploads/dis_img/', '1722073896_a6e3451f972bff820ee7')
+ 3 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->addDamage()
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-07-27 09:51:53 --> CodeIgniter\HTTP\Exceptions\HTTPException: The original file is not a valid file.
+in SYSTEMPATH\HTTP\Files\UploadedFile.php on line 146.
+ 1 SYSTEMPATH\HTTP\Files\UploadedFile.php(146): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidFile()
+ 2 APPPATH\Controllers\DashboardController.php(2897): CodeIgniter\HTTP\Files\UploadedFile->move('C:\\laragon\\www\\final_agrismart\\public/uploads/dis_img/', '1722073913_6209af484bc2b61f6098')
+ 3 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->addDamage()
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-07-27 09:58:07 --> CodeIgniter\Validation\Exceptions\ValidationException: "Pest Image" is not a valid rule.
+in SYSTEMPATH\Validation\Validation.php on line 336.
+ 1 SYSTEMPATH\Validation\Validation.php(336): CodeIgniter\Validation\Exceptions\ValidationException::forRuleNotFound('Pest Image')
+ 2 SYSTEMPATH\Validation\Validation.php(200): CodeIgniter\Validation\Validation->processRules('label', 'label', null, [...], [...])
+ 3 SYSTEMPATH\Controller.php(152): CodeIgniter\Validation\Validation->run()
+ 4 APPPATH\Controllers\DashboardController.php(2911): CodeIgniter\Controller->validate([...])
+ 5 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->addDamage()
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-07-27 10:00:38 --> CodeIgniter\Validation\Exceptions\ValidationException: "Pest Image" is not a valid rule.
+in SYSTEMPATH\Validation\Validation.php on line 336.
+ 1 SYSTEMPATH\Validation\Validation.php(336): CodeIgniter\Validation\Exceptions\ValidationException::forRuleNotFound('Pest Image')
+ 2 SYSTEMPATH\Validation\Validation.php(200): CodeIgniter\Validation\Validation->processRules('label', 'label', null, [...], [...])
+ 3 SYSTEMPATH\Controller.php(152): CodeIgniter\Validation\Validation->run()
+ 4 APPPATH\Controllers\DashboardController.php(2911): CodeIgniter\Controller->validate([...])
+ 5 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->addDamage()
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-07-27 10:02:54 --> CodeIgniter\Validation\Exceptions\ValidationException: "Pest Image" is not a valid rule.
+in SYSTEMPATH\Validation\Validation.php on line 336.
+ 1 SYSTEMPATH\Validation\Validation.php(336): CodeIgniter\Validation\Exceptions\ValidationException::forRuleNotFound('Pest Image')
+ 2 SYSTEMPATH\Validation\Validation.php(200): CodeIgniter\Validation\Validation->processRules('label', 'label', null, [...], [...])
+ 3 SYSTEMPATH\Controller.php(152): CodeIgniter\Validation\Validation->run()
+ 4 APPPATH\Controllers\DashboardController.php(2911): CodeIgniter\Controller->validate([...])
+ 5 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->addDamage()
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-07-27 10:03:28 --> CodeIgniter\Validation\Exceptions\ValidationException: "Pest Image" is not a valid rule.
+in SYSTEMPATH\Validation\Validation.php on line 336.
+ 1 SYSTEMPATH\Validation\Validation.php(336): CodeIgniter\Validation\Exceptions\ValidationException::forRuleNotFound('Pest Image')
+ 2 SYSTEMPATH\Validation\Validation.php(200): CodeIgniter\Validation\Validation->processRules('label', 'label', null, [...], [...])
+ 3 SYSTEMPATH\Controller.php(152): CodeIgniter\Validation\Validation->run()
+ 4 APPPATH\Controllers\DashboardController.php(2911): CodeIgniter\Controller->validate([...])
+ 5 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->addDamage()
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-07-27 10:05:36 --> CodeIgniter\Validation\Exceptions\ValidationException: "Pest Image" is not a valid rule.
+in SYSTEMPATH\Validation\Validation.php on line 336.
+ 1 SYSTEMPATH\Validation\Validation.php(336): CodeIgniter\Validation\Exceptions\ValidationException::forRuleNotFound('Pest Image')
+ 2 SYSTEMPATH\Validation\Validation.php(200): CodeIgniter\Validation\Validation->processRules('label', 'label', null, [...], [...])
+ 3 SYSTEMPATH\Controller.php(152): CodeIgniter\Validation\Validation->run()
+ 4 APPPATH\Controllers\DashboardController.php(2911): CodeIgniter\Controller->validate([...])
+ 5 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->addDamage()
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-07-27 10:05:40 --> CodeIgniter\Validation\Exceptions\ValidationException: "Pest Image" is not a valid rule.
+in SYSTEMPATH\Validation\Validation.php on line 336.
+ 1 SYSTEMPATH\Validation\Validation.php(336): CodeIgniter\Validation\Exceptions\ValidationException::forRuleNotFound('Pest Image')
+ 2 SYSTEMPATH\Validation\Validation.php(200): CodeIgniter\Validation\Validation->processRules('label', 'label', null, [...], [...])
+ 3 SYSTEMPATH\Controller.php(152): CodeIgniter\Validation\Validation->run()
+ 4 APPPATH\Controllers\DashboardController.php(2911): CodeIgniter\Controller->validate([...])
+ 5 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->addDamage()
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-07-27 10:06:03 --> CodeIgniter\Validation\Exceptions\ValidationException: "Pest Image" is not a valid rule.
+in SYSTEMPATH\Validation\Validation.php on line 336.
+ 1 SYSTEMPATH\Validation\Validation.php(336): CodeIgniter\Validation\Exceptions\ValidationException::forRuleNotFound('Pest Image')
+ 2 SYSTEMPATH\Validation\Validation.php(200): CodeIgniter\Validation\Validation->processRules('label', 'label', null, [...], [...])
+ 3 SYSTEMPATH\Controller.php(152): CodeIgniter\Validation\Validation->run()
+ 4 APPPATH\Controllers\DashboardController.php(2911): CodeIgniter\Controller->validate([...])
+ 5 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->addDamage()
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-07-27 10:06:06 --> CodeIgniter\Validation\Exceptions\ValidationException: "Pest Image" is not a valid rule.
+in SYSTEMPATH\Validation\Validation.php on line 336.
+ 1 SYSTEMPATH\Validation\Validation.php(336): CodeIgniter\Validation\Exceptions\ValidationException::forRuleNotFound('Pest Image')
+ 2 SYSTEMPATH\Validation\Validation.php(200): CodeIgniter\Validation\Validation->processRules('label', 'label', null, [...], [...])
+ 3 SYSTEMPATH\Controller.php(152): CodeIgniter\Validation\Validation->run()
+ 4 APPPATH\Controllers\DashboardController.php(2911): CodeIgniter\Controller->validate([...])
+ 5 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->addDamage()
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-07-27 10:10:16 --> CodeIgniter\Validation\Exceptions\ValidationException: "Disease Image" is not a valid rule.
+in SYSTEMPATH\Validation\Validation.php on line 336.
+ 1 SYSTEMPATH\Validation\Validation.php(336): CodeIgniter\Validation\Exceptions\ValidationException::forRuleNotFound('Disease Image')
+ 2 SYSTEMPATH\Validation\Validation.php(200): CodeIgniter\Validation\Validation->processRules('label', 'label', null, [...], [...])
+ 3 SYSTEMPATH\Controller.php(152): CodeIgniter\Validation\Validation->run()
+ 4 APPPATH\Controllers\DashboardController.php(2906): CodeIgniter\Controller->validate([...])
+ 5 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->addDamage()
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-07-27 10:12:28 --> CodeIgniter\HTTP\Exceptions\HTTPException: The original file is not a valid file.
+in SYSTEMPATH\HTTP\Files\UploadedFile.php on line 146.
+ 1 SYSTEMPATH\HTTP\Files\UploadedFile.php(146): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidFile()
+ 2 APPPATH\Controllers\DashboardController.php(2901): CodeIgniter\HTTP\Files\UploadedFile->move('C:\\laragon\\www\\final_agrismart\\public/uploads/dis_img/', '1722075148_288166704e1c92504299')
+ 3 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->addDamage()
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-07-27 10:25:13 --> Error: Call to a member function getRandomName() on null
+in APPPATH\Controllers\DashboardController.php on line 2900.
+ 1 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->addDamage()
+ 2 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-07-27 10:26:16 --> CodeIgniter\HTTP\Exceptions\HTTPException: The original file is not a valid file.
+in SYSTEMPATH\HTTP\Files\UploadedFile.php on line 146.
+ 1 SYSTEMPATH\HTTP\Files\UploadedFile.php(146): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidFile()
+ 2 APPPATH\Controllers\DashboardController.php(2897): CodeIgniter\HTTP\Files\UploadedFile->move('C:\\laragon\\www\\final_agrismart\\public/uploads/dis_img/', '1722075976_f76c1ebcd9faf9ae2262')
+ 3 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->addDamage()
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-07-27 13:13:55 --> CodeIgniter\Database\Exceptions\DataException: There is no data to update.
+in SYSTEMPATH\BaseModel.php on line 970.
+ 1 SYSTEMPATH\BaseModel.php(970): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\Model.php(807): CodeIgniter\BaseModel->update([...], [])
+ 3 APPPATH\Controllers\DashboardController.php(2982): CodeIgniter\Model->update('13', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->updatedisease()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-07-27 13:16:26 --> CodeIgniter\Database\Exceptions\DataException: There is no data to update.
+in SYSTEMPATH\BaseModel.php on line 970.
+ 1 SYSTEMPATH\BaseModel.php(970): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\Model.php(807): CodeIgniter\BaseModel->update([...], [])
+ 3 APPPATH\Controllers\DashboardController.php(2982): CodeIgniter\Model->update('11', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->updatedisease()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')
+CRITICAL - 2024-07-27 13:19:03 --> CodeIgniter\Database\Exceptions\DataException: There is no data to update.
+in SYSTEMPATH\BaseModel.php on line 970.
+ 1 SYSTEMPATH\BaseModel.php(970): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\Model.php(807): CodeIgniter\BaseModel->update([...], [])
+ 3 APPPATH\Controllers\DashboardController.php(2982): CodeIgniter\Model->update('11', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\DashboardController->updatedisease()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\final_agrismart\\public\\index.php')

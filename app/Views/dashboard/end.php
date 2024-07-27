@@ -332,16 +332,33 @@
         }
     }
     // disease
+    function openEditDiseaseModal(disease_id, dis_image, dis_name, dis_type, dis_desc, dis_solutions) {
+        document.getElementById('editdisease_id').value = disease_id;
+        document.getElementById('editdis_name').value = dis_name;
+        document.getElementById('editdis_type').value = dis_type;
+        document.getElementById('editdis_desc').value = dis_desc;
+        document.getElementById('editdis_solutions').value = dis_solutions;
 
-    function openAddDiseaseModal(planting_id, field_id, field_name, field_address, farmer_name, fims_code, crop_variety) {
-        document.getElementById('disease_planting_id').value = planting_id;
-        document.getElementById('disease_field_id').value = field_id;
-        document.getElementById('disease_field_name_add').value = field_name;
-        document.getElementById('disease_field_address_add').value = field_address;
-        document.getElementById('disease_farmer_name_add').value = farmer_name;
-        document.getElementById('disease_fims_code_add').value = fims_code;
-        document.getElementById('disease_crop_variety_add').value = crop_variety;
-        $('#adddiseasemodal').modal('show');
+        const imageElement = document.getElementById('editdis_image_preview');
+        imageElement.src = dis_image;
+        imageElement.style.display = 'block';
+        var editDiseaseModal = new bootstrap.Modal(document.getElementById('editdiseasemodal'));
+        editDiseaseModal.show();
+    }
+
+    function deletedisease(disease_id) {
+        if (confirm("Are you sure you want to delete this disease?")) {
+            $.ajax({
+                type: 'POST',
+                url: '/dis/delete/' + disease_id,
+                success: function(response) {
+                    window.location.reload();
+                },
+                error: function(error) {
+                    console.error('Error:', error);
+                }
+            });
+        }
     }
 </script>
 <script>

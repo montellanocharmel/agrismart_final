@@ -4,15 +4,15 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class DiseasesModel extends Model
+class DisasterModel extends Model
 {
-    protected $table            = 'disease';
-    protected $primaryKey       = 'disease_id';
+    protected $table            = 'disaster';
+    protected $primaryKey       = 'disaster_id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['dis_image','dis_name','dis_type','dis_desc','dis_solutions','user_id'];
+    protected $allowedFields    = ['field_id', 'planting_id', 'field_address', 'field_name', 'crop_variety', 'farmer_name', 'fims_code', 'weather_events', 'damage_description', 'damage_severity', 'mititgation_measures', 'user_id'];
 
     protected bool $allowEmptyInserts = false;
 

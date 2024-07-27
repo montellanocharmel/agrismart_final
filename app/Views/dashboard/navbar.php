@@ -44,7 +44,17 @@
         <li class>
         <li><a href="/cropplanting" style="margin-left: 40px;">Cultivation</a></li>
         <li><a href="/expenses" style="margin-left: 40px;">Expenses</a></li>
-        <li><a href="/damages" style="margin-left: 40px;">Damages</a></li>
+        <li>
+            <a class="has-arrow" href="#" aria-expanded="false">
+                <img src="img/menu-icon/1.svg" alt>
+                <span>Damages</span>
+            </a>
+            <ul>
+                <li><a href="/dis">By Disease</a></li>
+                <li><a href="/pest">By Pest</a></li>
+                <li><a href="/disaster">By Natural Disasters</a></li>
+            </ul>
+        </li>
         <li><a href="/harvest" style="margin-left: 40px;">Harvest</a></li>
         </li>
         <li class="side_menu_title">

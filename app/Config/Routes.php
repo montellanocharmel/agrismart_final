@@ -238,4 +238,8 @@ $routes->get('/exportToPDFusers', 'LoginController::exportToPDFusers');
 
 $routes->get('/showFieldDetails/(:num)', 'DashboardController::showFieldDetails/$1');
 
-$routes->post('/adddis', 'DashboardController::addnewdis');
+$routes->get('/dis', 'DashboardController::dis');
+$routes->post('/adddis', 'DashboardController::addDamage');
+$routes->post('/dis/edit/(:num)', 'DashboardController::editdisease/$1');
+$routes->post('/dis/update', 'DashboardController::updatedisease');
+$routes->post('dis/delete/(:num)', 'DashboardController::deletedisease/$1');

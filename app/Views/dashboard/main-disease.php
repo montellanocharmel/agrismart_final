@@ -17,9 +17,9 @@
                                 </div>
                             </div>
                             <div class="add_button ms-2">
-                               
-                                <a href="/userdisease" class="btn btn-primary"><i class="fa-solid fa-arrows-rotate"></i></a>
-                    
+
+                                <a href="/dis" class="btn btn-primary"><i class="fa-solid fa-arrows-rotate"></i></a>
+
                             </div>
                         </div>
                     </div>
@@ -32,18 +32,30 @@
                                     <th scope="col">Type</th>
                                     <th scope="col">Description</th>
                                     <th scope="col">Recommendations</th>
+                                    <th scope="col">Actions</th>
 
-                                    
+
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach ($disease as $dis) : ?>
+                                <?php foreach ($dis as $dis) : ?>
                                     <tr>
-                                    <td><img src="<?= 'http://agrismart_final.test/'.$dis['dis_image'] ?>" alt="" class="avatar-img rounded-circle mx-auto d-block" style="display: block; margin: 0 auto; width: 200px; height: 200px;"></td>
+                                        <td><img src="<?= base_url() . $dis['dis_image'] ?>" alt="" class="avatar-img rounded-circle mx-auto d-block" style="display: block; margin: 0 auto; width: 200px; height: 200px;"></td>
                                         <td><?= $dis['dis_name'] ?></td>
                                         <td><?= $dis['dis_type'] ?></td>
                                         <td><?= $dis['dis_desc'] ?></td>
                                         <td><?= $dis['dis_solutions'] ?></td>
+                                        <td>
+                                            <button class="btn btn-primary" onclick="openEditDiseaseModal(
+                                                        <?= $dis['disease_id']; ?>,
+                                                        '<?= $dis['dis_image']; ?>', 
+                                                        '<?= $dis['dis_name']; ?>',
+                                                        '<?= $dis['dis_type']; ?>',
+                                                        '<?= $dis['dis_desc']; ?>',
+                                                        '<?= $dis['dis_solutions']; ?>',
+                                                        )">Edit</button>
+                                            <button class="btn btn-primary" onclick="deletedisease(<?= $dis['disease_id']; ?>)">Delete</button>
+                                        </td>
                                     </tr>
                                 <?php endforeach; ?>
                             </tbody>
@@ -56,3 +68,42 @@
     </div>
 </div>
 
+<!-- edit  -->
+
+<div class="modal fade" id="editdiseasemodal" tabindex="-1" aria-labelledby="editdiseasemodalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editdiseasemodalLabel">Edit Disease Details</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="/dis/update" method="post">
+                    <input type="hidden" name="disease_id" id="editdisease_id">
+                    <div class="mb-3">
+                        <label for="editdis_image" class="form-label">Images</label>
+                        <input type="file" name="dis_image" id="editdis_image" class="form-control">
+                        <img id="editdis_image_preview" src="" alt="Current Image" style="display: none; width: 100%; height: auto; margin-top: 10px;">
+                    </div>
+                    <div class="mb-3">
+                        <label for="editdis_name" class="form-label">Disease Name</label>
+                        <input type="text" name="dis_name" id="editdis_name" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="editdis_type" class="form-label">Disease Type</label>
+                        <input type="text" name="dis_type" id="editdis_type" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="editdis_desc" class="form-label">Disease Descritpion</label>
+                        <input type="text" name="dis_desc" id="editdis_desc" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="editdis_solutions" class="form-label">Solutions</label>
+                        <input type="text" name="dis_solutions" id="editdis_solutions" class="form-control">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

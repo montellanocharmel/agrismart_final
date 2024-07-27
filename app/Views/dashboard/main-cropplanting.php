@@ -66,8 +66,7 @@
                                                         '<?= $pla['notes']; ?>',
                                                         )">Edit</button>
                                                     <button class="dropdown-item" onclick="deleteplanting(<?= $pla['planting_id']; ?>)">Delete</button>
-                                                    <button type="button" class="dropdown-item" onclick="openAddDamageModal('<?= $pla['planting_id']; ?>', '<?= $pla['field_id']; ?>', '<?= $pla['field_name']; ?>', '<?= $pla['field_address']; ?>', '<?= $pla['farmer_name']; ?>', '<?= $pla['fims_code']; ?>', '<?= $pla['crop_variety']; ?>')">Add Damage</button>
-                                                    <button type="button" class="dropdown-item" onclick="openAddDiseaseModal('<?= $pla['planting_id']; ?>', '<?= $pla['field_id']; ?>', '<?= $pla['field_name']; ?>', '<?= $pla['field_address']; ?>', '<?= $pla['farmer_name']; ?>', '<?= $pla['fims_code']; ?>', '<?= $pla['crop_variety']; ?>')">Add Disease</button>
+                                                    <button type="button" class="dropdown-item" onclick="openAddDiseaseModal('<?= $pla['planting_id']; ?>', '<?= $pla['field_id']; ?>', '<?= $pla['field_name']; ?>', '<?= $pla['field_address']; ?>', '<?= $pla['farmer_name']; ?>', '<?= $pla['fims_code']; ?>', '<?= $pla['crop_variety']; ?>')">Add New Damage</button>
                                                 </div>
                                             </div>
                                         </td>
@@ -293,78 +292,124 @@
     </div>
 </div>
 
+
 <!-- Add Damage Modal -->
 <div class="modal fade" id="adddiseasemodal" role="dialog" aria-labelledby="adddiseasemodalLabel" aria-hidden="true">
     <br>
     <div class="modal-dialog modal-dialog-centered" style="z-index: 10000;">
-
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="adddiseasemodalLabel">Add Disease</h5>
+                <h5 class="modal-title" id="adddiseasemodalLabel">Add Damage</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="/adddis" method="post" enctype="multipart/form-data">
-                    <div class="mb-3" hidden>
-                        <label for="planting_id" class="form-label">ID</label>
-                        <input type="text" name="planting_id" id="disease_planting_id" class="form-control" readonly>
-                    </div>
-                    <div class="mb-3" hidden>
-                        <label for="field_id" class="form-label">ID</label>
-                        <input type="text" name="field_id" id="disease_field_id" class="form-control" readonly>
-                    </div>
+                <form action="/adddis" id="damageForm" method="post" enctype="multipart/form-data">
                     <div class="mb-3">
-                        <label for="field_name" class="form-label">Pangalan ng Bukid</label>
-                        <input type="text" name="field_name" id="disease_field_name_add" class="form-control" readonly>
+                        <label for="damage_type" class="form-label">Type of Damage</label>
+                        <div>
+                            <input type="radio" name="damage_type" value="natural_disaster" onclick="toggleDamageFields('natural_disaster')"> Natural Disaster
+                            <input type="radio" name="damage_type" value="disease" onclick="toggleDamageFields('disease')"> Disease
+                            <input type="radio" name="damage_type" value="pest" onclick="toggleDamageFields('pest')"> Pest
+                        </div>
                     </div>
-                    <div class="mb-3" hidden>
-                        <label for="field_address" class="form-label">Field Address</label>
-                        <input type="text" name="field_address" id="disease_field_address_add" class="form-control" readonly>
-                    </div>
-                    <div class="mb-3" hidden>
-                        <label for="farmer_name" class="form-label">Pangalan ng Magbubukid</label>
-                        <input type="text" name="farmer_name" id="disease_farmer_name_add" class="form-control" readonly>
-                    </div>
-                    <div class="mb-3" hidden>
-                        <label for="fims_code" class="form-label">Pangalan ng Bukid</label>
-                        <input type="text" name="fims_code" id="disease_fims_code_add" class="form-control" readonly>
-                    </div>
-                    <div class="mb-3" hidden>
-                        <label for="crop_variety" class="form-label">Pangalan ng Bukid</label>
-                        <input type="text" name="crop_variety" id="disease_crop_variety_add" class="form-control" readonly>
-                    </div>
-                    <div class="mb-3">
-                        <label for="dis_image" class="form-label">Images</label>
-                        <input type="file" name="dis_image" id="dis_image" placeholder="Disease Image" class="form-control">
-                    </div>
-                    <div class="mb-3">
-                        <label for="dis_name" class="form-label">Actions taken or recommended mitigation measures:</label>
-                        <textarea name="dis_name" id="dis_name" class="form-control"></textarea>
-                    </div>
-                    <div class="mb-3">
-                        <label for="dis_type" class="form-label">Actions taken or recommended mitigation measures:</label>
-                        <textarea name="dis_type" id="dis_type" class="form-control"></textarea>
-                    </div>
-                    <div class="mb-3">
-                        <label for="dis_desc" class="form-label">Actions taken or recommended mitigation measures:</label>
-                        <textarea name="dis_desc" id="dis_desc" class="form-control"></textarea>
-                    </div>
-                    <div class="mb-3">
-                        <label for="dis_solutions" class="form-label">Actions taken or recommended mitigation measures:</label>
-                        <textarea name="dis_solutions" id="dis_solutions" class="form-control"></textarea>
-                    </div>
-            </div>
 
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                    <div id="common_fields" style="display: none;">
+                        <input type="hidden" name="field_id" id="damage_field_id">
+                        <input type="hidden" name="planting_id" id="damage_planting_id">
+                        <input type="hidden" name="field_address" id="damage_field_address">
+                        <input type="hidden" name="field_name" id="damage_field_name">
+                        <input type="hidden" name="crop_variety" id="damage_crop_variety">
+                        <input type="hidden" name="user_id" id="damage_user_id">
+                        <input type="hidden" name="farmer_name" id="damage_farmer_name">
+                        <input type="hidden" name="fims_code" id="damage_fims_code">
+                    </div>
+
+                    <!-- Natural Disaster Fields -->
+                    <div id="natural_disaster_fields" style="display: none;">
+                        <div class="mb-3">
+                            <label for="weather_events" class="form-label">Type of Weather Event:</label>
+                            <select name="weather_events" id="weather_events" class="form-control">
+                                <option value="typhoon">Bagyo</option>
+                                <option value="flooding">Baha</option>
+                                <option value="drought">Tagtuyot</option>
+                                <option value="hightemperature">Sobrang Init ng Panahon</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="damage_description" class="form-label">Description of Damage Observed:</label>
+                            <textarea name="damage_description" id="damage_description" class="form-control"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="damage_severity" class="form-label">Severity of Damage:</label>
+                            <select name="damage_severity" id="damage_severity" class="form-control">
+                                <option value="low">Low</option>
+                                <option value="medium">Medium</option>
+                                <option value="high">High</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="mitigation_measures" class="form-label">Actions Taken or Recommended Mitigation Measures:</label>
+                            <textarea name="mitigation_measures" id="mitigation_measures" class="form-control"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Disease Fields -->
+                    <div id="disease_fields" style="display: none;">
+                        <div class="mb-3">
+                            <label for="dis_image" class="form-label">Images</label>
+                            <input type="file" name="dis_image" id="dis_image" placeholder="Disease Image" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="dis_name" class="form-label">Disease Name:</label>
+                            <textarea name="dis_name" id="dis_name" class="form-control"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="dis_type" class="form-label">Disease Type:</label>
+                            <textarea name="dis_type" id="dis_type" class="form-control"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="dis_desc" class="form-label">Disease Description:</label>
+                            <textarea name="dis_desc" id="dis_desc" class="form-control"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="dis_solutions" class="form-label">Actions Taken or Recommended Mitigation Measures:</label>
+                            <textarea name="dis_solutions" id="dis_solutions" class="form-control"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Pest Fields -->
+                    <div id="pest_fields" style="display: none;">
+                        <div class="mb-3">
+                            <label for="pest_image" class="form-label">Images</label>
+                            <input type="file" name="pest_image" id="pest_image" placeholder="Disease Image" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="pest_name" class="form-label">Pest Name:</label>
+                            <textarea name="pest_name" id="pest_name" class="form-control"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="pest_desc" class="form-label">Pest Description:</label>
+                            <textarea name="pest_desc" id="pest_desc" class="form-control"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="pest_type" class="form-label">Pest Type:</label>
+                            <textarea name="pest_type" id="pest_type" class="form-control"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="pest_solutions" class="form-label">Actions Taken or Recommended Mitigation Measures:</label>
+                            <textarea name="pest_solutions" id="pest_solutions" class="form-control"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                    </div>
+                </form>
             </div>
-            </form>
         </div>
     </div>
 </div>
-</div>
-
 
 <script>
     document.addEventListener("DOMContentLoaded", function() {
@@ -387,4 +432,24 @@
             }
         });
     });
+</script>
+<script>
+    function toggleDamageFields(damageType) {
+        document.getElementById('natural_disaster_fields').style.display = damageType === 'natural_disaster' ? 'block' : 'none';
+        document.getElementById('disease_fields').style.display = damageType === 'disease' ? 'block' : 'none';
+        document.getElementById('pest_fields').style.display = damageType === 'pest' ? 'block' : 'none';
+        document.getElementById('common_fields').style.display = 'block';
+    }
+
+
+    function openAddDiseaseModal(planting_id, field_id, field_name, field_address, farmer_name, fims_code, crop_variety) {
+        document.getElementById('damage_planting_id').value = planting_id;
+        document.getElementById('damage_field_id').value = field_id;
+        document.getElementById('damage_field_name').value = field_name;
+        document.getElementById('damage_field_address').value = field_address;
+        document.getElementById('damage_farmer_name').value = farmer_name;
+        document.getElementById('damage_fims_code').value = fims_code;
+        document.getElementById('damage_crop_variety').value = crop_variety;
+        $('#adddiseasemodal').modal('show');
+    }
 </script>

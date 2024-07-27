@@ -12,7 +12,7 @@ class PestModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['pest_image','pest_name','pest_type','pest_desc','pest_solutions','user_id'];
+    protected $allowedFields    = ['planting_id', 'field_id', 'field_name', 'field_address', 'farmer_name', 'fims_code', 'crop_variety', 'pest_image', 'pest_name', 'pest_type', 'pest_desc', 'pest_solutions', 'user_id'];
 
     protected bool $allowEmptyInserts = false;
 
