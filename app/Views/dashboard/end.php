@@ -360,6 +360,47 @@
             });
         }
     }
+    //pest
+    function openEditPestModal(pest_id, pest_image, pest_name, pest_type, pest_desc, pest_solutions) {
+        document.getElementById('editpest_id').value = pest_id;
+        document.getElementById('editpest_name').value = pest_name;
+        document.getElementById('editpest_type').value = pest_type;
+        document.getElementById('editpest_desc').value = pest_desc;
+        document.getElementById('editpest_solutions').value = pest_solutions;
+
+        const imageElement = document.getElementById('editpest_image_preview');
+        imageElement.src = pest_image;
+        imageElement.style.pestplay = 'block';
+        var editPestModal = new bootstrap.Modal(document.getElementById('editpestmodal'));
+        editPestModal.show();
+    }
+
+    function deletepest(pest_id) {
+        if (confirm("Are you sure you want to delete this pest?")) {
+            $.ajax({
+                type: 'POST',
+                url: '/userpest/delete/' + pest_id,
+                success: function(response) {
+                    window.location.reload();
+                },
+                error: function(error) {
+                    console.error('Error:', error);
+                }
+            });
+        }
+
+        function viewPestModal(pest_id, pest_image, pest_name, pest_type, pest_desc, pest_solutions) {
+            document.getElementById('viewPestid').src = pest_id;
+            document.getElementById('viewPestImage').src = pest_image;
+            document.getElementById('viewPestName').textContent = pest_name;
+            document.getElementById('viewPestType').textContent = pest_type;
+            document.getElementById('viewPestDesc').textContent = pest_desc;
+            document.getElementById('viewPestSolutions').textContent = pest_solutions;
+
+            var viewPestModal = new bootstrap.Modal(document.getElementById('viewPestModal'));
+            viewPestModal.show();
+        }
+    }
 </script>
 <script>
     $(document).ready(function() {

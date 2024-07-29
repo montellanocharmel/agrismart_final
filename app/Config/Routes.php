@@ -243,3 +243,8 @@ $routes->post('/adddis', 'DashboardController::addDamage');
 $routes->post('/dis/edit/(:num)', 'DashboardController::editdisease/$1');
 $routes->post('/dis/update', 'DashboardController::updatedisease');
 $routes->post('dis/delete/(:num)', 'DashboardController::deletedisease/$1');
+
+$routes->get('/userpest', 'DashboardController::newuserpest');
+$routes->post('/userpest/edit/(:num)', 'DashboardController::edituserpest/$1');
+$routes->post('/userpest/update', 'DashboardController::updateuserpest');
+$routes->post('userpest/delete/(:num)', 'DashboardController::deleteuserpest/$1');

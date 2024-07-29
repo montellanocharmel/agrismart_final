@@ -1258,15 +1258,17 @@ class DashboardController extends BaseController
         }
 
         $searchTerm = $this->request->getPost('search_term');
+        $userId = session()->get('leader_id');
 
-        $diss = $this->pest->like('dis_name', $searchTerm)
+        $diss = $this->dis->like('dis_name', $searchTerm)
+            ->where('user_id', $userId)
             ->findAll();
 
         $data = [
-            'disease' => $diss,
+            'dis' => $diss,
         ];
 
-        return view('userfolder/userdisease', $data);
+        return view('userfolder/dis', $data);
     }
 
     public function exportToExcel()
@@ -2979,7 +2981,6 @@ class DashboardController extends BaseController
             $dataToUpdate['dis_image'] = 'uploads/' . $imgName;
         }
 
-        // Check if there is any data to update
         if (!empty(array_filter($dataToUpdate))) {
             $this->dis->update($disease_id, $dataToUpdate);
             return redirect()->to('/dis')->with('success', 'Report updated successfully');
@@ -2997,6 +2998,61 @@ class DashboardController extends BaseController
             return redirect()->to('/dis')->with('success', 'Report deleted successfully');
         } else {
             return redirect()->to('/dis')->with('error', 'Report not found');
+        }
+    }
+    public function newuserpest()
+    {
+        $userId = session()->get('leader_id');
+        if (!session()->get('isLoggedIn')) {
+            return redirect()->to('/sign_ins');
+        } else {
+            $data = [
+                'pest' => $this->pest->where('user_id', $userId)->findAll()
+            ];
+            return view('userfolder/userpest', $data);
+        }
+    }
+    public function edituserpest($pest_id)
+    {
+        $pest = $this->pest->find($pest_id);
+
+        return view('pest', ['pest' => $pest]);
+    }
+    public function updateuserpest()
+    {
+        $pest_id = $this->request->getPost('pest_id');
+
+        $dataToUpdate = [
+            'pest_name' => $this->request->getPost('pest_name'),
+            'pest_type' => $this->request->getPost('pest_type'),
+            'pest_desc' => $this->request->getPost('pest_desc'),
+            'pest_solutions' => $this->request->getPost('pest_solutions'),
+        ];
+
+        $img = $this->request->getFile('pest_image');
+        if ($img && $img->isValid() && !$img->hasMoved()) {
+            $imgName = $img->getRandomName();
+            $img->move('uploads/', $imgName);
+            $dataToUpdate['pest_image'] = 'uploads/' . $imgName;
+        }
+
+        if (!empty(array_filter($dataToUpdate))) {
+            $this->pest->update($pest_id, $dataToUpdate);
+            return redirect()->to('/userpest')->with('success', 'Report updated successfully');
+        } else {
+            return redirect()->to('/userpest')->with('error', 'No data to update');
+        }
+    }
+
+    public function deleteuserpest($pest_id)
+    {
+        $pest = $this->pest->find($pest_id);
+
+        if ($pest) {
+            $this->pest->delete($pest_id);
+            return redirect()->to('/userpest')->with('success', 'Report deleted successfully');
+        } else {
+            return redirect()->to('/userpest')->with('error', 'Report not found');
         }
     }
 }

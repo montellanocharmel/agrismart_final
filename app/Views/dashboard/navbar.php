@@ -51,7 +51,7 @@
             </a>
             <ul>
                 <li><a href="/dis">By Disease</a></li>
-                <li><a href="/pest">By Pest</a></li>
+                <li><a href="/userpest">By Pest</a></li>
                 <li><a href="/disaster">By Natural Disasters</a></li>
             </ul>
         </li>
