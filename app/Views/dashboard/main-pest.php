@@ -39,18 +39,18 @@
                                         <td><img src="<?= base_url() . $pes['pest_image'] ?>" alt="" class="avatar-img rounded-circle mx-auto d-block" style="display: block; margin: 0 auto; width: 200px; height: 200px;"></td>
                                         <td><?= $pes['pest_name'] ?></td>
                                         <td><?= $pes['pest_type'] ?></td>
-                                        <td><?= strlen($pes['pest_desc']) > 100 ? substr($pes['pest_desc'], 0, 100) . '...' : $pes['pest_desc'] ?></td>
-                                        <td><?= strlen($pes['pest_solutions']) > 100 ? substr($pes['pest_solutions'], 0, 100) . '...' : $pes['pest_solutions'] ?></td>
-                                        <td>
-                                            <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#viewPestModal_<?= $pes['pest_id']; ?>"><i class="fa-regular fa-eye"></i></button>
-                                            <button style="margin-bottom: 5px;" class="btn btn-warning" onclick="openEditPestModal(
+                                        <td><?= strlen($pes['pest_desc']) > 70 ? substr($pes['pest_desc'], 0, 70) . '...' : $pes['pest_desc'] ?></td>
+                                        <td><?= strlen($pes['pest_solutions']) > 70 ? substr($pes['pest_solutions'], 0, 70) . '...' : $pes['pest_solutions'] ?></td>
+                                        <td class="text-center">
+                                            <button style="color: white; margin-bottom: 7px;" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#viewPestModal_<?= $pes['pest_id']; ?>"><i class="fa-regular fa-eye"></i></button>
+                                            <button style="color: white; margin-bottom: 7px;" class="btn btn-warning" onclick="openEditPestModal(
                                                         <?= $pes['pest_id']; ?>,
                                                         '<?= base_url() . $pes['pest_image']; ?>', 
                                                         '<?= $pes['pest_name']; ?>',
                                                         '<?= $pes['pest_type']; ?>',
                                                         '<?= $pes['pest_desc']; ?>',
                                                         '<?= $pes['pest_solutions']; ?>')"><i class="fa-regular fa-pen-to-square"></i></button>
-                                            <button class="btn btn-danger" onclick="deletepest(<?= $pes['pest_id']; ?>)"><i class="fa-solid fa-trash-can"></i></button>
+                                            <button style="color: white; margin-bottom: 7px;" class="btn btn-danger" onclick="deletepest(<?= $pes['pest_id']; ?>)"><i class="fa-solid fa-trash-can"></i></button>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>
@@ -104,35 +104,54 @@
     </div>
 </div><?php foreach ($pest as $pes) : ?>
     <div class="modal fade" id="viewPestModal_<?= $pes['pest_id']; ?>" tabindex="-1" aria-labelledby="viewPestModalLabel_<?= $pes['pest_id']; ?>" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-dialog modal-dialog-centered modal-lg-custom">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="viewPestModalLabel_<?= $pes['pest_id']; ?>">Pest Details</h5>
+                    <h3 class="modal-title" id="viewPestModalLabel_<?= $pes['pest_id']; ?>">Pest Details</h3>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <div class="mb-3">
-                        <label class="form-label">Image</label>
-                        <img src="<?= base_url() . $pes['pest_image'] ?>" alt="Pest Image" style="width: 100%; height: auto; margin-top: 10px;">
+                    <div class="text-center">
+                        <img src="<?= base_url() . $pes['pest_image'] ?>" alt="Pest Image" style="width: 40%; height: auto; margin-top: 10px;"><br><br><br>
+                        <h2 style="color: #f28123;"><?= $pes['pest_name'] ?></h2><br>
                     </div>
-                    <div class="mb-3">
-                        <label class="form-label">Name</label>
-                        <p class="form-control"><?= $pes['pest_name'] ?></p>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Type</label>
-                        <p class="form-control"><?= $pes['pest_type'] ?></p>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Description</label>
-                        <p class="form-control"><?= $pes['pest_desc'] ?></p>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Recommendations</label>
-                        <p class="form-control"><?= $pes['pest_solutions'] ?></p>
+                    <div style="width: 90%; margin-left: 30spx;">
+                        <h3 style="color: #f28123;">Farmer Name</h3>
+                        <h2><?= $pes['farmer_name'] ?></h2>
+                        <h3 style="color: #f28123;">Field Address</h3>
+                        <h2><?= $pes['field_address'] ?></h2>
+                        <h3 style="color: #f28123;">Variety</h3>
+                        <h2><?= $pes['crop_variety'] ?></h2>
+                        <h3 style="color: #f28123;">Type</h3>
+                        <h2><?= $pes['pest_type'] ?></h2>
+                        <h3 style="color: #f28123;">Description</h3>
+                        <h2><?= $pes['pest_desc'] ?></h2>
+                        <h3 style="color: #f28123;">Recommendations</h3>
+                        <h2><?= $pes['pest_solutions'] ?></h2>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 <?php endforeach; ?>
+
+<style>
+    .modal-lg-custom {
+        max-width: 50%;
+    }
+
+    .modal-body img {
+        width: 100%;
+        height: auto;
+        margin-top: 10px;
+    }
+
+    .modal-body p {
+        word-break: break-word;
+        white-space: pre-wrap;
+    }
+
+    .modal-body .text-center {
+        text-align: center;
+    }
+</style>

@@ -361,7 +361,7 @@
         }
     }
     //pest
-    function openEditPestModal(pest_id, pest_image, pest_name, pest_type, pest_desc, pest_solutions) {
+    function openEditPestModal(pest_id, pest_name, pest_type, pest_desc, pest_solutions) {
         document.getElementById('editpest_id').value = pest_id;
         document.getElementById('editpest_name').value = pest_name;
         document.getElementById('editpest_type').value = pest_type;
@@ -389,16 +389,31 @@
             });
         }
 
-        function viewPestModal(pest_id, pest_image, pest_name, pest_type, pest_desc, pest_solutions) {
-            document.getElementById('viewPestid').src = pest_id;
-            document.getElementById('viewPestImage').src = pest_image;
-            document.getElementById('viewPestName').textContent = pest_name;
-            document.getElementById('viewPestType').textContent = pest_type;
-            document.getElementById('viewPestDesc').textContent = pest_desc;
-            document.getElementById('viewPestSolutions').textContent = pest_solutions;
+        //disaster
+        function openEditDisasterModal(disaster_id, weather_events, damage_description, damage_severity, mititgation_measures) {
+            document.getElementById('editdisaster_id').value = disaster_id;
+            document.getElementById('editweather_events').value = weather_events;
+            document.getElementById('editdamage_description').value = damage_description;
+            document.getElementById('editdamage_severity').value = damage_severity;
+            document.getElementById('editmititgation_measures').value = mititgation_measures;
 
-            var viewPestModal = new bootstrap.Modal(document.getElementById('viewPestModal'));
-            viewPestModal.show();
+            $('#editdisastermodal').modal('show');
+
+        }
+
+        function deletedisaster(disaster_id) {
+            if (confirm("Are you sure you want to delete this disaster?")) {
+                $.ajax({
+                    type: 'POST',
+                    url: '/disaster/delete/' + disaster_id,
+                    success: function(response) {
+                        window.location.reload();
+                    },
+                    error: function(error) {
+                        console.error('Error:', error);
+                    }
+                });
+            }
         }
     }
 </script>

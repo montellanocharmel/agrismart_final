@@ -248,3 +248,9 @@ $routes->get('/userpest', 'DashboardController::newuserpest');
 $routes->post('/userpest/edit/(:num)', 'DashboardController::edituserpest/$1');
 $routes->post('/userpest/update', 'DashboardController::updateuserpest');
 $routes->post('userpest/delete/(:num)', 'DashboardController::deleteuserpest/$1');
+
+
+$routes->get('/disaster', 'DashboardController::disaster');
+$routes->post('/disaster/edit/(:num)', 'DashboardController::editdisaster/$1');
+$routes->post('/disaster/update', 'DashboardController::updatedisaster');
+$routes->post('disaster/delete/(:num)', 'DashboardController::deletedisaster/$1');

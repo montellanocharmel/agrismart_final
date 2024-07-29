@@ -3055,4 +3055,52 @@ class DashboardController extends BaseController
             return redirect()->to('/userpest')->with('error', 'Report not found');
         }
     }
+    public function disaster()
+    {
+        $userId = session()->get('leader_id');
+        if (!session()->get('isLoggedIn')) {
+            return redirect()->to('/sign_ins');
+        } else {
+            $data = [
+                'disaster' => $this->disaster->where('user_id', $userId)->findAll()
+            ];
+            return view('userfolder/disaster', $data);
+        }
+    }
+    public function editdisaster($disaster_id)
+    {
+        $disaster = $this->disaster->find($disaster_id);
+
+        return view('disaster', ['disaster' => $disaster]);
+    }
+    public function updatedisaster()
+    {
+        $disaster_id = $this->request->getPost('disaster_id');
+
+        $dataToUpdate = [
+            'weather_events' => $this->request->getPost('weather_events'),
+            'damage_description' => $this->request->getPost('damage_description'),
+            'damage_severity' => $this->request->getPost('damage_severity'),
+            'mititgation_measures' => $this->request->getPost('mititgation_measures'),
+        ];
+
+        if (!empty(array_filter($dataToUpdate))) {
+            $this->disaster->update($disaster_id, $dataToUpdate);
+            return redirect()->to('/disaster')->with('success', 'Report updated successfully');
+        } else {
+            return redirect()->to('/disaster')->with('error', 'No data to update');
+        }
+    }
+
+    public function deletedisaster($disaster_id)
+    {
+        $disaster = $this->disaster->find($disaster_id);
+
+        if ($disaster) {
+            $this->disaster->delete($disaster_id);
+            return redirect()->to('/disaster')->with('success', 'Report deleted successfully');
+        } else {
+            return redirect()->to('/disaster')->with('error', 'Report not found');
+        }
+    }
 }
