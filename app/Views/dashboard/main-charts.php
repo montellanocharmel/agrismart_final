@@ -150,30 +150,45 @@
             }
         }
     });
-    window.jsPDF = window.jspdf.jsPDF;
-    document.getElementById('downloadPDF').addEventListener('click', function() {
-        var chartsContainer = document.querySelector('.QA_section');
-        var containerWidth = chartsContainer.scrollWidth;
-        var containerHeight = chartsContainer.scrollHeight; // Use scrollHeight if the entire height of the content is needed
-        var pageWidth = 800; // Adjust this value as needed
-        var pageHeight = 500; // Adjust this value as needed
+    document.getElementById('downloadPDF').addEventListener('click', async function() {
+        const {
+            jsPDF
+        } = window.jspdf;
+        const domtoimage = window.domtoimage;
 
-        var pdf = new jsPDF({
-            orientation: 'landscape',
-            unit: 'px',
-            format: [pageWidth, pageHeight]
-        });
+        var doc = new jsPDF('p', 'mm', 'a4');
+        var pageWidth = doc.internal.pageSize.getWidth();
+        var pageHeight = doc.internal.pageSize.getHeight();
 
-        domtoimage.toPng(chartsContainer, {
-                height: containerHeight,
-                width: containerWidth
-            })
-            .then(function(dataUrl) {
-                pdf.addImage(dataUrl, 'PNG', 0, 0, pageWidth, pageHeight);
-                pdf.save('charts.pdf');
-            })
-            .catch(function(error) {
-                console.error('Error generating PDF:', error);
-            });
+        async function addChartToPDF(chartCanvas, posY) {
+            try {
+                let dataUrl = await domtoimage.toPng(chartCanvas, {
+                    quality: 0.7
+                }); // Adjust quality
+                let imgWidth = pageWidth - 20;
+                let imgHeight = (chartCanvas.height / chartCanvas.width) * imgWidth;
+
+                if (posY + imgHeight > pageHeight) {
+                    doc.addPage();
+                    posY = 10;
+                }
+
+                doc.addImage(dataUrl, 'PNG', 10, posY, imgWidth, imgHeight);
+                return posY + imgHeight + 10;
+            } catch (error) {
+                console.error('Error generating image for PDF:', error);
+            }
+        }
+
+        let startY = 20;
+
+        // Process charts sequentially
+        startY = await addChartToPDF(document.getElementById('chart1'), startY);
+        startY = await addChartToPDF(document.getElementById('chart2'), startY);
+        startY = await addChartToPDF(document.getElementById('chart3'), startY);
+        startY = await addChartToPDF(document.getElementById('chart4'), startY);
+        await addChartToPDF(document.getElementById('harvestChart'), startY);
+
+        doc.save('farm_report.pdf');
     });
 </script>

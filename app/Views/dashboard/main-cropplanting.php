@@ -329,10 +329,10 @@
                         <div class="mb-3">
                             <label for="weather_events" class="form-label">Type of Weather Event:</label>
                             <select name="weather_events" id="weather_events" class="form-control">
-                                <option value="typhoon">Bagyo</option>
-                                <option value="flooding">Baha</option>
-                                <option value="drought">Tagtuyot</option>
-                                <option value="hightemperature">Sobrang Init ng Panahon</option>
+                                <option value="Typhoon">Bagyo</option>
+                                <option value="Flooding">Baha</option>
+                                <option value="Drought">Tagtuyot</option>
+                                <option value="High_Temperature">Sobrang Init ng Panahon</option>
                             </select>
                         </div>
                         <div class="mb-3">
@@ -342,14 +342,14 @@
                         <div class="mb-3">
                             <label for="damage_severity" class="form-label">Severity of Damage:</label>
                             <select name="damage_severity" id="damage_severity" class="form-control">
-                                <option value="low">Low</option>
-                                <option value="medium">Medium</option>
-                                <option value="high">High</option>
+                                <option value="Low">Low</option>
+                                <option value="Medium">Medium</option>
+                                <option value="High">High</option>
                             </select>
                         </div>
                         <div class="mb-3">
-                            <label for="mitigation_measures" class="form-label">Actions Taken or Recommended Mitigation Measures:</label>
-                            <textarea name="mitigation_measures" id="mitigation_measures" class="form-control"></textarea>
+                            <label for="mititgation_measures" class="form-label">Actions Taken or Recommended Mitigation Measures:</label>
+                            <textarea name="mititgation_measures" id="mititgation_measures" class="form-control"></textarea>
                         </div>
                     </div>
 

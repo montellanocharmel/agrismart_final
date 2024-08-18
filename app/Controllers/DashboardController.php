@@ -569,7 +569,7 @@ class DashboardController extends BaseController
             'weather_events' => $this->request->getPost('weather_events'),
             'damage_descriptions' => $this->request->getPost('damage_descriptions'),
             'damage_severity' => $this->request->getPost('damage_severity'),
-            'mitigation_measures' => $this->request->getPost('mitigation_measures'),
+            'mititgation_measures' => $this->request->getPost('mititgation_measures'),
             'user_id' => $userId,
             'farmer_name' => $farmerName,
             'fims_code' => $fimsCode,
@@ -2908,7 +2908,7 @@ class DashboardController extends BaseController
                 'weather_events' => $this->request->getPost('weather_events'),
                 'damage_description' => $this->request->getPost('damage_description'),
                 'damage_severity' => $this->request->getPost('damage_severity'),
-                'mitigation_measures' => $this->request->getPost('mitigation_measures'),
+                'mititgation_measures' => $this->request->getPost('mititgation_measures'),
             ];
             $this->disaster->save($data);
         } elseif ($damageType == 'disease') {
@@ -3067,12 +3067,13 @@ class DashboardController extends BaseController
             return view('userfolder/disaster', $data);
         }
     }
+
     public function editdisaster($disaster_id)
     {
         $disaster = $this->disaster->find($disaster_id);
-
         return view('disaster', ['disaster' => $disaster]);
     }
+
     public function updatedisaster()
     {
         $disaster_id = $this->request->getPost('disaster_id');
@@ -3102,5 +3103,44 @@ class DashboardController extends BaseController
         } else {
             return redirect()->to('/disaster')->with('error', 'Report not found');
         }
+    }
+    public function generatePdf()
+    {
+        $request = \Config\Services::request();
+        $images = $request->getPost('images');
+
+        // Log the received images
+        log_message('info', 'Received images: ' . print_r($images, true));
+
+        if (!$images || !is_array($images) || empty($images)) {
+            return $this->response->setStatusCode(400, 'No images provided');
+        }
+
+        $pdf = new \TCPDF();
+        $pdf->AddPage();
+        $pdf->SetFont('helvetica', '', 12);
+
+        foreach ($images as $index => $imgData) {
+            $imgData = str_replace('data:image/png;base64,', '', $imgData);
+            $imgData = base64_decode($imgData);
+
+            $imgPath = WRITEPATH . 'uploads/chart_img/' . $index . '.png';
+
+            // Log the path and data
+            log_message('info', 'Saving image to: ' . $imgPath);
+            if (file_put_contents($imgPath, $imgData) === false) {
+                log_message('error', 'Failed to save image to: ' . $imgPath);
+                continue; // Skip this image
+            }
+
+            // Add image to PDF
+            $pdf->Image($imgPath, 10, 10 + ($index * 60), 180, 0, 'PNG');
+
+            // Optionally remove the file after adding to PDF
+            unlink($imgPath);
+        }
+
+        // Output the PDF
+        $pdf->Output('charts-report.pdf', 'D');
     }
 }

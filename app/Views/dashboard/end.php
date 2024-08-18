@@ -388,32 +388,31 @@
                 }
             });
         }
+    }
 
-        //disaster
-        function openEditDisasterModal(disaster_id, weather_events, damage_description, damage_severity, mititgation_measures) {
-            document.getElementById('editdisaster_id').value = disaster_id;
-            document.getElementById('editweather_events').value = weather_events;
-            document.getElementById('editdamage_description').value = damage_description;
-            document.getElementById('editdamage_severity').value = damage_severity;
-            document.getElementById('editmititgation_measures').value = mititgation_measures;
+    function openEditDisasterModal(disaster_id, weather_events, damage_description, damage_severity, mititgation_measures) {
+        document.getElementById('editdisaster_id').value = disaster_id;
+        document.getElementById('editweather_events').value = weather_events;
+        document.getElementById('editdamage_description').value = damage_description;
+        document.getElementById('editdamage_severity').value = damage_severity;
+        document.getElementById('editmititgation_measures').value = mititgation_measures;
 
-            $('#editdisastermodal').modal('show');
+        var editDisasterModal = new bootstrap.Modal(document.getElementById('editdisastermodal'));
+        editDisasterModal.show();
+    }
 
-        }
-
-        function deletedisaster(disaster_id) {
-            if (confirm("Are you sure you want to delete this disaster?")) {
-                $.ajax({
-                    type: 'POST',
-                    url: '/disaster/delete/' + disaster_id,
-                    success: function(response) {
-                        window.location.reload();
-                    },
-                    error: function(error) {
-                        console.error('Error:', error);
-                    }
-                });
-            }
+    function deletedisaster(disaster_id) {
+        if (confirm("Are you sure you want to delete this disaster?")) {
+            $.ajax({
+                type: 'POST',
+                url: '/disaster/delete/' + disaster_id,
+                success: function(response) {
+                    window.location.reload();
+                },
+                error: function(error) {
+                    console.error('Error:', error);
+                }
+            });
         }
     }
 </script>
@@ -546,6 +545,12 @@
 <script src="<?= base_url() ?>dashboard/vendors/chartjs/chartjs_init.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.10.1/main.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dom-to-image-more@2.8.0/dist/dom-to-image-more.min.js"></script>
 
 </body>
 
