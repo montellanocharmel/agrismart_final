@@ -206,8 +206,6 @@ $routes->post('/updateuserreport/update', 'DashboardController::updateuserreport
 $routes->post('deleteuserreport/delete/(:num)', 'DashboardController::deleteuserreport/$1');
 $routes->get('/userreportsreadmore/(:num)', 'DashboardController::userreportsreadmore/$1');
 
-//usertrivias
-$routes->get('/usertrivias', 'DashboardController::usertrivias');
 
 //usertrainings
 $routes->get('/usertrainings', 'DashboardController::usertrainings');
@@ -255,4 +253,12 @@ $routes->post('/disaster/edit/(:num)', 'DashboardController::editdisaster/$1');
 $routes->post('/disaster/update', 'DashboardController::updatedisaster');
 $routes->post('/disaster/delete/(:num)', 'DashboardController::deletedisaster/$1');
 
-$routes->post('/generate-pdf', 'DashboardController::generatePdf'); // Route for generating PDF
+$routes->post('/generate-pdf', 'DashboardController::generatePdf');
+
+
+//usertrivias
+$routes->get('/usertrivias', 'DashboardController::usertrivias');
+$routes->post('/useraddtrivia', 'DashboardController::useraddnewtrivia');
+$routes->post('/usertrivias/edit/(:num)', 'DashboardController::useredittrivia/$1');
+$routes->post('/usertrivias/update', 'DashboardController::userupdatetrivia');
+$routes->post('usertrivias/delete/(:num)', 'DashboardController::userdeletetrivia/$1');

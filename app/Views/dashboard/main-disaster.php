@@ -31,6 +31,7 @@
                                         <th scope="col">Damage Descriptions</th>
                                         <th scope="col">Damage Severity</th>
                                         <th scope="col">Recommendations</th>
+                                        <th scope="col">Estimated Cost of Damage</th>
                                         <th scope="col">Actions</th>
                                     </tr>
                                 </thead>
@@ -43,6 +44,7 @@
                                             <td><?= $item['damage_description'] ?></td>
                                             <td><?= $item['damage_severity'] ?></td>
                                             <td><?= $item['mititgation_measures'] ?></td>
+                                            <td><?= $item['cost_estimation'] ?></td>
                                             <td class="text-center">
                                                 <button style="color: white; margin-bottom: 7px;" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#viewDisasterModal_<?= $item['disaster_id']; ?>"><i class="fa-regular fa-eye"></i></button>
                                                 <button style="color: white; margin-bottom: 7px;" class="btn btn-warning" onclick="openEditDisasterModal(

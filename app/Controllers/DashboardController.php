@@ -2146,7 +2146,6 @@ class DashboardController extends BaseController
         ]);
 
         return redirect()->to('/adtrivias')->with('success', 'Trivia added successfully');
-        //var_dump($image);
     }
 
     public function edittrivia($trivia_id)
@@ -2338,12 +2337,65 @@ class DashboardController extends BaseController
             return redirect()->to('/sign_ins');
         } else {
             $data = [
-                'trivia' => $this->trivia->findAll()
+                'trivia' => $this->trivia->where('user_id', $userId)->findAll()
             ];
             return view('userfolder/usertrivias', $data);
         }
     }
 
+    public function useraddnewtrivia()
+    {
+        $userId = session()->get('leader_id');
+        $triviaId = $this->request->getPost('trivia_id');
+        $trivia = $this->trivia->find($triviaId);
+
+        $image = $this->request->getFile('image');
+        $imageName = $image->getRandomName();
+        $image->move(ROOTPATH . 'public/uploads/trivia_img/', $imageName);
+
+        $this->trivia->save([
+            'trivia_id' => $this->request->getPost('trivia_id'),
+            'image' => 'uploads/trivia_img/' . $imageName,
+            'triviatitle' => $this->request->getPost('triviatitle'),
+            'trivia' => $this->request->getPost('trivia'),
+            'user_id' => $userId,
+        ]);
+
+        return redirect()->to('/usertrivias')->with('success', 'Trivia added successfully');
+    }
+
+    public function useredittrivia($trivia_id)
+    {
+        $trivia = $this->trivia->find($trivia_id);
+
+        return view('trivia', ['trivia' => $trivia]);
+    }
+    public function userupdatetrivia()
+    {
+
+        $trivia_id = $this->request->getPost('trivia_id');
+
+        $dataToUpdate = [
+            'triviatitle' => $this->request->getPost('triviatitle'),
+            'trivia' => $this->request->getPost('trivia'),
+        ];
+
+        $this->trivia->update($trivia_id, $dataToUpdate);
+
+        return redirect()->to('/usertrivias')->with('success', 'Trivia updated successfully');
+    }
+    public function userdeletetrivia($trivia_id)
+    {
+
+        $trivia = $this->trivia->find($trivia_id);
+
+        if ($trivia) {
+            $this->trivia->delete($trivia_id);
+            return redirect()->to('/usertrivias')->with('success', 'Trivia deleted successfully');
+        } else {
+            return redirect()->to('/usertrivias')->with('error', 'Trivia not found');
+        }
+    }
     //userpest
     public function userpest()
     {
@@ -2882,8 +2934,13 @@ class DashboardController extends BaseController
 
         return redirect()->to('/cropplanting')->with('success', 'disease added successfully');
     }
+
     public function addDamage()
     {
+        $damageSeverity = $this->request->getPost('damage_severity');
+        $damageDescription = $this->request->getPost('damage_description');
+
+        $costEstimation = $this->estimateCost($damageSeverity, $damageDescription);
         $userId = session()->get('leader_id');
         $damageType = $this->request->getPost('damage_type');
         $fieldId = $this->request->getPost('field_id');
@@ -2894,7 +2951,6 @@ class DashboardController extends BaseController
         $farmerName = $this->request->getPost('farmer_name');
         $fimsCode = $this->request->getPost('fims_code');
 
-        // Data Handling Based on Damage Type
         if ($damageType == 'natural_disaster') {
             $data = [
                 'field_id' => $fieldId,
@@ -2909,6 +2965,7 @@ class DashboardController extends BaseController
                 'damage_description' => $this->request->getPost('damage_description'),
                 'damage_severity' => $this->request->getPost('damage_severity'),
                 'mititgation_measures' => $this->request->getPost('mititgation_measures'),
+                'cost_estimation' => $costEstimation,
             ];
             $this->disaster->save($data);
         } elseif ($damageType == 'disease') {
@@ -2957,6 +3014,36 @@ class DashboardController extends BaseController
         return redirect()->to('/cropplanting')->with('status', 'Damage added successfully');
     }
 
+    private function estimateCost($damageSeverity, $damageDescription)
+    {
+        $baseCost = 7000.00;
+
+        switch ($damageSeverity) {
+            case 'Low':
+                $severityMultiplier = 1.0;
+                break;
+            case 'Medium':
+                $severityMultiplier = 2.0;
+                break;
+            case 'High':
+                $severityMultiplier = 3.0;
+                break;
+            default:
+                $severityMultiplier = 1.0;
+        }
+
+        $descriptionCost = 0;
+        if (stripos($damageDescription, 'flood') !== false) {
+            $descriptionCost += 5000.00;
+        }
+        if (stripos($damageDescription, 'drought') !== false) {
+            $descriptionCost += 3000.00;
+        }
+
+        $estimatedCost = ($baseCost * $severityMultiplier) + $descriptionCost;
+
+        return $estimatedCost;
+    }
     public function editdisease($disease_id)
     {
         $dis = $this->dis->find($disease_id);
@@ -3109,7 +3196,6 @@ class DashboardController extends BaseController
         $request = \Config\Services::request();
         $images = $request->getPost('images');
 
-        // Log the received images
         log_message('info', 'Received images: ' . print_r($images, true));
 
         if (!$images || !is_array($images) || empty($images)) {
@@ -3126,21 +3212,16 @@ class DashboardController extends BaseController
 
             $imgPath = WRITEPATH . 'uploads/chart_img/' . $index . '.png';
 
-            // Log the path and data
             log_message('info', 'Saving image to: ' . $imgPath);
             if (file_put_contents($imgPath, $imgData) === false) {
                 log_message('error', 'Failed to save image to: ' . $imgPath);
-                continue; // Skip this image
+                continue;
             }
 
-            // Add image to PDF
             $pdf->Image($imgPath, 10, 10 + ($index * 60), 180, 0, 'PNG');
 
-            // Optionally remove the file after adding to PDF
             unlink($imgPath);
         }
-
-        // Output the PDF
         $pdf->Output('charts-report.pdf', 'D');
     }
 }

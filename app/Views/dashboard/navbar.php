@@ -18,9 +18,7 @@
             </a>
             <ul>
                 <li><a href="/dashboards">Dashboard</a></li>
-                <li><a href="/userreports">Reports</a></li>
-                <li><a href="/usertrivias">Trivias</a></li>
-                <li><a href="/usertrainings">Trainings and Seminars</a></li>
+
             </ul>
         </li>
         <li class="side_menu_title">
@@ -60,6 +58,20 @@
         </li>
         <li class>
         <li><a href="/viewcharts" style="margin-left: 40px;">Charts</a></li>
+        <li class="side_menu_title">
+            <span>Admin</span>
+        </li>
+        <li>
+            <a class="has-arrow" href="#" aria-expanded="false">
+                <img src="img/menu-icon/1.svg" alt>
+                <span>Admin</span>
+            </a>
+            <ul>
+                <li><a href="/userreports">Reports</a></li>
+                <li><a href="/usertrivias">Trivias</a></li>
+                <li><a href="/usertrainings">Trainings and Seminars</a></li>
+            </ul>
+        </li>
         <li class="side_menu_title">
             <span>Farmer Profiles</span>
         </li>

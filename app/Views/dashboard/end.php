@@ -415,6 +415,29 @@
             });
         }
     }
+
+    function openUserEditTriviaModal(trivia_id, triviatitle, trivia) {
+        document.getElementById('useredittrivia_id').value = trivia_id;
+        document.getElementById('useredittriviatitle').value = triviatitle;
+        document.getElementById('useredit_trivia').value = trivia;
+        $('#useredittriviasmodal').modal('show');
+    }
+
+
+    function deletetrivia(trivia_id) {
+        if (confirm("Are you sure you want to delete this trivia?")) {
+            $.ajax({
+                type: 'POST',
+                url: '/adtrivias/delete/' + trivia_id,
+                success: function(response) {
+                    window.location.reload();
+                },
+                error: function(error) {
+                    console.error('Error:', error);
+                }
+            });
+        }
+    }
 </script>
 <script>
     $(document).ready(function() {
@@ -439,10 +462,8 @@
         $('#fullname').on('input', function() {
             var searchValue = $(this).val();
 
-            // Log the search value to verify it's captured correctly
             console.log('Search value:', searchValue);
 
-            // Perform AJAX call to search database
             $.ajax({
                 url: '/search-profiles',
                 method: 'POST',
@@ -450,12 +471,9 @@
                     search: searchValue
                 },
                 success: function(response) {
-                    // Log the response to verify
                     console.log('Search results:', response);
 
-                    // Clear previous options
                     $('#fullname-options').empty();
-                    // Append new options based on the search results
                     response.forEach(function(profile) {
                         $('#fullname-options').append(`<option value="${profile.fullname}">`);
                     });

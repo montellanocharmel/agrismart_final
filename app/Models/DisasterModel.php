@@ -12,7 +12,7 @@ class DisasterModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['field_id', 'planting_id', 'field_address', 'field_name', 'crop_variety', 'farmer_name', 'fims_code', 'weather_events', 'damage_description', 'damage_severity', 'mititgation_measures', 'user_id'];
+    protected $allowedFields    = ['field_id', 'planting_id', 'field_address', 'field_name', 'crop_variety', 'farmer_name', 'fims_code', 'weather_events', 'damage_description', 'damage_severity', 'mititgation_measures', 'cost_estimation', 'user_id'];
 
     protected bool $allowEmptyInserts = false;
 
