@@ -57,6 +57,7 @@ class LoginController extends BaseController
     private $training;
     private $disease;
     private $pest;
+    private $notification;
 
     public function __construct()
     {
@@ -73,6 +74,7 @@ class LoginController extends BaseController
         $this->reports = new \App\Models\ReportsModel();
         $this->training = new \App\Models\TrainingsModel();
         $this->pest = new \App\Models\PestModel();
+        $this->notification = new \App\Models\NotificationModel();
     }
 
     public function index()
@@ -126,7 +128,6 @@ class LoginController extends BaseController
         $data = $registermodel->where('leader_name', $leader_name)->first();
 
         if ($data) {
-            // Check if the account is restricted
             if ($data['accountstatus'] === 'restricted') {
                 $session->setFlashdata('msg', 'This account is restricted.');
                 return redirect()->to('/sign_ins');
@@ -177,13 +178,20 @@ class LoginController extends BaseController
         if (!session()->get('isLoggedIn')) {
             return redirect()->to('/signinadmin');
         } else {
-            // Fetch total harvest quantity
+            helper('calendar');
+
+            // Calendar parameters
+            $year = date('Y');
+            $month = date('m');
+
+            // Generate the calendar
+            $calendar = generate_calendar($year, $month);
+
             $resultQuantity = $this->harvest
                 ->selectSum('harvest_quantity', 'totalHarvestQuantity')
                 ->get();
             $totalHarvestQuantity = $resultQuantity->getRow()->totalHarvestQuantity;
 
-            // Fetch total revenue for the current year
             $currentYear = date('Y');
             $resultRevenue = $this->harvest
                 ->selectSum('total_revenue', 'totalRevenueThisYear')
@@ -191,13 +199,11 @@ class LoginController extends BaseController
                 ->get();
             $totalRevenueThisYear = $resultRevenue->getRow()->totalRevenueThisYear;
 
-            /// Fetch monthly harvest quantity data
             $monthlyHarvest = $this->harvest
                 ->select('YEAR(harvest_date) as year, MONTH(harvest_date) as month, SUM(harvest_quantity) as totalHarvestQuantity')
                 ->groupBy('YEAR(harvest_date), MONTH(harvest_date)')
                 ->findAll();
 
-            // Extracting labels and data for the chart
             $monthlyLabels = array_map(function ($item) {
                 return date('F Y', strtotime($item['year'] . '-' . $item['month'] . '-01'));
             }, $monthlyHarvest);
@@ -205,16 +211,16 @@ class LoginController extends BaseController
             $monthlyHarvestData = array_column($monthlyHarvest, 'totalHarvestQuantity');
 
 
-            // Fetch total land area of the barangay
             $totalLandArea = $this->field
                 ->selectSum('field_total_area', 'totalLandArea')
                 ->get()
                 ->getRow()
                 ->totalLandArea;
 
-            // Fetch total number of farmers
             $totalNoofFarmers = $this->profiles
                 ->countAllResults();
+
+            $notifications = $this->notification->getAllNotifications();
 
             $data = [
                 'totalHarvestQuantity' => $totalHarvestQuantity,
@@ -223,12 +229,30 @@ class LoginController extends BaseController
                 'monthlyHarvestData' => $monthlyHarvestData,
                 'totalLandArea' => $totalLandArea,
                 'totalNoofFarmers' => $totalNoofFarmers,
+                'notifications' => $notifications,
+                'calendar' => $calendar
             ];
 
             return view('adminfolder/dashboard', $data);
         }
     }
 
+    public function sendNotification($message)
+    {
+
+        $notificationData = [
+            'message' => $message,
+            'type' => 'damage_report',
+            'is_read' => 0,
+            'created_at' => date('Y-m-d H:i:s'),
+        ];
+        $this->notification->save($notificationData);
+    }
+    public function markNotificationAsRead($notificationId)
+    {
+        $this->notification->update($notificationId, ['is_read' => 1]);
+        return redirect()->back()->with('status', 'Notification marked as read.');
+    }
 
     // admin
 

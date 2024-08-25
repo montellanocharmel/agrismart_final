@@ -64,6 +64,7 @@ class DashboardController extends BaseController
     private $pest;
     private $dis;
     private $disaster;
+    private $notification;
 
 
     public function __construct()
@@ -87,6 +88,7 @@ class DashboardController extends BaseController
         $this->pest = new \App\Models\PestModel();
         $this->dis = new \App\Models\DiseaseModel();
         $this->disaster = new \App\Models\DisasterModel();
+        $this->notification = new \App\Models\NotificationModel();
     }
 
     public function dashboards()
@@ -2968,6 +2970,7 @@ class DashboardController extends BaseController
                 'cost_estimation' => $costEstimation,
             ];
             $this->disaster->save($data);
+            $notificationMessage = "New natural disaster report for $fieldName by $farmerName.";
         } elseif ($damageType == 'disease') {
             $dis_image = $this->request->getFile('dis_image');
             $dis_imageName = $dis_image->getRandomName();
@@ -3010,8 +3013,20 @@ class DashboardController extends BaseController
             ];
             $this->pest->save($data);
         }
-
+        $this->sendNotification($notificationMessage, 'admin');
         return redirect()->to('/cropplanting')->with('status', 'Damage added successfully');
+    }
+
+    private function sendNotification($message)
+    {
+
+        $notificationData = [
+            'message' => $message,
+            'type' => 'damage_report',
+            'is_read' => 0,
+            'created_at' => date('Y-m-d H:i:s'),
+        ];
+        $this->notification->save($notificationData);
     }
 
     private function estimateCost($damageSeverity, $damageDescription)

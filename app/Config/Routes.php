@@ -262,3 +262,5 @@ $routes->post('/useraddtrivia', 'DashboardController::useraddnewtrivia');
 $routes->post('/usertrivias/edit/(:num)', 'DashboardController::useredittrivia/$1');
 $routes->post('/usertrivias/update', 'DashboardController::userupdatetrivia');
 $routes->post('usertrivias/delete/(:num)', 'DashboardController::userdeletetrivia/$1');
+
+$routes->get('calendar', 'LoginController::showCalendar');
