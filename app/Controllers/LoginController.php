@@ -219,8 +219,7 @@ class LoginController extends BaseController
 
             $totalNoofFarmers = $this->profiles
                 ->countAllResults();
-
-            $notifications = $this->notification->getAllNotifications();
+            $notifications = $this->notification->getUnreadNotifications(5);
 
             $data = [
                 'totalHarvestQuantity' => $totalHarvestQuantity,
@@ -248,10 +247,12 @@ class LoginController extends BaseController
         ];
         $this->notification->save($notificationData);
     }
+
     public function markNotificationAsRead($notificationId)
     {
         $this->notification->update($notificationId, ['is_read' => 1]);
-        return redirect()->back()->with('status', 'Notification marked as read.');
+
+        return $this->response->setJSON(['status' => 'success']);
     }
 
     // admin

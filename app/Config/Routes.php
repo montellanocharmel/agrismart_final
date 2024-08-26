@@ -264,3 +264,4 @@ $routes->post('/usertrivias/update', 'DashboardController::userupdatetrivia');
 $routes->post('usertrivias/delete/(:num)', 'DashboardController::userdeletetrivia/$1');
 
 $routes->get('calendar', 'LoginController::showCalendar');
+$routes->post('/mark-notification-as-read/(:num)', 'LoginController::markNotificationAsRead/$1');

@@ -14,10 +14,14 @@ class NotificationModel extends Model
     protected $protectFields    = true;
     protected $allowedFields    = ['user_id', 'title', 'message', 'link', 'is_read', 'created_at'];
 
-    public function getAllNotifications()
+    public function getUnreadNotifications($limit = 5)
     {
-        return $this->findAll();
+        return $this->where('is_read', 0)
+            ->orderBy('created_at', 'DESC')
+            ->limit($limit)
+            ->findAll();
     }
+
     protected bool $allowEmptyInserts = false;
 
     // Dates
