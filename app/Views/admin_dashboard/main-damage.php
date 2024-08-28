@@ -42,36 +42,25 @@
                                 <thead>
                                     <tr>
                                         <th scope="col">Farmer Name</th>
-                                        <th scope="col">Field Name</th>
                                         <th scope="col">Barangay</th>
-                                        <th scope="col">Variety Name</th>
-                                        <th scope="col">Damage Type</th>
-                                        <th scope="col">Pest Type</th>
+                                        <th scope="col">Weather Event</th>
+                                        <th scope="col">Damage Description</th>
                                         <th scope="col">Severity</th>
-                                        <th scope="col">Symptoms</th>
                                         <th scope="col">Actions Taken</th>
-                                        <th scope="col">Weather Events</th>
-                                        <th scope="col">Damage Descriptions</th>
-                                        <th scope="col">Damage Severity</th>
-                                        <th scope="col">Mitigation Measures</th>
+                                        <th scope="col">Cost Estimation</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php foreach ($damages as $dam) : ?>
+                                    <?php foreach ($disaster as $item) : ?>
                                         <tr>
-                                            <td><?= $dam['farmer_name'] ?></td>
-                                            <td><?= $dam['field_name'] ?></td>
-                                            <td><?= $dam['field_address'] ?></td>
-                                            <td><?= $dam['crop_variety'] ?></td>
-                                            <td><?= $dam['damage_type'] ?></td>
-                                            <td><?= $dam['pest_type'] ?></td>
-                                            <td><?= $dam['severity'] ?></td>
-                                            <td><?= $dam['symptoms'] ?></td>
-                                            <td><?= $dam['actions'] ?></td>
-                                            <td><?= $dam['weather_events'] ?></td>
-                                            <td><?= $dam['damage_descriptions'] ?></td>
-                                            <td><?= $dam['damage_severity'] ?></td>
-                                            <td><?= $dam['mitigation_measures'] ?></td>
+                                            <td><?= $item['farmer_name'] ?></td>
+                                            <td><?= $item['field_address'] ?></td>
+                                            <td><?= $item['weather_events'] ?></td>
+                                            <td><?= $item['damage_description'] ?></td>
+                                            <td><?= $item['damage_severity'] ?></td>
+                                            <td><?= $item['mititgation_measures'] ?></td>
+                                            <td><?= $item['cost_estimation'] ?></td>
+
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>

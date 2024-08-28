@@ -42,48 +42,78 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <?php if (!empty($notifications)) : ?>
-                                <div class="white_box mb_30" style="height: 290px; overflow-y: auto;">
+                                <div class="white_box mb_30" style="height: 390px; overflow-y: auto;">
                                     <div class="box_header border_bottom_1px">
                                         <div class="main-title">
                                             <h3 class="mb_25">Notification</h3>
                                         </div>
                                     </div>
+
+
                                     <ul>
                                         <?php foreach ($notifications as $notification) : ?>
-                                            <li id="notification-<?= $notification['notification_id'] ?>" style="font-size: 18px; margin-bottom: 10px;">
-                                                <?= htmlspecialchars($notification['message'], ENT_QUOTES, 'UTF-8') ?>
-                                                <button class="btn btn-sm btn-primary mr-8 mark-as-read" data-id="<?= $notification['notification_id'] ?>"><i class="fa-regular fa-circle-check"></i></button>
+                                            <li id="notification-<?= $notification['notification_id'] ?>" style="font-size: 17px; margin-bottom: 10px;">
+                                                <div class="row">
+                                                    <div class="col-lg-10">
+                                                        <?php if (!empty($notification['url'])): ?>
+                                                            <a href="<?= base_url($notification['url']) ?>">
+                                                                <i class="fa-solid fa-circle-exclamation" style="color: grey"></i>
+                                                                <b>New </b> <?= htmlspecialchars($notification['message'], ENT_QUOTES, 'UTF-8') ?>
+                                                            </a>
+                                                        <?php else: ?>
+                                                            <i <i class="fa-solid fa-circle-exclamation" style="color: grey"></i>
+                                                            <b>New </b> <?= htmlspecialchars($notification['message'], ENT_QUOTES, 'UTF-8') ?>
+                                                        <?php endif; ?>
+                                                    </div>
+                                                    <div class="col-lg-2">
+
+                                                        <button class="btn btn-sm btn-danger  mark-as-read" data-id="<?= $notification['notification_id'] ?>">
+                                                            <i class="fa-solid fa-trash"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
                                             </li>
                                         <?php endforeach; ?>
                                     </ul>
+
+                                <?php endif; ?>
                                 </div>
-                            <?php endif; ?>
                         </div>
                         <div class="col-lg-6">
-                            <div class="white_box mb_30" style="height: 290px;">
-                                <div class="box_header border_bottom_1px ">
+                            <div class="white_box mb_30" style="height: 390px; overflow-y: auto;">
+                                <div class="box_header border_bottom_1px">
+                                    <div class="main-title">
+                                        <h3 class="mb_25">
+                                            <?= $monthName ?> <?= $year ?><br>
+                                        </h3>
+                                    </div>
+                                </div>
+                                <div>
                                     <?= $calendar ?>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
 
-            <div class="col-lg-12 col-xl-12">
-                <div class="white_box mb_30 ">
-                    <div class="box_header border_bottom_1px  ">
-                        <div class="main-title">
-                            <h3 class="mb_25">Harvest Quantity</h3>
-                        </div>
-                    </div>
-                    <div class="my-4">
-                        <canvas id="harvestChart" width="400" height="100"></canvas>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <div class="col-lg-12 col-xl-12">
+        <div class="white_box mb_30 ">
+            <div class="box_header border_bottom_1px  ">
+                <div class="main-title">
+                    <h3 class="mb_25">Harvest Quantity</h3>
+                </div>
+            </div>
+            <div class="my-4">
+                <canvas id="harvestChart" width="400" height="100"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
 </div>
 <style>
     .calendar {
@@ -97,6 +127,7 @@
         background-color: white;
         padding: 10px;
         margin-bottom: 10px;
+        text-align: center;
     }
 
     .calendar td {

@@ -755,17 +755,52 @@ class DashboardController extends BaseController
             return redirect()->to('/signinadmin');
         }
 
-        $barangays = ['Santiago', 'Kalinisan',  'Mabini', 'Adrialuna', 'Antipolo', 'Apitong', 'Arangin', 'Aurora', 'Bacungan', 'Bagong Buhay', 'Bancuro', 'Barcenaga', 'Bayani', 'Buhangin', 'Concepcion', 'Dao', 'Del Pilar', 'Estrella', 'Evangelista', 'Gamao', 'General Esco', 'Herrera', 'Inarawan', 'Laguna', 'Andres Ilagan', 'Mahabang Parang', 'Malaya', 'Malinao', 'Malvar', 'Masagana', 'Masaguing', 'Melgar A', 'Melgar B', 'Metolza', 'Montelago', 'Montemayor', 'Motoderazo', 'Mulawin', 'Nag-Iba I', 'Nag-Iba II', 'Pagkakaisa', 'Paniquian', 'Pinagsabangan I', 'Pinagsabangan II', 'Pinahan', 'Poblacion I (Barangay I)', 'Poblacion II (Barangay II)', 'Poblacion III (Barangay III)', 'Sampaguita', 'San Agustin I', 'San Agustin II', 'San Andres', 'San Antonio', 'San Carlos', 'San Isidro', 'San Jose', 'San Luis', 'San Nicolas', 'San Pedro', 'Santa Isabel', 'Santa Maria', 'Santiago', 'Santo Nino', 'Tagumpay', 'Tigkan', 'Melgar B', 'Santa Cruz', 'Balite', 'Banuton', 'Caburo', 'Magtibay', 'Paitan'];
+        $barangays = ['Santiago', 'Kalinisan', 'Mabini', 'Adrialuna', 'Antipolo', 'Apitong', 'Arangin', 'Aurora', 'Bacungan', 'Bagong Buhay', 'Bancuro', 'Barcenaga', 'Bayani', 'Buhangin', 'Concepcion', 'Dao', 'Del Pilar', 'Estrella', 'Evangelista', 'Gamao', 'General Esco', 'Herrera', 'Inarawan', 'Laguna', 'Andres Ilagan', 'Mahabang Parang', 'Malaya', 'Malinao', 'Malvar', 'Masagana', 'Masaguing', 'Melgar A', 'Melgar B', 'Metolza', 'Montelago', 'Montemayor', 'Motoderazo', 'Mulawin', 'Nag-Iba I', 'Nag-Iba II', 'Pagkakaisa', 'Paniquian', 'Pinagsabangan I', 'Pinagsabangan II', 'Pinahan', 'Poblacion I (Barangay I)', 'Poblacion II (Barangay II)', 'Poblacion III (Barangay III)', 'Sampaguita', 'San Agustin I', 'San Agustin II', 'San Andres', 'San Antonio', 'San Carlos', 'San Isidro', 'San Jose', 'San Luis', 'San Nicolas', 'San Pedro', 'Santa Isabel', 'Santa Maria', 'Santiago', 'Santo Nino', 'Tagumpay', 'Tigkan', 'Melgar B', 'Santa Cruz', 'Balite', 'Banuton', 'Caburo', 'Magtibay', 'Paitan'];
+
         $varietyData = [];
+        $landAreaData = [];
+        $markerColors = [];
 
         foreach ($barangays as $barangay) {
+            $landAreaRecord = $this->field
+                ->select('field_total_area')
+                ->where('field_address', $barangay)
+                ->get()
+                ->getRow();
+
+            if ($landAreaRecord) {
+                $landAreaData[$barangay] = $landAreaRecord->field_total_area;
+
+                $colorRanges = [
+                    ['min' => 0, 'max' => 50, 'color' => '#ff7c80'],
+                    ['min' => 51, 'max' => 100, 'color' => '#fad05c'],
+                    ['min' => 101, 'max' => 150, 'color' => '#f59123'],
+                ];
+
+                foreach ($colorRanges as $range) {
+                    if ($landAreaRecord->field_total_area >= $range['min'] && $landAreaRecord->field_total_area <= $range['max']) {
+                        $markerColors[$barangay] = $range['color'];
+                        break;
+                    }
+                }
+            } else {
+                $landAreaData[$barangay] = 0;
+            }
+
             $varietyData[$barangay] = $this->planting
                 ->select('crop_variety')
                 ->where('field_address', $barangay)
                 ->findAll();
         }
 
-        return view('adminfolder/map', ['varietyData' => $varietyData]);
+        $data = [
+            'varietyData' => $varietyData,
+            'landAreaData' => $landAreaData,
+            'markerColors' => $markerColors
+        ];
+
+
+        return view('adminfolder/map', $data);
     }
     public function farmermap()
     {
@@ -874,7 +909,7 @@ class DashboardController extends BaseController
             return redirect()->to('/sign_ins');
         }
         $data = [
-            'damages' => $this->damages->findAll()
+            'disaster' => $this->disaster->findAll()
         ];
         return view('adminfolder/damage', $data);
     }
@@ -2421,7 +2456,7 @@ class DashboardController extends BaseController
             return redirect()->to('/signinadmin');
         } else {
             $data = [
-                'pest' => $this->pest->where('user_id', $userId)->findAll()
+                'pest' => $this->pest->findAll()
             ];
             return view('adminfolder/adpest', $data);
         }
@@ -2495,7 +2530,7 @@ class DashboardController extends BaseController
             return redirect()->to('/sign_ins');
         } else {
             $data = [
-                'dise' => $this->dis->findAll()
+                'dis' => $this->dis->findAll()
             ];
             return view('adminfolder/addisease', $data);
         }
@@ -2969,8 +3004,9 @@ class DashboardController extends BaseController
                 'mititgation_measures' => $this->request->getPost('mititgation_measures'),
                 'cost_estimation' => $costEstimation,
             ];
-            $this->disaster->save($data);
-            $notificationMessage = "New natural disaster report for $fieldName by $farmerName.";
+            $notificationMessage = " natural disaster report for $fieldName by $farmerName.";
+            $notificationUrl = '/admindamage';
+            $this->sendNotification($notificationMessage, $notificationUrl);
         } elseif ($damageType == 'disease') {
             $dis_image = $this->request->getFile('dis_image');
             $dis_imageName = $dis_image->getRandomName();
@@ -2991,7 +3027,10 @@ class DashboardController extends BaseController
                 'dis_desc' => $this->request->getPost('dis_desc'),
                 'dis_solutions' => $this->request->getPost('dis_solutions'),
             ];
-            $this->dis->save($data);
+
+            $notificationMessagedisease = "disease report for $fieldName by $farmerName.";
+            $notificationUrl = '/addisease';
+            $this->sendNotification($notificationMessagedisease, $notificationUrl);
         } elseif ($damageType == 'pest') {
             $pest_image = $this->request->getFile('pest_image');
             $pest_imageName = $pest_image->getRandomName();
@@ -3011,23 +3050,27 @@ class DashboardController extends BaseController
                 'pest_type' => $this->request->getPost('pest_type'),
                 'pest_solutions' => $this->request->getPost('pest_solutions'),
             ];
+
             $this->pest->save($data);
+            $notificationMessagepest = "pest report for $fieldName by $farmerName.";
+            $notificationUrl = '/adpest';
+
+            $this->sendNotification($notificationMessagepest, $notificationUrl);
         }
-        $this->sendNotification($notificationMessage, 'admin');
+
         return redirect()->to('/cropplanting')->with('status', 'Damage added successfully');
     }
-
-    private function sendNotification($message)
+    public function sendNotification($message, $url = null)
     {
-
         $notificationData = [
             'message' => $message,
-            'type' => 'damage_report',
+            'url' => $url,
             'is_read' => 0,
             'created_at' => date('Y-m-d H:i:s'),
         ];
         $this->notification->save($notificationData);
     }
+
 
     private function estimateCost($damageSeverity, $damageDescription)
     {

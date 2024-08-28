@@ -44,31 +44,14 @@
                             }
                             ?>
                             <tbody>
-                                <?php foreach ($disease as $dis) : ?>
+                                <?php foreach ($dis as $disease) : ?>
                                     <tr>
-                                        <td><img src="<?= base_url() . $dis['dis_image'] ?>" alt="" class="avatar-img rounded-circle mx-auto d-block" style="display: block; margin: 0 auto; width: 200px; height: 200px;"></td>
-                                        <td><?= $dis['dis_name'] ?></td>
-                                        <td><?= $dis['dis_type'] ?></td>
-                                        <td><?= truncateText($dis['dis_desc'], 150) ?></td>
-                                        <td><?= truncateText($dis['dis_solutions'], 150) ?></td>
-                                        <td>
-                                            <div class="btn-group">
-                                                <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: #88c431; border: none;">
-                                                    Actions
-                                                </button>
-                                                <div class="dropdown-menu">
-                                                    <button class="dropdown-item" onclick="openEditDiseaseModal(
-                                                        <?= $dis['disease_id']; ?>,
-                                                        <?= $dis['dis_name']; ?>,
-                                                        <?= $dis['dis_type']; ?>,
-                                                        '<?= htmlspecialchars($dis['dis_desc'], ENT_QUOTES, 'UTF-8'); ?>',
-                                                        '<?= htmlspecialchars($dis['dis_solutions'], ENT_QUOTES, 'UTF-8'); ?>'
-                                                    )">Edit</button>
+                                        <td><img src="<?= base_url() . $disease['dis_image'] ?>" alt="" class="avatar-img rounded-circle mx-auto d-block" style="width: 200px; height: 200px;"></td>
+                                        <td><?= $disease['dis_name'] ?></td>
+                                        <td><?= $disease['dis_type'] ?></td>
+                                        <td><?= $disease['dis_desc'] ?></td>
+                                        <td><?= $disease['dis_solutions'] ?></td>
 
-                                                    <button class="dropdown-item" onclick="deletedisease(<?= $dis['disease_id']; ?>)">Delete</button>
-                                                </div>
-                                            </div>
-                                        </td>
                                     </tr>
                                 <?php endforeach; ?>
                             </tbody>

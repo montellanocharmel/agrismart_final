@@ -173,19 +173,80 @@ class LoginController extends BaseController
         $data = [];
         return view('signin-signup/register', $data);
     }
-    public function admindashboard()
+    public function generate_calendar($year = null, $month = null)
+    {
+        if (!$year) $year = date('Y');
+        if (!$month) $month = date('m');
+
+        $prevMonth = $month == 1 ? 12 : $month - 1;
+        $nextMonth = $month == 12 ? 1 : $month + 1;
+        $prevYear = $month == 1 ? $year - 1 : $year;
+        $nextYear = $month == 12 ? $year + 1 : $year;
+        $firstDayOfMonth = mktime(0, 0, 0, $month, 1, $year);
+        $dateComponents = getdate($firstDayOfMonth);
+        $monthName = $dateComponents['month'];
+        $calendar = "<table class='calendar'>";
+        $calendar .= "<tr class='header'>";
+        $daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+        foreach ($daysOfWeek as $day) {
+            $calendar .= "<th>{$day}</th>";
+        }
+
+        $calendar .= "</tr><tr>";
+
+        $dayOfWeek = $dateComponents['wday'];
+        if ($dayOfWeek > 0) {
+            for ($k = 0; $k < $dayOfWeek; $k++) {
+                $calendar .= "<td></td>";
+            }
+        }
+
+        $currentDay = 1;
+        $numberDays = date('t', $firstDayOfMonth);
+
+        while ($currentDay <= $numberDays) {
+            if ($dayOfWeek == 7) {
+                $dayOfWeek = 0;
+                $calendar .= "</tr><tr>";
+            }
+
+            $calendar .= "<td class='day'>{$currentDay}</td>";
+            $currentDay++;
+            $dayOfWeek++;
+        }
+
+        if ($dayOfWeek != 7) {
+            $remainingDays = 7 - $dayOfWeek;
+            for ($l = 0; $l < $remainingDays; $l++) {
+                $calendar .= "<td></td>";
+            }
+        }
+
+        $calendar .= "</tr>";
+        $calendar .= "</table>";
+
+        return [
+            'monthName' => $monthName,
+            'year' => $year,
+            'prevMonth' => $prevMonth,
+            'nextMonth' => $nextMonth,
+            'prevYear' => $prevYear,
+            'nextYear' => $nextYear,
+            'calendar' => $calendar,
+        ];
+    }
+
+    public function admindashboard($year = null, $month = null)
     {
         if (!session()->get('isLoggedIn')) {
             return redirect()->to('/signinadmin');
         } else {
             helper('calendar');
 
-            // Calendar parameters
             $year = date('Y');
             $month = date('m');
 
-            // Generate the calendar
-            $calendar = generate_calendar($year, $month);
+            $calendarData = $this->generate_calendar($year, $month);
 
             $resultQuantity = $this->harvest
                 ->selectSum('harvest_quantity', 'totalHarvestQuantity')
@@ -219,6 +280,7 @@ class LoginController extends BaseController
 
             $totalNoofFarmers = $this->profiles
                 ->countAllResults();
+
             $notifications = $this->notification->getUnreadNotifications(5);
 
             $data = [
@@ -229,24 +291,30 @@ class LoginController extends BaseController
                 'totalLandArea' => $totalLandArea,
                 'totalNoofFarmers' => $totalNoofFarmers,
                 'notifications' => $notifications,
-                'calendar' => $calendar
+                'monthName' => $calendarData['monthName'],
+                'year' => $calendarData['year'],
+                'prevMonth' => $calendarData['prevMonth'],
+                'nextMonth' => $calendarData['nextMonth'],
+                'prevYear' => $calendarData['prevYear'],
+                'nextYear' => $calendarData['nextYear'],
+                'calendar' => $calendarData['calendar'],
             ];
 
             return view('adminfolder/dashboard', $data);
         }
     }
 
-    public function sendNotification($message)
+    public function sendNotification($message, $notificationUrl)
     {
-
         $notificationData = [
             'message' => $message,
-            'type' => 'damage_report',
+            'url' => $notificationUrl,
             'is_read' => 0,
             'created_at' => date('Y-m-d H:i:s'),
         ];
         $this->notification->save($notificationData);
     }
+
 
     public function markNotificationAsRead($notificationId)
     {

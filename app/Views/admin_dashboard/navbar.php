@@ -41,10 +41,23 @@
             <ul>
                 <li><a href="/admincropplanting">Planting</a></li>
                 <li><a href="/adminexpense">Expenses</a></li>
-                <li><a href="/admindamage">Damages</a></li>
+
                 <li><a href="/adminharvest">Harvest</a></li>
+
+            </ul>
+        </li>
+        <li class="side_menu_title">
+            <span>Damages</span>
+        </li>
+        <li>
+            <a class="has-arrow" href="#" aria-expanded="false">
+                <img src="img/menu-icon/1.svg" alt>
+                <span>Damages</span>
+            </a>
+            <ul>
                 <li><a href="/adpest">Pest</a></li>
                 <li><a href="/addisease">Diseases</a></li>
+                <li><a href="/admindamage">Natural Disaster</a></li>
             </ul>
         </li>
         <li class="side_menu_title">

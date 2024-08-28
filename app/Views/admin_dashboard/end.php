@@ -158,6 +158,7 @@
 <script src="<?= base_url() ?>dashboard/js/custom.js"></script>
 <script src="<?= base_url() ?>dashboard/vendors/apex_chart/bar_active_1.js"></script>
 <script src="<?= base_url() ?>dashboard/vendors/apex_chart/apex_chart_list.js"></script>
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 </body>
 
 <script type="text/javascript">
